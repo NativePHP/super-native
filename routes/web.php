@@ -1,9 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Native\Mobile\Edge\BenchmarkComponent;
 
 Route::native('/', \App\NativeComponents\Explore::class);
 Route::native('/listing/{id}', \App\NativeComponents\ListingDetail::class)->name('listing.show');
+
+Route::native('/benchmark', BenchmarkComponent::class);
 
 //Route::native('/', \App\NativeComponents\TwitterFeed::class)->name('twitter.feed');
 //Route::native('/twitter/tweet/{id}', \App\NativeComponents\TweetDetail::class)->name('twitter.tweet');

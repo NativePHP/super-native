@@ -2308,16 +2308,16 @@
         },
         {
             "name": "livewire/flux",
-            "version": "v2.12.2",
+            "version": "v2.13.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/livewire/flux.git",
-                "reference": "68a3b06b62b23bae82e02d6be39722cf2a8770ff"
+                "reference": "741be2d4526e90b97c7a59e079a2f27ecdce2461"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/livewire/flux/zipball/68a3b06b62b23bae82e02d6be39722cf2a8770ff",
-                "reference": "68a3b06b62b23bae82e02d6be39722cf2a8770ff",
+                "url": "https://api.github.com/repos/livewire/flux/zipball/741be2d4526e90b97c7a59e079a2f27ecdce2461",
+                "reference": "741be2d4526e90b97c7a59e079a2f27ecdce2461",
                 "shasum": ""
             },
             "require": {
@@ -2368,22 +2368,22 @@
             ],
             "support": {
                 "issues": "https://github.com/livewire/flux/issues",
-                "source": "https://github.com/livewire/flux/tree/v2.12.2"
+                "source": "https://github.com/livewire/flux/tree/v2.13.0"
             },
-            "time": "2026-02-24T16:29:56+00:00"
+            "time": "2026-03-03T03:32:35+00:00"
         },
         {
             "name": "livewire/livewire",
-            "version": "v4.2.0",
+            "version": "v4.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/livewire/livewire.git",
-                "reference": "b2faf1b5805d469d5e22b35b0e5ffe3cbc466d39"
+                "reference": "93e972fa42c1b34fff1550093ab94f778d81ea5a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/livewire/livewire/zipball/b2faf1b5805d469d5e22b35b0e5ffe3cbc466d39",
-                "reference": "b2faf1b5805d469d5e22b35b0e5ffe3cbc466d39",
+                "url": "https://api.github.com/repos/livewire/livewire/zipball/93e972fa42c1b34fff1550093ab94f778d81ea5a",
+                "reference": "93e972fa42c1b34fff1550093ab94f778d81ea5a",
                 "shasum": ""
             },
             "require": {
@@ -2438,7 +2438,7 @@
             "description": "A front-end framework for Laravel.",
             "support": {
                 "issues": "https://github.com/livewire/livewire/issues",
-                "source": "https://github.com/livewire/livewire/tree/v4.2.0"
+                "source": "https://github.com/livewire/livewire/tree/v4.2.1"
             },
             "funding": [
                 {
@@ -2446,7 +2446,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-02-26T04:18:25+00:00"
+            "time": "2026-02-28T00:01:19+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -2556,7 +2556,7 @@
             "version": "dev-main",
             "source": {
                 "type": "git",
-                "url": "git@github.com:NativePHP/compose-ui.git",
+                "url": "https://github.com/NativePHP/compose-ui.git",
                 "reference": "ffe85463a3adbb93681622efa1e6b1c85484ae75"
             },
             "dist": {
@@ -2616,12 +2616,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/NativePHP/mobile-air.git",
-                "reference": "514b888e9fc42e04a37b021f11e8fe31ab16cb85"
+                "reference": "696260fcba7bf839caf608b0eee6a055d4326a46"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/NativePHP/mobile-air/zipball/514b888e9fc42e04a37b021f11e8fe31ab16cb85",
-                "reference": "514b888e9fc42e04a37b021f11e8fe31ab16cb85",
+                "url": "https://api.github.com/repos/NativePHP/mobile-air/zipball/696260fcba7bf839caf608b0eee6a055d4326a46",
+                "reference": "696260fcba7bf839caf608b0eee6a055d4326a46",
                 "shasum": ""
             },
             "require": {
@@ -2691,7 +2691,7 @@
                 "issues": "https://github.com/NativePHP/mobile-air/issues",
                 "source": "https://github.com/NativePHP/mobile-air/tree/element"
             },
-            "time": "2026-02-27T02:40:33+00:00"
+            "time": "2026-03-03T14:40:54+00:00"
         },
         {
             "name": "nativephp/mobile-dialog",
@@ -7691,16 +7691,16 @@
         },
         {
             "name": "laravel/boost",
-            "version": "v2.2.1",
+            "version": "v2.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/boost.git",
-                "reference": "e27f1616177377fef95296620530c44a7dda4df9"
+                "reference": "2b0366559e9ff591c65ea0321dfb91fd950c2cbd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/boost/zipball/e27f1616177377fef95296620530c44a7dda4df9",
-                "reference": "e27f1616177377fef95296620530c44a7dda4df9",
+                "url": "https://api.github.com/repos/laravel/boost/zipball/2b0366559e9ff591c65ea0321dfb91fd950c2cbd",
+                "reference": "2b0366559e9ff591c65ea0321dfb91fd950c2cbd",
                 "shasum": ""
             },
             "require": {
@@ -7709,7 +7709,7 @@
                 "illuminate/contracts": "^11.45.3|^12.41.1",
                 "illuminate/routing": "^11.45.3|^12.41.1",
                 "illuminate/support": "^11.45.3|^12.41.1",
-                "laravel/mcp": "^0.5.1",
+                "laravel/mcp": "^0.5.1|^0.6.0",
                 "laravel/prompts": "^0.3.10",
                 "laravel/roster": "^0.5.0",
                 "php": "^8.2"
@@ -7753,20 +7753,20 @@
                 "issues": "https://github.com/laravel/boost/issues",
                 "source": "https://github.com/laravel/boost"
             },
-            "time": "2026-02-25T16:07:36+00:00"
+            "time": "2026-03-03T14:36:03+00:00"
         },
         {
             "name": "laravel/mcp",
-            "version": "v0.5.9",
+            "version": "v0.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/mcp.git",
-                "reference": "39e8da60eb7bce4737c5d868d35a3fe78938c129"
+                "reference": "28860a10ca0cc5433e25d897ba7af844e6c7b6a2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/mcp/zipball/39e8da60eb7bce4737c5d868d35a3fe78938c129",
-                "reference": "39e8da60eb7bce4737c5d868d35a3fe78938c129",
+                "url": "https://api.github.com/repos/laravel/mcp/zipball/28860a10ca0cc5433e25d897ba7af844e6c7b6a2",
+                "reference": "28860a10ca0cc5433e25d897ba7af844e6c7b6a2",
                 "shasum": ""
             },
             "require": {
@@ -7826,7 +7826,7 @@
                 "issues": "https://github.com/laravel/mcp/issues",
                 "source": "https://github.com/laravel/mcp"
             },
-            "time": "2026-02-17T19:05:53+00:00"
+            "time": "2026-02-24T08:43:06+00:00"
         },
         {
             "name": "laravel/pail",
@@ -8973,16 +8973,16 @@
         },
         {
             "name": "phpdocumentor/reflection-docblock",
-            "version": "6.0.1",
+            "version": "6.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/ReflectionDocBlock.git",
-                "reference": "2f5cbed597cb261d1ea458f3da3a9ad32e670b1e"
+                "reference": "897b5986ece6b4f9d8413fea345c7d49c757d6bf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/2f5cbed597cb261d1ea458f3da3a9ad32e670b1e",
-                "reference": "2f5cbed597cb261d1ea458f3da3a9ad32e670b1e",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/897b5986ece6b4f9d8413fea345c7d49c757d6bf",
+                "reference": "897b5986ece6b4f9d8413fea345c7d49c757d6bf",
                 "shasum": ""
             },
             "require": {
@@ -9032,9 +9032,9 @@
             "description": "With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock.",
             "support": {
                 "issues": "https://github.com/phpDocumentor/ReflectionDocBlock/issues",
-                "source": "https://github.com/phpDocumentor/ReflectionDocBlock/tree/6.0.1"
+                "source": "https://github.com/phpDocumentor/ReflectionDocBlock/tree/6.0.2"
             },
-            "time": "2026-01-20T15:30:42+00:00"
+            "time": "2026-03-01T18:43:49+00:00"
         },
         {
             "name": "phpdocumentor/type-resolver",
@@ -10728,16 +10728,16 @@
         },
         {
             "name": "webmozart/assert",
-            "version": "2.1.5",
+            "version": "2.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webmozarts/assert.git",
-                "reference": "79155f94852fa27e2f73b459f6503f5e87e2c188"
+                "reference": "ff31ad6efc62e66e518fbab1cde3453d389bcdc8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webmozarts/assert/zipball/79155f94852fa27e2f73b459f6503f5e87e2c188",
-                "reference": "79155f94852fa27e2f73b459f6503f5e87e2c188",
+                "url": "https://api.github.com/repos/webmozarts/assert/zipball/ff31ad6efc62e66e518fbab1cde3453d389bcdc8",
+                "reference": "ff31ad6efc62e66e518fbab1cde3453d389bcdc8",
                 "shasum": ""
             },
             "require": {
@@ -10784,9 +10784,9 @@
             ],
             "support": {
                 "issues": "https://github.com/webmozarts/assert/issues",
-                "source": "https://github.com/webmozarts/assert/tree/2.1.5"
+                "source": "https://github.com/webmozarts/assert/tree/2.1.6"
             },
-            "time": "2026-02-18T14:09:36+00:00"
+            "time": "2026-02-27T10:28:38+00:00"
         }
     ],
     "aliases": [],
