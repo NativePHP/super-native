@@ -10,6 +10,16 @@ Route::native('/listing/{id}', \App\NativeComponents\ListingDetail::class)->name
 //Route::native('/twitter/profile/{id}', \App\NativeComponents\TwitterProfile::class)->name('twitter.profile');
 //Route::native('/twitter/compose', \App\NativeComponents\ComposeTweet::class)->name('twitter.compose');
 
+//Route::native('/', \App\NativeComponents\IkeaHome::class)->name('ikea.home');
+//Route::native('/ikea/product/{id}', \App\NativeComponents\IkeaProduct::class)->name('ikea.product');
+//Route::native('/ikea/cart', \App\NativeComponents\IkeaCart::class)->name('ikea.cart');
+//Route::native('/ikea/search', \App\NativeComponents\IkeaSearch::class)->name('ikea.search');
+
+//Route::native('/', \App\NativeComponents\FacebookFeed::class)->name('facebook.feed');
+//Route::native('/facebook/post/{id}', \App\NativeComponents\FacebookPost::class)->name('facebook.post');
+//Route::native('/facebook/profile/{id}', \App\NativeComponents\FacebookProfile::class)->name('facebook.profile');
+//Route::native('/facebook/create', \App\NativeComponents\FacebookCreate::class)->name('facebook.create');
+
 //Route::native('/', \App\NativeComponents\InstagramFeed::class)->name('instagram.feed');
 //Route::native('/instagram/post/{id}', \App\NativeComponents\InstagramPost::class)->name('instagram.post');
 //Route::native('/instagram/profile/{id}', \App\NativeComponents\InstagramProfile::class)->name('instagram.profile');
@@ -24,13 +34,3 @@ Route::native('/listing/{id}', \App\NativeComponents\ListingDetail::class)->name
 //Route::native('/youtube/video/{id}', \App\NativeComponents\YouTubeVideo::class)->name('youtube.video');
 //Route::native('/youtube/channel/{id}', \App\NativeComponents\YouTubeChannel::class)->name('youtube.channel');
 //Route::native('/youtube/search', \App\NativeComponents\YouTubeSearch::class)->name('youtube.search');
-
-//Route::native('/', \App\NativeComponents\IkeaHome::class)->name('ikea.home');
-//Route::native('/ikea/product/{id}', \App\NativeComponents\IkeaProduct::class)->name('ikea.product');
-//Route::native('/ikea/cart', \App\NativeComponents\IkeaCart::class)->name('ikea.cart');
-//Route::native('/ikea/search', \App\NativeComponents\IkeaSearch::class)->name('ikea.search');
-
-//Route::native('/', \App\NativeComponents\FacebookFeed::class)->name('facebook.feed');
-//Route::native('/facebook/post/{id}', \App\NativeComponents\FacebookPost::class)->name('facebook.post');
-//Route::native('/facebook/profile/{id}', \App\NativeComponents\FacebookProfile::class)->name('facebook.profile');
-//Route::native('/facebook/create', \App\NativeComponents\FacebookCreate::class)->name('facebook.create');
