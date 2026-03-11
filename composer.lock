@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bdb93948b6fcb63cb879c61d75632248",
+    "content-hash": "1740b19c6f0802b3771a78c45225e379",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -2554,16 +2554,10 @@
         {
             "name": "nativephp/compose-ui",
             "version": "dev-main",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/NativePHP/compose-ui.git",
-                "reference": "a856b51c50e15ebec3d6b3ee40e58de3a27cbad3"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/NativePHP/compose-ui/zipball/a856b51c50e15ebec3d6b3ee40e58de3a27cbad3",
-                "reference": "a856b51c50e15ebec3d6b3ee40e58de3a27cbad3",
-                "shasum": ""
+                "type": "path",
+                "url": "/Users/shanerosenthal/Herd/Plugins/nativephp/compose-ui",
+                "reference": "a856b51c50e15ebec3d6b3ee40e58de3a27cbad3"
             },
             "require": {
                 "nativephp/mobile": "*",
@@ -2572,7 +2566,6 @@
             "require-dev": {
                 "pestphp/pest": "^3.0"
             },
-            "default-branch": true,
             "type": "nativephp-ui-plugin",
             "extra": {
                 "laravel": {
@@ -2604,25 +2597,17 @@
                 }
             ],
             "description": "A NativePHP Mobile plugin",
-            "support": {
-                "source": "https://github.com/NativePHP/compose-ui/tree/main",
-                "issues": "https://github.com/NativePHP/compose-ui/issues"
-            },
-            "time": "2026-03-07T17:22:32+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "nativephp/mobile",
-            "version": "dev-element",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/NativePHP/mobile-air.git",
-                "reference": "d99b6799cd9238d7655df654071d8bbccb72c890"
-            },
+            "version": "dev-element-yoga",
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/NativePHP/mobile-air/zipball/d99b6799cd9238d7655df654071d8bbccb72c890",
-                "reference": "d99b6799cd9238d7655df654071d8bbccb72c890",
-                "shasum": ""
+                "type": "path",
+                "url": "../mobile-air",
+                "reference": "967beffa6d7c6b711d6ca40434ba01530178b27e"
             },
             "require": {
                 "endroid/qr-code": "^5.0",
@@ -2663,7 +2648,33 @@
                     "Native\\Mobile\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "Tests\\": "tests/"
+                }
+            },
+            "scripts": {
+                "qa": [
+                    "@composer format",
+                    "@composer analyse",
+                    "@composer test"
+                ],
+                "post-autoload-dump": [
+                    "@php ./vendor/bin/testbench package:discover --ansi"
+                ],
+                "analyse": [
+                    "vendor/bin/phpstan analyse"
+                ],
+                "test": [
+                    "vendor/bin/pest"
+                ],
+                "test-coverage": [
+                    "vendor/bin/pest --coverage"
+                ],
+                "format": [
+                    "vendor/bin/pint"
+                ]
+            },
             "license": [
                 "MIT"
             ],
@@ -2687,11 +2698,9 @@
                 "laravel",
                 "nativephp"
             ],
-            "support": {
-                "issues": "https://github.com/NativePHP/mobile-air/issues",
-                "source": "https://github.com/NativePHP/mobile-air/tree/element"
-            },
-            "time": "2026-03-07T18:39:24+00:00"
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "nativephp/mobile-device",
@@ -10836,13 +10845,11 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "nativephp/mobile": 20
-    },
+    "stability-flags": {},
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^8.2"
+        "php": "^8.5"
     },
     "platform-dev": {},
     "plugin-api-version": "2.9.0"
