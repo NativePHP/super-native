@@ -6,6 +6,7 @@ use Native\Mobile\Edge\BenchmarkComponent;
 // Benchmark & Demo
 Route::native('/benchmark', BenchmarkComponent::class)->name('benchmark');
 Route::native('/demo', \App\NativeComponents\Demo::class)->name('demo');
+Route::native('/skia', \App\NativeComponents\SkiaShowcase::class)->name('skia');
 
 // Explore (Airbnb)
 Route::native('/', \App\NativeComponents\Explore::class)->name('explore');

@@ -13,14 +13,16 @@
 @endphp
 
 @include('native.partials.demo-nav', ['title' => 'Component Demo'])
-<native:scroll-view class="w-full h-full" :bg="$bg">
+<native:scroll-view class="w-full h-full"   :bg="$bg">
     <native:column class="w-full gap-0 safe-area">
 
         {{-- Header --}}
         <native:column class="w-full px-6  pb-3 gap-2 items-center">
-            <native:text class="text-3xl font-extrabold text-center" :color="$accentText">EDGE Component Demo
+            <native:text class="text-3xl font-extrabold text-center" :color="$accentText">
+                EDGE Component Demo
             </native:text>
-            <native:text class="text-base text-center" :color="$muted">Every native UI element rendered from PHP
+            <native:text class="text-base text-center" :color="$muted">
+                Every native UI element rendered from PHP
             </native:text>
         </native:column>
 
@@ -188,7 +190,7 @@
                 <native:toggle :value="$darkMode" @change="toggleDark"/>
             </native:row>
             <native:row class="w-full justify-between items-center">
-                <native:text class="text-lg" :color="$fg">First time in NY?</native:text>
+                <native:text class="text-lg" :color="$fg">Prompt for bio</native:text>
                 <native:toggle :value="$notifications" @change="makeAlert"/>
             </native:row>
             <native:row class="w-full justify-between items-center">

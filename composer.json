@@ -10,20 +10,40 @@
     "repositories": {
 
         "ui": {
-            "type": "vcs",
-            "url": "https://github.com/NativePHP/compose-ui.git"
+            "type": "path",
+            "url": "~/Herd/Plugins/nativephp/compose-ui"
+        },
+        "mobile": {
+            "type": "path",
+            "url": "../mobile-air"
+        },
+        "bg": {
+            "type": "path",
+            "url": "~/Herd/Plugins/nativephp/background-tasks"
+        },
+        "timer": {
+            "type": "path",
+            "url": "~/Herd/Plugins/nativephp/timer"
+        },
+        "debug": {
+            "type": "path",
+            "url": "~/Herd/Plugins/nativephp/debug-log"
+        },
+        "skia": {
+            "type": "path",
+            "url": "~/Herd/Plugins/nativephp/skia-canvas"
         }
     },
     "license": "MIT",
     "require": {
-        "php": "^8.2",
+        "php": "^8.5",
         "laravel/fortify": "^1.30",
         "laravel/framework": "^12.0",
         "laravel/tinker": "^2.10.1",
         "livewire/flux": "^2.9.0",
         "livewire/livewire": "^4.0",
         "nativephp/compose-ui": "*",
-        "nativephp/mobile": "dev-element",
+        "nativephp/mobile": "*",
         "nativephp/mobile-device": "^1.0",
         "nativephp/mobile-dialog": "^1.0"
     },

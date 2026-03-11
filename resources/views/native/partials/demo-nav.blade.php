@@ -17,9 +17,10 @@
     <native:side-nav-item id="spotify" icon="music_note" url="/spotify" label="Spotify" />
     <native:side-nav-item id="youtube" icon="play_circle" url="/youtube" label="YouTube" />
 
-    <native:horizontal-divider />
+    <native:divider />
 
     <native:side-nav-item id="benchmark" icon="speed" :url="route('benchmark')" label="Benchmark" />
     <native:side-nav-item id="demo" icon="build" :url="route('demo')" label="Demo" />
+    <native:side-nav-item id="skia" icon="palette" :url="route('skia')" label="Skia Canvas" />
 
 </native:side-nav>
