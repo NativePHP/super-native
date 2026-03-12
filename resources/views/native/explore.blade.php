@@ -1,14 +1,14 @@
 
-{{--<native:column class="w-full h-full bg-white">--}}
-<native:scroll-view class="flex-1 w-full">
+{{--<native:column class="w-full h-full bg-white dark:bg-zinc-800">--}}
+    <native:scroll-view class="flex-1 w-full bg-white dark:bg-zinc-800">
     <native:column class="flex-1 p-5 gap-5 safe-area">
 
         {{-- ============================================= --}}
         {{-- HEADER --}}
         {{-- ============================================= --}}
         <native:column class="gap-1">
-            <native:text class="text-4xl font-extrabold">UI Kitchen Sink</native:text>
-            <native:text class="text-sm text-gray-400">Every core primitive, styled to the nines</native:text>
+            <native:text class="text-4xl font-extrabold dark:text-gray-100">UI Kitchen Sink</native:text>
+            <native:text class="text-sm text-gray-400 dark:text-gray-500">Every core primitive, styled to the nines</native:text>
         </native:column>
 
         <native:divider />
@@ -16,31 +16,31 @@
         {{-- ============================================= --}}
         {{-- TYPOGRAPHY --}}
         {{-- ============================================= --}}
-        <native:text class="text-lg font-semibold text-gray-700">Typography</native:text>
+        <native:text class="text-lg font-semibold text-gray-700 dark:text-gray-300">Typography</native:text>
         <native:column class="w-full gap-2">
-            <native:text class="text-xs text-gray-500">text-xs (12pt) — The quick brown fox</native:text>
-            <native:text class="text-sm text-gray-600">text-sm (14pt) — The quick brown fox</native:text>
-            <native:text class="text-base text-gray-700">text-base (16pt) — The quick brown fox</native:text>
-            <native:text class="text-lg text-gray-800">text-lg (18pt) — The quick brown fox</native:text>
-            <native:text class="text-xl text-gray-900">text-xl (20pt) — The quick brown fox</native:text>
-            <native:text class="text-2xl font-bold text-black">text-2xl bold</native:text>
-            <native:text class="text-3xl font-extrabold text-black">text-3xl extrabold</native:text>
+            <native:text class="text-xs text-gray-500 dark:text-gray-400">text-xs (12pt) — The quick brown fox</native:text>
+            <native:text class="text-sm text-gray-600 dark:text-gray-400">text-sm (14pt) — The quick brown fox</native:text>
+            <native:text class="text-base text-gray-700 dark:text-gray-300">text-base (16pt) — The quick brown fox</native:text>
+            <native:text class="text-lg text-gray-800 dark:text-gray-200">text-lg (18pt) — The quick brown fox</native:text>
+            <native:text class="text-xl text-gray-900 dark:text-gray-100">text-xl (20pt) — The quick brown fox</native:text>
+            <native:text class="text-2xl font-bold text-black dark:text-gray-100">text-2xl bold</native:text>
+            <native:text class="text-3xl font-extrabold text-black dark:text-gray-100">text-3xl extrabold</native:text>
         </native:column>
 
         <native:column class="w-full gap-1 mt-2">
-            <native:text class="font-thin text-base">font-thin</native:text>
-            <native:text class="font-light text-base">font-light</native:text>
-            <native:text class="font-normal text-base">font-normal</native:text>
-            <native:text class="font-medium text-base">font-medium</native:text>
-            <native:text class="font-semibold text-base">font-semibold</native:text>
-            <native:text class="font-bold text-base">font-bold</native:text>
-            <native:text class="font-extrabold text-base">font-extrabold</native:text>
+            <native:text class="font-thin text-base dark:text-gray-100">font-thin</native:text>
+            <native:text class="font-light text-base dark:text-gray-100">font-light</native:text>
+            <native:text class="font-normal text-base dark:text-gray-100">font-normal</native:text>
+            <native:text class="font-medium text-base dark:text-gray-100">font-medium</native:text>
+            <native:text class="font-semibold text-base dark:text-gray-100">font-semibold</native:text>
+            <native:text class="font-bold text-base dark:text-gray-100">font-bold</native:text>
+            <native:text class="font-extrabold text-base dark:text-gray-100">font-extrabold</native:text>
         </native:column>
 
         <native:column class="w-full gap-1 mt-2">
-            <native:text class="text-base text-left w-full">text-left aligned</native:text>
-            <native:text class="text-base text-center w-full">text-center aligned</native:text>
-            <native:text class="text-base text-right w-full">text-right aligned</native:text>
+            <native:text class="text-base text-left w-full dark:text-gray-100">text-left aligned</native:text>
+            <native:text class="text-base text-center w-full dark:text-gray-100">text-center aligned</native:text>
+            <native:text class="text-base text-right w-full dark:text-gray-100">text-right aligned</native:text>
         </native:column>
 
         <native:divider />
@@ -48,10 +48,10 @@
         {{-- ============================================= --}}
         {{-- ALL TAILWIND COLORS --}}
         {{-- ============================================= --}}
-        <native:text class="text-lg font-semibold text-gray-700">All Tailwind Colors</native:text>
+        <native:text class="text-lg font-semibold text-gray-700 dark:text-gray-300">All Tailwind Colors</native:text>
 
         {{-- Slate --}}
-        <native:text class="text-xs text-gray-500">Slate</native:text>
+        <native:text class="text-xs text-gray-500 dark:text-gray-400">Slate</native:text>
         <native:row class="w-full gap-1">
             <native:column class="flex-1 h-[32] rounded-sm bg-slate-100" />
             <native:column class="flex-1 h-[32] rounded-sm bg-slate-200" />
@@ -65,7 +65,7 @@
         </native:row>
 
         {{-- Gray --}}
-        <native:text class="text-xs text-gray-500">Gray</native:text>
+        <native:text class="text-xs text-gray-500 dark:text-gray-400">Gray</native:text>
         <native:row class="w-full gap-1">
             <native:column class="flex-1 h-[32] rounded-sm bg-gray-100" />
             <native:column class="flex-1 h-[32] rounded-sm bg-gray-200" />
@@ -79,7 +79,7 @@
         </native:row>
 
         {{-- Zinc --}}
-        <native:text class="text-xs text-gray-500">Zinc</native:text>
+        <native:text class="text-xs text-gray-500 dark:text-gray-400">Zinc</native:text>
         <native:row class="w-full gap-1">
             <native:column class="flex-1 h-[32] rounded-sm bg-zinc-100" />
             <native:column class="flex-1 h-[32] rounded-sm bg-zinc-200" />
@@ -93,7 +93,7 @@
         </native:row>
 
         {{-- Neutral --}}
-        <native:text class="text-xs text-gray-500">Neutral</native:text>
+        <native:text class="text-xs text-gray-500 dark:text-gray-400">Neutral</native:text>
         <native:row class="w-full gap-1">
             <native:column class="flex-1 h-[32] rounded-sm bg-neutral-100" />
             <native:column class="flex-1 h-[32] rounded-sm bg-neutral-200" />
@@ -107,7 +107,7 @@
         </native:row>
 
         {{-- Stone --}}
-        <native:text class="text-xs text-gray-500">Stone</native:text>
+        <native:text class="text-xs text-gray-500 dark:text-gray-400">Stone</native:text>
         <native:row class="w-full gap-1">
             <native:column class="flex-1 h-[32] rounded-sm bg-stone-100" />
             <native:column class="flex-1 h-[32] rounded-sm bg-stone-200" />
@@ -121,7 +121,7 @@
         </native:row>
 
         {{-- Red --}}
-        <native:text class="text-xs text-gray-500">Red</native:text>
+        <native:text class="text-xs text-gray-500 dark:text-gray-400">Red</native:text>
         <native:row class="w-full gap-1">
             <native:column class="flex-1 h-[32] rounded-sm bg-red-100" />
             <native:column class="flex-1 h-[32] rounded-sm bg-red-200" />
@@ -135,7 +135,7 @@
         </native:row>
 
         {{-- Orange --}}
-        <native:text class="text-xs text-gray-500">Orange</native:text>
+        <native:text class="text-xs text-gray-500 dark:text-gray-400">Orange</native:text>
         <native:row class="w-full gap-1">
             <native:column class="flex-1 h-[32] rounded-sm bg-orange-100" />
             <native:column class="flex-1 h-[32] rounded-sm bg-orange-200" />
@@ -149,7 +149,7 @@
         </native:row>
 
         {{-- Amber --}}
-        <native:text class="text-xs text-gray-500">Amber</native:text>
+        <native:text class="text-xs text-gray-500 dark:text-gray-400">Amber</native:text>
         <native:row class="w-full gap-1">
             <native:column class="flex-1 h-[32] rounded-sm bg-amber-100" />
             <native:column class="flex-1 h-[32] rounded-sm bg-amber-200" />
@@ -163,7 +163,7 @@
         </native:row>
 
         {{-- Yellow --}}
-        <native:text class="text-xs text-gray-500">Yellow</native:text>
+        <native:text class="text-xs text-gray-500 dark:text-gray-400">Yellow</native:text>
         <native:row class="w-full gap-1">
             <native:column class="flex-1 h-[32] rounded-sm bg-yellow-100" />
             <native:column class="flex-1 h-[32] rounded-sm bg-yellow-200" />
@@ -177,7 +177,7 @@
         </native:row>
 
         {{-- Lime --}}
-        <native:text class="text-xs text-gray-500">Lime</native:text>
+        <native:text class="text-xs text-gray-500 dark:text-gray-400">Lime</native:text>
         <native:row class="w-full gap-1">
             <native:column class="flex-1 h-[32] rounded-sm bg-lime-100" />
             <native:column class="flex-1 h-[32] rounded-sm bg-lime-200" />
@@ -191,7 +191,7 @@
         </native:row>
 
         {{-- Green --}}
-        <native:text class="text-xs text-gray-500">Green</native:text>
+        <native:text class="text-xs text-gray-500 dark:text-gray-400">Green</native:text>
         <native:row class="w-full gap-1">
             <native:column class="flex-1 h-[32] rounded-sm bg-green-100" />
             <native:column class="flex-1 h-[32] rounded-sm bg-green-200" />
@@ -205,7 +205,7 @@
         </native:row>
 
         {{-- Emerald --}}
-        <native:text class="text-xs text-gray-500">Emerald</native:text>
+        <native:text class="text-xs text-gray-500 dark:text-gray-400">Emerald</native:text>
         <native:row class="w-full gap-1">
             <native:column class="flex-1 h-[32] rounded-sm bg-emerald-100" />
             <native:column class="flex-1 h-[32] rounded-sm bg-emerald-200" />
@@ -219,7 +219,7 @@
         </native:row>
 
         {{-- Teal --}}
-        <native:text class="text-xs text-gray-500">Teal</native:text>
+        <native:text class="text-xs text-gray-500 dark:text-gray-400">Teal</native:text>
         <native:row class="w-full gap-1">
             <native:column class="flex-1 h-[32] rounded-sm bg-teal-100" />
             <native:column class="flex-1 h-[32] rounded-sm bg-teal-200" />
@@ -233,7 +233,7 @@
         </native:row>
 
         {{-- Cyan --}}
-        <native:text class="text-xs text-gray-500">Cyan</native:text>
+        <native:text class="text-xs text-gray-500 dark:text-gray-400">Cyan</native:text>
         <native:row class="w-full gap-1">
             <native:column class="flex-1 h-[32] rounded-sm bg-cyan-100" />
             <native:column class="flex-1 h-[32] rounded-sm bg-cyan-200" />
@@ -247,7 +247,7 @@
         </native:row>
 
         {{-- Sky --}}
-        <native:text class="text-xs text-gray-500">Sky</native:text>
+        <native:text class="text-xs text-gray-500 dark:text-gray-400">Sky</native:text>
         <native:row class="w-full gap-1">
             <native:column class="flex-1 h-[32] rounded-sm bg-sky-100" />
             <native:column class="flex-1 h-[32] rounded-sm bg-sky-200" />
@@ -261,7 +261,7 @@
         </native:row>
 
         {{-- Blue --}}
-        <native:text class="text-xs text-gray-500">Blue</native:text>
+        <native:text class="text-xs text-gray-500 dark:text-gray-400">Blue</native:text>
         <native:row class="w-full gap-1">
             <native:column class="flex-1 h-[32] rounded-sm bg-blue-100" />
             <native:column class="flex-1 h-[32] rounded-sm bg-blue-200" />
@@ -275,7 +275,7 @@
         </native:row>
 
         {{-- Indigo --}}
-        <native:text class="text-xs text-gray-500">Indigo</native:text>
+        <native:text class="text-xs text-gray-500 dark:text-gray-400">Indigo</native:text>
         <native:row class="w-full gap-1">
             <native:column class="flex-1 h-[32] rounded-sm bg-indigo-100" />
             <native:column class="flex-1 h-[32] rounded-sm bg-indigo-200" />
@@ -289,7 +289,7 @@
         </native:row>
 
         {{-- Violet --}}
-        <native:text class="text-xs text-gray-500">Violet</native:text>
+        <native:text class="text-xs text-gray-500 dark:text-gray-400">Violet</native:text>
         <native:row class="w-full gap-1">
             <native:column class="flex-1 h-[32] rounded-sm bg-violet-100" />
             <native:column class="flex-1 h-[32] rounded-sm bg-violet-200" />
@@ -303,7 +303,7 @@
         </native:row>
 
         {{-- Purple --}}
-        <native:text class="text-xs text-gray-500">Purple</native:text>
+        <native:text class="text-xs text-gray-500 dark:text-gray-400">Purple</native:text>
         <native:row class="w-full gap-1">
             <native:column class="flex-1 h-[32] rounded-sm bg-purple-100" />
             <native:column class="flex-1 h-[32] rounded-sm bg-purple-200" />
@@ -317,7 +317,7 @@
         </native:row>
 
         {{-- Fuchsia --}}
-        <native:text class="text-xs text-gray-500">Fuchsia</native:text>
+        <native:text class="text-xs text-gray-500 dark:text-gray-400">Fuchsia</native:text>
         <native:row class="w-full gap-1">
             <native:column class="flex-1 h-[32] rounded-sm bg-fuchsia-100" />
             <native:column class="flex-1 h-[32] rounded-sm bg-fuchsia-200" />
@@ -331,7 +331,7 @@
         </native:row>
 
         {{-- Pink --}}
-        <native:text class="text-xs text-gray-500">Pink</native:text>
+        <native:text class="text-xs text-gray-500 dark:text-gray-400">Pink</native:text>
         <native:row class="w-full gap-1">
             <native:column class="flex-1 h-[32] rounded-sm bg-pink-100" />
             <native:column class="flex-1 h-[32] rounded-sm bg-pink-200" />
@@ -345,7 +345,7 @@
         </native:row>
 
         {{-- Rose --}}
-        <native:text class="text-xs text-gray-500">Rose</native:text>
+        <native:text class="text-xs text-gray-500 dark:text-gray-400">Rose</native:text>
         <native:row class="w-full gap-1">
             <native:column class="flex-1 h-[32] rounded-sm bg-rose-100" />
             <native:column class="flex-1 h-[32] rounded-sm bg-rose-200" />
@@ -363,7 +363,7 @@
         {{-- ============================================= --}}
         {{-- BUTTONS --}}
         {{-- ============================================= --}}
-        <native:text class="text-lg font-semibold text-gray-700">Buttons</native:text>
+        <native:text class="text-lg font-semibold text-gray-700 dark:text-gray-300">Buttons</native:text>
 
         {{-- Solid buttons — horizontal scroll --}}
         <native:scroll-view :horizontal="true" class="w-full h-[52]">
@@ -447,7 +447,7 @@
         {{-- ============================================= --}}
         {{-- INTERACTIVE COUNTER --}}
         {{-- ============================================= --}}
-        <native:text class="text-lg font-semibold text-gray-700">Interactive Counter</native:text>
+        <native:text class="text-lg font-semibold text-gray-700 dark:text-gray-300">Interactive Counter</native:text>
         <native:row class="w-full gap-4 items-center justify-center">
             <native:button @press="decrement" class="bg-red-500 rounded-full px-6 py-3 text-white font-bold text-xl">
                 −
@@ -465,7 +465,7 @@
         {{-- ============================================= --}}
         {{-- BORDER RADIUS — horizontal scroll --}}
         {{-- ============================================= --}}
-        <native:text class="text-lg font-semibold text-gray-700">Border Radius</native:text>
+        <native:text class="text-lg font-semibold text-gray-700 dark:text-gray-300">Border Radius</native:text>
         <native:scroll-view :horizontal="true" class="w-full h-[64]">
             <native:row class="gap-3 items-center h-[64]">
                 <native:column class="w-[56] h-[56] bg-sky-500 rounded-none items-center justify-center">
@@ -500,26 +500,26 @@
         {{-- ============================================= --}}
         {{-- SHADOWS / ELEVATION --}}
         {{-- ============================================= --}}
-        <native:text class="text-lg font-semibold text-gray-700">Shadows & Elevation</native:text>
+        <native:text class="text-lg font-semibold text-gray-700 dark:text-gray-300">Shadows & Elevation</native:text>
         <native:scroll-view :horizontal="true" class="w-full h-[76]">
             <native:row class="gap-3 items-center h-[76] px-2">
                 <native:column class="w-[70] h-[60] bg-white rounded-lg shadow-none items-center justify-center">
-                    <native:text class="text-xs text-gray-500">none</native:text>
+                    <native:text class="text-xs text-gray-500 dark:text-gray-400">none</native:text>
                 </native:column>
                 <native:column class="w-[70] h-[60] bg-white rounded-lg shadow-sm items-center justify-center">
-                    <native:text class="text-xs text-gray-500">sm</native:text>
+                    <native:text class="text-xs text-gray-500 dark:text-gray-400">sm</native:text>
                 </native:column>
                 <native:column class="w-[70] h-[60] bg-white rounded-lg shadow-md items-center justify-center">
-                    <native:text class="text-xs text-gray-500">md</native:text>
+                    <native:text class="text-xs text-gray-500 dark:text-gray-400">md</native:text>
                 </native:column>
                 <native:column class="w-[70] h-[60] bg-white rounded-lg shadow-lg items-center justify-center">
-                    <native:text class="text-xs text-gray-500">lg</native:text>
+                    <native:text class="text-xs text-gray-500 dark:text-gray-400">lg</native:text>
                 </native:column>
                 <native:column class="w-[70] h-[60] bg-white rounded-lg shadow-xl items-center justify-center">
-                    <native:text class="text-xs text-gray-500">xl</native:text>
+                    <native:text class="text-xs text-gray-500 dark:text-gray-400">xl</native:text>
                 </native:column>
                 <native:column class="w-[70] h-[60] bg-white rounded-lg shadow-2xl items-center justify-center">
-                    <native:text class="text-xs text-gray-500">2xl</native:text>
+                    <native:text class="text-xs text-gray-500 dark:text-gray-400">2xl</native:text>
                 </native:column>
             </native:row>
         </native:scroll-view>
@@ -529,10 +529,10 @@
         {{-- ============================================= --}}
         {{-- BORDERS --}}
         {{-- ============================================= --}}
-        <native:text class="text-lg font-semibold text-gray-700">Borders</native:text>
+        <native:text class="text-lg font-semibold text-gray-700 dark:text-gray-300">Borders</native:text>
         <native:row class="w-full gap-3 items-center">
             <native:column class="flex-1 h-[50] border border-gray-300 rounded-lg items-center justify-center">
-                <native:text class="text-xs text-gray-500">1px</native:text>
+                <native:text class="text-xs text-gray-500 dark:text-gray-400">1px</native:text>
             </native:column>
             <native:column class="flex-1 h-[50] border-2 border-blue-500 rounded-lg items-center justify-center">
                 <native:text class="text-xs text-blue-500">2px blue</native:text>
@@ -550,7 +550,7 @@
         {{-- ============================================= --}}
         {{-- OPACITY --}}
         {{-- ============================================= --}}
-        <native:text class="text-lg font-semibold text-gray-700">Opacity</native:text>
+        <native:text class="text-lg font-semibold text-gray-700 dark:text-gray-300">Opacity</native:text>
         <native:row class="w-full gap-2 items-center">
             <native:column class="flex-1 h-[40] bg-blue-500 rounded-md opacity-100 items-center justify-center">
                 <native:text class="text-white text-xs">100</native:text>
@@ -565,7 +565,7 @@
                 <native:text class="text-white text-xs">25</native:text>
             </native:column>
             <native:column class="flex-1 h-[40] bg-blue-500 rounded-md opacity-10 items-center justify-center">
-                <native:text class="text-xs">10</native:text>
+                <native:text class="text-xs dark:text-gray-100">10</native:text>
             </native:column>
         </native:row>
 
@@ -574,39 +574,39 @@
         {{-- ============================================= --}}
         {{-- ICONS — only mapped SF Symbol names --}}
         {{-- ============================================= --}}
-        <native:text class="text-lg font-semibold text-gray-700">Icons</native:text>
-        <native:text class="text-xs text-gray-400">All mapped icon names</native:text>
+        <native:text class="text-lg font-semibold text-gray-700 dark:text-gray-300">Icons</native:text>
+        <native:text class="text-xs text-gray-400 dark:text-gray-500">All mapped icon names</native:text>
 
         {{-- Row 1: Navigation --}}
         <native:scroll-view :horizontal="true" class="w-full h-[48]">
             <native:row class="gap-4 items-center h-[48]">
                 <native:column class="items-center gap-1">
                     <native:icon name="home" :size="24" color="#333333" />
-                    <native:text class="text-xs text-gray-400">home</native:text>
+                    <native:text class="text-xs text-gray-400 dark:text-gray-500">home</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="search" :size="24" color="#007AFF" />
-                    <native:text class="text-xs text-gray-400">search</native:text>
+                    <native:text class="text-xs text-gray-400 dark:text-gray-500">search</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="settings" :size="24" color="#8E8E93" />
-                    <native:text class="text-xs text-gray-400">settings</native:text>
+                    <native:text class="text-xs text-gray-400 dark:text-gray-500">settings</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="dashboard" :size="24" color="#5856D6" />
-                    <native:text class="text-xs text-gray-400">dashboard</native:text>
+                    <native:text class="text-xs text-gray-400 dark:text-gray-500">dashboard</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="menu" :size="24" color="#333333" />
-                    <native:text class="text-xs text-gray-400">menu</native:text>
+                    <native:text class="text-xs text-gray-400 dark:text-gray-500">menu</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="person" :size="24" color="#FF2D55" />
-                    <native:text class="text-xs text-gray-400">person</native:text>
+                    <native:text class="text-xs text-gray-400 dark:text-gray-500">person</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="profile" :size="24" color="#007AFF" />
-                    <native:text class="text-xs text-gray-400">profile</native:text>
+                    <native:text class="text-xs text-gray-400 dark:text-gray-500">profile</native:text>
                 </native:column>
             </native:row>
         </native:scroll-view>
@@ -616,31 +616,31 @@
             <native:row class="gap-4 items-center h-[48]">
                 <native:column class="items-center gap-1">
                     <native:icon name="favorite" :size="24" color="#FF3B30" />
-                    <native:text class="text-xs text-gray-400">favorite</native:text>
+                    <native:text class="text-xs text-gray-400 dark:text-gray-500">favorite</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="star" :size="24" color="#FF9500" />
-                    <native:text class="text-xs text-gray-400">star</native:text>
+                    <native:text class="text-xs text-gray-400 dark:text-gray-500">star</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="bookmark" :size="24" color="#5856D6" />
-                    <native:text class="text-xs text-gray-400">bookmark</native:text>
+                    <native:text class="text-xs text-gray-400 dark:text-gray-500">bookmark</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="photo" :size="24" color="#34C759" />
-                    <native:text class="text-xs text-gray-400">photo</native:text>
+                    <native:text class="text-xs text-gray-400 dark:text-gray-500">photo</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="camera" :size="24" color="#FF9500" />
-                    <native:text class="text-xs text-gray-400">camera</native:text>
+                    <native:text class="text-xs text-gray-400 dark:text-gray-500">camera</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="video" :size="24" color="#FF3B30" />
-                    <native:text class="text-xs text-gray-400">video</native:text>
+                    <native:text class="text-xs text-gray-400 dark:text-gray-500">video</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="folder" :size="24" color="#007AFF" />
-                    <native:text class="text-xs text-gray-400">folder</native:text>
+                    <native:text class="text-xs text-gray-400 dark:text-gray-500">folder</native:text>
                 </native:column>
             </native:row>
         </native:scroll-view>
@@ -650,27 +650,27 @@
             <native:row class="gap-4 items-center h-[48]">
                 <native:column class="items-center gap-1">
                     <native:icon name="mail" :size="24" color="#007AFF" />
-                    <native:text class="text-xs text-gray-400">mail</native:text>
+                    <native:text class="text-xs text-gray-400 dark:text-gray-500">mail</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="notifications" :size="24" color="#5856D6" />
-                    <native:text class="text-xs text-gray-400">notifications</native:text>
+                    <native:text class="text-xs text-gray-400 dark:text-gray-500">notifications</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="message" :size="24" color="#34C759" />
-                    <native:text class="text-xs text-gray-400">message</native:text>
+                    <native:text class="text-xs text-gray-400 dark:text-gray-500">message</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="chat" :size="24" color="#FF9500" />
-                    <native:text class="text-xs text-gray-400">chat</native:text>
+                    <native:text class="text-xs text-gray-400 dark:text-gray-500">chat</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="phone" :size="24" color="#34C759" />
-                    <native:text class="text-xs text-gray-400">phone</native:text>
+                    <native:text class="text-xs text-gray-400 dark:text-gray-500">phone</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="share" :size="24" color="#007AFF" />
-                    <native:text class="text-xs text-gray-400">share</native:text>
+                    <native:text class="text-xs text-gray-400 dark:text-gray-500">share</native:text>
                 </native:column>
             </native:row>
         </native:scroll-view>
@@ -680,31 +680,31 @@
             <native:row class="gap-4 items-center h-[48]">
                 <native:column class="items-center gap-1">
                     <native:icon name="add" :size="24" color="#34C759" />
-                    <native:text class="text-xs text-gray-400">add</native:text>
+                    <native:text class="text-xs text-gray-400 dark:text-gray-500">add</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="edit" :size="24" color="#007AFF" />
-                    <native:text class="text-xs text-gray-400">edit</native:text>
+                    <native:text class="text-xs text-gray-400 dark:text-gray-500">edit</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="delete" :size="24" color="#FF3B30" />
-                    <native:text class="text-xs text-gray-400">delete</native:text>
+                    <native:text class="text-xs text-gray-400 dark:text-gray-500">delete</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="check" :size="24" color="#34C759" />
-                    <native:text class="text-xs text-gray-400">check</native:text>
+                    <native:text class="text-xs text-gray-400 dark:text-gray-500">check</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="close" :size="24" color="#FF3B30" />
-                    <native:text class="text-xs text-gray-400">close</native:text>
+                    <native:text class="text-xs text-gray-400 dark:text-gray-500">close</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="warning" :size="24" color="#FF9500" />
-                    <native:text class="text-xs text-gray-400">warning</native:text>
+                    <native:text class="text-xs text-gray-400 dark:text-gray-500">warning</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="info" :size="24" color="#007AFF" />
-                    <native:text class="text-xs text-gray-400">info</native:text>
+                    <native:text class="text-xs text-gray-400 dark:text-gray-500">info</native:text>
                 </native:column>
             </native:row>
         </native:scroll-view>
@@ -714,35 +714,35 @@
             <native:row class="gap-4 items-center h-[48]">
                 <native:column class="items-center gap-1">
                     <native:icon name="lock" :size="24" color="#8E8E93" />
-                    <native:text class="text-xs text-gray-400">lock</native:text>
+                    <native:text class="text-xs text-gray-400 dark:text-gray-500">lock</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="unlock" :size="24" color="#34C759" />
-                    <native:text class="text-xs text-gray-400">unlock</native:text>
+                    <native:text class="text-xs text-gray-400 dark:text-gray-500">unlock</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="location" :size="24" color="#FF3B30" />
-                    <native:text class="text-xs text-gray-400">location</native:text>
+                    <native:text class="text-xs text-gray-400 dark:text-gray-500">location</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="globe" :size="24" color="#007AFF" />
-                    <native:text class="text-xs text-gray-400">globe</native:text>
+                    <native:text class="text-xs text-gray-400 dark:text-gray-500">globe</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="bolt" :size="24" color="#FF9500" />
-                    <native:text class="text-xs text-gray-400">bolt</native:text>
+                    <native:text class="text-xs text-gray-400 dark:text-gray-500">bolt</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="clock" :size="24" color="#5856D6" />
-                    <native:text class="text-xs text-gray-400">clock</native:text>
+                    <native:text class="text-xs text-gray-400 dark:text-gray-500">clock</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="calendar" :size="24" color="#FF3B30" />
-                    <native:text class="text-xs text-gray-400">calendar</native:text>
+                    <native:text class="text-xs text-gray-400 dark:text-gray-500">calendar</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="qrcode" :size="24" color="#333333" />
-                    <native:text class="text-xs text-gray-400">qrcode</native:text>
+                    <native:text class="text-xs text-gray-400 dark:text-gray-500">qrcode</native:text>
                 </native:column>
             </native:row>
         </native:scroll-view>
@@ -752,31 +752,31 @@
             <native:row class="gap-4 items-center h-[48]">
                 <native:column class="items-center gap-1">
                     <native:icon name="cart" :size="24" color="#34C759" />
-                    <native:text class="text-xs text-gray-400">cart</native:text>
+                    <native:text class="text-xs text-gray-400 dark:text-gray-500">cart</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="orders" :size="24" color="#FF9500" />
-                    <native:text class="text-xs text-gray-400">orders</native:text>
+                    <native:text class="text-xs text-gray-400 dark:text-gray-500">orders</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="download" :size="24" color="#007AFF" />
-                    <native:text class="text-xs text-gray-400">download</native:text>
+                    <native:text class="text-xs text-gray-400 dark:text-gray-500">download</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="upload" :size="24" color="#5856D6" />
-                    <native:text class="text-xs text-gray-400">upload</native:text>
+                    <native:text class="text-xs text-gray-400 dark:text-gray-500">upload</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="refresh" :size="24" color="#007AFF" />
-                    <native:text class="text-xs text-gray-400">refresh</native:text>
+                    <native:text class="text-xs text-gray-400 dark:text-gray-500">refresh</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="filter" :size="24" color="#8E8E93" />
-                    <native:text class="text-xs text-gray-400">filter</native:text>
+                    <native:text class="text-xs text-gray-400 dark:text-gray-500">filter</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="list" :size="24" color="#333333" />
-                    <native:text class="text-xs text-gray-400">list</native:text>
+                    <native:text class="text-xs text-gray-400 dark:text-gray-500">list</native:text>
                 </native:column>
             </native:row>
         </native:scroll-view>
@@ -786,7 +786,7 @@
         {{-- ============================================= --}}
         {{-- TEXT INPUT --}}
         {{-- ============================================= --}}
-        <native:text class="text-lg font-semibold text-gray-700">Text Input</native:text>
+        <native:text class="text-lg font-semibold text-gray-700 dark:text-gray-300">Text Input</native:text>
         <native:text-input placeholder="Type something..." class="w-full" />
         <native:text-input placeholder="Password field" class="w-full" :secure="true" />
 
@@ -795,8 +795,8 @@
         {{-- ============================================= --}}
         {{-- TOGGLE --}}
         {{-- ============================================= --}}
-        <native:text class="text-lg font-semibold text-gray-700">Toggle</native:text>
-        <native:toggle :value="false" label="Enable notifications" />
+        <native:text class="text-lg font-semibold text-gray-700 dark:text-gray-300">Toggle</native:text>
+        <native:toggle class="dark:text-red-400" :value="false" label="Enable notifications" />
         <native:toggle :value="true" label="Dark mode (on)" />
 
         <native:divider />
@@ -804,68 +804,72 @@
         {{-- ============================================= --}}
         {{-- IMAGE --}}
         {{-- ============================================= --}}
-        <native:text class="text-lg font-semibold text-gray-700">Image</native:text>
+        <native:text class="text-lg font-semibold text-gray-700 dark:text-gray-300">Image</native:text>
         <native:image
             src="https://picsum.photos/seed/nativephp/800/400"
             class="w-full h-[200] rounded-xl"
             :fit="2"
         />
-        <native:row class="w-full gap-3">
-            <native:image
-                src="https://picsum.photos/seed/left/400/400"
-                class="flex-1 h-[120] rounded-lg"
-                :fit="2"
-            />
-            <native:image
-                src="https://picsum.photos/seed/right/400/400"
-                class="flex-1 h-[120] rounded-lg"
-                :fit="2"
-            />
-        </native:row>
+        <native:scroll-view :horizontal="true">
+            <native:row class="gap-3">
+                <native:image
+                    src="https://picsum.photos/seed/left/400/400"
+                    class="w-[400] h-[400] rounded-lg"
+                    :fit="2"
+                />
+                <native:image
+                    src="https://picsum.photos/seed/right/400/400"
+                    class="w-[400] h-[400] rounded-lg"
+                    :fit="2"
+                />
+
+            </native:row>
+        </native:scroll-view>
+
 
         <native:divider />
 
         {{-- ============================================= --}}
         {{-- FLEX LAYOUT --}}
         {{-- ============================================= --}}
-        <native:text class="text-lg font-semibold text-gray-700">Flex Layout</native:text>
+        <native:text class="text-lg font-semibold text-gray-700 dark:text-gray-300">Flex Layout</native:text>
 
-        <native:text class="text-sm text-gray-400">justify-start</native:text>
+        <native:text class="text-sm text-gray-400 dark:text-gray-500">justify-start</native:text>
         <native:row class="w-full gap-2 justify-start">
             <native:column class="w-[40] h-[40] bg-indigo-500 rounded-md" />
             <native:column class="w-[40] h-[40] bg-indigo-400 rounded-md" />
             <native:column class="w-[40] h-[40] bg-indigo-300 rounded-md" />
         </native:row>
 
-        <native:text class="text-sm text-gray-400">justify-center</native:text>
+        <native:text class="text-sm text-gray-400 dark:text-gray-500">justify-center</native:text>
         <native:row class="w-full gap-2 justify-center">
             <native:column class="w-[40] h-[40] bg-violet-500 rounded-md" />
             <native:column class="w-[40] h-[40] bg-violet-400 rounded-md" />
             <native:column class="w-[40] h-[40] bg-violet-300 rounded-md" />
         </native:row>
 
-        <native:text class="text-sm text-gray-400">justify-end</native:text>
+        <native:text class="text-sm text-gray-400 dark:text-gray-500">justify-end</native:text>
         <native:row class="w-full gap-2 justify-end">
             <native:column class="w-[40] h-[40] bg-fuchsia-500 rounded-md" />
             <native:column class="w-[40] h-[40] bg-fuchsia-400 rounded-md" />
             <native:column class="w-[40] h-[40] bg-fuchsia-300 rounded-md" />
         </native:row>
 
-        <native:text class="text-sm text-gray-400">justify-between</native:text>
+        <native:text class="text-sm text-gray-400 dark:text-gray-500">justify-between</native:text>
         <native:row class="w-full justify-between">
             <native:column class="w-[40] h-[40] bg-pink-500 rounded-md" />
             <native:column class="w-[40] h-[40] bg-pink-400 rounded-md" />
             <native:column class="w-[40] h-[40] bg-pink-300 rounded-md" />
         </native:row>
 
-        <native:text class="text-sm text-gray-400">justify-evenly</native:text>
+        <native:text class="text-sm text-gray-400 dark:text-gray-500">justify-evenly</native:text>
         <native:row class="w-full justify-evenly">
             <native:column class="w-[40] h-[40] bg-rose-500 rounded-md" />
             <native:column class="w-[40] h-[40] bg-rose-400 rounded-md" />
             <native:column class="w-[40] h-[40] bg-rose-300 rounded-md" />
         </native:row>
 
-        <native:text class="text-sm text-gray-400 mt-2">flex-1 distribution</native:text>
+        <native:text class="text-sm text-gray-400 dark:text-gray-500 mt-2">flex-1 distribution</native:text>
         <native:row class="w-full gap-2">
             <native:column class="flex-1 h-[40] bg-cyan-500 rounded-md items-center justify-center">
                 <native:text class="text-white text-xs">1</native:text>
@@ -883,7 +887,7 @@
         {{-- ============================================= --}}
         {{-- STACK (LAYERED) --}}
         {{-- ============================================= --}}
-        <native:text class="text-lg font-semibold text-gray-700">Stack (Layered)</native:text>
+        <native:text class="text-lg font-semibold text-gray-700 dark:text-gray-300">Stack (Layered)</native:text>
 
         {{-- Notification badge on avatar --}}
         <native:stack class="w-[64] h-[64]">
@@ -917,7 +921,7 @@
         {{-- ============================================= --}}
         {{-- CANVAS & SHAPES --}}
         {{-- ============================================= --}}
-        <native:text class="text-lg font-semibold text-gray-700">Canvas & Shapes</native:text>
+        <native:text class="text-lg font-semibold text-gray-700 dark:text-gray-300">Canvas & Shapes</native:text>
         <native:canvas class="w-full h-[200] bg-gray-50 rounded-xl">
             {{-- Rectangles --}}
             <native:rect class="left-[10] top-[10] w-[100] h-[50] bg-blue-500 rounded-lg" />
@@ -944,7 +948,7 @@
         {{-- ============================================= --}}
         {{-- CARD-STYLE LAYOUTS --}}
         {{-- ============================================= --}}
-        <native:text class="text-lg font-semibold text-gray-700">Card Layouts</native:text>
+        <native:text class="text-lg font-semibold text-gray-700 dark:text-gray-300">Card Layouts</native:text>
 
         {{-- Profile card --}}
         <native:column class="w-full bg-white rounded-2xl shadow-lg p-5 gap-4 border border-gray-100">
@@ -953,12 +957,12 @@
                     <native:text class="text-white font-bold text-xl">JD</native:text>
                 </native:column>
                 <native:column class="flex-1 gap-0">
-                    <native:text class="font-bold text-lg">Jane Doe</native:text>
-                    <native:text class="text-sm text-gray-400">Senior Developer</native:text>
+                    <native:text class="font-bold text-lg ">Jane Doe</native:text>
+                    <native:text class="text-sm text-gray-400 dark:text-gray-500">Senior Developer</native:text>
                 </native:column>
                 <native:icon name="more" :size="24" color="#999999" />
             </native:row>
-            <native:text class="text-gray-600 text-sm">Building beautiful native apps with PHP. Loves clean architecture, Tailwind, and strong coffee.</native:text>
+            <native:text class="text-gray-600 dark:text-gray-400 text-sm">Building beautiful native apps with PHP. Loves clean architecture, Tailwind, and strong coffee.</native:text>
             <native:row class="w-full gap-3">
                 <native:pressable @press="increment" class="flex-1 bg-indigo-500 rounded-lg py-2 items-center">
                     <native:text class="text-white font-semibold">Follow</native:text>
@@ -971,18 +975,18 @@
 
         {{-- Stats card --}}
         <native:row class="w-full gap-3">
-            <native:column class="flex-1 bg-blue-50 rounded-xl p-4 gap-1 items-center">
+            <native:column class="flex-1 bg-blue-100 rounded-xl p-4 gap-1 items-center">
                 <native:icon name="chart.bar.fill" :size="24" color="#3B82F6" />
                 <native:text class="text-2xl font-bold text-blue-600">2.4k</native:text>
                 <native:text class="text-xs text-blue-400">Followers</native:text>
             </native:column>
-            <native:column class="flex-1 bg-green-50 rounded-xl p-4 gap-1 items-center">
+            <native:column class="flex-1 bg-green-100 rounded-xl p-4 gap-1 items-center">
                 <native:icon name="star" :size="24" color="#22C55E" />
                 <native:text class="text-2xl font-bold text-green-600">182</native:text>
                 <native:text class="text-xs text-green-400">Stars</native:text>
             </native:column>
-            <native:column class="flex-1 bg-purple-50 rounded-xl p-4 gap-1 items-center">
-                <native:icon name="chevron.left.forwardslash.chevron.right" :size="24" color="#A855F7" />
+            <native:column class="flex-1 bg-purple-100 rounded-xl p-4 gap-1 items-center">
+                <native:icon name="chevron.left/chevron.right" :size="24" color="#A855F7" />
                 <native:text class="text-2xl font-bold text-purple-600">47</native:text>
                 <native:text class="text-xs text-purple-400">Repos</native:text>
             </native:column>
@@ -993,7 +997,7 @@
         {{-- ============================================= --}}
         {{-- LIST ITEMS --}}
         {{-- ============================================= --}}
-        <native:text class="text-lg font-semibold text-gray-700">List Items</native:text>
+        <native:text class="text-lg font-semibold text-gray-700 dark:text-gray-300">List Items</native:text>
         <native:column class="w-full bg-white rounded-xl shadow-sm border border-gray-100">
             {{-- Item 1 --}}
             <native:pressable @press="increment" class="w-full">
@@ -1002,8 +1006,8 @@
                         <native:icon name="mail" :size="20" color="#3B82F6" />
                     </native:column>
                     <native:column class="flex-1 gap-0">
-                        <native:text class="font-semibold">Messages</native:text>
-                        <native:text class="text-xs text-gray-400">3 unread messages</native:text>
+                        <native:text class="font-semibold ">Messages</native:text>
+                        <native:text class="text-xs text-gray-400 dark:text-gray-500">3 unread messages</native:text>
                     </native:column>
                     <native:column class="w-[24] h-[24] rounded-full bg-red-500 items-center justify-center">
                         <native:text class="text-white text-xs font-bold">3</native:text>
@@ -1019,8 +1023,8 @@
                         <native:icon name="notifications" :size="20" color="#22C55E" />
                     </native:column>
                     <native:column class="flex-1 gap-0">
-                        <native:text class="font-semibold">Notifications</native:text>
-                        <native:text class="text-xs text-gray-400">Push & email alerts</native:text>
+                        <native:text class="font-semibold ">Notifications</native:text>
+                        <native:text class="text-xs text-gray-400 dark:text-gray-500">Push & email alerts</native:text>
                     </native:column>
                     <native:icon name="forward" :size="20" color="#CCCCCC" />
                 </native:row>
@@ -1033,8 +1037,8 @@
                         <native:icon name="lock" :size="20" color="#A855F7" />
                     </native:column>
                     <native:column class="flex-1 gap-0">
-                        <native:text class="font-semibold">Privacy</native:text>
-                        <native:text class="text-xs text-gray-400">Manage your data</native:text>
+                        <native:text class="font-semibold ">Privacy</native:text>
+                        <native:text class="text-xs text-gray-400 dark:text-gray-500">Manage your data</native:text>
                     </native:column>
                     <native:icon name="forward" :size="20" color="#CCCCCC" />
                 </native:row>
@@ -1047,8 +1051,8 @@
                         <native:icon name="settings" :size="20" color="#F59E0B" />
                     </native:column>
                     <native:column class="flex-1 gap-0">
-                        <native:text class="font-semibold">Settings</native:text>
-                        <native:text class="text-xs text-gray-400">App preferences</native:text>
+                        <native:text class="font-semibold ">Settings</native:text>
+                        <native:text class="text-xs text-gray-400 dark:text-gray-500">App preferences</native:text>
                     </native:column>
                     <native:icon name="forward" :size="20" color="#CCCCCC" />
                 </native:row>
@@ -1060,10 +1064,26 @@
         {{-- ============================================= --}}
         {{-- ACTIVITY INDICATOR --}}
         {{-- ============================================= --}}
-        <native:text class="text-lg font-semibold text-gray-700">Activity Indicator</native:text>
+        <native:text class="text-lg font-semibold text-gray-700 dark:text-gray-300">Activity Indicator</native:text>
         <native:row class="w-full items-center gap-4">
             <native:activity-indicator />
-            <native:text class="text-gray-500">Loading content...</native:text>
+            <native:text class="text-gray-500 dark:text-gray-400">Default</native:text>
+        </native:row>
+        <native:row class="w-full items-center gap-4">
+            <native:activity-indicator :size="1" />
+            <native:text class="text-gray-500 dark:text-gray-400">Large</native:text>
+        </native:row>
+        <native:row class="w-full items-center gap-4">
+            <native:activity-indicator :size="2" />
+            <native:text class="text-gray-500 dark:text-gray-400">Small</native:text>
+        </native:row>
+        <native:row class="w-full items-center gap-6 mt-2">
+            <native:activity-indicator color="#3B82F6" />
+            <native:activity-indicator color="#EF4444" />
+            <native:activity-indicator color="#22C55E" />
+            <native:activity-indicator color="#A855F7" />
+            <native:activity-indicator color="#F97316" />
+            <native:text class="text-gray-500 dark:text-gray-400 text-sm">Custom colors</native:text>
         </native:row>
 
         <native:divider />
@@ -1071,7 +1091,7 @@
         {{-- ============================================= --}}
         {{-- CREATIVE COMPOSITIONS --}}
         {{-- ============================================= --}}
-        <native:text class="text-lg font-semibold text-gray-700">Creative Compositions</native:text>
+        <native:text class="text-lg font-semibold text-gray-700 dark:text-gray-300">Creative Compositions</native:text>
 
         {{-- Faux gradient banner --}}
         <native:stack class="w-full h-[140]">
@@ -1087,32 +1107,34 @@
         </native:stack>
 
         {{-- Tag cloud --}}
-        <native:row class="w-full gap-2 flex-wrap mt-2">
-            <native:column class="bg-blue-100 rounded-full px-3 py-1">
-                <native:text class="text-blue-700 text-xs font-semibold">Laravel</native:text>
-            </native:column>
-            <native:column class="bg-green-100 rounded-full px-3 py-1">
-                <native:text class="text-green-700 text-xs font-semibold">PHP</native:text>
-            </native:column>
-            <native:column class="bg-purple-100 rounded-full px-3 py-1">
-                <native:text class="text-purple-700 text-xs font-semibold">Swift</native:text>
-            </native:column>
-            <native:column class="bg-amber-100 rounded-full px-3 py-1">
-                <native:text class="text-amber-700 text-xs font-semibold">Kotlin</native:text>
-            </native:column>
-            <native:column class="bg-red-100 rounded-full px-3 py-1">
-                <native:text class="text-red-700 text-xs font-semibold">Yoga</native:text>
-            </native:column>
-            <native:column class="bg-teal-100 rounded-full px-3 py-1">
-                <native:text class="text-teal-700 text-xs font-semibold">Tailwind</native:text>
-            </native:column>
-            <native:column class="bg-pink-100 rounded-full px-3 py-1">
-                <native:text class="text-pink-700 text-xs font-semibold">UIKit</native:text>
-            </native:column>
-            <native:column class="bg-indigo-100 rounded-full px-3 py-1">
-                <native:text class="text-indigo-700 text-xs font-semibold">Compose</native:text>
-            </native:column>
-        </native:row>
+        <native:scroll-view :horizontal="true">
+            <native:row class="w-full gap-2 flex-wrap mt-2">
+                <native:column class="bg-blue-100 rounded-full px-3 py-1">
+                    <native:text class="text-blue-700 text-xs font-semibold">Laravel</native:text>
+                </native:column>
+                <native:column class="bg-green-100 rounded-full px-3 py-1">
+                    <native:text class="text-green-700 text-xs font-semibold">PHP</native:text>
+                </native:column>
+                <native:column class="bg-purple-100 rounded-full px-3 py-1">
+                    <native:text class="text-purple-700 text-xs font-semibold">Swift</native:text>
+                </native:column>
+                <native:column class="bg-amber-100 rounded-full px-3 py-1">
+                    <native:text class="text-amber-700 text-xs font-semibold">Kotlin</native:text>
+                </native:column>
+                <native:column class="bg-red-100 rounded-full px-3 py-1">
+                    <native:text class="text-red-700 text-xs font-semibold">Yoga</native:text>
+                </native:column>
+                <native:column class="bg-teal-100 rounded-full px-3 py-1">
+                    <native:text class="text-teal-700 text-xs font-semibold">Tailwind</native:text>
+                </native:column>
+                <native:column class="bg-pink-100 rounded-full px-3 py-1">
+                    <native:text class="text-pink-700 text-xs font-semibold">UIKit</native:text>
+                </native:column>
+                <native:column class="bg-indigo-100 rounded-full px-3 py-1">
+                    <native:text class="text-indigo-700 text-xs font-semibold">Compose</native:text>
+                </native:column>
+            </native:row>
+        </native:scroll-view>
 
         {{-- Chat bubble mockup --}}
         <native:column class="w-full gap-3 mt-3">
@@ -1122,8 +1144,8 @@
                 </native:column>
             </native:row>
             <native:row class="w-full justify-start">
-                <native:column class="w-3/4 bg-gray-200 rounded-2xl p-3">
-                    <native:text class="text-gray-800 text-sm">Yes! Native iOS and Android apps in PHP. The Yoga layout is pixel-perfect.</native:text>
+                <native:column class="w-3/4 bg-gray-200 dark:bg-gray-800 rounded-2xl p-3">
+                    <native:text class="text-gray-800 dark:text-gray-200 text-sm">Yes! Native iOS and Android apps in PHP. The Yoga layout is pixel-perfect.</native:text>
                 </native:column>
             </native:row>
             <native:row class="w-full justify-end">
@@ -1138,6 +1160,7 @@
 
     </native:column>
 </native:scroll-view>
+{{--</native:column>--}}
 
 {{-- Bottom Navigation --}}
 {{--<native:row class="w-full h-[90] bg-white border-t border-gray-200 items-start justify-evenly pt-2">--}}
@@ -1147,15 +1170,15 @@
 {{--    </native:pressable>--}}
 {{--    <native:pressable @press="increment" class="flex-1 items-center gap-1">--}}
 {{--        <native:icon name="search" :size="22" color="#8E8E93" />--}}
-{{--        <native:text class="text-xs text-gray-400">Search</native:text>--}}
+{{--        <native:text class="text-xs text-gray-400 dark:text-gray-500">Search</native:text>--}}
 {{--    </native:pressable>--}}
 {{--    <native:pressable @press="increment" class="flex-1 items-center gap-1">--}}
 {{--        <native:icon name="favorite" :size="22" color="#8E8E93" />--}}
-{{--        <native:text class="text-xs text-gray-400">Favorites</native:text>--}}
+{{--        <native:text class="text-xs text-gray-400 dark:text-gray-500">Favorites</native:text>--}}
 {{--    </native:pressable>--}}
 {{--    <native:pressable @press="increment" class="flex-1 items-center gap-1">--}}
 {{--        <native:icon name="person" :size="22" color="#8E8E93" />--}}
-{{--        <native:text class="text-xs text-gray-400">Profile</native:text>--}}
+{{--        <native:text class="text-xs text-gray-400 dark:text-gray-500">Profile</native:text>--}}
 {{--    </native:pressable>--}}
 {{--</native:row>--}}
 {{--</native:column>--}}

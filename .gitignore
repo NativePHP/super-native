@@ -23,3 +23,5 @@ yarn-error.log
 /.vscode
 /.zed
 NUL
+storage/.DS_Store
+.DS_Store
