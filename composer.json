@@ -8,7 +8,10 @@
         "framework"
     ],
     "repositories": {
-
+        "mobile": {
+            "type": "path",
+            "url": "../mobile-air"
+        }
     },
     "license": "MIT",
     "require": {

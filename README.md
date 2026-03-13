@@ -1,24 +1,34 @@
-# NativePHP Element Demo
+# NativePHP UI Kitchen Sink
 
-A demonstration app showcasing [NativePHP Mobile](https://nativephp.com) with Laravel and Livewire. Renders fully native Android UI components from PHP — no JavaScript frameworks, no WebViews.
+A showcase app for [NativePHP Mobile](https://nativephp.com) — fully native UI rendered from PHP using Blade templates, Tailwind classes, and Yoga layout. No JavaScript frameworks, no WebViews.
 
-> **Android only.** iOS is not supported in this demo.
-
-> **Not for production.** This is a demo/reference app for exploring NativePHP's Element rendering system.
+> **Not for production.** This is a reference app for exploring NativePHP's Element rendering system.
 
 ## What's Inside
 
-The app includes 30+ native component demos that replicate popular app interfaces using mock data:
+A single-page UI kitchen sink (`/`) demonstrating every core native primitive:
 
-| Category | Demos |
+| Section | What it covers |
 |---|---|
-| **Listings** | Airbnb-style explore feed, listing detail (active by default) |
-| **Social** | Twitter feed/profile/compose, Instagram feed/search, Facebook feed/profile |
-| **E-commerce** | IKEA store/cart/search, iHerb store/cart/categories |
-| **Entertainment** | Spotify home/playlists/artists, YouTube home/videos/channels |
-| **Simple** | Counter (increment/decrement) |
-
-Swap active demos by uncommenting routes in `routes/web.php`.
+| **Typography** | Font sizes (xs–3xl), weights (thin–extrabold), text alignment |
+| **Colors** | All Tailwind color palettes (slate through rose) |
+| **Buttons** | Solid, pill, outlined, ghost, and icon buttons |
+| **Interactive Counter** | Increment/decrement with live state |
+| **Border Radius** | none through full |
+| **Shadows & Elevation** | shadow-none through shadow-2xl |
+| **Borders** | Widths, colors, and pill borders |
+| **Opacity** | 10–100 opacity levels |
+| **Icons** | Full mapped icon set (navigation, content, communication, actions, device, commerce) |
+| **Text Input** | Standard and secure (password) fields |
+| **Toggle** | On/off switches with labels |
+| **Image** | Remote images with fit modes and horizontal scroll galleries |
+| **Flex Layout** | justify-start/center/end/between/evenly, flex-1 distribution |
+| **Stack (Layered)** | Notification badges, image overlays |
+| **Canvas & Shapes** | Rectangles, circles, lines |
+| **Card Layouts** | Profile cards, stat cards |
+| **List Items** | Settings-style list with icons and badges |
+| **Activity Indicator** | Sizes and custom colors |
+| **Creative Compositions** | Gradient banners, tag clouds, chat bubbles |
 
 ## Requirements
 
@@ -31,7 +41,7 @@ Swap active demos by uncommenting routes in `routes/web.php`.
 # 1. Clone the repo
 git clone <repo-url> && cd native
 
-# 2. Install dependencies & set up the app
+# 2. Install dependencies
 composer install
 
 # 3. Install NativePHP
@@ -41,33 +51,12 @@ php artisan native:install
 php artisan native:run android -W --no-vite
 ```
 
-That's it. The app will build and launch on your connected Android device or emulator.
-
 ## Project Structure
 
 ```
-app/NativeComponents/       # Native UI components (the demos)
-app/NativeComponents/Concerns/  # Shared traits (mock data, etc.)
-resources/views/native/     # Blade templates using <native:*> elements
-routes/web.php              # Route::native() definitions
-```
-
-## Switching Demos
-
-Edit `routes/web.php` — comment out the current active routes and uncomment whichever demo set you want to try:
-
-```php
-// Airbnb-style (default)
-Route::native('/', \App\NativeComponents\Explore::class);
-Route::native('/listing/{id}', \App\NativeComponents\ListingDetail::class);
-
-// Twitter
-// Route::native('/', \App\NativeComponents\TwitterFeed::class);
-// ...
-
-// Spotify
-// Route::native('/', \App\NativeComponents\SpotifyHome::class);
-// ...
+app/NativeComponents/Explore.php    # The kitchen sink component
+resources/views/native/explore.blade.php  # Blade template with <native:*> elements
+routes/web.php                      # Single route: / → Explore
 ```
 
 ## License
