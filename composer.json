@@ -7,12 +7,6 @@
         "laravel",
         "framework"
     ],
-    "repositories": {
-        "mobile": {
-            "type": "path",
-            "url": "../mobile-air"
-        }
-    },
     "license": "MIT",
     "require": {
         "php": "^8.5",

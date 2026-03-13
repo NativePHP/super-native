@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "16972720aaae7fd13b2a644ae5d11ad4",
+    "content-hash": "166724642ed19f12ff691064f6eada65",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -2489,10 +2489,16 @@
         {
             "name": "nativephp/mobile",
             "version": "dev-element",
-            "dist": {
-                "type": "path",
-                "url": "../mobile-air",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/NativePHP/mobile-air.git",
                 "reference": "634d0e8fc70e07a8ea736d29d2cc7ff17d3d059a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/NativePHP/mobile-air/zipball/634d0e8fc70e07a8ea736d29d2cc7ff17d3d059a",
+                "reference": "634d0e8fc70e07a8ea736d29d2cc7ff17d3d059a",
+                "shasum": ""
             },
             "require": {
                 "endroid/qr-code": "^5.0",
@@ -2533,33 +2539,7 @@
                     "Native\\Mobile\\": "src/"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "Tests\\": "tests/"
-                }
-            },
-            "scripts": {
-                "qa": [
-                    "@composer format",
-                    "@composer analyse",
-                    "@composer test"
-                ],
-                "post-autoload-dump": [
-                    "@php ./vendor/bin/testbench package:discover --ansi"
-                ],
-                "analyse": [
-                    "vendor/bin/phpstan analyse"
-                ],
-                "test": [
-                    "vendor/bin/pest"
-                ],
-                "test-coverage": [
-                    "vendor/bin/pest --coverage"
-                ],
-                "format": [
-                    "vendor/bin/pint"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2583,9 +2563,11 @@
                 "laravel",
                 "nativephp"
             ],
-            "transport-options": {
-                "relative": true
-            }
+            "support": {
+                "issues": "https://github.com/NativePHP/mobile-air/issues",
+                "source": "https://github.com/NativePHP/mobile-air/tree/element"
+            },
+            "time": "2026-03-12T23:52:56+00:00"
         },
         {
             "name": "nativephp/mobile-device",
