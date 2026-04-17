@@ -1,5 +1,5 @@
 <native:scroll-view class="w-full h-full bg-white safe-area">
-    <native:column class="w-full gap-0 ">
+    <native:column class="w-full gap-0">
 
         {{-- Top Bar --}}
         <native:row class="w-full px-4 py-3 items-center gap-3">
@@ -12,31 +12,38 @@
             </native:column>
         </native:row>
 
-        {{-- Banner Image --}}
-        <native:image
-            src="{{ $user['bannerUrl'] }}"
-            class="w-full h-[120]"
-            :fit="2"
-        />
-
-        {{-- Profile Header --}}
-        <native:column class="w-full px-4 pt-3 gap-2">
-            {{-- Avatar + Follow Button --}}
-            <native:row class="w-full items-center justify-between">
+        {{-- Banner + Avatar Overlap --}}
+        <native:stack class="w-full">
+            {{-- Banner layer --}}
+            <native:column class="w-full">
                 <native:image
-                    src="{{ $user['avatarUrl'] }}"
-                    class="w-[68] h-[68] rounded-full mt-[-34]"
+                    src="{{ $user['bannerUrl'] }}"
+                    class="w-full h-[220]"
                     :fit="2"
                 />
-                <native:button label="Follow" color="#0F1419" labelColor="#FFFFFF" :fontSize="14" />
-            </native:row>
+                <native:spacer class="h-[34]" />
+            </native:column>
+            {{-- Avatar layer --}}
+            <native:column class="w-full">
+                <native:spacer class="h-[186]" />
+                <native:row class="w-full px-4 items-end justify-between">
+                    <native:image
+                        src="{{ $user['avatarUrl'] }}"
+                        class="w-[68] h-[68] rounded-full"
+                        :fit="2"
+                    />
+                    <native:button label="Follow" color="#0F1419" labelColor="#FFFFFF" :fontSize="14" />
+                </native:row>
+            </native:column>
+        </native:stack>
+
+        {{-- Profile Info --}}
+        <native:column class="w-full px-4 pt-3 gap-4">
 
             {{-- Name --}}
             <native:row class="items-center gap-1">
                 <native:text class="text-[20] font-bold text-[#0F1419]">{{ $user['name'] }}</native:text>
-                @if ($user['isVerified'])
-                    <native:icon name="verified" :size="18" color="#1D9BF0" />
-                @endif
+                <native:icon name="verified" :size="18" color="#1D9BF0" />
             </native:row>
             <native:text class="text-[15] text-[#536471] mt-[-4]">{{ $user['handle'] }}</native:text>
 
@@ -79,7 +86,7 @@
                     {{-- Tweet Content --}}
                     <native:column @press="viewTweet({{ $tweet['originalIndex'] }})" class="w-[300] gap-1">
                         <native:row class="items-center gap-1">
-                            <native:text class="text-[15] font-bold text-[#0F1419]">{{ $tweet['user']['name'] }}</native:text>
+                            <native:text class="text-sm font-bold ">{{ $tweet['user']['name'] }}</native:text>
                             @if ($tweet['user']['isVerified'])
                                 <native:icon name="verified" :size="16" color="#1D9BF0" />
                             @endif
@@ -87,7 +94,7 @@
                             <native:text class="text-[13] text-[#536471]">· {{ $tweet['time'] }}</native:text>
                         </native:row>
 
-                        <native:text class="text-[15] text-[#0F1419]">{{ $tweet['text'] }}</native:text>
+                        <native:text class="text-xl">{{ $tweet['text'] }} asdasdasd</native:text>
 
                         @if ($tweet['imageUrl'])
                             <native:image

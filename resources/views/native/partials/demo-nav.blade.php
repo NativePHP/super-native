@@ -8,7 +8,6 @@
         pinned="true"
     />
 
-
     <native:side-nav-item id="explore" icon="search" url="/" label="Airbnb" />
     <native:side-nav-item id="twitter" icon="chat_bubble" url="/twitter" label="Twitter / X" />
     <native:side-nav-item id="ikea" icon="weekend" url="/ikea" label="IKEA" />
@@ -20,7 +19,7 @@
     <native:divider />
 
     <native:side-nav-item id="benchmark" icon="speed" :url="route('benchmark')" label="Benchmark" />
-    <native:side-nav-item id="demo" icon="build" :url="route('demo')" label="Demo" />
-    <native:side-nav-item id="skia" icon="palette" :url="route('skia')" label="Skia Canvas" />
+{{--    <native:side-nav-item id="demo" icon="build" :url="route('demo')" label="Demo" />--}}
+{{--    <native:side-nav-item id="skia" icon="palette" :url="route('skia')" label="Skia Canvas" />--}}
 
 </native:side-nav>

@@ -1,6 +1,6 @@
 @include('native.partials.demo-nav', ['title' => 'Facebook'])
 
-<native:scroll-view class="w-full h-full bg-[#F0F2F5]">
+<native:scroll-view class="w-full h-full bg-[#F0F2F5] safe-area">
     <native:column class="w-full gap-0 ">
 
         {{-- Top Bar --}}
@@ -52,10 +52,10 @@
                 <native:row class="gap-3">
                     {{-- Create Story --}}
                     <native:column class="items-center gap-1 w-[72]">
-                        <native:column class="w-[56] h-[56] rounded-full bg-[#E4E6EB] items-center justify-center">
+                        <native:column class="w-[60] h-[60] rounded-full bg-[#E4E6EB] items-center justify-center">
                             <native:icon name="add" :size="28" color="#1877F2" />
                         </native:column>
-                        <native:text class="text-[11] text-[#050505]">Create</native:text>
+                        <native:text class="text-sm text-[#050505]">Create</native:text>
                     </native:column>
                     {{-- User Stories --}}
                     @foreach ($stories as $story)
@@ -67,7 +67,7 @@
                                     :fit="2"
                                 />
                             </native:column>
-                            <native:text class="text-[11] text-[#050505]" :maxLines="1">{{ explode(' ', $story['name'])[0] }}</native:text>
+                            <native:text class="text-sm text-gray-800" :maxLines="1">{{ explode(' ', $story['name'])[0] }}</native:text>
                         </native:column>
                     @endforeach
                 </native:row>

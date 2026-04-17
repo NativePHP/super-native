@@ -1,6 +1,6 @@
-@include('native.partials.demo-nav', ['title' => 'Twitter / X'])
+{{--@include('native.partials.demo-nav', ['title' => 'Twitter / X'])--}}
 
-<native:scroll-view class="w-full h-full bg-white">
+<native:scroll-view class="safe-area">
     <native:column class="w-full gap-0 ">
 
         {{-- Top Bar --}}
@@ -10,7 +10,7 @@
                 class="w-[32] h-[32] rounded-full"
                 :fit="2"
             />
-            <native:text class="text-[20] font-bold text-[#0F1419]">𝕏</native:text>
+            <native:text class="text-[30] font-bold text-[#0F1419]">𝕏</native:text>
             <native:column @press="composeTweet" class="w-[32] h-[32] rounded-full bg-[#1D9BF0] items-center justify-center">
                 <native:icon name="edit" :size="18" color="#FFFFFF" />
             </native:column>
@@ -49,7 +49,7 @@
                         </native:row>
 
                         {{-- Tweet Text --}}
-                        <native:text class="text-[15] text-[#0F1419]">{{ $tweet['text'] }}</native:text>
+                        <native:text class="text-sm text-gray-800">{{ $tweet['text'] }}</native:text>
 
                         {{-- Optional Image --}}
                         @if ($tweet['imageUrl'])

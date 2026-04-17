@@ -3,6 +3,9 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Native\Mobile\Providers\DeviceServiceProvider;
+use Native\Mobile\Providers\DialogServiceProvider;
+use Nativephp\ComposeUi\ComposeUIServiceProvider;
 
 class NativeServiceProvider extends ServiceProvider
 {
@@ -29,18 +32,19 @@ class NativeServiceProvider extends ServiceProvider
      * This is a security measure to prevent transitive dependencies from
      * automatically registering plugins without your explicit consent.
      *
-     * @return array<int, class-string<\Illuminate\Support\ServiceProvider>>
+     * @return array<int, class-string<ServiceProvider>>
      */
     public function plugins(): array
     {
         return [
-//            \Nativephp\ComposeUi\ComposeUIServiceProvider::class,
-            \Native\Mobile\Providers\DialogServiceProvider::class,
-            \Native\Mobile\Providers\DeviceServiceProvider::class,
-//            \Native\Mobile\Providers\BackgroundTasksServiceProvider::class,
-//            \Native\Mobile\Providers\TimerServiceProvider::class,
-//            \Native\Mobile\Providers\DebugLogServiceProvider::class,
-//            \NativePhp\SkiaCanvas\SkiaCanvasServiceProvider::class,
+            ComposeUIServiceProvider::class,
+            DialogServiceProvider::class,
+            DeviceServiceProvider::class,
+            //            \Local\DoomGame\DoomGameServiceProvider::class,
+            //            \Native\Mobile\Providers\BackgroundTasksServiceProvider::class,
+            //            \Native\Mobile\Providers\TimerServiceProvider::class,
+            //            \Native\Mobile\Providers\DebugLogServiceProvider::class,
+            //            \NativePhp\SkiaCanvas\SkiaCanvasServiceProvider::class,
         ];
     }
 }

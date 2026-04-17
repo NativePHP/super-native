@@ -13,11 +13,6 @@ class YouTubeHome extends NativeComponent
 
     public string $activeCategory = 'All';
 
-    public function mount(): void
-    {
-        nativephp_call('UI.SetBackground', json_encode(['color' => '#0F0F0F']));
-    }
-
     public function viewVideo(int $index): void
     {
         $this->navigate($this->route('youtube.video', $index))

@@ -7,13 +7,24 @@
         "laravel",
         "framework"
     ],
+    "repositories": {
+        "ui": {
+            "type": "vcs",
+            "url": "https://github.com/NativePHP/compose-ui.git"
+        },
+        "plugins": {
+            "type": "composer",
+            "url": "https://plugins.nativephp.com"
+        }
+    },
     "license": "MIT",
     "require": {
-        "php": "^8.5",
+        "php": "^8.4",
         "laravel/fortify": "^1.30",
-        "laravel/framework": "^12.0",
-        "laravel/tinker": "^2.10.1",
+        "laravel/framework": "^13.0",
+        "laravel/tinker": "^3.0",
         "livewire/livewire": "^4.0",
+        "nativephp/compose-ui": "dev-main",
         "nativephp/mobile": "dev-element",
         "nativephp/mobile-device": "^1.0",
         "nativephp/mobile-dialog": "^1.0"
