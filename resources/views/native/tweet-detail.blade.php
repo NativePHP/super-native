@@ -1,4 +1,4 @@
-<native:scroll-view class="w-full h-full bg-white safe-area">
+<native:scroll-view class="w-full h-full bg-theme-surface safe-area">
     <native:column class="w-full gap-0 ">
 
         {{-- Top Bar --}}
@@ -6,7 +6,7 @@
             <native:column @press="back" class="w-[32] h-[32] rounded-full items-center justify-center">
                 <native:icon name="arrow_back" :size="22" color="#0F1419" />
             </native:column>
-            <native:text class="text-[18] font-bold text-[#0F1419]">Post</native:text>
+            <native:text class="text-[18] font-bold text-theme-on-surface">Post</native:text>
         </native:row>
 
         <native:divider class="w-full" />
@@ -21,7 +21,7 @@
             />
             <native:column @press="viewProfile({{ $tweet['userId'] }})">
                 <native:row class="items-center gap-1">
-                    <native:text class="text-[16] font-bold text-[#0F1419]">{{ $tweet['user']['name'] }}</native:text>
+                    <native:text class="text-[16] font-bold text-theme-on-surface">{{ $tweet['user']['name'] }}</native:text>
                     @if ($tweet['user']['isVerified'])
                         <native:icon name="verified" :size="16" color="#1D9BF0" />
                     @endif
@@ -32,7 +32,7 @@
 
         {{-- Tweet Text --}}
         <native:column class="w-full px-4 pt-3">
-            <native:text class="text-[17] text-[#0F1419]">{{ $tweet['text'] }}</native:text>
+            <native:text class="text-[17] text-theme-on-surface">{{ $tweet['text'] }}</native:text>
         </native:column>
 
         {{-- Optional Image --}}
@@ -56,11 +56,11 @@
         {{-- Engagement Stats --}}
         <native:row class="w-full px-4 py-3 gap-4">
             <native:row class="items-center gap-1">
-                <native:text class="text-[14] font-bold text-[#0F1419]">{{ $retweetFormatted }}</native:text>
+                <native:text class="text-[14] font-bold text-theme-on-surface">{{ $retweetFormatted }}</native:text>
                 <native:text class="text-[14] text-[#536471]">Reposts</native:text>
             </native:row>
             <native:row class="items-center gap-1">
-                <native:text class="text-[14] font-bold text-[#0F1419]">{{ $likeFormatted }}</native:text>
+                <native:text class="text-[14] font-bold text-theme-on-surface">{{ $likeFormatted }}</native:text>
                 <native:text class="text-[14] text-[#536471]">Likes</native:text>
             </native:row>
         </native:row>
@@ -99,9 +99,9 @@
                     />
 
                     {{-- Reply Content --}}
-                    <native:column class="w-[300] gap-1">
+                    <native:column class="flex-1 gap-1">
                         <native:row class="items-center gap-1">
-                            <native:text class="text-[14] font-bold text-[#0F1419]">{{ $reply['user']['name'] }}</native:text>
+                            <native:text class="text-[14] font-bold text-theme-on-surface">{{ $reply['user']['name'] }}</native:text>
                             @if ($reply['user']['isVerified'])
                                 <native:icon name="verified" :size="14" color="#1D9BF0" />
                             @endif
@@ -109,7 +109,7 @@
                             <native:text class="text-[13] text-[#536471]">· {{ $reply['time'] }}</native:text>
                         </native:row>
 
-                        <native:text class="text-[14] text-[#0F1419]">{{ $reply['text'] }}</native:text>
+                        <native:text class="text-[14] text-theme-on-surface">{{ $reply['text'] }}</native:text>
 
                         {{-- Reply Actions --}}
                         <native:row class="items-center gap-4 pt-1">

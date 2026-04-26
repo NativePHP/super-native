@@ -1,4 +1,4 @@
-<native:column class="w-full h-full bg-white safe-area">
+<native:column class="w-full h-full bg-theme-surface safe-area">
 
     {{-- Top Bar --}}
     <native:row class="w-full px-4 py-3 items-center justify-between">
@@ -23,7 +23,7 @@
             class="w-[40] h-[40] rounded-full"
             :fit="2"
         />
-        <native:column class="w-[300]">
+        <native:column class="flex-1">
             <native:text-input
                 value="{{ $tweetText }}"
                 placeholder="What is happening?!"

@@ -10,8 +10,8 @@
                 class="w-[32] h-[32] rounded-full"
                 :fit="2"
             />
-            <native:text class="text-[30] font-bold text-[#0F1419]">𝕏</native:text>
-            <native:column @press="composeTweet" class="w-[32] h-[32] rounded-full bg-[#1D9BF0] items-center justify-center">
+            <native:text class="text-[30] font-bold text-theme-on-surface">𝕏</native:text>
+            <native:column @press="composeTweet" class="w-[32] h-[32] rounded-full items-center justify-center">
                 <native:icon name="edit" :size="18" color="#FFFFFF" />
             </native:column>
         </native:row>
@@ -37,10 +37,10 @@
                     />
 
                     {{-- Tweet Content --}}
-                    <native:column @press="viewTweet({{ $index }})" class="w-[300] gap-1">
+                    <native:column @press="viewTweet({{ $index }})" class="flex-1 gap-1">
                         {{-- Name Row --}}
                         <native:row class="items-center gap-1">
-                            <native:text class="text-[15] font-bold text-[#0F1419]">{{ $tweet['user']['name'] }}</native:text>
+                            <native:text class="text-[15] font-bold text-theme-on-surface">{{ $tweet['user']['name'] }}</native:text>
                             @if ($tweet['user']['isVerified'])
                                 <native:icon name="verified" :size="16" color="#1D9BF0" />
                             @endif
@@ -49,7 +49,7 @@
                         </native:row>
 
                         {{-- Tweet Text --}}
-                        <native:text class="text-sm text-gray-800">{{ $tweet['text'] }}</native:text>
+                        <native:text class="text-sm text-theme-on-surface">{{ $tweet['text'] }}</native:text>
 
                         {{-- Optional Image --}}
                         @if ($tweet['imageUrl'])
@@ -79,7 +79,7 @@
                                     :size="18"
                                     color="{{ $tweet['isLiked'] ? '#F91880' : '#536471' }}"
                                 />
-                                <native:text class="text-[13] text-{{ $tweet['isLiked'] ? '[#F91880]' : '[#536471]' }}">{{ $tweet['likeFormatted'] }}</native:text>
+                                <native:text class="text-[13] {{ $tweet['isLiked'] ? 'text-[#F91880]' : 'text-[#536471]' }}">{{ $tweet['likeFormatted'] }}</native:text>
                             </native:row>
                             {{-- Share --}}
                             <native:icon name="share" :size="18" color="#536471" />
