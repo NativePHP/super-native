@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Native\Mobile\Providers\DeviceServiceProvider;
 use Native\Mobile\Providers\DialogServiceProvider;
 use Nativephp\ComposeUi\ComposeUIServiceProvider;
+use Nativephp\NativeUi\NativeUIServiceProvider;
 
 class NativeServiceProvider extends ServiceProvider
 {
@@ -37,7 +38,7 @@ class NativeServiceProvider extends ServiceProvider
     public function plugins(): array
     {
         return [
-            ComposeUIServiceProvider::class,
+            NativeUIServiceProvider::class,
             DialogServiceProvider::class,
             DeviceServiceProvider::class,
             //            \Local\DoomGame\DoomGameServiceProvider::class,
