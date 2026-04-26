@@ -8,6 +8,10 @@
         "framework"
     ],
     "repositories": {
+        "mobile": {
+            "type": "vcs",
+            "url": "https://github.com/NativePHP/mobile-air.git"
+        },
         "ui": {
             "type": "vcs",
             "url": "https://github.com/NativePHP/compose-ui.git"
@@ -24,7 +28,7 @@
         "laravel/framework": "^13.0",
         "laravel/tinker": "^3.0",
         "livewire/livewire": "^4.0",
-        "nativephp/compose-ui": "dev-main",
+        "nativephp/native-ui": "dev-main",
         "nativephp/mobile": "dev-element",
         "nativephp/mobile-device": "^1.0",
         "nativephp/mobile-dialog": "^1.0"
