@@ -1,6 +1,8 @@
-{{--<native:column class="w-full h-full bg-white dark:bg-zinc-800">--}}
-<native:scroll-view class="flex-1 w-full bg-white ">
-    <native:column class="flex-1 p-5 gap-5 safe-area">
+{{-- <native:screen> applies theme.background + sets default text color to theme.onBackground
+     for everything inside. Adapts automatically to system dark mode. --}}
+<native:screen>
+    <native:scroll-view class="flex-1 w-full ">
+        <native:column class="flex-1 p-5 gap-5 safe-area">
 
         {{-- ============================================= --}}
         {{-- HEADER --}}
@@ -17,7 +19,7 @@
         {{-- LIST (Pull-to-Refresh + Infinite Scroll) --}}
         {{-- ============================================= --}}
         <native:text class="text-lg font-semibold text-gray-700">List</native:text>
-        <native:text class="text-xs text-gray-400">{{ count($items) }} items · Refreshed {{ $refreshCount }}x · Pull down or scroll to bottom</native:text>
+        <native:text class="text-sm text-gray-400">{{ count($items) }} items · Refreshed {{ $refreshCount }}x · Pull down or scroll to bottom</native:text>
 
         <native:list @refresh="refreshList" @endReached="loadMore" separator class="h-[500] w-full bg-gray-50 rounded-lg">
             @foreach ($items as $item)
@@ -27,8 +29,8 @@
                     </native:column>
                     <native:column class="flex-1 gap-0.5">
                         <native:text class="text-sm font-semibold text-gray-900 ">{{ $item['name'] }}</native:text>
-                        <native:text class="text-xs text-gray-600 ">{{ $item['description'] }}</native:text>
-                        <native:text class="text-xs text-gray-400">{{ $item['email'] }} · {{ $item['city'] }}</native:text>
+                        <native:text class="text-sm text-gray-600 ">{{ $item['description'] }}</native:text>
+                        <native:text class="text-sm text-gray-400">{{ $item['email'] }} · {{ $item['city'] }}</native:text>
                     </native:column>
                 </native:row>
             @endforeach
@@ -53,7 +55,7 @@
         <native:modal :visible="$showModal" @dismiss="closeModal">
             <native:column class="flex-1 p-6 gap-4 bg-white ">
                 <native:text class="text-2xl font-bold ">Full-Screen Modal</native:text>
-                <native:text class="text-base text-gray-600 ">This is a full-screen modal overlay. Tap the X or press back to dismiss.</native:text>
+                <native:text class="text-gray-600 ">This is a full-screen modal overlay. Tap the X or press back to dismiss.</native:text>
                 <native:divider/>
                 <native:text class="text-sm text-[]]0">You can put any content here — forms, lists, images, anything.</native:text>
                 <native:button @press="closeModal" class="bg-red-500 rounded-lg px-5 py-3 mt-4">
@@ -67,12 +69,21 @@
                 <native:text class="text-lg font-bold dark:text-white">Bottom Sheet</native:text>
                 <native:text class="text-sm text-gray-400">Drag down or tap outside to dismiss.</native:text>
                 <native:divider/>
-                <native:list-item headline="Option 1" leading-icon="star" supporting="First option"/>
-                <native:list-item headline="Option 2" leading-icon="favorite" supporting="Second option"/>
-                <native:list-item headline="Option 3" leading-icon="settings" supporting="Third option"/>
-                <native:button @press="closeSheet" class="bg-blue-500 rounded-xl px-5 py-3.5 mt-2">
-                    Done
-                </native:button>
+                {{-- List rows composed from primitives (icon + column(headline + supporting)) --}}
+                @foreach ([
+                    ['icon' => 'star',     'headline' => 'Option 1', 'supporting' => 'First option'],
+                    ['icon' => 'favorite', 'headline' => 'Option 2', 'supporting' => 'Second option'],
+                    ['icon' => 'settings', 'headline' => 'Option 3', 'supporting' => 'Third option'],
+                ] as $row)
+                    <native:row class="items-center gap-3 py-2">
+                        <native:icon :name="$row['icon']" :size="24" color="#475569"/>
+                        <native:column class="flex-1 gap-0">
+                            <native:text class="text-base font-medium">{{ $row['headline'] }}</native:text>
+                            <native:text class="text-sm text-gray-500">{{ $row['supporting'] }}</native:text>
+                        </native:column>
+                    </native:row>
+                @endforeach
+                <native:button variant="primary" @press="closeSheet">Done</native:button>
             </native:column>
         </native:bottom-sheet>
 
@@ -83,29 +94,29 @@
         {{-- ============================================= --}}
         <native:text class="text-lg font-semibold text-gray-700 ">Typography</native:text>
         <native:column class="w-full gap-2">
-            <native:text class="text-xs text-gray-500 ">text-xs (12pt) — The quick brown fox</native:text>
+            <native:text class="text-xs text-gray-600 ">text-xs (12pt) — The quick brown fox</native:text>
             <native:text class="text-sm text-gray-600 ">text-sm (14pt) — The quick brown fox</native:text>
-            <native:text class="text-base text-gray-700 ">text-base (16pt) — The quick brown fox</native:text>
-            <native:text class="text-lg text-gray-800 ">text-lg (18pt) — The quick brown fox</native:text>
-            <native:text class="text-xl text-gray-900 ">text-xl (20pt) — The quick brown fox</native:text>
-            <native:text class="text-2xl font-bold text-black ">text-2xl bold</native:text>
-            <native:text class="text-3xl font-extrabold text-black ">text-3xl extrabold</native:text>
+            <native:text class="text-gray-600 ">(16pt) — The quick brown fox</native:text>
+            <native:text class="text-lg text-gray-600 ">text-lg (18pt) — The quick brown fox</native:text>
+            <native:text class="text-xl text-gray-600 ">text-xl (20pt) — The quick brown fox</native:text>
+            <native:text class="text-2xl font-bold text-gray-600 ">text-2xl bold</native:text>
+            <native:text class="text-3xl font-extrabold text-gray-600 ">text-3xl extrabold</native:text>
         </native:column>
 
         <native:column class="w-full gap-1 mt-2">
-            <native:text class="font-thin text-base ">font-thin</native:text>
-            <native:text class="font-light text-base ">font-light</native:text>
-            <native:text class="font-normal text-base ">font-normal</native:text>
-            <native:text class="font-medium text-base ">font-medium</native:text>
-            <native:text class="font-semibold text-base ">font-semibold</native:text>
-            <native:text class="font-bold text-base ">font-bold</native:text>
-            <native:text class="font-extrabold text-base ">font-extrabold</native:text>
+            <native:text class="font-thin text-gray-600 dark:text-purple-600">font-thin</native:text>
+            <native:text class="font-light text-gray-600 dark:text-purple-600">font-light</native:text>
+            <native:text class="font-normal text-gray-600 dark:text-purple-600">font-normal</native:text>
+            <native:text class="font-medium text-gray-600 dark:text-purple-600">font-medium</native:text>
+            <native:text class="font-semibold text-gray-600 dark:text-purple-600">font-semibold</native:text>
+            <native:text class="font-bold text-gray-600 dark:text-purple-600">font-bold</native:text>
+            <native:text class="font-extrabold text-gray-600 dark:text-purple-600">font-extrabold</native:text>
         </native:column>
 
         <native:column class="w-full gap-1 mt-2">
-            <native:text class="text-base text-left w-full ">text-left aligned</native:text>
-            <native:text class="text-base text-center w-full ">text-center aligned</native:text>
-            <native:text class="text-base text-right w-full ">text-right aligned</native:text>
+            <native:text class="text-left w-full ">text-left aligned</native:text>
+            <native:text class="text-center w-full ">text-center aligned</native:text>
+            <native:text class="text-right w-full ">text-right aligned</native:text>
         </native:column>
 
         <native:divider/>
@@ -116,7 +127,7 @@
         <native:text class="text-lg font-semibold text-gray-700 ">All Tailwind Colors</native:text>
 
         {{-- Slate --}}
-        <native:text class="text-xs text-gray-500 ">Slate</native:text>
+        <native:text class="text-sm text-gray-500 ">Slate</native:text>
         <native:row class="w-full gap-1">
             <native:column class="flex-1 h-[32] rounded-sm bg-slate-100"/>
             <native:column class="flex-1 h-[32] rounded-sm bg-slate-200"/>
@@ -130,7 +141,7 @@
         </native:row>
 
         {{-- Gray --}}
-        <native:text class="text-xs text-gray-500 ">Gray</native:text>
+        <native:text class="text-sm text-gray-500 ">Gray</native:text>
         <native:row class="w-full gap-1">
             <native:column class="flex-1 h-[32] rounded-sm bg-gray-100"/>
             <native:column class="flex-1 h-[32] rounded-sm bg-gray-200"/>
@@ -144,7 +155,7 @@
         </native:row>
 
         {{-- Zinc --}}
-        <native:text class="text-xs text-gray-500 ">Zinc</native:text>
+        <native:text class="text-sm text-gray-500 ">Zinc</native:text>
         <native:row class="w-full gap-1">
             <native:column class="flex-1 h-[32] rounded-sm bg-zinc-100"/>
             <native:column class="flex-1 h-[32] rounded-sm bg-zinc-200"/>
@@ -158,7 +169,7 @@
         </native:row>
 
         {{-- Neutral --}}
-        <native:text class="text-xs text-gray-500 ">Neutral</native:text>
+        <native:text class="text-sm text-gray-500 ">Neutral</native:text>
         <native:row class="w-full gap-1">
             <native:column class="flex-1 h-[32] rounded-sm bg-neutral-100"/>
             <native:column class="flex-1 h-[32] rounded-sm bg-neutral-200"/>
@@ -172,7 +183,7 @@
         </native:row>
 
         {{-- Stone --}}
-        <native:text class="text-xs text-gray-500 ">Stone</native:text>
+        <native:text class="text-sm text-gray-500 ">Stone</native:text>
         <native:row class="w-full gap-1">
             <native:column class="flex-1 h-[32] rounded-sm bg-stone-100"/>
             <native:column class="flex-1 h-[32] rounded-sm bg-stone-200"/>
@@ -186,7 +197,7 @@
         </native:row>
 
         {{-- Red --}}
-        <native:text class="text-xs text-gray-500 ">Red</native:text>
+        <native:text class="text-sm text-gray-500 ">Red</native:text>
         <native:row class="w-full gap-1">
             <native:column class="flex-1 h-[32] rounded-sm bg-red-100"/>
             <native:column class="flex-1 h-[32] rounded-sm bg-red-200"/>
@@ -200,7 +211,7 @@
         </native:row>
 
         {{-- Orange --}}
-        <native:text class="text-xs text-gray-500 ">Orange</native:text>
+        <native:text class="text-sm text-gray-500 ">Orange</native:text>
         <native:row class="w-full gap-1">
             <native:column class="flex-1 h-[32] rounded-sm bg-orange-100"/>
             <native:column class="flex-1 h-[32] rounded-sm bg-orange-200"/>
@@ -214,7 +225,7 @@
         </native:row>
 
         {{-- Amber --}}
-        <native:text class="text-xs text-gray-500 ">Amber</native:text>
+        <native:text class="text-sm text-gray-500 ">Amber</native:text>
         <native:row class="w-full gap-1">
             <native:column class="flex-1 h-[32] rounded-sm bg-amber-100"/>
             <native:column class="flex-1 h-[32] rounded-sm bg-amber-200"/>
@@ -228,7 +239,7 @@
         </native:row>
 
         {{-- Yellow --}}
-        <native:text class="text-xs text-gray-500 ">Yellow</native:text>
+        <native:text class="text-sm text-gray-500 ">Yellow</native:text>
         <native:row class="w-full gap-1">
             <native:column class="flex-1 h-[32] rounded-sm bg-yellow-100"/>
             <native:column class="flex-1 h-[32] rounded-sm bg-yellow-200"/>
@@ -242,7 +253,7 @@
         </native:row>
 
         {{-- Lime --}}
-        <native:text class="text-xs text-gray-500 ">Lime</native:text>
+        <native:text class="text-sm text-gray-500 ">Lime</native:text>
         <native:row class="w-full gap-1">
             <native:column class="flex-1 h-[32] rounded-sm bg-lime-100"/>
             <native:column class="flex-1 h-[32] rounded-sm bg-lime-200"/>
@@ -256,7 +267,7 @@
         </native:row>
 
         {{-- Green --}}
-        <native:text class="text-xs text-gray-500 ">Green</native:text>
+        <native:text class="text-sm text-gray-500 ">Green</native:text>
         <native:row class="w-full gap-1">
             <native:column class="flex-1 h-[32] rounded-sm bg-green-100"/>
             <native:column class="flex-1 h-[32] rounded-sm bg-green-200"/>
@@ -270,7 +281,7 @@
         </native:row>
 
         {{-- Emerald --}}
-        <native:text class="text-xs text-gray-500 ">Emerald</native:text>
+        <native:text class="text-sm text-gray-500 ">Emerald</native:text>
         <native:row class="w-full gap-1">
             <native:column class="flex-1 h-[32] rounded-sm bg-emerald-100"/>
             <native:column class="flex-1 h-[32] rounded-sm bg-emerald-200"/>
@@ -284,7 +295,7 @@
         </native:row>
 
         {{-- Teal --}}
-        <native:text class="text-xs text-gray-500 ">Teal</native:text>
+        <native:text class="text-sm text-gray-500 ">Teal</native:text>
         <native:row class="w-full gap-1">
             <native:column class="flex-1 h-[32] rounded-sm bg-teal-100"/>
             <native:column class="flex-1 h-[32] rounded-sm bg-teal-200"/>
@@ -298,7 +309,7 @@
         </native:row>
 
         {{-- Cyan --}}
-        <native:text class="text-xs text-gray-500 ">Cyan</native:text>
+        <native:text class="text-sm text-gray-500 ">Cyan</native:text>
         <native:row class="w-full gap-1">
             <native:column class="flex-1 h-[32] rounded-sm bg-cyan-100"/>
             <native:column class="flex-1 h-[32] rounded-sm bg-cyan-200"/>
@@ -312,7 +323,7 @@
         </native:row>
 
         {{-- Sky --}}
-        <native:text class="text-xs text-gray-500 ">Sky</native:text>
+        <native:text class="text-sm text-gray-500 ">Sky</native:text>
         <native:row class="w-full gap-1">
             <native:column class="flex-1 h-[32] rounded-sm bg-sky-100"/>
             <native:column class="flex-1 h-[32] rounded-sm bg-sky-200"/>
@@ -326,7 +337,7 @@
         </native:row>
 
         {{-- Blue --}}
-        <native:text class="text-xs text-gray-500 ">Blue</native:text>
+        <native:text class="text-sm text-gray-500 ">Blue</native:text>
         <native:row class="w-full gap-1">
             <native:column class="flex-1 h-[32] rounded-sm bg-blue-100"/>
             <native:column class="flex-1 h-[32] rounded-sm bg-blue-200"/>
@@ -340,7 +351,7 @@
         </native:row>
 
         {{-- Indigo --}}
-        <native:text class="text-xs text-gray-500 ">Indigo</native:text>
+        <native:text class="text-sm text-gray-500 ">Indigo</native:text>
         <native:row class="w-full gap-1">
             <native:column class="flex-1 h-[32] rounded-sm bg-indigo-100"/>
             <native:column class="flex-1 h-[32] rounded-sm bg-indigo-200"/>
@@ -354,7 +365,7 @@
         </native:row>
 
         {{-- Violet --}}
-        <native:text class="text-xs text-gray-500 ">Violet</native:text>
+        <native:text class="text-sm text-gray-500 ">Violet</native:text>
         <native:row class="w-full gap-1">
             <native:column class="flex-1 h-[32] rounded-sm bg-violet-100"/>
             <native:column class="flex-1 h-[32] rounded-sm bg-violet-200"/>
@@ -368,7 +379,7 @@
         </native:row>
 
         {{-- Purple --}}
-        <native:text class="text-xs text-gray-500 ">Purple</native:text>
+        <native:text class="text-sm text-gray-500 ">Purple</native:text>
         <native:row class="w-full gap-1">
             <native:column class="flex-1 h-[32] rounded-sm bg-purple-100"/>
             <native:column class="flex-1 h-[32] rounded-sm bg-purple-200"/>
@@ -382,7 +393,7 @@
         </native:row>
 
         {{-- Fuchsia --}}
-        <native:text class="text-xs text-gray-500 ">Fuchsia</native:text>
+        <native:text class="text-sm text-gray-500 ">Fuchsia</native:text>
         <native:row class="w-full gap-1">
             <native:column class="flex-1 h-[32] rounded-sm bg-fuchsia-100"/>
             <native:column class="flex-1 h-[32] rounded-sm bg-fuchsia-200"/>
@@ -396,7 +407,7 @@
         </native:row>
 
         {{-- Pink --}}
-        <native:text class="text-xs text-gray-500 ">Pink</native:text>
+        <native:text class="text-sm text-gray-500 ">Pink</native:text>
         <native:row class="w-full gap-1">
             <native:column class="flex-1 h-[32] rounded-sm bg-pink-100"/>
             <native:column class="flex-1 h-[32] rounded-sm bg-pink-200"/>
@@ -410,7 +421,7 @@
         </native:row>
 
         {{-- Rose --}}
-        <native:text class="text-xs text-gray-500 ">Rose</native:text>
+        <native:text class="text-sm text-gray-500 ">Rose</native:text>
         <native:row class="w-full gap-1">
             <native:column class="flex-1 h-[32] rounded-sm bg-rose-100"/>
             <native:column class="flex-1 h-[32] rounded-sm bg-rose-200"/>
@@ -426,69 +437,81 @@
         <native:divider/>
 
         {{-- ============================================= --}}
-        {{-- BUTTONS --}}
+        {{-- BUTTONS — new semantic API --}}
         {{-- ============================================= --}}
         <native:text class="text-lg font-semibold text-gray-700 ">Buttons</native:text>
 
-        {{-- Solid buttons — horizontal scroll --}}
-        <native:scroll-view :horizontal="true" class="w-full h-[52]">
-            <native:row class="gap-2 h-[52]">
-                <native:button @press="increment" class="bg-blue-500 rounded-lg px-5 py-3 text-white font-semibold">
-                    Primary
-                </native:button>
-                <native:button @press="decrement" class="bg-red-500 rounded-lg px-5 py-3 text-white font-semibold">
-                    Danger
-                </native:button>
-                <native:button @press="increment" class="bg-green-500 rounded-lg px-5 py-3 text-white font-semibold">
-                    Success
-                </native:button>
-                <native:button @press="increment" class="bg-amber-500 rounded-lg px-5 py-3 text-white font-semibold">
-                    Warning
-                </native:button>
-                <native:button @press="increment" class="bg-purple-500 rounded-lg px-5 py-3 text-white font-semibold">
-                    Purple
-                </native:button>
-                <native:button @press="increment" class="bg-pink-500 rounded-lg px-5 py-3 text-white font-semibold">
-                    Pink
-                </native:button>
-            </native:row>
-        </native:scroll-view>
-
-        {{-- Pill buttons — horizontal scroll --}}
-        <native:scroll-view :horizontal="true" class="w-full h-[44]">
-            <native:row class="gap-2 h-[44]">
-                <native:button @press="increment" class="bg-indigo-500 rounded-full px-6 py-2 text-white">
-                    Pill Button
-                </native:button>
-                <native:button @press="increment" class="bg-pink-500 rounded-full px-6 py-2 text-white">
-                    Pink Pill
-                </native:button>
-                <native:button @press="increment" class="bg-teal-500 rounded-full px-6 py-2 text-white">
-                    Teal Pill
-                </native:button>
-                <native:button @press="increment" class="bg-rose-500 rounded-full px-6 py-2 text-white">
-                    Rose Pill
-                </native:button>
-                <native:button @press="increment" class="bg-cyan-500 rounded-full px-6 py-2 text-white">
-                    Cyan Pill
-                </native:button>
-            </native:row>
-        </native:scroll-view>
-
-        {{-- Outlined / ghost style buttons --}}
-        <native:row class="w-full gap-2 flex-wrap">
-            <native:pressable @press="increment" class="border-2 border-blue-500 rounded-lg px-5 py-2">
-                <native:text class="text-blue-500 font-semibold">Outlined</native:text>
-            </native:pressable>
-            <native:pressable @press="increment" class="border-2 border-red-500 rounded-lg px-5 py-2">
-                <native:text class="text-red-500 font-semibold">Outlined</native:text>
-            </native:pressable>
-            <native:pressable @press="increment" class="rounded-lg px-5 py-2">
-                <native:text class="text-blue-500 font-semibold">Ghost</native:text>
-            </native:pressable>
+        {{-- Variants (primary / secondary / destructive / ghost) --}}
+        <native:text class="text-sm text-gray-500">Variants</native:text>
+        <native:row class="w-full gap-2 flex-wrap items-center">
+            <native:button class="text-xs" variant="primary" @press="increment">Primary</native:button>
+            <native:button class="text-xs" variant="secondary" @press="increment">Secondary</native:button>
+            <native:button class="text-xs" variant="destructive" @press="decrement">Destructive</native:button>
+            <native:button class="text-xs" variant="ghost" @press="increment">Ghost</native:button>
         </native:row>
 
-        {{-- Icon buttons --}}
+        {{-- Sizes --}}
+        <native:text class="text-sm text-gray-500">Sizes</native:text>
+        <native:row class="w-full gap-2 items-center flex-wrap">
+            <native:button variant="primary" size="sm" @press="increment">Small</native:button>
+            <native:button variant="primary" size="md" @press="increment">Medium</native:button>
+            <native:button variant="primary" size="lg" @press="increment">Large</native:button>
+        </native:row>
+
+        {{-- Icons (leading + trailing) --}}
+        {{-- Prefer short generic names ("add", "edit", "delete", "settings") —
+             they're in IconHelper's manual map on iOS and Material's canonical
+             names on Android. For icons without a map entry, use dotted SF
+             Symbol paths ("arrow.right", "minus.circle.fill") which iOS passes
+             through directly. --}}
+        <native:text class="text-sm text-gray-500">With icons</native:text>
+        <native:row class="w-full gap-2 items-center flex-wrap">
+            <native:button variant="primary" icon="add" @press="increment">Add item</native:button>
+            <native:button variant="secondary" icon-trailing="arrow.right" @press="increment">Next</native:button>
+            <native:button variant="destructive" icon="delete" @press="decrement">Delete</native:button>
+        </native:row>
+
+        {{-- Icon-only (needs a11y-label) --}}
+        <native:text class="text-sm text-gray-500">Icon-only</native:text>
+        <native:row class="w-full gap-2 items-center">
+            <native:button variant="primary" icon="add" a11y-label="Add" @press="increment"/>
+            <native:button variant="secondary" icon="edit" a11y-label="Edit" @press="increment"/>
+            <native:button variant="destructive" icon="delete" a11y-label="Delete" @press="decrement"/>
+            <native:button variant="ghost" icon="settings" a11y-label="Settings" @press="increment"/>
+        </native:row>
+
+        {{-- States --}}
+        <native:text class="text-sm text-gray-500">States</native:text>
+        <native:row class="w-full gap-2 items-center flex-wrap">
+            <native:button variant="primary" @press="increment">Enabled</native:button>
+            <native:button variant="primary" disabled @press="increment">Disabled</native:button>
+            <native:button variant="primary" loading @press="increment">Loading</native:button>
+        </native:row>
+
+        {{-- Custom look — escape hatch via <native:pressable> --}}
+        {{-- Use this when Model 3 constraints on <native:button> are too strict. --}}
+        <native:text class="text-sm text-gray-500">Custom look (via pressable)</native:text>
+        <native:scroll-view :horizontal="true" class="w-full h-[44]">
+            <native:row class="gap-2 h-[44]">
+                <native:pressable @press="increment" class="bg-pink-500 rounded-full px-6 py-2 items-center justify-center">
+                    <native:text class="text-white font-semibold">Pink Pill</native:text>
+                </native:pressable>
+                <native:pressable @press="increment" class="bg-teal-500 rounded-full px-6 py-2 items-center justify-center">
+                    <native:text class="text-white font-semibold">Teal Pill</native:text>
+                </native:pressable>
+                <native:pressable @press="increment" class="bg-rose-500 rounded-full px-6 py-2 items-center justify-center">
+                    <native:text class="text-white font-semibold">Rose Pill</native:text>
+                </native:pressable>
+                <native:pressable @press="increment" class="border-2 border-blue-500 rounded-lg px-5 py-2 items-center justify-center">
+                    <native:text class="text-blue-500 font-semibold">Outlined blue</native:text>
+                </native:pressable>
+                <native:pressable @press="increment" class="border-2 border-red-500 rounded-lg px-5 py-2 items-center justify-center">
+                    <native:text class="text-red-500 font-semibold">Outlined red</native:text>
+                </native:pressable>
+            </native:row>
+        </native:scroll-view>
+
+        {{-- Icon circles — still via pressable (custom shape + color) --}}
         <native:row class="w-full gap-3 items-center">
             <native:pressable @press="increment"
                               class="w-[48] h-[48] rounded-full bg-blue-500 items-center justify-center">
@@ -514,31 +537,72 @@
 
         <native:divider/>
 
+        <native:divider/>
+
+        {{-- ============================================= --}}
+        {{-- THEME & SURFACES --}}
+        {{-- ============================================= --}}
+        <native:text class="text-lg font-semibold">Theme & Surfaces</native:text>
+        <native:text class="text-sm text-gray-500">All colors below come from the active theme. Toggle system dark mode to see them flip.</native:text>
+
+        {{-- Color token swatches. `bg-theme-<token>` + `text-theme-on-<token>`
+             resolve against `config/native-ui.php`. Tokens are LIGHT-mode hex
+             values at parse time; full dark-mode component theming is handled
+             by <native:screen> (page backdrop) and upcoming Card components. --}}
+        <native:row class="w-full gap-2 flex-wrap">
+            <native:column class="flex-1 h-[72] rounded-lg p-3 bg-theme-primary justify-center items-center min-w-[120]">
+                <native:text class="font-semibold text-theme-on-primary">Primary</native:text>
+                <native:text class="text-xs text-theme-on-primary">on-primary</native:text>
+            </native:column>
+            <native:column class="flex-1 h-[72] rounded-lg p-3 bg-theme-secondary justify-center items-center min-w-[120]">
+                <native:text class="font-semibold text-theme-on-secondary">Secondary</native:text>
+                <native:text class="text-xs text-theme-on-secondary">on-secondary</native:text>
+            </native:column>
+        </native:row>
+        <native:row class="w-full gap-2 flex-wrap">
+            <native:column class="flex-1 h-[72] rounded-lg p-3 bg-theme-destructive justify-center items-center min-w-[120]">
+                <native:text class="font-semibold text-theme-on-destructive">Destructive</native:text>
+                <native:text class="text-xs text-theme-on-destructive">on-destructive</native:text>
+            </native:column>
+            <native:column class="flex-1 h-[72] rounded-lg p-3 bg-theme-accent justify-center items-center min-w-[120]">
+                <native:text class="font-semibold text-theme-on-accent">Accent</native:text>
+                <native:text class="text-xs text-theme-on-accent">on-accent</native:text>
+            </native:column>
+        </native:row>
+
+        {{-- Surface-on-background: demonstrates visual hierarchy. The outer
+             <native:screen> is painting theme.background; this card uses
+             theme.surface. On most themes surface is subtly lighter than
+             background — notice how the card visibly "floats" on the page. --}}
+        <native:column class="bg-theme-surface rounded-lg p-4 gap-2">
+            <native:text class="font-semibold text-theme-on-surface">Surface card</native:text>
+            <native:text class="text-sm text-theme-on-surface">
+                This column uses `bg-theme-surface` and its text uses `text-theme-on-surface`.
+                Cards, sheets, and list rows use these tokens so they pop off the background.
+            </native:text>
+        </native:column>
+
+        <native:divider/>
+
         {{-- ============================================= --}}
         {{-- INTERACTIVE COUNTER --}}
         {{-- ============================================= --}}
         <native:text class="text-lg font-semibold text-gray-700 ">Interactive Counter</native:text>
         <native:row class="w-full gap-4 items-center justify-center">
-            <native:button @press="decrement" class="bg-red-500 rounded-full px-6 py-3 text-white font-bold text-xl">
-                −
-            </native:button>
+            <native:button variant="destructive" size="lg" icon="minus.circle.fill" a11y-label="Decrement" @press="decrement"/>
             <native:column class="w-[80] h-[80] rounded-2xl bg-indigo-600 items-center justify-center shadow-lg">
                 <native:text class="text-white font-extrabold text-3xl">{{ $count }}</native:text>
             </native:column>
-            <native:button @press="increment" class="bg-green-500 rounded-full px-6 py-3 text-white font-bold text-xl">
-                +
-            </native:button>
+            <native:button variant="primary" size="lg" icon="add" a11y-label="Increment" @press="increment"/>
         </native:row>
 
         {{-- ============================================= --}}
         {{-- NATIVE EVENT LISTENER --}}
         {{-- ============================================= --}}
         <native:text class="text-lg font-semibold text-gray-700 ">Native Events</native:text>
-        <native:button @press="showAlert" class="bg-indigo-500 rounded-lg px-5 py-3 text-white font-semibold w-full">
-            Show Alert
-        </native:button>
+        <native:button variant="primary" size="lg" @press="showAlert">Show Alert</native:button>
         @if($lastButton)
-            <native:text class="text-base text-gray-600 ">You pressed: {{ $lastButton }}</native:text>
+            <native:text class="text-gray-600 ">You pressed: {{ $lastButton }}</native:text>
         @endif
 
         <native:divider/>
@@ -550,28 +614,28 @@
         <native:scroll-view :horizontal="true" class="w-full h-[80]">
             <native:row class="gap-3 items-center h-[64]">
                 <native:column class="w-[56] h-[56] bg-sky-500 rounded-none items-center justify-center">
-                    <native:text class="text-white text-xs">none</native:text>
+                    <native:text class="text-white text-sm">none</native:text>
                 </native:column>
                 <native:column class="w-[56] h-[56] bg-sky-500 rounded-sm items-center justify-center">
-                    <native:text class="text-white text-xs">sm</native:text>
+                    <native:text class="text-white text-sm">sm</native:text>
                 </native:column>
                 <native:column class="w-[56] h-[56] bg-sky-500 rounded-md items-center justify-center">
-                    <native:text class="text-white text-xs">md</native:text>
+                    <native:text class="text-white text-sm">md</native:text>
                 </native:column>
                 <native:column class="w-[56] h-[56] bg-sky-500 rounded-lg items-center justify-center">
-                    <native:text class="text-white text-xs">lg</native:text>
+                    <native:text class="text-white text-sm">lg</native:text>
                 </native:column>
                 <native:column class="w-[56] h-[56] bg-sky-500 rounded-xl items-center justify-center">
-                    <native:text class="text-white text-xs">xl</native:text>
+                    <native:text class="text-white text-sm">xl</native:text>
                 </native:column>
                 <native:column class="w-[56] h-[56] bg-sky-500 rounded-2xl items-center justify-center">
-                    <native:text class="text-white text-xs">2xl</native:text>
+                    <native:text class="text-white text-sm">2xl</native:text>
                 </native:column>
                 <native:column class="w-[56] h-[56] bg-sky-500 rounded-3xl items-center justify-center">
-                    <native:text class="text-white text-xs">3xl</native:text>
+                    <native:text class="text-white text-sm">3xl</native:text>
                 </native:column>
                 <native:column class="w-[56] h-[56] bg-sky-500 rounded-full items-center justify-center">
-                    <native:text class="text-white text-xs">full</native:text>
+                    <native:text class="text-white text-sm">full</native:text>
                 </native:column>
             </native:row>
         </native:scroll-view>
@@ -589,22 +653,22 @@
         <native:scroll-view :horizontal="true" class="w-full h-[76]">
             <native:row class="gap-3 items-center h-[76] px-2">
                 <native:column class="w-[70] h-[60] bg-white rounded-lg shadow-none items-center justify-center">
-                    <native:text class="text-xs text-gray-500 ">none</native:text>
+                    <native:text class="text-sm text-gray-500 ">none</native:text>
                 </native:column>
                 <native:column class="w-[70] h-[60] bg-white rounded-lg shadow-sm items-center justify-center">
-                    <native:text class="text-xs text-gray-500 ">sm</native:text>
+                    <native:text class="text-sm text-gray-500 ">sm</native:text>
                 </native:column>
                 <native:column class="w-[70] h-[60] bg-white rounded-lg shadow-md items-center justify-center">
-                    <native:text class="text-xs text-gray-500 ">md</native:text>
+                    <native:text class="text-sm text-gray-500 ">md</native:text>
                 </native:column>
                 <native:column class="w-[70] h-[60] bg-white rounded-lg shadow-lg items-center justify-center">
-                    <native:text class="text-xs text-gray-500 ">lg</native:text>
+                    <native:text class="text-sm text-gray-500 ">lg</native:text>
                 </native:column>
                 <native:column class="w-[70] h-[60] bg-white rounded-lg shadow-xl items-center justify-center">
-                    <native:text class="text-xs text-gray-500 ">xl</native:text>
+                    <native:text class="text-sm text-gray-500 ">xl</native:text>
                 </native:column>
                 <native:column class="w-[70] h-[60] bg-white rounded-lg shadow-2xl items-center justify-center">
-                    <native:text class="text-xs text-gray-500 ">2xl</native:text>
+                    <native:text class="text-sm text-gray-500 ">2xl</native:text>
                 </native:column>
             </native:row>
         </native:scroll-view>
@@ -617,16 +681,16 @@
         <native:text class="text-lg font-semibold text-gray-700 ">Borders</native:text>
         <native:row class="w-full gap-3 items-center">
             <native:column class="flex-1 h-[50] border border-gray-300 rounded-lg items-center justify-center">
-                <native:text class="text-xs text-gray-500 ">1px</native:text>
+                <native:text class="text-sm text-gray-500 ">1px</native:text>
             </native:column>
             <native:column class="flex-1 h-[50] border-2 border-blue-500 rounded-lg items-center justify-center">
-                <native:text class="text-xs text-blue-500">2px blue</native:text>
+                <native:text class="text-sm text-blue-500">2px blue</native:text>
             </native:column>
             <native:column class="flex-1 h-[50] border-4 border-red-500 rounded-lg items-center justify-center">
-                <native:text class="text-xs text-red-500">4px red</native:text>
+                <native:text class="text-sm text-red-500">4px red</native:text>
             </native:column>
             <native:column class="flex-1 h-[50] border-4 border-green-500 rounded-full items-center justify-center">
-                <native:text class="text-xs text-green-500">pill</native:text>
+                <native:text class="text-sm text-green-500">pill</native:text>
             </native:column>
         </native:row>
 
@@ -638,19 +702,19 @@
         <native:text class="text-lg font-semibold text-gray-700 ">Opacity</native:text>
         <native:row class="w-full gap-2 items-center">
             <native:column class="flex-1 h-[40] bg-blue-500 rounded-md opacity-100 items-center justify-center">
-                <native:text class="text-white text-xs">100</native:text>
+                <native:text class="text-white text-sm">100</native:text>
             </native:column>
             <native:column class="flex-1 h-[40] bg-blue-500 rounded-md opacity-75 items-center justify-center">
-                <native:text class="text-white text-xs">75</native:text>
+                <native:text class="text-white text-sm">75</native:text>
             </native:column>
             <native:column class="flex-1 h-[40] bg-blue-500 rounded-md opacity-50 items-center justify-center">
-                <native:text class="text-white text-xs">50</native:text>
+                <native:text class="text-white text-sm">50</native:text>
             </native:column>
             <native:column class="flex-1 h-[40] bg-blue-500 rounded-md opacity-25 items-center justify-center">
-                <native:text class="text-white text-xs">25</native:text>
+                <native:text class="text-white text-sm">25</native:text>
             </native:column>
             <native:column class="flex-1 h-[40] bg-blue-500 rounded-md opacity-10 items-center justify-center">
-                <native:text class="text-xs ">10</native:text>
+                <native:text class="text-sm ">10</native:text>
             </native:column>
         </native:row>
 
@@ -660,38 +724,38 @@
         {{-- ICONS — only mapped SF Symbol names --}}
         {{-- ============================================= --}}
         <native:text class="text-lg font-semibold text-gray-700 ">Icons</native:text>
-        <native:text class="text-xs text-gray-400 ">All mapped icon names</native:text>
+        <native:text class="text-sm text-gray-400 ">All mapped icon names</native:text>
 
         {{-- Row 1: Navigation --}}
         <native:scroll-view :horizontal="true" class="w-full h-[48]">
             <native:row class="gap-4 items-center h-[48]">
                 <native:column class="items-center gap-1">
                     <native:icon name="home" :size="24" color="#333333"/>
-                    <native:text class="text-xs text-gray-400 ">home</native:text>
+                    <native:text class="text-sm text-gray-400 ">home</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="search" :size="24" color="#007AFF"/>
-                    <native:text class="text-xs text-gray-400 ">search</native:text>
+                    <native:text class="text-sm text-gray-400 ">search</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="settings" :size="24" color="#8E8E93"/>
-                    <native:text class="text-xs text-gray-400 ">settings</native:text>
+                    <native:text class="text-sm text-gray-400 ">settings</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="dashboard" :size="24" color="#5856D6"/>
-                    <native:text class="text-xs text-gray-400 ">dashboard</native:text>
+                    <native:text class="text-sm text-gray-400 ">dashboard</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="menu" :size="24" color="#333333"/>
-                    <native:text class="text-xs text-gray-400 ">menu</native:text>
+                    <native:text class="text-sm text-gray-400 ">menu</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="person" :size="24" color="#FF2D55"/>
-                    <native:text class="text-xs text-gray-400 ">person</native:text>
+                    <native:text class="text-sm text-gray-400 ">person</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="profile" :size="24" color="#007AFF"/>
-                    <native:text class="text-xs text-gray-400 ">profile</native:text>
+                    <native:text class="text-sm text-gray-400 ">profile</native:text>
                 </native:column>
             </native:row>
         </native:scroll-view>
@@ -701,31 +765,31 @@
             <native:row class="gap-4 items-center h-[48]">
                 <native:column class="items-center gap-1">
                     <native:icon name="favorite" :size="24" color="#FF3B30"/>
-                    <native:text class="text-xs text-gray-400 ">favorite</native:text>
+                    <native:text class="text-sm text-gray-400 ">favorite</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="star" :size="24" color="#FF9500"/>
-                    <native:text class="text-xs text-gray-400 ">star</native:text>
+                    <native:text class="text-sm text-gray-400 ">star</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="bookmark" :size="24" color="#5856D6"/>
-                    <native:text class="text-xs text-gray-400 ">bookmark</native:text>
+                    <native:text class="text-sm text-gray-400 ">bookmark</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="photo" :size="24" color="#34C759"/>
-                    <native:text class="text-xs text-gray-400 ">photo</native:text>
+                    <native:text class="text-sm text-gray-400 ">photo</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="camera" :size="24" color="#FF9500"/>
-                    <native:text class="text-xs text-gray-400 ">camera</native:text>
+                    <native:text class="text-sm text-gray-400 ">camera</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="video" :size="24" color="#FF3B30"/>
-                    <native:text class="text-xs text-gray-400 ">video</native:text>
+                    <native:text class="text-sm text-gray-400 ">video</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="folder" :size="24" color="#007AFF"/>
-                    <native:text class="text-xs text-gray-400 ">folder</native:text>
+                    <native:text class="text-sm text-gray-400 ">folder</native:text>
                 </native:column>
             </native:row>
         </native:scroll-view>
@@ -735,27 +799,27 @@
             <native:row class="gap-4 items-center h-[48]">
                 <native:column class="items-center gap-1">
                     <native:icon name="mail" :size="24" color="#007AFF"/>
-                    <native:text class="text-xs text-gray-400 ">mail</native:text>
+                    <native:text class="text-sm text-gray-400 ">mail</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="notifications" :size="24" color="#5856D6"/>
-                    <native:text class="text-xs text-gray-400 ">notifications</native:text>
+                    <native:text class="text-sm text-gray-400 ">notifications</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="message" :size="24" color="#34C759"/>
-                    <native:text class="text-xs text-gray-400 ">message</native:text>
+                    <native:text class="text-sm text-gray-400 ">message</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="chat" :size="24" color="#FF9500"/>
-                    <native:text class="text-xs text-gray-400 ">chat</native:text>
+                    <native:text class="text-sm text-gray-400 ">chat</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="phone" :size="24" color="#34C759"/>
-                    <native:text class="text-xs text-gray-400 ">phone</native:text>
+                    <native:text class="text-sm text-gray-400 ">phone</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="share" :size="24" color="#007AFF"/>
-                    <native:text class="text-xs text-gray-400 ">share</native:text>
+                    <native:text class="text-sm text-gray-400 ">share</native:text>
                 </native:column>
             </native:row>
         </native:scroll-view>
@@ -765,31 +829,31 @@
             <native:row class="gap-4 items-center h-[48]">
                 <native:column class="items-center gap-1">
                     <native:icon name="add" :size="24" color="#34C759"/>
-                    <native:text class="text-xs text-gray-400 ">add</native:text>
+                    <native:text class="text-sm text-gray-400 ">add</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="edit" :size="24" color="#007AFF"/>
-                    <native:text class="text-xs text-gray-400 ">edit</native:text>
+                    <native:text class="text-sm text-gray-400 ">edit</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="delete" :size="24" color="#FF3B30"/>
-                    <native:text class="text-xs text-gray-400 ">delete</native:text>
+                    <native:text class="text-sm text-gray-400 ">delete</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="check" :size="24" color="#34C759"/>
-                    <native:text class="text-xs text-gray-400 ">check</native:text>
+                    <native:text class="text-sm text-gray-400 ">check</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="close" :size="24" color="#FF3B30"/>
-                    <native:text class="text-xs text-gray-400 ">close</native:text>
+                    <native:text class="text-sm text-gray-400 ">close</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="warning" :size="24" color="#FF9500"/>
-                    <native:text class="text-xs text-gray-400 ">warning</native:text>
+                    <native:text class="text-sm text-gray-400 ">warning</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="info" :size="24" color="#007AFF"/>
-                    <native:text class="text-xs text-gray-400 ">info</native:text>
+                    <native:text class="text-sm text-gray-400 ">info</native:text>
                 </native:column>
             </native:row>
         </native:scroll-view>
@@ -799,35 +863,35 @@
             <native:row class="gap-4 items-center h-[48]">
                 <native:column class="items-center gap-1">
                     <native:icon name="lock" :size="24" color="#8E8E93"/>
-                    <native:text class="text-xs text-gray-400 ">lock</native:text>
+                    <native:text class="text-sm text-gray-400 ">lock</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="unlock" :size="24" color="#34C759"/>
-                    <native:text class="text-xs text-gray-400 ">unlock</native:text>
+                    <native:text class="text-sm text-gray-400 ">unlock</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="location" :size="24" color="#FF3B30"/>
-                    <native:text class="text-xs text-gray-400 ">location</native:text>
+                    <native:text class="text-sm text-gray-400 ">location</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="globe" :size="24" color="#007AFF"/>
-                    <native:text class="text-xs text-gray-400 ">globe</native:text>
+                    <native:text class="text-sm text-gray-400 ">globe</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="bolt" :size="24" color="#FF9500"/>
-                    <native:text class="text-xs text-gray-400 ">bolt</native:text>
+                    <native:text class="text-sm text-gray-400 ">bolt</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="clock" :size="24" color="#5856D6"/>
-                    <native:text class="text-xs text-gray-400 ">clock</native:text>
+                    <native:text class="text-sm text-gray-400 ">clock</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="calendar" :size="24" color="#FF3B30"/>
-                    <native:text class="text-xs text-gray-400 ">calendar</native:text>
+                    <native:text class="text-sm text-gray-400 ">calendar</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="qrcode" :size="24" color="#333333"/>
-                    <native:text class="text-xs text-gray-400 ">qrcode</native:text>
+                    <native:text class="text-sm text-gray-400 ">qrcode</native:text>
                 </native:column>
             </native:row>
         </native:scroll-view>
@@ -837,31 +901,31 @@
             <native:row class="gap-4 items-center h-[48]">
                 <native:column class="items-center gap-1">
                     <native:icon name="cart" :size="24" color="#34C759"/>
-                    <native:text class="text-xs text-gray-400 ">cart</native:text>
+                    <native:text class="text-sm text-gray-400 ">cart</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="orders" :size="24" color="#FF9500"/>
-                    <native:text class="text-xs text-gray-400 ">orders</native:text>
+                    <native:text class="text-sm text-gray-400 ">orders</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="download" :size="24" color="#007AFF"/>
-                    <native:text class="text-xs text-gray-400 ">download</native:text>
+                    <native:text class="text-sm text-gray-400 ">download</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="upload" :size="24" color="#5856D6"/>
-                    <native:text class="text-xs text-gray-400 ">upload</native:text>
+                    <native:text class="text-sm text-gray-400 ">upload</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="refresh" :size="24" color="#007AFF"/>
-                    <native:text class="text-xs text-gray-400 ">refresh</native:text>
+                    <native:text class="text-sm text-gray-400 ">refresh</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="filter" :size="24" color="#8E8E93"/>
-                    <native:text class="text-xs text-gray-400 ">filter</native:text>
+                    <native:text class="text-sm text-gray-400 ">filter</native:text>
                 </native:column>
                 <native:column class="items-center gap-1">
                     <native:icon name="list" :size="24" color="#333333"/>
-                    <native:text class="text-xs text-gray-400 ">list</native:text>
+                    <native:text class="text-sm text-gray-400 ">list</native:text>
                 </native:column>
             </native:row>
         </native:scroll-view>
@@ -871,16 +935,52 @@
         {{-- ============================================= --}}
         {{-- TEXT INPUT --}}
         {{-- ============================================= --}}
-        <native:text class="text-lg font-semibold text-gray-700 ">Text Input</native:text>
-        <native:text-input placeholder="Default keyboard" class="w-full"/>
-        <native:text-input placeholder="Password field" class="w-full" :secure="true"/>
+        <native:text class="text-lg font-semibold text-gray-700 ">Text Input — Outlined</native:text>
+        <native:outlined-text-input class="w-full" label="Name" placeholder="Jane Doe"/>
+        <native:outlined-text-input class="w-full" label="Email" placeholder="you@example.com" keyboard="email" leading-icon="email"/>
+        <native:outlined-text-input class="w-full" label="Password" placeholder="••••••••" secure leading-icon="lock"/>
+        <native:outlined-text-input class="w-full" label="With icons" placeholder="Search..." leading-icon="search" trailing-icon="close"/>
+        <native:outlined-text-input class="w-full" label="Supporting" placeholder="Username" supporting="3–20 characters"/>
+        <native:outlined-text-input class="w-full" label="Error state" value="not-an-email" error supporting="Enter a valid email"/>
+        <native:outlined-text-input class="w-full" label="Disabled" value="Can't edit" disabled/>
+        <native:outlined-text-input class="w-full" label="Bio" placeholder="Tell us about yourself..." multiline :max-lines="4"/>
 
-        <native:text class="text-sm font-semibold text-gray-500  mt-2">Keyboard Types</native:text>
-        <native:text-input placeholder="Email (kb=2)" class="w-full" keyboard="2"/>
-        <native:text-input placeholder="Phone (kb=3)" class="w-full" keyboard="3"/>
-        <native:text-input placeholder="Number (kb=1)" class="w-full" keyboard="1"/>
-        <native:text-input placeholder="Decimal (kb=5)" class="w-full" keyboard="5"/>
-        <native:text-input placeholder="URL (kb=4)" class="w-full" keyboard="4"/>
+        <native:text class="text-lg font-semibold text-gray-700  mt-4">Text Input — Filled</native:text>
+        <native:filled-text-input class="w-full" label="Search" placeholder="Search anything..." leading-icon="search"/>
+        <native:filled-text-input class="w-full" label="Price" prefix="$" suffix=".00" keyboard="decimal"/>
+        <native:filled-text-input class="w-full" label="Phone" placeholder="+1 (555) 000-0000" keyboard="phone" leading-icon="phone"/>
+        <native:filled-text-input class="w-full" label="Loading" loading/>
+        <native:filled-text-input class="w-full" label="Small size" size="sm" placeholder="Compact"/>
+        <native:filled-text-input class="w-full" label="Large size" size="lg" placeholder="Prominent"/>
+
+        <native:divider/>
+
+        {{-- ============================================= --}}
+        {{-- SLIDER — PHP ↔ Native round-trip benchmark    --}}
+        {{-- ============================================= --}}
+        <native:text class="text-lg font-semibold text-gray-700 ">Slider</native:text>
+
+        {{-- LIVE: every drag tick pushes through PHP, re-renders Text below. --}}
+        <native:column class="gap-1">
+            <native:text class="text-sm text-gray-600 ">Live (every drag tick)</native:text>
+            <native:slider native:model.live="slideValue" :min="0" :max="100" class="w-full"/>
+            <native:text class="text-base font-mono text-gray-900 ">Value: {{ number_format($slideValue, 1) }}</native:text>
+            <native:text class="text-base font-mono text-gray-900 ">Value: {{ number_format($slideValue, 1) * 2 }}</native:text>
+        </native:column>
+
+        {{-- DEBOUNCE: coalesce rapid drags, fire ~150ms after last change. --}}
+        <native:column class="gap-1">
+            <native:text class="text-sm text-gray-600 ">Debounced (150ms)</native:text>
+            <native:slider native:model.debounce.150ms="slideDebounced" :min="0" :max="100" class="w-full"/>
+            <native:text class="text-base font-mono text-gray-900 ">Value: {{ number_format($slideDebounced, 1) }}</native:text>
+        </native:column>
+
+        {{-- BLUR: only fires on drag release. --}}
+        <native:column class="gap-1">
+            <native:text class="text-sm text-gray-600 ">On release (blur)</native:text>
+            <native:slider native:model.blur="slideBlur" :min="0" :max="100" class="w-full"/>
+            <native:text class="text-base font-mono text-gray-900 ">Value: {{ number_format($slideBlur, 1) }}</native:text>
+        </native:column>
 
         <native:divider/>
 
@@ -888,8 +988,265 @@
         {{-- TOGGLE --}}
         {{-- ============================================= --}}
         <native:text class="text-lg font-semibold text-gray-700 ">Toggle</native:text>
-        <native:toggle class="" :value="false" label="Enable notifications"/>
-        <native:toggle :value="true" label="Dark mode (on)"/>
+        <native:toggle native:model="showModal" label="Show modal" class="w-full"/>
+        <native:toggle native:model="showSheet" label="Show sheet" class="w-full"/>
+        <native:toggle :value="true" label="Disabled (always on)" disabled class="w-full"/>
+
+        <native:divider/>
+
+        {{-- ============================================= --}}
+        {{-- CHECKBOX — composed from pressable + icon + text --}}
+        {{-- ============================================= --}}
+        <native:text class="text-lg font-semibold text-gray-700 ">Checkbox (composed)</native:text>
+
+        @php
+            $checkboxRows = [
+                ['field' => 'subscribed',    'label' => 'Subscribe to newsletter'],
+                ['field' => 'termsAccepted', 'label' => 'I accept the terms and conditions'],
+            ];
+        @endphp
+        @foreach ($checkboxRows as $row)
+            <native:pressable @press="toggleField('{{ $row['field'] }}')">
+                <native:row class="items-center gap-2">
+                    <native:icon
+                        :name="$this->{$row['field']} ? 'check_box' : 'check_box_outline'"
+                        :size="22"
+                        :color="$this->{$row['field']} ? '#0F766E' : '#475569'"/>
+                    <native:text>{{ $row['label'] }}</native:text>
+                </native:row>
+            </native:pressable>
+        @endforeach
+
+        {{-- Disabled (non-interactive, no @press) --}}
+        <native:row class="items-center gap-2 opacity-50">
+            <native:icon name="check_box" :size="22" color="#CBD5E1"/>
+            <native:text>Disabled (checked)</native:text>
+        </native:row>
+
+        <native:text class="text-sm text-gray-500 ">
+            subscribed: {{ $subscribed ? 'yes' : 'no' }} · terms: {{ $termsAccepted ? 'yes' : 'no' }}
+        </native:text>
+
+        <native:divider/>
+
+        {{-- ============================================= --}}
+        {{-- SELECT --}}
+        {{-- ============================================= --}}
+        <native:text class="text-lg font-semibold text-gray-700 ">Select</native:text>
+        <native:select
+            native:model="favoriteLanguage"
+            label="Favorite language"
+            placeholder="Pick one..."
+            :options="['PHP', 'Swift', 'Kotlin', 'TypeScript', 'Rust', 'Go']"
+            class="w-full"
+        />
+        <native:text class="text-sm text-gray-500 ">Selected: {{ $favoriteLanguage }}</native:text>
+
+        <native:divider/>
+
+        {{-- ============================================= --}}
+        {{-- RADIO GROUP — composed from pressable + icon + text --}}
+        {{-- ============================================= --}}
+        <native:text class="text-lg font-semibold text-gray-700 ">Radio Group (composed)</native:text>
+        <native:column class="gap-2 w-full">
+            <native:text class="text-sm text-gray-500">Pricing plan</native:text>
+
+            @foreach ([
+                ['value' => 'free', 'label' => 'Free — $0/mo'],
+                ['value' => 'pro',  'label' => 'Pro — $19/mo'],
+                ['value' => 'team', 'label' => 'Team — $49/mo'],
+            ] as $row)
+                @php $checked = $pricingPlan === $row['value']; @endphp
+                <native:pressable @press="selectPricingPlan('{{ $row['value'] }}')">
+                    <native:row class="items-center gap-2">
+                        <native:icon
+                            :name="$checked ? 'radio_button_checked' : 'radio_button_unchecked'"
+                            :size="22"
+                            :color="$checked ? '#0F766E' : '#475569'"/>
+                        <native:text>{{ $row['label'] }}</native:text>
+                    </native:row>
+                </native:pressable>
+            @endforeach
+
+            {{-- Disabled (non-interactive) --}}
+            <native:row class="items-center gap-2 opacity-50">
+                <native:icon name="radio_button_unchecked" :size="22" color="#CBD5E1"/>
+                <native:text>Enterprise — custom</native:text>
+            </native:row>
+        </native:column>
+        <native:text class="text-sm text-gray-500 ">Chosen: {{ $pricingPlan }}</native:text>
+
+        <native:divider/>
+
+        {{-- ============================================= --}}
+        {{-- CARD VARIANTS — composed from column + classes --}}
+        {{-- ============================================= --}}
+        <native:text class="text-lg font-semibold text-gray-700 ">Card — variants (composed)</native:text>
+
+        <native:column class="w-full p-4 gap-1 bg-slate-100 rounded-xl">
+            <native:text class="font-semibold ">Filled</native:text>
+            <native:text class="text-sm text-gray-600 ">surface-variant background, no stroke. Medium emphasis — the default.</native:text>
+        </native:column>
+
+        <native:column class="w-full p-4 gap-1 bg-white rounded-xl border border-slate-300">
+            <native:text class="font-semibold ">Outlined</native:text>
+            <native:text class="text-sm text-gray-600 ">surface background + outline stroke. Lower emphasis, crisp edges.</native:text>
+        </native:column>
+
+        <native:column class="w-full p-4 gap-1 bg-white rounded-xl shadow">
+            <native:text class="font-semibold ">Elevated</native:text>
+            <native:text class="text-sm text-gray-600 ">surface + soft shadow. Highest emphasis — floats off the background.</native:text>
+        </native:column>
+
+        <native:divider/>
+
+        {{-- ============================================= --}}
+        {{-- CHIP — composed from pressable + row + icon + text --}}
+        {{-- ============================================= --}}
+        <native:text class="text-lg font-semibold text-gray-700 ">Chip (composed)</native:text>
+
+        <native:text class="text-sm text-gray-600 ">Tap to toggle:</native:text>
+        <native:row class="gap-2 flex-wrap">
+            @foreach ([
+                ['field' => 'subscribed',    'label' => 'Subscribed',     'icon' => 'favorite'],
+                ['field' => 'termsAccepted', 'label' => 'Terms accepted', 'icon' => 'check'],
+            ] as $row)
+                @php $sel = $this->{$row['field']}; @endphp
+                <native:pressable @press="toggleField('{{ $row['field'] }}')">
+                    <native:row class="items-center gap-1 px-3 py-2 rounded-full {{ $sel ? 'bg-teal-600' : 'bg-slate-100' }} border {{ $sel ? 'border-teal-600' : 'border-slate-300' }}">
+                        <native:icon :name="$row['icon']" :size="14" :color="$sel ? '#FFFFFF' : '#475569'"/>
+                        <native:text class="text-sm font-medium {{ $sel ? 'text-white' : 'text-slate-900' }}">{{ $row['label'] }}</native:text>
+                    </native:row>
+                </native:pressable>
+            @endforeach
+        </native:row>
+
+        <native:text class="text-sm text-gray-600  mt-2">Static selection state (non-interactive):</native:text>
+        <native:row class="gap-2 flex-wrap">
+            @foreach ([
+                ['label' => 'Swift',  'selected' => true,  'icon' => 'code'],
+                ['label' => 'Kotlin', 'selected' => false, 'icon' => 'code'],
+                ['label' => 'PHP',    'selected' => true,  'icon' => 'code'],
+                ['label' => 'Rust',   'selected' => false, 'icon' => null],
+            ] as $row)
+                <native:row class="items-center gap-1 px-3 py-2 rounded-full {{ $row['selected'] ? 'bg-teal-600' : 'bg-slate-100' }} border {{ $row['selected'] ? 'border-teal-600' : 'border-slate-300' }}">
+                    @if ($row['icon'])
+                        <native:icon :name="$row['icon']" :size="14" :color="$row['selected'] ? '#FFFFFF' : '#475569'"/>
+                    @endif
+                    <native:text class="text-sm font-medium {{ $row['selected'] ? 'text-white' : 'text-slate-900' }}">{{ $row['label'] }}</native:text>
+                </native:row>
+            @endforeach
+            <native:row class="items-center gap-1 px-3 py-2 rounded-full bg-teal-600 border border-teal-600 opacity-50">
+                <native:text class="text-sm font-medium text-white">Disabled</native:text>
+            </native:row>
+        </native:row>
+
+        <native:divider/>
+
+        {{-- ============================================= --}}
+        {{-- BADGE — composed from row + text with bg + rounded --}}
+        {{-- ============================================= --}}
+        <native:text class="text-lg font-semibold text-gray-700 ">Badge (composed)</native:text>
+        <native:row class="items-center gap-3 flex-wrap">
+            <native:text class="text-gray-700 ">Notifications</native:text>
+            <native:row class="bg-red-600 rounded-full px-2 py-0.5 items-center">
+                <native:text class="text-xs font-bold text-white">3</native:text>
+            </native:row>
+
+            <native:text class="text-gray-700  ml-4">Inbox</native:text>
+            <native:row class="bg-red-600 rounded-full px-2 py-0.5 items-center">
+                <native:text class="text-xs font-bold text-white">99+</native:text>
+            </native:row>
+
+            <native:text class="text-gray-700  ml-4">New</native:text>
+            <native:row class="bg-teal-600 rounded-full px-2 py-0.5 items-center">
+                <native:text class="text-xs font-bold text-white">NEW</native:text>
+            </native:row>
+
+            <native:text class="text-gray-700  ml-4">Pro</native:text>
+            <native:row class="bg-orange-400 rounded-full px-2 py-0.5 items-center">
+                <native:text class="text-xs font-bold text-white">PRO</native:text>
+            </native:row>
+        </native:row>
+
+        <native:divider/>
+
+        {{-- ============================================= --}}
+        {{-- PROGRESS BAR                                  --}}
+        {{-- ============================================= --}}
+        <native:text class="text-lg font-semibold text-gray-700 ">Progress Bar</native:text>
+        <native:column class="gap-3 w-full">
+            <native:column class="gap-1">
+                <native:text class="text-sm text-gray-600 ">Bound to slider value (live):</native:text>
+                <native:progress-bar :value="$slideValue / 100" class="w-full"/>
+            </native:column>
+            <native:column class="gap-1">
+                <native:text class="text-sm text-gray-600 ">Indeterminate:</native:text>
+                <native:progress-bar indeterminate class="w-full"/>
+            </native:column>
+            <native:column class="gap-1">
+                <native:text class="text-sm text-gray-600 ">Custom color override:</native:text>
+                <native:progress-bar :value="0.7" color="#4232a8" class="w-full"/>
+            </native:column>
+        </native:column>
+
+        <native:divider/>
+
+        {{-- ============================================= --}}
+        {{-- TAB ROW — composed from scroll-view + pressable rows --}}
+        {{-- ============================================= --}}
+        <native:text class="text-lg font-semibold text-gray-700 ">Tab Row (composed)</native:text>
+        <native:column class="w-full gap-0">
+            <native:scroll-view :horizontal="true">
+                <native:row class="gap-0">
+                    @foreach ([
+                        ['label' => 'Overview', 'icon' => 'home'],
+                        ['label' => 'Activity', 'icon' => 'list'],
+                        ['label' => 'Settings', 'icon' => 'settings'],
+                        ['label' => 'About',    'icon' => 'info'],
+                    ] as $i => $tab)
+                        @php $isActive = $activeTab === $i; @endphp
+                        <native:pressable @press="selectTab({{ $i }})">
+                            <native:column class="items-center px-4 pt-3 gap-1">
+                                <native:row class="items-center gap-1">
+                                    <native:icon :name="$tab['icon']" :size="18" :color="$isActive ? '#0F766E' : '#475569'"/>
+                                    <native:text class="text-sm font-medium {{ $isActive ? 'text-teal-600' : 'text-slate-500' }}">{{ $tab['label'] }}</native:text>
+                                </native:row>
+                                <native:column class="w-full h-[2] {{ $isActive ? 'bg-teal-600' : '' }}"/>
+                            </native:column>
+                        </native:pressable>
+                    @endforeach
+                </native:row>
+            </native:scroll-view>
+            <native:column class="w-full h-[1] bg-slate-200"/>
+        </native:column>
+        <native:text class="text-sm text-gray-500 ">Active tab index: {{ $activeTab }}</native:text>
+
+        <native:divider/>
+
+        {{-- ============================================= --}}
+        {{-- BUTTON GROUP — composed from row + pressable segments --}}
+        {{-- ============================================= --}}
+        <native:text class="text-lg font-semibold text-gray-700 ">Button Group (composed)</native:text>
+        <native:row class="w-full rounded-xl border border-slate-300">
+            @php $planOptions = ['Monthly', 'Yearly', 'Lifetime']; @endphp
+            @foreach ($planOptions as $i => $opt)
+                @php
+                    $selected = $planTier === $i;
+                    $isFirst  = $i === 0;
+                    $isLast   = $i === count($planOptions) - 1;
+                @endphp
+                <native:pressable @press="selectPlanTier({{ $i }})" class="flex-1">
+                    <native:column class="items-center justify-center py-3 px-4 {{ $selected ? 'bg-teal-600' : 'bg-white' }} {{ $isFirst ? 'rounded-l-xl' : '' }} {{ $isLast ? 'rounded-r-xl' : '' }}">
+                        <native:text class="text-sm font-medium {{ $selected ? 'text-white' : 'text-slate-900' }}">{{ $opt }}</native:text>
+                    </native:column>
+                </native:pressable>
+                @if (! $isLast)
+                    <native:column class="w-[1] bg-slate-300"/>
+                @endif
+            @endforeach
+        </native:row>
+        <native:text class="text-sm text-gray-500 ">Plan tier index: {{ $planTier }}</native:text>
 
         <native:divider/>
 
@@ -964,13 +1321,13 @@
         <native:text class="text-sm text-gray-400  mt-2">flex-1 distribution</native:text>
         <native:row class="w-full gap-2">
             <native:column class="flex-1 h-[40] bg-cyan-500 rounded-md items-center justify-center">
-                <native:text class="text-white text-xs">1</native:text>
+                <native:text class="text-white text-sm">1</native:text>
             </native:column>
             <native:column class="flex-1 h-[40] bg-cyan-400 rounded-md items-center justify-center">
-                <native:text class="text-white text-xs">1</native:text>
+                <native:text class="text-white text-sm">1</native:text>
             </native:column>
             <native:column class="flex-1 h-[40] bg-cyan-300 rounded-md items-center justify-center">
-                <native:text class="text-white text-xs">1</native:text>
+                <native:text class="text-white text-sm">1</native:text>
             </native:column>
         </native:row>
 
@@ -989,7 +1346,7 @@
             <native:row class="w-full items-start justify-end">
                 <native:column
                     class="w-[22] h-[22] rounded-full bg-red-500 border-2 border-white items-center justify-center">
-                    <native:text class="text-white text-xs font-bold">3</native:text>
+                    <native:text class="text-white text-sm font-bold">3</native:text>
                 </native:column>
             </native:row>
         </native:stack>
@@ -1058,7 +1415,7 @@
             <native:text class="text-gray-600  text-sm">Building beautiful native apps with PHP. Loves
                 clean architecture, Tailwind, and strong coffee.
             </native:text>
-            <native:row class="w-full gap-3">
+            <native:row class="w-full gap-3 mt-6">
                 <native:pressable @press="increment" class="flex-1 bg-indigo-500 rounded-lg py-2 items-center">
                     <native:text class="text-white font-semibold">Follow</native:text>
                 </native:pressable>
@@ -1074,17 +1431,17 @@
             <native:column class="flex-1 bg-blue-100 rounded-xl p-4 gap-1 items-center">
                 <native:icon name="chart.bar.fill" :size="24" color="#3B82F6"/>
                 <native:text class="text-2xl font-bold text-blue-600">2.4k</native:text>
-                <native:text class="text-xs text-blue-400">Followers</native:text>
+                <native:text class="text-sm text-blue-400">Followers</native:text>
             </native:column>
             <native:column class="flex-1 bg-green-100 rounded-xl p-4 gap-1 items-center">
                 <native:icon name="star" :size="24" color="#22C55E"/>
                 <native:text class="text-2xl font-bold text-green-600">182</native:text>
-                <native:text class="text-xs text-green-400">Stars</native:text>
+                <native:text class="text-sm text-green-400">Stars</native:text>
             </native:column>
             <native:column class="flex-1 bg-purple-100 rounded-xl p-4 gap-1 items-center">
                 <native:icon name="chevron.left/chevron.right" :size="24" color="#A855F7"/>
                 <native:text class="text-2xl font-bold text-purple-600">47</native:text>
-                <native:text class="text-xs text-purple-400">Repos</native:text>
+                <native:text class="text-sm text-purple-400">Repos</native:text>
             </native:column>
         </native:row>
 
@@ -1103,10 +1460,10 @@
                     </native:column>
                     <native:column class="flex-1 gap-0">
                         <native:text class="font-semibold ">Messages</native:text>
-                        <native:text class="text-xs text-gray-400 ">3 unread messages</native:text>
+                        <native:text class="text-sm text-gray-400 ">3 unread messages</native:text>
                     </native:column>
                     <native:column class="w-[24] h-[24] rounded-full bg-red-500 items-center justify-center">
-                        <native:text class="text-white text-xs font-bold">3</native:text>
+                        <native:text class="text-white text-sm font-bold">3</native:text>
                     </native:column>
                     <native:icon name="forward" :size="20" color="#CCCCCC"/>
                 </native:row>
@@ -1120,7 +1477,7 @@
                     </native:column>
                     <native:column class="flex-1 gap-0">
                         <native:text class="font-semibold ">Notifications</native:text>
-                        <native:text class="text-xs text-gray-400 ">Push & email alerts</native:text>
+                        <native:text class="text-sm text-gray-400 ">Push & email alerts</native:text>
                     </native:column>
                     <native:icon name="forward" :size="20" color="#CCCCCC"/>
                 </native:row>
@@ -1134,7 +1491,7 @@
                     </native:column>
                     <native:column class="flex-1 gap-0">
                         <native:text class="font-semibold ">Privacy</native:text>
-                        <native:text class="text-xs text-gray-400 ">Manage your data</native:text>
+                        <native:text class="text-sm text-gray-400 ">Manage your data</native:text>
                     </native:column>
                     <native:icon name="forward" :size="20" color="#CCCCCC"/>
                 </native:row>
@@ -1148,7 +1505,7 @@
                     </native:column>
                     <native:column class="flex-1 gap-0">
                         <native:text class="font-semibold ">Settings</native:text>
-                        <native:text class="text-xs text-gray-400 ">App preferences</native:text>
+                        <native:text class="text-sm text-gray-400 ">App preferences</native:text>
                     </native:column>
                     <native:icon name="forward" :size="20" color="#CCCCCC"/>
                 </native:row>
@@ -1206,28 +1563,28 @@
         <native:scroll-view :horizontal="true">
             <native:row class="w-full gap-2 flex-wrap mt-2">
                 <native:column class="bg-blue-100 rounded-full px-3 py-1">
-                    <native:text class="text-blue-700 text-xs font-semibold">Laravel</native:text>
+                    <native:text class="text-blue-700 text-sm font-semibold">Laravel</native:text>
                 </native:column>
                 <native:column class="bg-green-100 rounded-full px-3 py-1">
-                    <native:text class="text-green-700 text-xs font-semibold">PHP</native:text>
+                    <native:text class="text-green-700 text-sm font-semibold">PHP</native:text>
                 </native:column>
                 <native:column class="bg-purple-100 rounded-full px-3 py-1">
-                    <native:text class="text-purple-700 text-xs font-semibold">Swift</native:text>
+                    <native:text class="text-purple-700 text-sm font-semibold">Swift</native:text>
                 </native:column>
                 <native:column class="bg-amber-100 rounded-full px-3 py-1">
-                    <native:text class="text-amber-700 text-xs font-semibold">Kotlin</native:text>
+                    <native:text class="text-amber-700 text-sm font-semibold">Kotlin</native:text>
                 </native:column>
                 <native:column class="bg-red-100 rounded-full px-3 py-1">
-                    <native:text class="text-red-700 text-xs font-semibold">Yoga</native:text>
+                    <native:text class="text-red-700 text-sm font-semibold">Yoga</native:text>
                 </native:column>
                 <native:column class="bg-teal-100 rounded-full px-3 py-1">
-                    <native:text class="text-teal-700 text-xs font-semibold">Tailwind</native:text>
+                    <native:text class="text-teal-700 text-sm font-semibold">Tailwind</native:text>
                 </native:column>
                 <native:column class="bg-pink-100 rounded-full px-3 py-1">
-                    <native:text class="text-pink-700 text-xs font-semibold">UIKit</native:text>
+                    <native:text class="text-pink-700 text-sm font-semibold">UIKit</native:text>
                 </native:column>
                 <native:column class="bg-indigo-100 rounded-full px-3 py-1">
-                    <native:text class="text-indigo-700 text-xs font-semibold">Compose</native:text>
+                    <native:text class="text-indigo-700 text-sm font-semibold">Compose</native:text>
                 </native:column>
             </native:row>
         </native:scroll-view>
@@ -1235,19 +1592,19 @@
         {{-- Chat bubble mockup --}}
         <native:column class="w-full gap-3 mt-3">
             <native:row class="w-full justify-end">
-                <native:column class="w-3/4 bg-blue-500 rounded-2xl p-3">
+                <native:column class="w-3/4 bg-blue-500 rounded-2xl p-3 text-right">
                     <native:text class="text-white text-sm">Hey, have you tried NativePHP yet?</native:text>
                 </native:column>
             </native:row>
             <native:row class="w-full justify-start">
                 <native:column class="w-3/4 bg-gray-200 dark:bg-gray-800 rounded-2xl p-3">
-                    <native:text class="text-gray-800  text-sm">Yes! Native iOS and Android apps in
-                        PHP. The Yoga layout is pixel-perfect.
+                    <native:text class="text-gray-800 dark:text-white text-sm text-left">
+                        Yes! Native iOS and Android apps in PHP. The Yoga layout is pixel-perfect.
                     </native:text>
                 </native:column>
             </native:row>
             <native:row class="w-full justify-end">
-                <native:column class="w-1/2 bg-blue-500 rounded-2xl p-3">
+                <native:column class="w-1/2 bg-blue-500 rounded-2xl p-3 text-right">
                     <native:text class="text-white text-sm">Tailwind classes just work!</native:text>
                 </native:column>
             </native:row>
@@ -1258,25 +1615,26 @@
 
     </native:column>
 </native:scroll-view>
+</native:screen>
 {{--</native:column>--}}
 
 {{-- Bottom Navigation --}}
 {{--<native:row class="w-full h-[90] bg-white border-t border-gray-200 items-start justify-evenly pt-2">--}}
 {{--    <native:pressable @press="increment" class="flex-1 items-center gap-1">--}}
 {{--        <native:icon name="home" :size="22" color="#007AFF" />--}}
-{{--        <native:text class="text-xs text-blue-500 font-medium">Home</native:text>--}}
+{{--        <native:text class="text-sm text-blue-500 font-medium">Home</native:text>--}}
 {{--    </native:pressable>--}}
 {{--    <native:pressable @press="increment" class="flex-1 items-center gap-1">--}}
 {{--        <native:icon name="search" :size="22" color="#8E8E93" />--}}
-{{--        <native:text class="text-xs text-gray-400 ">Search</native:text>--}}
+{{--        <native:text class="text-sm text-gray-400 ">Search</native:text>--}}
 {{--    </native:pressable>--}}
 {{--    <native:pressable @press="increment" class="flex-1 items-center gap-1">--}}
 {{--        <native:icon name="favorite" :size="22" color="#8E8E93" />--}}
-{{--        <native:text class="text-xs text-gray-400 ">Favorites</native:text>--}}
+{{--        <native:text class="text-sm text-gray-400 ">Favorites</native:text>--}}
 {{--    </native:pressable>--}}
 {{--    <native:pressable @press="increment" class="flex-1 items-center gap-1">--}}
 {{--        <native:icon name="person" :size="22" color="#8E8E93" />--}}
-{{--        <native:text class="text-xs text-gray-400 ">Profile</native:text>--}}
+{{--        <native:text class="text-sm text-gray-400 ">Profile</native:text>--}}
 {{--    </native:pressable>--}}
 {{--</native:row>--}}
 {{--</native:column>--}}
