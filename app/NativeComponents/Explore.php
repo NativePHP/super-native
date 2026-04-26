@@ -25,6 +25,30 @@ class Explore extends NativeComponent
 
     public bool $showSheet = false;
 
+    // Slider demo — native:model.live binds this straight across the bridge.
+    public float $slideValue = 0.0;
+
+    public float $slideDebounced = 50.0;
+
+    public float $slideBlur = 25.0;
+
+    // Checkbox demo
+    public bool $subscribed = true;
+
+    public bool $termsAccepted = false;
+
+    // Select demo
+    public string $favoriteLanguage = 'PHP';
+
+    // Radio demo
+    public string $pricingPlan = 'pro';
+
+    // Tab row demo
+    public int $activeTab = 0;
+
+    // Button-group demo
+    public int $planTier = 1;
+
     public function mount(): void
     {
         nativephp_call('UI.SetBackground', json_encode(['color' => '#FFFFFF']));
@@ -89,6 +113,31 @@ class Explore extends NativeComponent
     public function removeItem(int $id)
     {
         $this->items = array_values(array_filter($this->items, fn ($i) => $i['id'] !== $id));
+    }
+
+    // ── Primitive-composed component helpers ──────────────────────────────
+
+    /** Flip any bool property by name — used by checkbox + chip primitive demos. */
+    public function toggleField(string $field): void
+    {
+        if (property_exists($this, $field) && is_bool($this->{$field})) {
+            $this->{$field} = ! $this->{$field};
+        }
+    }
+
+    public function selectPricingPlan(string $value): void
+    {
+        $this->pricingPlan = $value;
+    }
+
+    public function selectTab(int $index): void
+    {
+        $this->activeTab = $index;
+    }
+
+    public function selectPlanTier(int $index): void
+    {
+        $this->planTier = $index;
     }
 
     private function fetchUsers(int $page): array

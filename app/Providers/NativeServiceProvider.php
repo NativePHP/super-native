@@ -5,7 +5,6 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Native\Mobile\Providers\DeviceServiceProvider;
 use Native\Mobile\Providers\DialogServiceProvider;
-use Nativephp\ComposeUi\ComposeUIServiceProvider;
 use Nativephp\NativeUi\NativeUIServiceProvider;
 
 class NativeServiceProvider extends ServiceProvider

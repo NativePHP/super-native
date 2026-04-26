@@ -6,7 +6,7 @@ use Native\Mobile\Edge\BenchmarkComponent;
 
 //
 Route::native('/', Explore::class)->name('explore');
-Route::native('/benchmark', BenchmarkComponent::class)->name('benchmark');
+//Route::native('/benchmark', BenchmarkComponent::class)->name('benchmark');
 //
 // // Doom Game
 // Route::native('/doom', \App\NativeComponents\DoomGame::class)->name('game');
