@@ -12,7 +12,7 @@
 
     {{-- Search Input --}}
     <native:column class="w-full bg-white px-4 py-3">
-        <native:text-input
+        <native:outlined-text-input
             value="{{ $searchQuery }}"
             placeholder="What are you looking for?"
             @change="updateSearch"

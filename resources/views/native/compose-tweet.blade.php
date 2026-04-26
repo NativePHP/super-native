@@ -24,7 +24,7 @@
             :fit="2"
         />
         <native:column class="w-[300]">
-            <native:text-input
+            <native:outlined-text-input
                 value="{{ $tweetText }}"
                 placeholder="What is happening?!"
                 :multiline="true"

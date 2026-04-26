@@ -37,7 +37,7 @@
 
     {{-- Text Input --}}
     <native:column class="w-full px-4 pt-3">
-        <native:text-input
+        <native:outlined-text-input
             value="{{ $postText }}"
             placeholder="What's on your mind?"
             :multiline="true"

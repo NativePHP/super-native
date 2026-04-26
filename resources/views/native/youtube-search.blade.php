@@ -7,7 +7,7 @@
                 <native:icon name="arrow_back" :size="24" color="#FFFFFF" />
             </native:column>
             <native:row class="w-[270] bg-[#121212] rounded-full px-4 py-3 items-center gap-2 border border-[#303030]">
-                <native:text-input
+                <native:outlined-text-input
                     @model="query"
                     placeholder="Search YouTube"
                     placeholderColor="#717171"

@@ -872,15 +872,15 @@
         {{-- TEXT INPUT --}}
         {{-- ============================================= --}}
         <native:text class="text-lg font-semibold text-gray-700 ">Text Input</native:text>
-        <native:text-input placeholder="Default keyboard" class="w-full"/>
-        <native:text-input placeholder="Password field" class="w-full" :secure="true"/>
+        <native:outlined-text-input placeholder="Default keyboard" class="w-full"/>
+        <native:outlined-text-input placeholder="Password field" class="w-full" :secure="true"/>
 
         <native:text class="text-sm font-semibold text-gray-500  mt-2">Keyboard Types</native:text>
-        <native:text-input placeholder="Email (kb=2)" class="w-full" keyboard="2"/>
-        <native:text-input placeholder="Phone (kb=3)" class="w-full" keyboard="3"/>
-        <native:text-input placeholder="Number (kb=1)" class="w-full" keyboard="1"/>
-        <native:text-input placeholder="Decimal (kb=5)" class="w-full" keyboard="5"/>
-        <native:text-input placeholder="URL (kb=4)" class="w-full" keyboard="4"/>
+        <native:outlined-text-input placeholder="Email (kb=2)" class="w-full" keyboard="2"/>
+        <native:outlined-text-input placeholder="Phone (kb=3)" class="w-full" keyboard="3"/>
+        <native:outlined-text-input placeholder="Number (kb=1)" class="w-full" keyboard="1"/>
+        <native:outlined-text-input placeholder="Decimal (kb=5)" class="w-full" keyboard="5"/>
+        <native:outlined-text-input placeholder="URL (kb=4)" class="w-full" keyboard="4"/>
 
         <native:divider/>
 

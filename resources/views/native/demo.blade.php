@@ -80,7 +80,7 @@
 
 {{--            Interactive: onChange + onSubmit--}}
 {{--            <native:text class="text-lg font-semibold" :color="$fg">Live round-trip</native:text>--}}
-{{--            <native:text-input class="w-full" :value="$inputText" label="Your text" placeholder="Type something..."--}}
+{{--            <native:outlined-text-input class="w-full" :value="$inputText" label="Your text" placeholder="Type something..."--}}
 {{--                               :textColor="$fg" color="#7C3AED" @change="onType" @submit="onSubmit"/>--}}
 {{--            <native:row class="gap-2 items-center">--}}
 {{--                <native:text class="text-base" :color="$muted">Live:</native:text>--}}
@@ -97,65 +97,65 @@
 
 {{--            Variants: Outlined vs Filled--}}
 {{--            <native:text class="text-lg font-semibold" :color="$fg">Variants</native:text>--}}
-{{--            <native:text-input class="w-full" label="Outlined (default)" placeholder="This is the default..."--}}
+{{--            <native:outlined-text-input class="w-full" label="Outlined (default)" placeholder="This is the default..."--}}
 {{--                               :textColor="$fg" color="#7C3AED"/>--}}
-{{--            <native:text-input class="w-full" label="Filled variant" placeholder="Filled style..." :variant="1"--}}
+{{--            <native:outlined-text-input class="w-full" label="Filled variant" placeholder="Filled style..." :variant="1"--}}
 {{--                               :textColor="$fg" color="#7C3AED" :containerColor="$darkMode ? '#1A2332' : '#F1F5F9'"/>--}}
 
 {{--            <native:divider class="w-full"/>--}}
 
 {{--            Label + Placeholder--}}
 {{--            <native:text class="text-lg font-semibold" :color="$fg">Floating label</native:text>--}}
-{{--            <native:text-input class="w-full" label="Email address" placeholder="you@example.com" leadingIcon="email"--}}
+{{--            <native:outlined-text-input class="w-full" label="Email address" placeholder="you@example.com" leadingIcon="email"--}}
 {{--                               :keyboard="2" :textColor="$fg" color="#7C3AED"/>--}}
 
 {{--            <native:divider class="w-full"/>--}}
 
 {{--            Icons--}}
 {{--            <native:text class="text-lg font-semibold" :color="$fg">Leading & trailing icons</native:text>--}}
-{{--            <native:text-input class="w-full" label="Search" placeholder="Search..." leadingIcon="search"--}}
+{{--            <native:outlined-text-input class="w-full" label="Search" placeholder="Search..." leadingIcon="search"--}}
 {{--                               :textColor="$fg" color="#7C3AED"/>--}}
-{{--            <native:text-input class="w-full" label="Password" placeholder="Enter password..." secure leadingIcon="lock"--}}
+{{--            <native:outlined-text-input class="w-full" label="Password" placeholder="Enter password..." secure leadingIcon="lock"--}}
 {{--                               trailingIcon="visibility_off" :textColor="$fg" color="#7C3AED"/>--}}
 
 {{--            <native:divider class="w-full"/>--}}
 
 {{--            Prefix & Suffix--}}
 {{--            <native:text class="text-lg font-semibold" :color="$fg">Prefix & suffix</native:text>--}}
-{{--            <native:text-input class="w-full" label="Price" prefix="$" suffix=".00" :keyboard="5" :textColor="$fg"--}}
+{{--            <native:outlined-text-input class="w-full" label="Price" prefix="$" suffix=".00" :keyboard="5" :textColor="$fg"--}}
 {{--                               color="#7C3AED"/>--}}
-{{--            <native:text-input class="w-full" label="Website" prefix="https://" suffix=".com" :keyboard="4"--}}
+{{--            <native:outlined-text-input class="w-full" label="Website" prefix="https://" suffix=".com" :keyboard="4"--}}
 {{--                               :textColor="$fg" color="#7C3AED"/>--}}
 
 {{--            <native:divider class="w-full"/>--}}
 
 {{--            Supporting text + Error state--}}
 {{--            <native:text class="text-lg font-semibold" :color="$fg">Supporting text & error</native:text>--}}
-{{--            <native:text-input class="w-full" label="Username" supporting="Must be 3-20 characters" leadingIcon="person"--}}
+{{--            <native:outlined-text-input class="w-full" label="Username" supporting="Must be 3-20 characters" leadingIcon="person"--}}
 {{--                               :textColor="$fg" color="#7C3AED"/>--}}
-{{--            <native:text-input class="w-full" label="Email" value="not-an-email" isError--}}
+{{--            <native:outlined-text-input class="w-full" label="Email" value="not-an-email" isError--}}
 {{--                               supporting="Please enter a valid email address" leadingIcon="error" :textColor="$fg"/>--}}
 
 {{--            <native:divider class="w-full"/>--}}
 
 {{--            Disabled & ReadOnly--}}
 {{--            <native:text class="text-lg font-semibold" :color="$fg">Disabled & read-only</native:text>--}}
-{{--            <native:text-input class="w-full" label="Disabled field" value="Can't edit this" disabled :textColor="$fg"/>--}}
-{{--            <native:text-input class="w-full" label="Read-only field" value="Read but not edit" readOnly--}}
+{{--            <native:outlined-text-input class="w-full" label="Disabled field" value="Can't edit this" disabled :textColor="$fg"/>--}}
+{{--            <native:outlined-text-input class="w-full" label="Read-only field" value="Read but not edit" readOnly--}}
 {{--                               :textColor="$fg" color="#7C3AED"/>--}}
 
 {{--            <native:divider class="w-full"/>--}}
 
 {{--            Max length--}}
 {{--            <native:text class="text-lg font-semibold" :color="$fg">Max length (10 chars)</native:text>--}}
-{{--            <native:text-input class="w-full" label="Short code" placeholder="Max 10..." :maxLength="10"--}}
+{{--            <native:outlined-text-input class="w-full" label="Short code" placeholder="Max 10..." :maxLength="10"--}}
 {{--                               supporting="Limited to 10 characters" :textColor="$fg" color="#7C3AED"/>--}}
 
 {{--            <native:divider class="w-full"/>--}}
 
 {{--            Multiline--}}
 {{--            <native:text class="text-lg font-semibold" :color="$fg">Multiline</native:text>--}}
-{{--            <native:text-input class="w-full" label="Bio" placeholder="Tell us about yourself..." multiline--}}
+{{--            <native:outlined-text-input class="w-full" label="Bio" placeholder="Tell us about yourself..." multiline--}}
 {{--                               :minLines="3" :maxLines="6" supporting="Min 3 lines, max 6 lines" :textColor="$fg"--}}
 {{--                               color="#7C3AED"/>--}}
 
@@ -163,18 +163,18 @@
 
 {{--            Keyboard types--}}
 {{--            <native:text class="text-lg font-semibold" :color="$fg">Keyboard types</native:text>--}}
-{{--            <native:text-input class="w-full" label="Number" placeholder="123" leadingIcon="pin" :keyboard="1"--}}
+{{--            <native:outlined-text-input class="w-full" label="Number" placeholder="123" leadingIcon="pin" :keyboard="1"--}}
 {{--                               :textColor="$fg" color="#7C3AED"/>--}}
-{{--            <native:text-input class="w-full" label="Phone" placeholder="+1 (555) 000-0000" leadingIcon="phone"--}}
+{{--            <native:outlined-text-input class="w-full" label="Phone" placeholder="+1 (555) 000-0000" leadingIcon="phone"--}}
 {{--                               :keyboard="3" :textColor="$fg" color="#7C3AED"/>--}}
-{{--            <native:text-input class="w-full" label="Decimal" placeholder="0.00" :keyboard="5" :textColor="$fg"--}}
+{{--            <native:outlined-text-input class="w-full" label="Decimal" placeholder="0.00" :keyboard="5" :textColor="$fg"--}}
 {{--                               color="#7C3AED"/>--}}
 
 {{--            <native:divider class="w-full"/>--}}
 
 {{--            Secure input--}}
 {{--            <native:text class="text-lg font-semibold" :color="$fg">Secure input</native:text>--}}
-{{--            <native:text-input class="w-full" :value="$secureText" label="Password" placeholder="Enter password..."--}}
+{{--            <native:outlined-text-input class="w-full" :value="$secureText" label="Password" placeholder="Enter password..."--}}
 {{--                               secure leadingIcon="lock" :textColor="$fg" color="#7C3AED" @change="onSecureType"/>--}}
 
 {{--            <native:button label="Clear all" @press="clearInput" color="{{ $darkMode ? '#94A3B8' : '#64748B' }}"--}}
@@ -437,12 +437,12 @@
             <native:spacer class="h-2"/>
 
             <native:text class="text-lg font-semibold" :color="$fg">Name</native:text>
-            <native:text-input class="w-full" :value="$formName" placeholder="Enter your name..." :textColor="$fg"
+            <native:outlined-text-input class="w-full" :value="$formName" placeholder="Enter your name..." :textColor="$fg"
                                color="#7C3AED" @change="onFormName"/>
             @nativeError('name')
 
             <native:text class="text-lg font-semibold" :color="$fg">Email</native:text>
-            <native:text-input class="w-full" :value="$formEmail" placeholder="you@example.com" :textColor="$fg"
+            <native:outlined-text-input class="w-full" :value="$formEmail" placeholder="you@example.com" :textColor="$fg"
                                color="#7C3AED" @change="onFormEmail" :keyboard="2"/>
             @nativeError('email', '#EF4444')
 
