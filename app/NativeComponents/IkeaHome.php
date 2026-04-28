@@ -13,6 +13,11 @@ class IkeaHome extends NativeComponent
 
     public string $selectedCategory = 'Living Room';
 
+    public function navTitle(): string
+    {
+        return 'IKEA';
+    }
+
     public function selectCategory(string $category): void
     {
         $this->selectedCategory = $category;

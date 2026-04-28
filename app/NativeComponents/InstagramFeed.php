@@ -14,6 +14,11 @@ class InstagramFeed extends NativeComponent
     /** @var array<int, bool> */
     public array $likedPosts = [];
 
+    public function navTitle(): string
+    {
+        return 'Instagram';
+    }
+
     /** @var array<int, bool> */
     public array $savedPosts = [];
 

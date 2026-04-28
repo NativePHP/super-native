@@ -20,6 +20,11 @@ class Counter extends NativeComponent
         $this->count--;
     }
 
+    public function navTitle(): string
+    {
+        return 'Counter';
+    }
+
     public function render(): Element
     {
         return $this->view('counter');

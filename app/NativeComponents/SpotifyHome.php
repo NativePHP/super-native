@@ -11,6 +11,11 @@ class SpotifyHome extends NativeComponent
 {
     use HasSpotifyData;
 
+    public function navTitle(): string
+    {
+        return 'Spotify';
+    }
+
     public function viewPlaylist(int $index): void
     {
         $this->navigate($this->route('spotify.playlist', $index))

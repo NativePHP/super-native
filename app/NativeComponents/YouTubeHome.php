@@ -13,6 +13,11 @@ class YouTubeHome extends NativeComponent
 
     public string $activeCategory = 'All';
 
+    public function navTitle(): string
+    {
+        return 'YouTube';
+    }
+
     public function viewVideo(int $index): void
     {
         $this->navigate($this->route('youtube.video', $index))

@@ -13,6 +13,11 @@ class TwitterFeed extends NativeComponent
 
     public int $selectedTab = 0;
 
+    public function navTitle(): string
+    {
+        return 'Twitter / X';
+    }
+
     /** @var array<int, bool> */
     public array $likedTweets = [];
 

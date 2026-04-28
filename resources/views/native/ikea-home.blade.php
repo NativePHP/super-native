@@ -1,4 +1,4 @@
-@include('native.partials.demo-nav', ['title' => 'IKEA'])
+
 
 <native:scroll-view class="w-full h-full bg-gray-50">
     <native:column class="w-full gap-0 ">
@@ -12,7 +12,7 @@
                         <native:icon name="search" :size="20" color="#FFFFFF" />
                     </native:column>
                     <native:column @press="viewCart" class="w-[36] h-[36] rounded-full bg-white/20 items-center justify-center">
-                        <native:icon name="shopping_cart" :size="20" color="#FFFFFF" />
+                        <native:icon name="cart" :size="20" color="#FFFFFF" />
                     </native:column>
                 </native:row>
             </native:row>

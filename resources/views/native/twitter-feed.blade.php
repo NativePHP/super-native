@@ -1,6 +1,6 @@
 {{--@include('native.partials.demo-nav', ['title' => 'Twitter / X'])--}}
 
-<native:scroll-view class="safe-area">
+<native:scroll-view >
     <native:column class="w-full gap-0 ">
 
         {{-- Top Bar --}}

@@ -1,4 +1,4 @@
-@include('native.partials.demo-nav', ['title' => 'Spotify'])
+{{-- @include('native.partials.demo-nav', ['title' => 'Spotify']) --}}
 
 <native:scroll-view class="w-full h-full bg-[#121212]">
     <native:column class="w-full gap-0 ">

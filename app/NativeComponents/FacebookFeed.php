@@ -14,6 +14,11 @@ class FacebookFeed extends NativeComponent
     /** @var array<int, bool> */
     public array $likedPosts = [];
 
+    public function navTitle(): string
+    {
+        return 'Facebook';
+    }
+
     public function viewPost(int $index): void
     {
         $this->navigate($this->route('facebook.post', $index))
