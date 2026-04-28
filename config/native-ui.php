@@ -33,7 +33,7 @@ return [
 
         'light' => [
             // Primary brand color — used for filled buttons, active states, key accents.
-            'primary'       => '#02f54f',
+            'primary'       => '#00AAFF',
             'on-primary'    => '#FFFFFF',
 
             // Secondary / muted action color.
