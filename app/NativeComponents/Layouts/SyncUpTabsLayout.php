@@ -34,8 +34,8 @@ class SyncUpTabsLayout extends NativeLayout
             ->title($screen->navTitle())                            // "SyncUp"
             ->subtitle('All caught up')                             // small line under the title
             ->back()                                                // chevron + system back
-            ->backgroundColor('#e0dcdc')                            // bar bg
-            ->textColor('#000000')                                  // title + icon tint
+            ->backgroundColor('#0891b2')                            // bar bg
+            ->textColor('#FFFFFF')                                  // title + icon tint
             ->elevation(8)                                          // subtle shadow under bar
             ->action(NavAction::make('search')->icon('search')->press('openSearch'));
     }
@@ -43,9 +43,9 @@ class SyncUpTabsLayout extends NativeLayout
     public function tabBar(NativeComponent $screen): ?TabBar
     {
         return TabBar::make()
-//            ->dark()                                                // dark surface variant
-            ->backgroundColor('#e0dcdc')
-            ->textColor('#000000')
+            ->dark()                                                // dark surface variant
+//            ->backgroundColor('#e0dcdc')
+//            ->textColor('#000000')
             ->activeColor('#0891b2')                                // active item color
             ->labelVisibility('labeled')                            // try 'selected' / 'unlabeled' to test
             ->add(Tab::link('Chats', '/syncup', icon: 'chat_bubble')->badge('2'))
