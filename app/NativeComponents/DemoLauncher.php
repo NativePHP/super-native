@@ -3,6 +3,7 @@
 namespace App\NativeComponents;
 
 use Native\Mobile\Edge\Element;
+use Native\Mobile\Edge\Layouts\Builders\NavBarOptions;
 use Native\Mobile\Edge\NativeComponent;
 
 /**
@@ -32,14 +33,31 @@ class DemoLauncher extends NativeComponent
         ['id' => 'instagram', 'title' => 'Instagram', 'subtitle' => 'Feed, post, profile, search', 'icon' => 'camera', 'color' => '#E1306C', 'url' => '/instagram'],
         ['id' => 'spotify', 'title' => 'Spotify', 'subtitle' => 'Home, playlist, artist, search', 'icon' => 'music.note', 'color' => '#1DB954', 'url' => '/spotify'],
         ['id' => 'youtube', 'title' => 'YouTube', 'subtitle' => 'Home, video, channel, search', 'icon' => 'play.rectangle.fill', 'color' => '#FF0000', 'url' => '/youtube'],
-        ['id' => 'syncup', 'title' => 'SyncUp Messaging', 'subtitle' => 'Login, chat threads, friends, profile (5 screens)', 'icon' => 'chat_bubble', 'color' => '#00B4D8', 'url' => '/syncup'],
+        ['id' => 'syncup', 'title' => 'SyncUp Messaging', 'subtitle' => 'Login, chat threads, friends, profile (5 screens) — custom chrome', 'icon' => 'chat_bubble', 'color' => '#00B4D8', 'url' => '/syncup/login'],
+        ['id' => 'syncupnative', 'title' => 'SyncUp Messaging (Native)', 'subtitle' => 'Same demo through SwiftUI TabView + NavigationStack', 'icon' => 'chat_bubble', 'color' => '#0891b2', 'url' => '/syncup-native/login'],
         ['id' => 'counter', 'title' => 'Counter', 'subtitle' => 'Minimal Livewire-style counter', 'icon' => 'add', 'color' => '#10B981', 'url' => '/counter'],
 //        ['id' => 'benchmark', 'title' => 'Benchmark',        'subtitle' => 'Render perf benchmarks',                                            'icon' => 'bolt',               'color' => '#F59E0B', 'url' => '/benchmark'],
     ];
 
     public function navTitle(): string
     {
-        return 'NativePHP Demos';
+        return 'SuperNative Demo';
+    }
+
+    /** Root screen — nothing to pop back to, hide the chevron. */
+    public function showsNavBack(): bool
+    {
+        return false;
+    }
+
+    public function navigationOptions(): ?NavBarOptions
+    {
+        // `large` gives the iOS-native big-title-on-top, left-aligned,
+        // collapses to inline as content scrolls under the bar (iOS 26+
+        // gets Liquid Glass material during the collapse).
+        return NavBarOptions::make()
+            ->displayMode('large')
+            ->subtitle('Tap a demo to launch');
     }
 
     public function render(): Element

@@ -1,0 +1,54 @@
+<?php
+
+namespace App\NativeComponents\SyncUpNative;
+
+use App\NativeComponents\Concerns\HasSyncUpData;
+use Native\Mobile\Edge\Element;
+use Native\Mobile\Edge\NativeComponent;
+
+class SyncUpNativeProfile extends NativeComponent
+{
+    use HasSyncUpData;
+
+    public string $name = 'Elena Rodriguez';
+
+    public string $bio = 'Product Designer & Tech Enthusiast. Always syncing up with the latest trends in UI/UX and collaborative technology. ✨';
+
+    public bool $saved = false;
+
+    public function navTitle(): string
+    {
+        return 'SyncUp';
+    }
+
+    public function updateName(string $value): void
+    {
+        $this->name = $value;
+        $this->saved = false;
+    }
+
+    public function updateBio(string $value): void
+    {
+        $this->bio = $value;
+        $this->saved = false;
+    }
+
+    public function editPhoto(): void  { /* stub */ }
+    public function copyLink(): void   { /* stub */ }
+    public function shareLink(): void  { /* stub */ }
+
+    public function saveProfile(): void
+    {
+        $this->saved = true;
+    }
+
+    public function signOut(): void
+    {
+        $this->navigate('/syncup-native/login');
+    }
+
+    public function render(): Element
+    {
+        return $this->view('syncup.profile');
+    }
+}

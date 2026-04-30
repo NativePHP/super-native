@@ -25,8 +25,15 @@ class NativeStackLayout extends NativeLayout
 
     public function navBar(NativeComponent $screen): ?NavBar
     {
+        // Screens may opt out of the system back chevron by exposing a
+        // `showsNavBack(): bool` method that returns false. Useful for root
+        // screens (e.g. the demo launcher) where there's nothing to pop back
+        // to and the empty stub looks awkward.
+        $showBack = ! method_exists($screen, 'showsNavBack')
+            || $screen->showsNavBack();
+
         return NavBar::make()
-            ->back()
+            ->back($showBack)
             ->title($screen->navTitle());
     }
 }

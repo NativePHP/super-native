@@ -1,7 +1,5 @@
-<native:scroll-view class="w-full bg-theme-surface">
+<native:scroll-view class="w-full bg-theme-background">
     <native:column class="w-full p-5 gap-5">
-
-{{--        <native:text class="text-sm text-gray-500">Names below are passed to <native:text class="font-mono">&lt;native:icon&gt;</native:text> and resolved through IconHelper.swift / IconHelper.kt.</native:text>--}}
 
         @php
             $sections = [
@@ -17,13 +15,13 @@
         @endphp
 
         @foreach ($sections as $heading => $names)
-            <native:text class="text-lg font-semibold">{{ $heading }}</native:text>
+            <native:text class="text-lg font-semibold text-theme-on-background">{{ $heading }}</native:text>
             <native:scroll-view :horizontal="true" class="w-full">
                 <native:row class="gap-3 px-1">
                     @foreach ($names as $n)
-                        <native:column class="w-[88] items-center gap-1 p-3 bg-slate-100 rounded-lg">
-                            <native:icon :name="$n" :size="28" color="#1E293B" />
-                            <native:text class="text-xs text-center text-gray-700">{{ $n }}</native:text>
+                        <native:column class="w-[88] items-center gap-1 p-3 bg-theme-surface-variant rounded-lg">
+                            <native:icon :name="$n" :size="28" class="text-slate-800 dark:text-white" />
+                            <native:text class="text-xs text-center text-theme-on-surface">{{ $n }}</native:text>
                         </native:column>
                     @endforeach
                 </native:row>

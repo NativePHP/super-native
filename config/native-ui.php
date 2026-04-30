@@ -46,6 +46,14 @@ return [
             'background'    => '#FFFFFF',
             'on-background' => '#000000',
 
+            // Surface variant = filled text fields, muted tonal surfaces.
+            // on-surface-variant = muted label/hint text on those surfaces.
+            'surface-variant'    => '#F1F5F9',
+            'on-surface-variant' => '#475569',
+
+            // Outline = neutral borders (text fields, dividers, cards).
+            'outline'       => '#CBD5E1',
+
             // Destructive / error actions and messages.
             'destructive'         => '#DC2626',
             'on-destructive'      => '#FFFFFF',
@@ -65,9 +73,14 @@ return [
             'on-secondary'  => '#000000',
 
             'surface'       => '#1E293B',
-            'on-surface'    => '#d3fc05',
+            'on-surface'    => '#FFFFFF',
             'background'    => '#000000',
             'on-background' => '#FFFFFF',
+
+            'surface-variant'    => '#334155',
+            'on-surface-variant' => '#94A3B8',
+
+            'outline'       => '#475569',
 
             'destructive'         => '#cf1729',
             'on-destructive'      => '#FFFFFF',

@@ -1,12 +1,12 @@
 <?php
 
-namespace App\NativeComponents;
+namespace App\NativeComponents\SyncUpNative;
 
 use Native\Mobile\Edge\Element;
 use Native\Mobile\Edge\NativeComponent;
 use Native\Mobile\Edge\Transition;
 
-class SyncUpLogin extends NativeComponent
+class SyncUpNativeLogin extends NativeComponent
 {
     public string $email = '';
 
@@ -31,7 +31,7 @@ class SyncUpLogin extends NativeComponent
 
     public function login(): void
     {
-        $this->replace('/syncup')->transition(Transition::Fade);
+        $this->replace('/syncup-native')->transition(Transition::Fade);
     }
 
     /** Skip the form entirely — convenient for demo browsing. */
@@ -40,15 +40,8 @@ class SyncUpLogin extends NativeComponent
         $this->login();
     }
 
-    public function forgotPassword(): void
-    {
-        // Demo stub — would push a password reset flow.
-    }
-
-    public function createAccount(): void
-    {
-        // Demo stub — would push the registration flow.
-    }
+    public function forgotPassword(): void  { /* stub */ }
+    public function createAccount(): void   { /* stub */ }
 
     public function loginWithGoogle(): void
     {

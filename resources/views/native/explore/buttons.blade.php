@@ -1,8 +1,8 @@
-<native:scroll-view class="w-full bg-theme-surface">
+<native:scroll-view class="w-full bg-theme-background">
     <native:column class="w-full p-5 gap-5">
 
         {{-- Variants --}}
-        <native:text class="text-lg font-semibold">Variants</native:text>
+        <native:text class="text-lg font-semibold text-theme-on-background">Variants</native:text>
         <native:row class="w-full gap-2 flex-wrap items-center">
             <native:button variant="primary"     @press="increment">Primary</native:button>
             <native:button variant="secondary"   @press="increment">Secondary</native:button>
@@ -11,7 +11,7 @@
         </native:row>
 
         {{-- Sizes --}}
-        <native:text class="text-lg font-semibold">Sizes</native:text>
+        <native:text class="text-lg font-semibold text-theme-on-background">Sizes</native:text>
         <native:row class="w-full gap-2 items-center flex-wrap">
             <native:button variant="primary" size="sm" @press="increment">Small</native:button>
             <native:button variant="primary" size="md" @press="increment">Medium</native:button>
@@ -19,7 +19,7 @@
         </native:row>
 
         {{-- With icons --}}
-        <native:text class="text-lg font-semibold">With icons</native:text>
+        <native:text class="text-lg font-semibold text-theme-on-background">With icons</native:text>
         <native:row class="w-full gap-2 items-center flex-wrap">
             <native:button variant="primary"     icon="add"                          @press="increment">Add item</native:button>
             <native:button variant="secondary"   icon-trailing="arrow.right"         @press="increment">Next</native:button>
@@ -27,7 +27,7 @@
         </native:row>
 
         {{-- States --}}
-        <native:text class="text-lg font-semibold">States</native:text>
+        <native:text class="text-lg font-semibold text-theme-on-background">States</native:text>
         <native:row class="w-full gap-2 items-center flex-wrap">
             <native:button variant="primary"           @press="increment">Enabled</native:button>
             <native:button variant="primary" disabled  @press="increment">Disabled</native:button>
@@ -36,8 +36,8 @@
 
         <native:divider class="my-2" />
 
-        {{-- Pressable escape hatch --}}
-        <native:text class="text-lg font-semibold">Pressable (custom)</native:text>
+        {{-- Pressable escape hatch — bright accent pills stay vivid in both modes --}}
+        <native:text class="text-lg font-semibold text-theme-on-background">Pressable (custom)</native:text>
         <native:row class="w-full gap-2 flex-wrap">
             <native:pressable @press="increment" class="bg-pink-500 rounded-full px-6 py-2 items-center justify-center">
                 <native:text class="text-white font-semibold">Pink Pill</native:text>
@@ -71,7 +71,7 @@
         <native:divider class="my-2" />
 
         {{-- Counter --}}
-        <native:text class="text-lg font-semibold">Interactive Counter</native:text>
+        <native:text class="text-lg font-semibold text-theme-on-background">Interactive Counter</native:text>
         <native:row class="w-full gap-4 items-center justify-center">
             <native:button variant="destructive" size="lg" icon="minus.circle.fill" a11y-label="Decrement" @press="decrement"/>
             <native:column class="w-[80] h-[80] rounded-2xl bg-indigo-600 items-center justify-center">

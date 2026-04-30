@@ -43,6 +43,12 @@ use App\NativeComponents\SyncUpChat;
 use App\NativeComponents\SyncUpChats;
 use App\NativeComponents\SyncUpFriends;
 use App\NativeComponents\SyncUpLogin;
+use App\NativeComponents\SyncUpNative\Layouts\SyncUpNativeTabsLayout;
+use App\NativeComponents\SyncUpNative\SyncUpNativeChat;
+use App\NativeComponents\SyncUpNative\SyncUpNativeChats;
+use App\NativeComponents\SyncUpNative\SyncUpNativeFriends;
+use App\NativeComponents\SyncUpNative\SyncUpNativeLogin;
+use App\NativeComponents\SyncUpNative\SyncUpNativeProfile;
 use App\NativeComponents\SyncUpProfile;
 use App\NativeComponents\TestLayout;
 use App\NativeComponents\TweetDetail;
@@ -56,7 +62,11 @@ use Illuminate\Support\Facades\Route;
 use Native\Mobile\Edge\BenchmarkComponent;
 
 // ── Demo launcher (root) ──
-Route::native('/', DemoLauncher::class)->name('demos');
+// Wrapped in NativeStackLayout so the title bar renders via SwiftUI's
+// NavigationStack — fixed at the top, with Liquid Glass on iOS 26+.
+Route::nativeGroup(NativeStackLayout::class, function () {
+    Route::native('/', DemoLauncher::class)->name('demos');
+});
 
 // ── Layout demo (Tabs) ──
 Route::nativeGroup(TabsLayout::class, function () {
@@ -134,6 +144,19 @@ Route::native('/syncup/chat/{id}', SyncUpChat::class)
     ->layout(StackLayout::class)
     ->name('syncup.chat');
 Route::native('/syncup/login', SyncUpLogin::class)->name('syncup.login');
+
+// SyncUp messaging (native chrome variant) — same demo running through
+// SwiftUI's TabView + NavigationStack instead of the custom HStack
+// chrome. Side-by-side comparison with the `/syncup/...` flow above.
+Route::nativeGroup(SyncUpNativeTabsLayout::class, function () {
+    Route::native('/syncup-native',         SyncUpNativeChats::class)->name('syncup-native.chats');
+    Route::native('/syncup-native/friends', SyncUpNativeFriends::class)->name('syncup-native.friends');
+    Route::native('/syncup-native/profile', SyncUpNativeProfile::class)->name('syncup-native.profile');
+});
+Route::native('/syncup-native/chat/{id}', SyncUpNativeChat::class)
+    ->layout(NativeStackLayout::class)
+    ->name('syncup-native.chat');
+Route::native('/syncup-native/login', SyncUpNativeLogin::class)->name('syncup-native.login');
 
 // ── Native chrome — NavigationStack-rendered top bar ──
 Route::native('/native-chrome', NativeChromeDemo::class)

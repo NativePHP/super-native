@@ -1,9 +1,9 @@
-<native:scroll-view class="w-full bg-theme-surface">
+<native:scroll-view class="w-full bg-theme-background">
     <native:column class="w-full p-5 gap-5">
 
         {{-- FLEX --}}
-        <native:text class="text-lg font-semibold">Flex layout</native:text>
-        <native:text class="text-sm text-gray-500">flex-1 distributes remaining space equally.</native:text>
+        <native:text class="text-lg font-semibold text-theme-on-background">Flex layout</native:text>
+        <native:text class="text-sm text-theme-on-surface-variant">flex-1 distributes remaining space equally.</native:text>
 
         <native:row class="w-full gap-2 h-[60]">
             <native:column class="flex-1 bg-blue-500 rounded items-center justify-center">
@@ -17,7 +17,7 @@
             </native:column>
         </native:row>
 
-        <native:text class="text-sm text-gray-500">Mix of fixed widths and flex-1.</native:text>
+        <native:text class="text-sm text-theme-on-surface-variant">Mix of fixed widths and flex-1.</native:text>
         <native:row class="w-full gap-2 h-[60]">
             <native:column class="w-[60] bg-amber-500 rounded items-center justify-center">
                 <native:text class="text-white text-xs">60</native:text>
@@ -33,8 +33,8 @@
         <native:divider class="my-2"/>
 
         {{-- STACK --}}
-        <native:text class="text-lg font-semibold">Stack (layered)</native:text>
-        <native:text class="text-sm text-gray-500">Children layer on top of each other (centered).</native:text>
+        <native:text class="text-lg font-semibold text-theme-on-background">Stack (layered)</native:text>
+        <native:text class="text-sm text-theme-on-surface-variant">Children layer on top of each other (centered).</native:text>
 
         <native:row class="w-full gap-6 items-center">
             <native:stack class="w-[100] h-[100]">
@@ -56,8 +56,8 @@
         <native:divider class="my-2"/>
 
         {{-- SHAPE PRIMITIVES --}}
-        <native:text class="text-lg font-semibold">Shape primitives</native:text>
-        <native:text class="text-sm text-gray-500">rect / circle — fill a frame with a color.</native:text>
+        <native:text class="text-lg font-semibold text-theme-on-background">Shape primitives</native:text>
+        <native:text class="text-sm text-theme-on-surface-variant">rect / circle — fill a frame with a color.</native:text>
 
         <native:row class="w-full gap-3">
             <native:rect class="flex-1 h-[60] bg-blue-500 rounded"/>
@@ -75,7 +75,7 @@
         <native:divider class="my-2"/>
 
         {{-- ACTIVITY INDICATOR --}}
-        <native:text class="text-lg font-semibold">Activity indicator</native:text>
+        <native:text class="text-lg font-semibold text-theme-on-background">Activity indicator</native:text>
         <native:row class="w-full gap-4 items-center">
             <native:activity-indicator size="small"/>
             <native:activity-indicator size="medium"/>
@@ -90,12 +90,12 @@
         <native:divider class="my-2"/>
 
         {{-- SPACER --}}
-        <native:text class="text-lg font-semibold">Spacer</native:text>
-        <native:text class="text-sm text-gray-500">Pushes content apart inside a flex container.</native:text>
-        <native:row class="w-full p-3 bg-slate-100 rounded items-center">
-            <native:text class="font-semibold">Left</native:text>
+        <native:text class="text-lg font-semibold text-theme-on-background">Spacer</native:text>
+        <native:text class="text-sm text-theme-on-surface-variant">Pushes content apart inside a flex container.</native:text>
+        <native:row class="w-full p-3 bg-theme-surface-variant rounded items-center">
+            <native:text class="font-semibold text-theme-on-surface">Left</native:text>
             <native:spacer/>
-            <native:text class="font-semibold">Right</native:text>
+            <native:text class="font-semibold text-theme-on-surface">Right</native:text>
         </native:row>
 
         <native:divider class="my-2"/>
@@ -109,86 +109,80 @@
 
              To use a real bottom nav, attach a TabsLayout to your route —
              see /tabs in the launcher. --}}
-        <native:text class="text-lg font-semibold">Bottom Nav (mockup)</native:text>
-        <native:text class="text-sm text-gray-500">Tabs render via UITabBar on iOS / Material BottomNavigation on
+        <native:text class="text-lg font-semibold text-theme-on-background">Bottom Nav (mockup)</native:text>
+        <native:text class="text-sm text-theme-on-surface-variant">Tabs render via UITabBar on iOS / Material BottomNavigation on
             Android. The layouts below are stylistic mockups built from primitives.
         </native:text>
 
-        {{-- Each cell is `flex-1 items-center` so the row distributes evenly
-             and contents sit centered horizontally. <native:stack> only
-             appears for cells that need to z-layer a badge / news dot over
-             the icon — plain icon cells place the icon directly in the
-             column. --}}
-
         {{-- 3-item basic --}}
-        <native:row class="w-full h-[64] bg-white rounded-xl border border-slate-200 items-center">
+        <native:row class="w-full h-[64] bg-theme-surface rounded-xl border border-theme-outline items-center">
             <native:column class="flex-1 items-center gap-1">
                 <native:icon name="home" :size="22" color="#3B82F6"/>
                 <native:text class="text-[11] text-blue-500 text-center font-semibold">Home</native:text>
             </native:column>
             <native:column class="flex-1 items-center gap-1">
-                <native:icon name="search" :size="22" color="#9CA3AF"/>
-                <native:text class="text-[11] text-gray-400 text-center">Search</native:text>
+                <native:icon name="search" :size="22" color="#9CA3AF" dark-color="#94A3B8"/>
+                <native:text class="text-[11] text-theme-on-surface-variant text-center">Search</native:text>
             </native:column>
             <native:column class="flex-1 items-center gap-1">
-                <native:icon name="person" :size="22" color="#9CA3AF"/>
-                <native:text class="text-[11] text-gray-400 text-center">Profile</native:text>
+                <native:icon name="person" :size="22" color="#9CA3AF" dark-color="#94A3B8"/>
+                <native:text class="text-[11] text-theme-on-surface-variant text-center">Profile</native:text>
             </native:column>
         </native:row>
 
-        <native:text class="text-sm text-gray-500">With badge + "news" indicator.</native:text>
-        <native:row class="w-full h-[64] bg-white rounded-xl border border-slate-200 items-center">
+        <native:text class="text-sm text-theme-on-surface-variant">With badge + "news" indicator.</native:text>
+        <native:row class="w-full h-[64] bg-theme-surface rounded-xl border border-theme-outline items-center">
             <native:column class="flex-1 items-center gap-1">
                 <native:icon name="home" :size="22" color="#3B82F6"/>
                 <native:text class="text-[11] text-blue-500 text-center font-semibold">Feed</native:text>
             </native:column>
             <native:column class="flex-1 items-center gap-1">
                 <native:stack class="w-[32] h-[24]">
-                    <native:icon name="notifications" :size="22" color="#9CA3AF"/>
+                    <native:icon name="notifications" :size="22" color="#9CA3AF" dark-color="#94A3B8"/>
                     <native:row class="w-[32] h-[24] items-start justify-end">
                         <native:column class="w-[16] h-[14] rounded-full bg-red-500 items-center justify-center">
                             <native:text class="text-[9] font-bold text-white">3</native:text>
                         </native:column>
                     </native:row>
                 </native:stack>
-                <native:text class="text-[11] text-gray-400 text-center">Alerts</native:text>
+                <native:text class="text-[11] text-theme-on-surface-variant text-center">Alerts</native:text>
             </native:column>
             <native:column class="flex-1 items-center gap-1">
                 <native:stack class="w-[32] h-[24]">
-                    <native:icon name="chat" :size="22" color="#9CA3AF"/>
+                    <native:icon name="chat" :size="22" color="#9CA3AF" dark-color="#94A3B8"/>
                     <native:row class="w-[32] h-[24] items-start justify-end">
                         <native:column class="w-[8] h-[8] rounded-full bg-red-500"/>
                     </native:row>
                 </native:stack>
-                <native:text class="text-[11] text-gray-400 text-center">Messages</native:text>
+                <native:text class="text-[11] text-theme-on-surface-variant text-center">Messages</native:text>
             </native:column>
             <native:column class="flex-1 items-center gap-1">
-                <native:icon name="person" :size="22" color="#9CA3AF"/>
-                <native:text class="text-[11] text-gray-400 text-center">Profile</native:text>
+                <native:icon name="person" :size="22" color="#9CA3AF" dark-color="#94A3B8"/>
+                <native:text class="text-[11] text-theme-on-surface-variant text-center">Profile</native:text>
             </native:column>
         </native:row>
 
-        <native:text class="text-sm text-gray-500">5-item nav with custom active color.</native:text>
-        <native:row class="w-full h-[64] bg-white rounded-xl border border-slate-200 items-center">
+        <native:text class="text-sm text-theme-on-surface-variant">5-item nav with custom active color.</native:text>
+        <native:row class="w-full h-[64] bg-theme-surface rounded-xl border border-theme-outline items-center">
             <native:column class="flex-1 items-center gap-1">
-                <native:icon name="home" :size="20" color="#9CA3AF"/>
-                <native:text class="text-[10] text-gray-400 text-center">Home</native:text>
+                <native:icon name="home" :size="20" color="#9CA3AF" dark-color="#94A3B8"/>
+                <native:text class="text-[10] text-theme-on-surface-variant text-center">Home</native:text>
             </native:column>
             <native:column class="flex-1 items-center gap-1">
-                <native:icon name="search" :size="20" color="#9CA3AF"/>
-                <native:text class="text-[10] text-gray-400 text-center">Search</native:text>
+                <native:icon name="search" :size="20" color="#9CA3AF" dark-color="#94A3B8"/>
+                <native:text class="text-[10] text-theme-on-surface-variant text-center">Search</native:text>
             </native:column>
             <native:column class="flex-1 items-center gap-1">
                 <native:icon name="add" :size="20" color="#E11D48"/>
                 <native:text class="text-[10] text-rose-600 text-center font-semibold">Post</native:text>
             </native:column>
             <native:column class="flex-1 items-center gap-1">
-                <native:icon name="bookmark" :size="20" color="#9CA3AF"/>
-                <native:text class="text-[10] text-gray-400 text-center">Saved</native:text>
+                <native:icon name="bookmark" :size="20" color="#9CA3AF" dark-color="#94A3B8"/>
+                <native:text class="text-[10] text-theme-on-surface-variant text-center">Saved</native:text>
             </native:column>
             <native:column class="flex-1 items-center gap-1">
-                <native:icon name="person" :size="20" color="#9CA3AF"/>
-                <native:text class="text-[10] text-gray-400 text-center">Me</native:text>
+                <native:icon name="person" :size="20" color="#9CA3AF" dark-color="#94A3B8"/>
+                <native:text class="text-[10] text-theme-on-surface-variant text-center">Me</native:text>
             </native:column>
         </native:row>
 
