@@ -30,8 +30,6 @@ class YouTubeVideo extends NativeComponent
 
     public function mount(): void
     {
-        nativephp_call('UI.SetBackground', json_encode(['color' => '#0F0F0F']));
-
         $id = (int) $this->param('id');
         $videos = self::ytVideos();
         $channels = self::ytChannels();

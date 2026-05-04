@@ -9,12 +9,12 @@
     ],
     "repositories": {
         "mobile": {
-            "type": "vcs",
-            "url": "https://github.com/NativePHP/mobile-air.git"
+            "type": "path",
+            "url": "../mobile-air"
         },
         "ui": {
-            "type": "vcs",
-            "url": "https://github.com/NativePHP/compose-ui.git"
+            "type": "path",
+            "url": "../Plugins/nativephp/native-ui"
         },
         "plugins": {
             "type": "composer",
@@ -28,8 +28,8 @@
         "laravel/framework": "^13.0",
         "laravel/tinker": "^3.0",
         "livewire/livewire": "^4.0",
-        "nativephp/native-ui": "dev-main",
-        "nativephp/mobile": "dev-element",
+        "nativephp/native-ui": "*",
+        "nativephp/mobile": "*",
         "nativephp/mobile-device": "^1.0",
         "nativephp/mobile-dialog": "^1.0"
     },

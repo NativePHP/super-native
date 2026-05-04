@@ -10,24 +10,26 @@
         <native:scroll-view horizontal>
             <native:row class="gap-3 px-4 pb-3">
                 {{-- Your Story --}}
-                <native:column class="items-center gap-1 w-[68]">
-                    <native:column class="w-[62] h-[62] rounded-full bg-[#DBDBDB] items-center justify-center">
+                <native:column class="items-center gap-1 w-[72]">
+                    <native:column class="w-[68] h-[68] rounded-full bg-[#DBDBDB] items-center justify-center">
                         <native:image
                             src="https://i.pravatar.cc/150?u=igcurrent"
-                            class="w-[56] h-[56] rounded-full"
+                            class="w-[60] h-[60] rounded-full"
                             :fit="2"
                         />
                     </native:column>
                     <native:text class="text-[11] text-[#262626]">Your story</native:text>
                 </native:column>
-                {{-- Other Stories --}}
+                {{-- Other Stories — `linear-gradient` via inline style doesn't
+                     render natively; use a chunky 4-px Instagram-pink ring
+                     as a single-color approximation of the gradient. --}}
                 @foreach ($stories as $story)
-                    <native:column @press="viewProfile({{ array_search($story, $stories) }})" class="items-center gap-1 w-[68]">
-                        <native:column class="w-[64] h-[64] rounded-full items-center justify-center" style="background: linear-gradient(45deg, #F58529, #DD2A7B, #8134AF, #515BD4)">
-                            <native:column class="w-[60] h-[60] rounded-full bg-white items-center justify-center p-[2]">
+                    <native:column @press="viewProfile({{ array_search($story, $stories) }})" class="items-center gap-1 w-[72]">
+                        <native:column class="w-[68] h-[68] rounded-full bg-[#DD2A7B] items-center justify-center">
+                            <native:column class="w-[60] h-[60] rounded-full bg-white items-center justify-center">
                                 <native:image
                                     src="{{ $story['avatarUrl'] }}"
-                                    class="w-[54] h-[54] rounded-full"
+                                    class="w-[56] h-[56] rounded-full"
                                     :fit="2"
                                 />
                             </native:column>
@@ -44,25 +46,24 @@
         @foreach ($posts as $index => $post)
             <native:column class="w-full">
                 {{-- Post Header --}}
-                <native:row class="w-full px-3 py-2 items-center justify-between">
-                    <native:row @press="viewProfile({{ $post['userId'] }})" class="items-center gap-2">
-                        <native:image
-                            src="{{ $post['user']['avatarUrl'] }}"
-                            class="w-[32] h-[32] rounded-full"
-                            :fit="2"
-                        />
-                        <native:column>
-                            <native:row class="items-center gap-1">
-                                <native:text class="text-[13] font-bold text-[#262626]">{{ $post['user']['username'] }}</native:text>
-                                @if ($post['user']['isVerified'])
-                                    <native:icon name="verified" :size="14" color="#3897F0" />
-                                @endif
-                            </native:row>
-                            @if ($post['location'])
-                                <native:text class="text-[11] text-[#262626]">{{ $post['location'] }}</native:text>
+                <native:row class="w-full px-3 py-2 items-center gap-2">
+                    <native:image
+                        @press="viewProfile({{ $post['userId'] }})"
+                        src="{{ $post['user']['avatarUrl'] }}"
+                        class="w-[32] h-[32] rounded-full"
+                        :fit="2"
+                    />
+                    <native:column @press="viewProfile({{ $post['userId'] }})" class="flex-1">
+                        <native:row class="items-center gap-1">
+                            <native:text class="text-[13] font-bold text-[#262626]" :maxLines="1">{{ $post['user']['username'] }}</native:text>
+                            @if ($post['user']['isVerified'])
+                                <native:icon name="verified" :size="14" color="#3897F0" />
                             @endif
-                        </native:column>
-                    </native:row>
+                        </native:row>
+                        @if ($post['location'])
+                            <native:text class="text-[11] text-[#262626]" :maxLines="1">{{ $post['location'] }}</native:text>
+                        @endif
+                    </native:column>
                     <native:icon name="more_horiz" :size="20" color="#262626" />
                 </native:row>
 
@@ -75,7 +76,7 @@
                 />
 
                 {{-- Action Bar --}}
-                <native:row class="w-full px-3 pt-2 items-center justify-between">
+                <native:row class="w-full px-3 mt-5 items-center justify-between">
                     <native:row class="items-center gap-4">
                         <native:column @press="toggleLike({{ $index }})">
                             <native:icon
@@ -105,9 +106,7 @@
 
                 {{-- Caption --}}
                 <native:column class="w-full px-3 pt-1 pb-1">
-                    <native:row class="items-start gap-1 w-full">
-                        <native:text class="text-[13] text-[#262626]"><native:text class="text-[13] font-bold text-[#262626]">{{ $post['user']['username'] }}</native:text> {{ $post['caption'] }}</native:text>
-                    </native:row>
+                    <native:text class="text-sm text-theme-on-surface"><native:text class="text-[13] font-bold text-[#262626]">{{ $post['user']['username'] }}</native:text> {{ $post['caption'] }}</native:text>
                 </native:column>
 
                 {{-- View Comments --}}

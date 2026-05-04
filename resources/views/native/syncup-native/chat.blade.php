@@ -1,8 +1,14 @@
-<native:column class="w-full h-full bg-theme-background gap-4">
+{{-- Standard chat layout: scroll-view fills available height (flex-1),
+     input row pinned at the bottom of the column. SwiftUI's automatic
+     keyboard avoidance pushes the whole column up when the keyboard
+     appears so the input stays visible above it. No layout-level
+     bottomBar slot needed — the bar is part of the screen content. --}}
+<native:stack class="w-full h-full bg-theme-background">
 
-    {{-- Message thread --}}
-    <native:scroll-view class="w-full flex-1">
-        <native:column class="w-full px-5 py-4 gap-3">
+    {{-- Messages — flex-1 so they fill the space between the navbar and
+         the input bar. --}}
+    <native:scroll-view class="w-full h-full">
+        <native:column class="w-full px-5 py-4 gap-3 pb-[80]">
 
             {{-- Date divider --}}
             <native:row class="w-full justify-center my-2">
@@ -44,32 +50,55 @@
                 @endif
             @endforeach
 
-            {{-- Typing indicator --}}
-            <native:row class="w-full items-center gap-1 ml-2">
-                <native:column class="w-[8] h-[8] rounded-full bg-[#cbd5e1] dark:bg-slate-600"/>
-                <native:column class="w-[8] h-[8] rounded-full bg-[#cbd5e1] dark:bg-slate-600"/>
-                <native:column class="w-[8] h-[8] rounded-full bg-[#cbd5e1] dark:bg-slate-600"/>
-            </native:row>
-
         </native:column>
     </native:scroll-view>
-    <native:divider/>
-    <native:row class="w-full gap-2 w-full bg-theme-surface px-4 pt-3 items-center justify-center">
-        <native:icon name="plus.circle.fill" :size="24" color="#64748b" dark-color="#94a3b8" class="glass:clear"/>
-        <native:outlined-text-input
-            value="{{ $draft }}"
-            placeholder="Message..."
-            @change="setDraft"
-            class="flex-1 glass rounded-full"
-            :variant="0"
-            :multiline="true"
-            leading-icon="face.smiling"
-        />
-        <native:icon name="paperplane.fill" :size="24" color="#94a3b8" dark-color="#64748b"/>
-    </native:row>
 
-    {{-- More-actions modal — opened by the NavBar ellipsis. Dismissible
-         (tap backdrop to close). --}}
+    {{-- Input bar — fully transparent so the column's bg-theme-background
+         extends edge-to-edge through it (iMessage / WhatsApp / Telegram
+         pattern: bg fills the screen, input pill floats glass on top).
+         No safe-area-bottom — NavigationStack already insets content above
+         the home indicator; adding it here doubles the gap. --}}
+    {{-- Input bar in a column that fills the stack's height with
+         `justify-end`, pushing the row to the bottom edge. The column is
+         transparent so scroll content shows through everywhere except
+         where the row's glass pills sit. --}}
+    <native:column class="w-full h-full justify-end">
+    <native:row class="w-full px-8 pb-6 gap-2 items-center">
+
+        <native:pressable @press="increment" class="glass:interactive rounded-full p-2 items-center justify-center">
+            <native:icon name="plus.circle" class="text-gray-700"/>
+        </native:pressable>
+
+        {{-- Message field: chromeless `<native:bare-text-input>` wrapped in
+             a glass pill row. The bare input has no outline / label / fill
+             of its own — the surrounding row owns the visible chrome
+             (rounded-full + glass material), which is the iMessage /
+             WhatsApp / Telegram pattern exactly. --}}
+        <native:row class="flex-1 glass rounded-full px-4 py-2 items-center">
+            <native:bare-text-input
+                native:model="draft"
+                placeholder="Message"
+                class="flex-1"
+                @submit="send"
+            />
+        </native:row>
+
+        {{-- Mic when field is empty; primary-tinted send when there's text.
+             Mirrors iMessage's mic↔send swap. --}}
+        @if (trim($draft) === '')
+            <native:pressable @press="increment" class="glass:interactive rounded-full p-2 items-center justify-center">
+                <native:icon name="mic" class="text-gray-700"/>
+            </native:pressable>
+        @else
+            <native:pressable @press="send" class="glass:interactive rounded-full p-2  items-center justify-center">
+                <native:icon name="paperplane.fill" class="text-gray-700"/>
+            </native:pressable>
+        @endif
+
+    </native:row>
+    </native:column>
+
+    {{-- More-actions modal — opened by the NavBar ellipsis. Dismissible. --}}
     <native:modal :visible="$showMoreActions" :dismissible="true" @dismiss="closeMoreActions">
         <native:column class="w-full p-2 bg-theme-surface rounded-3xl">
             <native:column @press="toggleMute" class="w-full px-5 py-4">
@@ -100,8 +129,7 @@
         </native:column>
     </native:modal>
 
-    {{-- Blocking clear-history confirmation. dismissible=false so the user
-         must explicitly choose. --}}
+    {{-- Blocking clear-history confirmation. dismissible=false. --}}
     <native:modal :visible="$showClearConfirm" :dismissible="false">
         <native:column class="w-full p-6 gap-4 bg-theme-surface rounded-3xl">
             <native:text class="text-xl font-bold text-theme-on-surface">Clear chat history?</native:text>
@@ -117,4 +145,4 @@
         </native:column>
     </native:modal>
 
-</native:column>
+</native:stack>

@@ -9,7 +9,7 @@
 
         {{-- Category Chips --}}
         <native:scroll-view horizontal>
-            <native:row class="gap-2 px-4 pb-3">
+            <native:row class="gap-2 px-4 py-3">
                 @foreach ($categories as $name => $color)
                     <native:column
                         @press="selectCategory('{{ $name }}')"
@@ -42,7 +42,7 @@
                 </native:column>
 
                 {{-- Video Info --}}
-                <native:row class="w-full px-3 pt-3 gap-3">
+                <native:row class="w-full px-3 pt-5 pb-3">
                     <native:column @press="viewChannel({{ $video['channelId'] }})">
                         <native:image
                             src="{{ $video['channel']['avatarUrl'] }}"
@@ -50,14 +50,14 @@
                             :fit="2"
                         />
                     </native:column>
-                    <native:column @press="viewVideo({{ $index }})" class="w-[290] gap-1">
+                    <native:column @press="viewVideo({{ $index }})" class="flex-1 gap-1">
                         <native:text class="text-[14] font-semibold text-white" :maxLines="2">{{ $video['title'] }}</native:text>
                         <native:row class="items-center gap-1">
-                            <native:text class="text-[12] text-[#AAAAAA]">{{ $video['channel']['name'] }}</native:text>
+                            <native:text class="text-[12] text-[#AAAAAA]" :maxLines="1">{{ $video['channel']['name'] }}</native:text>
                             @if ($video['channel']['isVerified'])
                                 <native:icon name="verified" :size="12" color="#AAAAAA" />
                             @endif
-                            <native:text class="text-[12] text-[#AAAAAA]">· {{ $video['viewsFormatted'] }} views · {{ $video['uploadedAt'] }}</native:text>
+                            <native:text class="text-[12] text-[#AAAAAA]" :maxLines="1">· {{ $video['viewsFormatted'] }} views · {{ $video['uploadedAt'] }}</native:text>
                         </native:row>
                     </native:column>
                     <native:icon name="more_vert" :size="18" color="#AAAAAA" />

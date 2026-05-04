@@ -1,40 +1,49 @@
 <native:scroll-view class="w-full h-full bg-[#0F0F0F] safe-area">
     <native:column class="w-full gap-0 ">
 
-        {{-- Video Player Area --}}
+        {{-- Video Player Area — overlay icons sit on stronger dark
+             scrims so they don't fight with the thumbnail behind them.
+             Z-order matters: interactive children must render LAST so
+             their hit area isn't covered by a non-interactive sibling.
+             Each `<native:column class="w-full h-[220] ...">` here
+             spans the entire stack, so a non-interactive overlay
+             declared after the back-button row would swallow taps
+             before they reach the row. Order:
+                image → play overlay → duration → controls (top). --}}
         <native:stack class="w-full h-[220] bg-black">
             <native:image
                 src="{{ $video['thumbnailUrl'] }}"
                 class="w-full h-[220]"
                 :fit="2"
             />
-            {{-- Play Button Overlay --}}
+            {{-- Centered Play Button — large but clearly distinguishable
+                 from the thumbnail thanks to a near-opaque dark disc. --}}
             <native:column class="w-full h-[220] items-center justify-center">
-                <native:column class="w-[56] h-[56] rounded-full bg-[#00000088] items-center justify-center">
-                    <native:icon name="play_arrow" :size="36" color="#FFFFFF" />
+                <native:column class="w-[64] h-[64] rounded-full bg-[#000000CC] items-center justify-center">
+                    <native:icon name="play_arrow" :size="40" color="#FFFFFF" />
                 </native:column>
             </native:column>
-            {{-- Top Bar --}}
-            <native:row class="w-full px-3 pt-3 items-center justify-between">
-                <native:column @press="back" class="w-[32] h-[32] rounded-full bg-[#00000066] items-center justify-center">
-                    <native:icon name="arrow_back" :size="20" color="#FFFFFF" />
-                </native:column>
-                <native:row class="items-center gap-2">
-                    <native:column class="w-[32] h-[32] rounded-full bg-[#00000066] items-center justify-center">
-                        <native:icon name="settings" :size="18" color="#FFFFFF" />
-                    </native:column>
-                </native:row>
-            </native:row>
-            {{-- Duration --}}
+            {{-- Duration sits bottom-right with the same opaque scrim. --}}
             <native:column class="w-full h-[220] items-end justify-end p-2">
                 <native:column class="bg-[#000000CC] rounded px-2 py-[2]">
                     <native:text class="text-[12] font-semibold text-white">{{ $video['duration'] }}</native:text>
                 </native:column>
             </native:column>
+            {{-- Top controls (back / settings) — declared LAST so they
+                 sit above the other overlay layers and receive taps. --}}
+            <native:row class="w-full px-3 pt-3 items-center justify-between">
+                <native:column @press="back" class="w-[36] h-[36] rounded-full bg-[#000000AA] items-center justify-center">
+                    <native:icon name="arrow_back" :size="20" color="#FFFFFF" />
+                </native:column>
+                <native:column class="w-[36] h-[36] rounded-full bg-[#000000AA] items-center justify-center">
+                    <native:icon name="settings" :size="18" color="#FFFFFF" />
+                </native:column>
+            </native:row>
         </native:stack>
 
-        {{-- Video Title & Info --}}
-        <native:column @press="toggleDescription" class="w-full px-3 pt-3 gap-1">
+        {{-- Video Title & Info — pt-4 gives clear breathing room below
+             the player so the title doesn't visually butt into it. --}}
+        <native:column @press="toggleDescription" class="w-full px-3 pt-4 gap-1">
             <native:text class="text-[16] font-bold text-white" :maxLines="$showDescription ? 10 : 2">{{ $video['title'] }}</native:text>
             <native:row class="items-center gap-1">
                 <native:text class="text-[12] text-[#AAAAAA]">{{ $viewsFormatted }} views · {{ $video['uploadedAt'] }}</native:text>
@@ -52,20 +61,22 @@
         {{-- Action Buttons --}}
         <native:scroll-view horizontal>
             <native:row class="px-3 pt-3 pb-2 gap-2">
-                {{-- Like --}}
+                {{-- Like / Dislike — explicit white-on-gray for the
+                     idle dislike icon so it's actually visible against
+                     the dark gray pill (was #AAAAAA, near-invisible). --}}
                 <native:row @press="toggleLike" class="bg-[#272727] rounded-full px-4 py-2 items-center gap-2">
                     <native:icon
                         name="{{ $isLiked ? 'thumb_up' : 'thumb_up_off_alt' }}"
                         :size="20"
-                        color="{{ $isLiked ? '#FFFFFF' : '#AAAAAA' }}"
+                        color="#FFFFFF"
                     />
                     <native:text class="text-[13] font-semibold text-white">{{ $likesFormatted }}</native:text>
-                    <native:text class="text-[13] text-[#AAAAAA]">|</native:text>
+                    <native:text class="text-[15] text-[#5A5A5A]">|</native:text>
                     <native:column @press="toggleDislike">
                         <native:icon
                             name="{{ $isDisliked ? 'thumb_down' : 'thumb_down_off_alt' }}"
                             :size="20"
-                            color="{{ $isDisliked ? '#FFFFFF' : '#AAAAAA' }}"
+                            color="#FFFFFF"
                         />
                     </native:column>
                 </native:row>
@@ -101,16 +112,15 @@
                     :fit="2"
                 />
             </native:column>
-            <native:column @press="viewChannel({{ $video['channelId'] }})" class="w-[170] gap-0">
+            <native:column @press="viewChannel({{ $video['channelId'] }})" class="flex-1 gap-0">
                 <native:row class="items-center gap-1">
                     <native:text class="text-[14] font-semibold text-white" :maxLines="1">{{ $channel['name'] }}</native:text>
                     @if ($channel['isVerified'])
                         <native:icon name="verified" :size="14" color="#AAAAAA" />
                     @endif
                 </native:row>
-                <native:text class="text-[12] text-[#AAAAAA]">{{ $subscribersFormatted }} subscribers</native:text>
+                <native:text class="text-[12] text-[#AAAAAA]" :maxLines="1">{{ $subscribersFormatted }} subscribers</native:text>
             </native:column>
-            <native:spacer />
             <native:column
                 @press="toggleSubscribe"
                 class="px-4 py-2 rounded-full {{ $isSubscribed ? 'bg-[#272727]' : 'bg-white' }}"
@@ -137,9 +147,9 @@
                     class="w-[28] h-[28] rounded-full"
                     :fit="2"
                 />
-                <native:column class="w-[300] gap-1">
+                <native:column class="flex-1 gap-1">
                     <native:row class="items-center gap-2">
-                        <native:text class="text-[12] text-[#AAAAAA]">{{ $comment['username'] }}</native:text>
+                        <native:text class="text-[12] text-[#AAAAAA]" :maxLines="1">{{ $comment['username'] }}</native:text>
                         <native:text class="text-[11] text-[#717171]">{{ $comment['time'] }}</native:text>
                     </native:row>
                     <native:text class="text-[13] text-white">{{ $comment['text'] }}</native:text>
@@ -176,15 +186,15 @@
                         </native:column>
                     </native:column>
                 </native:stack>
-                <native:column class="w-[170] gap-1">
+                <native:column class="flex-1 gap-1">
                     <native:text class="text-[13] font-semibold text-white" :maxLines="2">{{ $sVideo['title'] }}</native:text>
                     <native:row class="items-center gap-1">
-                        <native:text class="text-[11] text-[#AAAAAA]">{{ $sVideo['channel']['name'] }}</native:text>
+                        <native:text class="text-[11] text-[#AAAAAA]" :maxLines="1">{{ $sVideo['channel']['name'] }}</native:text>
                         @if ($sVideo['channel']['isVerified'])
                             <native:icon name="verified" :size="10" color="#AAAAAA" />
                         @endif
                     </native:row>
-                    <native:text class="text-[11] text-[#AAAAAA]">{{ $sVideo['viewsFormatted'] }} views · {{ $sVideo['uploadedAt'] }}</native:text>
+                    <native:text class="text-[11] text-[#AAAAAA]" :maxLines="1">{{ $sVideo['viewsFormatted'] }} views · {{ $sVideo['uploadedAt'] }}</native:text>
                 </native:column>
             </native:row>
         @endforeach

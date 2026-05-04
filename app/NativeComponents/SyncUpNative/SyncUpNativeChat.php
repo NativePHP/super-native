@@ -7,6 +7,7 @@ use Native\Mobile\Edge\Element;
 use Native\Mobile\Edge\Layouts\Builders\NavAction;
 use Native\Mobile\Edge\Layouts\Builders\NavBarOptions;
 use Native\Mobile\Edge\NativeComponent;
+use Native\Mobile\Facades\Dialog;
 
 class SyncUpNativeChat extends NativeComponent
 {
@@ -42,7 +43,29 @@ class SyncUpNativeChat extends NativeComponent
         return NavBarOptions::make()
             ->action(NavAction::make('video')->icon('video.fill')->press('startVideo'))
             ->action(NavAction::make('call')->icon('phone.fill')->press('startCall'))
-            ->action(NavAction::make('more')->icon('ellipsis')->press('openMenu'));
+            ->action(
+                NavAction::make('more')
+                    ->icon('ellipsis')
+                    ->items([
+                        NavAction::make('mark_read')
+                            ->icon('checkmark.circle')
+                            ->label('Mark all read')
+                            ->press('markAllRead'),
+                        NavAction::make('mute')
+                            ->icon('bell.slash')
+                            ->label('Mute notifications')
+                            ->press('mute'),
+                        NavAction::make('archive')
+                            ->icon('archivebox')
+                            ->label('Archive')
+                            ->press('archive'),
+                        NavAction::make('delete')
+                            ->icon('trash')
+                            ->label('Delete')
+                            ->destructive()
+                            ->press('deleteIt'),
+                    ])
+            );
     }
 
     public function setDraft(string $value): void
@@ -71,8 +94,12 @@ class SyncUpNativeChat extends NativeComponent
     public function attachPhoto(): void { /* stub */ }
     public function openEmoji(): void   { /* stub */ }
     public function openMore(): void    { /* stub */ }
-    public function startCall(): void   { /* stub */ }
-    public function startVideo(): void  { /* stub */ }
+    public function startCall(): void   {
+        Dialog::toast('Starting Call');
+    }
+    public function startVideo(): void  {
+        Dialog::toast('Starting Video');
+    }
 
     public function openMenu(): void
     {
@@ -119,7 +146,7 @@ class SyncUpNativeChat extends NativeComponent
 
     public function render(): Element
     {
-        return $this->view('syncup.chat', [
+        return $this->view('syncup-native.chat', [
             'friend' => $this->friend(),
         ]);
     }

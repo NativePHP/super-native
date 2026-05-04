@@ -40,7 +40,7 @@
         />
 
         {{-- Action Bar --}}
-        <native:row class="w-full px-3 pt-3 items-center justify-between">
+        <native:row class="w-full px-3 mt-5 items-center justify-between">
             <native:row class="items-center gap-4">
                 <native:column @press="toggleLike">
                     <native:icon
@@ -81,14 +81,14 @@
         {{-- Comments --}}
         <native:column class="w-full px-3 pt-3 gap-3 pb-4">
             @foreach ($comments as $comment)
-                <native:row class="w-full gap-2">
+                <native:row class="w-full gap-2 items-start">
                     <native:image
                         @press="viewProfile({{ $comment['userId'] }})"
                         src="{{ $comment['user']['avatarUrl'] }}"
                         class="w-[32] h-[32] rounded-full"
                         :fit="2"
                     />
-                    <native:column class="w-[280] gap-1">
+                    <native:column class="flex-1 gap-1">
                         <native:text class="text-[13] text-[#262626]"><native:text class="text-[13] font-bold text-[#262626]">{{ $comment['user']['username'] }}</native:text> {{ $comment['text'] }}</native:text>
                         <native:row class="items-center gap-3">
                             <native:text class="text-[11] text-[#8E8E8E]">{{ $comment['time'] }}</native:text>

@@ -1,6 +1,7 @@
 <?php
 
 use App\NativeComponents\Browse;
+use App\NativeComponents\ButtonsForm;
 use App\NativeComponents\ComposeTweet;
 use App\NativeComponents\Counter;
 use App\NativeComponents\DemoLauncher;
@@ -146,17 +147,23 @@ Route::native('/syncup/chat/{id}', SyncUpChat::class)
 Route::native('/syncup/login', SyncUpLogin::class)->name('syncup.login');
 
 // SyncUp messaging (native chrome variant) — same demo running through
-// SwiftUI's TabView + NavigationStack instead of the custom HStack
-// chrome. Side-by-side comparison with the `/syncup/...` flow above.
+// SwiftUI's TabView + per-tab NavigationStack instead of the custom
+// HStack chrome. Chat detail is in the same `nativeGroup` so the bottom
+// tab bar persists when pushing into a chat (per-tab path tracking lets
+// the push happen INSIDE the Chats tab's NavigationStack).
 Route::nativeGroup(SyncUpNativeTabsLayout::class, function () {
-    Route::native('/syncup-native',         SyncUpNativeChats::class)->name('syncup-native.chats');
-    Route::native('/syncup-native/friends', SyncUpNativeFriends::class)->name('syncup-native.friends');
-    Route::native('/syncup-native/profile', SyncUpNativeProfile::class)->name('syncup-native.profile');
+    Route::native('/syncup-native',           SyncUpNativeChats::class)->name('syncup-native.chats');
+    Route::native('/syncup-native/friends',   SyncUpNativeFriends::class)->name('syncup-native.friends');
+    Route::native('/syncup-native/profile',   SyncUpNativeProfile::class)->name('syncup-native.profile');
+    Route::native('/syncup-native/chat/{id}', SyncUpNativeChat::class)->name('syncup-native.chat');
 });
-Route::native('/syncup-native/chat/{id}', SyncUpNativeChat::class)
-    ->layout(NativeStackLayout::class)
-    ->name('syncup-native.chat');
+
 Route::native('/syncup-native/login', SyncUpNativeLogin::class)->name('syncup-native.login');
+
+// ── NavigationStack + Form/Section demo (SwiftUI grouped-form replica) ──
+Route::native('/buttons-form', ButtonsForm::class)
+    ->layout(NativeStackLayout::class)
+    ->name('buttons.form');
 
 // ── Native chrome — NavigationStack-rendered top bar ──
 Route::native('/native-chrome', NativeChromeDemo::class)

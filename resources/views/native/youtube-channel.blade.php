@@ -27,17 +27,16 @@
                     class="w-[72] h-[72] rounded-full"
                     :fit="2"
                 />
-                <native:column class="gap-1">
+                <native:column class="flex-1 gap-1">
                     <native:row class="items-center gap-1">
-                        <native:text class="text-[22] font-bold text-white">{{ $channel['name'] }}</native:text>
+                        <native:text class="text-[22] font-bold text-white" :maxLines="1">{{ $channel['name'] }}</native:text>
                         @if ($channel['isVerified'])
                             <native:icon name="verified" :size="16" color="#AAAAAA" />
                         @endif
                     </native:row>
-                    <native:text class="text-[13] text-[#AAAAAA]">{{ $channel['handle'] }}</native:text>
+                    <native:text class="text-[13] text-[#AAAAAA]" :maxLines="1">{{ $channel['handle'] }}</native:text>
                     <native:row class="items-center gap-1">
-                        <native:text class="text-[13] text-[#AAAAAA]">{{ $subscribersFormatted }} subscribers</native:text>
-                        <native:text class="text-[13] text-[#AAAAAA]">· {{ $channel['videoCount'] }} videos</native:text>
+                        <native:text class="text-[13] text-[#AAAAAA]" :maxLines="1">{{ $subscribersFormatted }} subscribers · {{ $channel['videoCount'] }} videos</native:text>
                     </native:row>
                 </native:column>
             </native:row>

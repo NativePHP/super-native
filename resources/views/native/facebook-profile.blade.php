@@ -73,9 +73,9 @@
                         class="w-[40] h-[40] rounded-full"
                         :fit="2"
                     />
-                    <native:column>
-                        <native:text class="text-[14] font-bold text-[#050505]">{{ $post['user']['name'] }}</native:text>
-                        <native:text class="text-[12] text-[#65676B]">{{ $post['time'] }} ago · 🌐</native:text>
+                    <native:column class="flex-1">
+                        <native:text class="text-[14] font-bold text-[#050505]" :maxLines="1">{{ $post['user']['name'] }}</native:text>
+                        <native:text class="text-[12] text-[#65676B]" :maxLines="1">{{ $post['time'] }} ago · 🌐</native:text>
                     </native:column>
                 </native:row>
 

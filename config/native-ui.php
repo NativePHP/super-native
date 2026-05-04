@@ -37,13 +37,13 @@ return [
             'on-primary'    => '#FFFFFF',
 
             // Secondary / muted action color.
-            'secondary'     => '#52de7e',
+            'secondary'     => '#00AAFF',
             'on-secondary'  => '#FFFFFF',
 
             // Surface = cards, sheets, dialogs. Background = page root.
             'surface'       => '#FFFFFF',
             'on-surface'    => '#000000',
-            'background'    => '#FFFFFF',
+            'background'    => '#f7f7f7',
             'on-background' => '#000000',
 
             // Surface variant = filled text fields, muted tonal surfaces.
@@ -69,8 +69,8 @@ return [
             'primary'       => '#6617cf',
             'on-primary'    => '#FFFFFF',
 
-            'secondary'     => '#e1fa02',
-            'on-secondary'  => '#000000',
+            'secondary'     => '#6617cf',
+            'on-secondary'  => '#FFFFFF',
 
             'surface'       => '#1E293B',
             'on-surface'    => '#FFFFFF',

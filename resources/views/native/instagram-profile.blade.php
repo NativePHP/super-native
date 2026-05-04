@@ -17,19 +17,22 @@
             <native:icon name="more_horiz" :size="24" color="#262626" />
         </native:row>
 
-        {{-- Profile Header --}}
+        {{-- Profile Header — gradient classes don't render natively;
+             fall back to a solid Instagram-pink ring around the avatar. --}}
         <native:row class="w-full px-4 pt-2 items-center gap-5">
-            {{-- Avatar --}}
-            <native:column class="w-[80] h-[80] rounded-full items-center justify-center bg-gradient-to-br from-[#F58529] to-[#DD2A7B]">
-                <native:image
-                    src="{{ $user['avatarUrl'] }}"
-                    class="w-[74] h-[74] rounded-full"
-                    :fit="2"
-                />
+            {{-- Avatar — 4-px Instagram-pink ring matches the feed stories. --}}
+            <native:column class="w-[88] h-[88] rounded-full bg-[#DD2A7B] items-center justify-center">
+                <native:column class="w-[80] h-[80] rounded-full bg-white items-center justify-center">
+                    <native:image
+                        src="{{ $user['avatarUrl'] }}"
+                        class="w-[76] h-[76] rounded-full"
+                        :fit="2"
+                    />
+                </native:column>
             </native:column>
 
-            {{-- Stats --}}
-            <native:row class="items-center gap-5">
+            {{-- Stats — flex-1 row so each column splits remaining width evenly. --}}
+            <native:row class="flex-1 items-center justify-around">
                 <native:column class="items-center">
                     <native:text class="text-[16] font-bold text-[#262626]">{{ $postsFormatted }}</native:text>
                     <native:text class="text-[13] text-[#262626]">Posts</native:text>

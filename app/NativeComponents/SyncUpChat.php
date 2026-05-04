@@ -3,6 +3,7 @@
 namespace App\NativeComponents;
 
 use App\NativeComponents\Concerns\HasSyncUpData;
+use Native\Mobile\Dialog;
 use Native\Mobile\Edge\Element;
 use Native\Mobile\Edge\Layouts\Builders\NavAction;
 use Native\Mobile\Edge\Layouts\Builders\NavBarOptions;
@@ -75,7 +76,9 @@ class SyncUpChat extends NativeComponent
     public function openEmoji(): void   { /* stub */ }
     public function openMore(): void    { /* stub */ }
     public function startCall(): void   { /* stub */ }
-    public function startVideo(): void  { /* stub */ }
+    public function startVideo(): void  {
+        Dialog::toast('Starting Video');
+    }
 
     /** Tapped from the NavBar ellipsis — opens the more-actions modal. */
     public function openMenu(): void

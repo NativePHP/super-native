@@ -19,9 +19,9 @@
                     class="w-[44] h-[44] rounded-full"
                     :fit="2"
                 />
-                <native:column @press="viewProfile({{ $post['userId'] }})">
-                    <native:text class="text-[15] font-bold text-[#050505]">{{ $post['user']['name'] }}</native:text>
-                    <native:text class="text-[13] text-[#65676B]">{{ $post['time'] }} ago · 🌐</native:text>
+                <native:column @press="viewProfile({{ $post['userId'] }})" class="flex-1">
+                    <native:text class="text-[15] font-bold text-[#050505]" :maxLines="1">{{ $post['user']['name'] }}</native:text>
+                    <native:text class="text-[13] text-[#65676B]" :maxLines="1">{{ $post['time'] }} ago · 🌐</native:text>
                 </native:column>
             </native:row>
 
@@ -93,9 +93,10 @@
                         :fit="2"
                     />
 
-                    {{-- Comment Bubble --}}
-                    <native:column class="w-[280] gap-1 w-full">
-                        <native:column class="bg-[#F0F2F5] w-full rounded-2xl px-3 py-2">
+                    {{-- Comment Bubble — flex-1 so the bubble grows to fill
+                         remaining row width instead of clamping to 280px. --}}
+                    <native:column class="flex-1 gap-1">
+                        <native:column class="bg-[#F0F2F5] rounded-2xl px-3 py-2">
                             <native:text class="text-[13] font-bold text-[#050505]">{{ $comment['user']['name'] }}</native:text>
                             <native:text class="text-[14] text-[#050505]">{{ $comment['text'] }}</native:text>
                         </native:column>
@@ -123,7 +124,7 @@
                     class="w-[32] h-[32] rounded-full"
                     :fit="2"
                 />
-                <native:column class="w-[270] bg-[#F0F2F5] rounded-full px-4 py-2">
+                <native:column class="flex-1 bg-[#F0F2F5] rounded-full px-4 py-2">
                     <native:text class="text-[13] text-[#65676B]">Write a comment...</native:text>
                 </native:column>
             </native:row>

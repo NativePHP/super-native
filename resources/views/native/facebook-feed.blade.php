@@ -24,7 +24,7 @@
                     class="w-[40] h-[40] rounded-full"
                     :fit="2"
                 />
-                <native:column class="w-[270] bg-[#F0F2F5] rounded-full px-4 py-2">
+                <native:column class="flex-1 bg-[#F0F2F5] rounded-full px-4 py-2">
                     <native:text class="text-[14] text-[#65676B]">What's on your mind?</native:text>
                 </native:column>
             </native:row>
@@ -85,11 +85,10 @@
                         class="w-[40] h-[40] rounded-full"
                         :fit="2"
                     />
-                    <native:column @press="viewProfile({{ $post['userId'] }})">
-                        <native:text class="text-[14] font-bold text-[#050505]">{{ $post['user']['name'] }}</native:text>
-                        <native:text class="text-[12] text-[#65676B]">{{ $post['time'] }} ago · 🌐</native:text>
+                    <native:column @press="viewProfile({{ $post['userId'] }})" class="flex-1">
+                        <native:text class="text-[14] font-bold text-[#050505]" :maxLines="1">{{ $post['user']['name'] }}</native:text>
+                        <native:text class="text-[12] text-[#65676B]" :maxLines="1">{{ $post['time'] }} ago · 🌐</native:text>
                     </native:column>
-                    <native:spacer />
                     <native:icon name="more_horiz" :size="22" color="#65676B" />
                 </native:row>
 

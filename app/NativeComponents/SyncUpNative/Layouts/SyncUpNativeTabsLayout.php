@@ -32,20 +32,17 @@ class SyncUpNativeTabsLayout extends NativeLayout
         return NavBar::make()
             ->title($screen->navTitle())
             ->subtitle('All caught up')
-            ->back()
-            ->backgroundColor('#0891b2')
-            ->textColor('#FFFFFF')
-            ->action(NavAction::make('search')->icon('search')->press('openSearch'));
+            ->back();
     }
 
     public function tabBar(NativeComponent $screen): ?TabBar
     {
         return TabBar::make()
-            ->dark()
             ->activeColor('#0891b2')
             ->labelVisibility('labeled')
             ->add(Tab::link('Chats',   '/syncup-native',         icon: 'chat_bubble')->badge('2'))
             ->add(Tab::link('Friends', '/syncup-native/friends', icon: 'person.3.fill')->news())
             ->add(Tab::link('Profile', '/syncup-native/profile', icon: 'person'));
     }
+
 }

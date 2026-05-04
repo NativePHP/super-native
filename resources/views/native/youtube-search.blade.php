@@ -1,17 +1,18 @@
 <native:scroll-view class="w-full h-full bg-[#0F0F0F] safe-area">
     <native:column class="w-full gap-0 ">
 
-        {{-- Top Bar --}}
+        {{-- Top Bar — search field flexes to fill remaining width between
+             the back arrow and the search button so it adapts to phone width. --}}
         <native:row class="w-full px-4 pt-3 pb-2 items-center gap-3">
             <native:column @press="back" class="w-[32] h-[32] items-center justify-center">
                 <native:icon name="arrow_back" :size="24" color="#FFFFFF" />
             </native:column>
-            <native:row class="w-[270] bg-[#121212] rounded-full px-4 py-3 items-center gap-2 border border-[#303030]">
+            <native:row class="flex-1 bg-[#121212] rounded-full px-4 py-3 items-center gap-2 border border-[#303030]">
                 <native:outlined-text-input
                     @model="query"
                     placeholder="Search YouTube"
                     placeholderColor="#717171"
-                    class="w-[220] text-[15] text-white bg-transparent"
+                    class="flex-1 text-[15] text-white bg-transparent"
                 />
             </native:row>
             <native:column @press="search" class="w-[36] h-[36] rounded-full bg-[#222222] items-center justify-center">
@@ -46,14 +47,14 @@
                             class="w-[36] h-[36] rounded-full"
                             :fit="2"
                         />
-                        <native:column class="w-[290] gap-1">
+                        <native:column class="flex-1 gap-1">
                             <native:text class="text-[14] font-semibold text-white" :maxLines="2">{{ $video['title'] }}</native:text>
                             <native:row class="items-center gap-1">
-                                <native:text class="text-[12] text-[#AAAAAA]">{{ $video['channel']['name'] }}</native:text>
+                                <native:text class="text-[12] text-[#AAAAAA]" :maxLines="1">{{ $video['channel']['name'] }}</native:text>
                                 @if ($video['channel']['isVerified'])
                                     <native:icon name="verified" :size="12" color="#AAAAAA" />
                                 @endif
-                                <native:text class="text-[12] text-[#AAAAAA]">· {{ $video['viewsFormatted'] }} views</native:text>
+                                <native:text class="text-[12] text-[#AAAAAA]" :maxLines="1">· {{ $video['viewsFormatted'] }} views</native:text>
                             </native:row>
                         </native:column>
                     </native:row>
@@ -82,15 +83,15 @@
                             </native:column>
                         </native:column>
                     </native:stack>
-                    <native:column class="w-[170] gap-1">
+                    <native:column class="flex-1 gap-1">
                         <native:text class="text-[13] font-semibold text-white" :maxLines="2">{{ $video['title'] }}</native:text>
                         <native:row class="items-center gap-1">
-                            <native:text class="text-[11] text-[#AAAAAA]">{{ $video['channel']['name'] }}</native:text>
+                            <native:text class="text-[11] text-[#AAAAAA]" :maxLines="1">{{ $video['channel']['name'] }}</native:text>
                             @if ($video['channel']['isVerified'])
                                 <native:icon name="verified" :size="10" color="#AAAAAA" />
                             @endif
                         </native:row>
-                        <native:text class="text-[11] text-[#AAAAAA]">{{ $video['viewsFormatted'] }} views · {{ $video['uploadedAt'] }}</native:text>
+                        <native:text class="text-[11] text-[#AAAAAA]" :maxLines="1">{{ $video['viewsFormatted'] }} views · {{ $video['uploadedAt'] }}</native:text>
                     </native:column>
                 </native:row>
             @endforeach

@@ -4,10 +4,10 @@
         {{-- Variants --}}
         <native:text class="text-lg font-semibold text-theme-on-background">Variants</native:text>
         <native:row class="w-full gap-2 flex-wrap items-center">
-            <native:button variant="primary"     @press="increment">Primary</native:button>
+            <native:button  variant="primary"     @press="increment">Primary</native:button>
             <native:button variant="secondary"   @press="increment">Secondary</native:button>
             <native:button variant="destructive" @press="decrement">Destructive</native:button>
-            <native:button variant="ghost"       @press="increment">Ghost</native:button>
+            <native:button  variant="ghost"       @press="increment">Ghost</native:button>
         </native:row>
 
         {{-- Sizes --}}
