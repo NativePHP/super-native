@@ -168,20 +168,17 @@ Route::native('/buttons-form', ButtonsForm::class)
     ->name('buttons.form');
 
 // ── Native chrome — NavigationStack-rendered top bar ──
-Route::native('/native-chrome', NativeChromeDemo::class)
-    ->layout(NativeStackLayout::class)
-    ->name('native.chrome');
-Route::native('/native-chrome/detail', NativeChromeDetail::class)
-    ->layout(NativeStackLayout::class)
-    ->name('native.chrome.detail');
+Route::nativeGroup(NativeStackLayout::class, function () {
+    Route::native('/native-chrome', NativeChromeDemo::class)->name('native.chrome');
+    Route::native('/native-chrome/detail', NativeChromeDetail::class)->name('native.chrome.detail');
+});
+
 
 // ── Native chrome — TabView-rendered bottom bar ──
-Route::native('/native-tabs', NativeTabsHome::class)
-    ->layout(NativeTabsLayout::class)
-    ->name('native.tabs.home');
-Route::native('/native-tabs/profile', NativeTabsProfile::class)
-    ->layout(NativeTabsLayout::class)
-    ->name('native.tabs.profile');
+Route::nativeGroup(NativeTabsLayout::class, function () {
+    Route::native('/native-tabs', NativeTabsHome::class)->name('native.tabs.home');
+    Route::native('/native-tabs/profile', NativeTabsProfile::class)->name('native.tabs.profile');
+});
 
 // ── Extras ──
 Route::native('/benchmark', BenchmarkComponent::class)->name('benchmark');

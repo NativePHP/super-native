@@ -3,7 +3,6 @@
 namespace App\NativeComponents;
 
 use App\NativeComponents\Concerns\HasSyncUpData;
-use Native\Mobile\Edge\Element;
 use Native\Mobile\Edge\Layouts\Builders\NavAction;
 use Native\Mobile\Edge\Layouts\Builders\NavBarOptions;
 use Native\Mobile\Edge\NativeComponent;
@@ -83,7 +82,7 @@ class SyncUpChats extends NativeComponent
         // Demo stub.
     }
 
-    public function render(): Element
+    public function render(): \Illuminate\View\View
     {
         $users = self::suUsers();
         $conversations = self::suConversations();
@@ -110,7 +109,7 @@ class SyncUpChats extends NativeComponent
         // Friends for the "new message" bottom-sheet (skip "You" at id 0).
         $friends = array_values(array_filter($users, fn ($u) => $u['id'] !== 0));
 
-        return $this->view('syncup.chats', [
+        return view('syncup.chats', [
             'rows' => $rows,
             'filters' => self::suFilters(),
             'suggestions' => self::suSuggestions(),

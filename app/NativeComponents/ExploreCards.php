@@ -2,7 +2,6 @@
 
 namespace App\NativeComponents;
 
-use Native\Mobile\Edge\Element;
 use Native\Mobile\Edge\NativeComponent;
 
 class ExploreCards extends NativeComponent
@@ -22,8 +21,8 @@ class ExploreCards extends NativeComponent
         }
     }
 
-    public function render(): Element
+    public function render(): \Illuminate\View\View
     {
-        return $this->view('explore.cards');
+        return view('explore.cards');
     }
 }

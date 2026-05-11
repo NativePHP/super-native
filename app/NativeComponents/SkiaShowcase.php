@@ -2,7 +2,6 @@
 
 namespace App\NativeComponents;
 
-use Native\Mobile\Edge\Element;
 use Native\Mobile\Edge\NativeComponent;
 
 class SkiaShowcase extends NativeComponent
@@ -50,8 +49,8 @@ class SkiaShowcase extends NativeComponent
         $this->waveRunning = $this->waveRunning === 1 ? 0 : 1;
     }
 
-    public function render(): Element
+    public function render(): \Illuminate\View\View
     {
-        return $this->view('skia-showcase');
+        return view('skia-showcase');
     }
 }

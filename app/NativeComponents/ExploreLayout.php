@@ -2,7 +2,6 @@
 
 namespace App\NativeComponents;
 
-use Native\Mobile\Edge\Element;
 use Native\Mobile\Edge\NativeComponent;
 
 class ExploreLayout extends NativeComponent
@@ -12,8 +11,8 @@ class ExploreLayout extends NativeComponent
         return 'Layout & Canvas';
     }
 
-    public function render(): Element
+    public function render(): \Illuminate\View\View
     {
-        return $this->view('explore.layout');
+        return view('explore.layout');
     }
 }

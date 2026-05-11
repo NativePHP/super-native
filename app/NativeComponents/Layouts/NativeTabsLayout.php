@@ -37,12 +37,21 @@ class NativeTabsLayout extends NativeLayout
 
     public function tabBar(NativeComponent $screen): ?TabBar
     {
+        // The search tab's corpus comes from the active screen via
+        // `searchItems()` (static) or `onSearchQuery($q)` (dynamic).
+        // Screens that don't override either are hidden from the search
+        // tab automatically. No URL on the search tab — it's an
+        // iOS-side overlay, not a navigation destination.
         return TabBar::make()
             ->activeColor('#A855F7')
             ->minimizeOnScroll()
-            ->add(Tab::link('Home',     '/native-tabs',         icon: 'house')->badge('3'))
-            ->add(Tab::action('Search',                         icon: 'search')->search()->press('openSearch'))
-            ->add(Tab::link('Profile',  '/native-tabs/profile', icon: 'person'));
+            ->add(Tab::link('Home', '/native-tabs', icon: 'house')->badge('3'))
+            ->add(Tab::search(
+                'Search',
+                icon: 'search',
+                placeholder: 'Search articles, songs, people…',
+            ))
+            ->add(Tab::link('Profile', '/native-tabs/profile', icon: 'person'));
     }
 
     /**

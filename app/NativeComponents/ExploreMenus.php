@@ -2,7 +2,6 @@
 
 namespace App\NativeComponents;
 
-use Native\Mobile\Edge\Element;
 use Native\Mobile\Edge\NativeComponent;
 
 /**
@@ -44,8 +43,8 @@ class ExploreMenus extends NativeComponent
     public function logArchive(): void  { $this->lastAction = 'List row menu → Archive'; }
     public function logDelete(): void   { $this->lastAction = 'List row menu → Delete'; }
 
-    public function render(): Element
+    public function render(): \Illuminate\View\View
     {
-        return $this->view('explore.menus');
+        return view('explore.menus');
     }
 }

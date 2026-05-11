@@ -2,7 +2,6 @@
 
 namespace App\NativeComponents;
 
-use Native\Mobile\Edge\Element;
 use Native\Mobile\Edge\NativeComponent;
 use Native\Mobile\Facades\Biometrics;
 use Native\Mobile\Facades\Dialog;
@@ -323,8 +322,8 @@ class Demo extends NativeComponent
 
     // ── Render ───────────────────────────────────
 
-    public function render(): Element
+    public function render(): \Illuminate\View\View
     {
-        return $this->view('demo');
+        return view('demo');
     }
 }

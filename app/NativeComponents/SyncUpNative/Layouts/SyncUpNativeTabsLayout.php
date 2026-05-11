@@ -38,10 +38,19 @@ class SyncUpNativeTabsLayout extends NativeLayout
     public function tabBar(NativeComponent $screen): ?TabBar
     {
         return TabBar::make()
-            ->activeColor('#0671c2')
-            ->add(Tab::link('Chats',   '/syncup-native',         icon: 'chat_bubble')->badge('2'))
-            ->add(Tab::link('Friends', '/syncup-native/friends', icon: 'person.3.fill')->news())
+            ->add(Tab::link('Messages',   '/syncup-native',         icon: 'chat_bubble')->badge($this->getUnreadMessageCount()))
+            ->add(Tab::link('Friends', '/syncup-native/friends', icon: 'person.3.fill')->news($this->showNewsIndicator()))
             ->add(Tab::link('Profile', '/syncup-native/profile', icon: 'person'));
+    }
+
+    public function getUnreadMessageCount()
+    {
+        return 23;
+    }
+
+    public function showNewsIndicator()
+    {
+        return false;
     }
 
 }

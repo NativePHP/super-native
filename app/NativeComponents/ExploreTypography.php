@@ -2,7 +2,6 @@
 
 namespace App\NativeComponents;
 
-use Native\Mobile\Edge\Element;
 use Native\Mobile\Edge\NativeComponent;
 
 class ExploreTypography extends NativeComponent
@@ -12,8 +11,8 @@ class ExploreTypography extends NativeComponent
         return 'Typography & Colors';
     }
 
-    public function render(): Element
+    public function render(): \Illuminate\View\View
     {
-        return $this->view('explore.typography');
+        return view('explore.typography');
     }
 }

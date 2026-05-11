@@ -2,7 +2,6 @@
 
 namespace App\NativeComponents;
 
-use Native\Mobile\Edge\Element;
 use Native\Mobile\Edge\NativeComponent;
 
 class Browse extends NativeComponent
@@ -14,8 +13,8 @@ class Browse extends NativeComponent
         return 'Browse';
     }
 
-    public function render(): Element
+    public function render(): \Illuminate\View\View
     {
-        return $this->view('browse');
+        return view('browse');
     }
 }

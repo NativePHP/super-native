@@ -2,7 +2,6 @@
 
 namespace App\NativeComponents;
 
-use Native\Mobile\Edge\Element;
 use Native\Mobile\Edge\NativeComponent;
 
 class Profile extends NativeComponent
@@ -17,8 +16,8 @@ class Profile extends NativeComponent
         return 'Profile';
     }
 
-    public function render(): Element
+    public function render(): \Illuminate\View\View
     {
-        return $this->view('profile');
+        return view('profile');
     }
 }

@@ -2,17 +2,17 @@
 
 namespace App\NativeComponents;
 
-use Native\Mobile\Edge\Element;
+use Native\Mobile\Edge\NativeComponent;
 
-class NativeTabsProfile extends NativeTabsBase
+class NativeTabsProfile extends NativeComponent
 {
     public function navTitle(): string
     {
         return 'Profile';
     }
 
-    public function render(): Element
+    public function render(): \Illuminate\View\View
     {
-        return $this->view('native-tabs-profile');
+        return view('native-tabs-profile');
     }
 }

@@ -3,7 +3,6 @@
 namespace App\NativeComponents;
 
 use App\NativeComponents\Concerns\HasIHerbData;
-use Native\Mobile\Edge\Element;
 use Native\Mobile\Edge\NativeComponent;
 use Native\Mobile\Edge\Transition;
 
@@ -35,7 +34,7 @@ class IHerbCategory extends NativeComponent
             ->transition(Transition::SlideFromRight);
     }
 
-    public function render(): Element
+    public function render(): \Illuminate\View\View
     {
         $allProducts = self::iherbProducts();
         $productsWithMeta = [];
@@ -49,7 +48,7 @@ class IHerbCategory extends NativeComponent
             $productsWithMeta[] = $product;
         }
 
-        return $this->view('iherb-category', [
+        return view('iherb-category', [
             'productsWithMeta' => $productsWithMeta,
             'subcategories' => self::subcategories(),
         ]);

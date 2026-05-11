@@ -3,7 +3,6 @@
 namespace App\NativeComponents;
 
 use App\NativeComponents\Concerns\HasInstagramData;
-use Native\Mobile\Edge\Element;
 use Native\Mobile\Edge\NativeComponent;
 use Native\Mobile\Edge\Transition;
 
@@ -35,7 +34,7 @@ class InstagramProfile extends NativeComponent
             ->transition(Transition::SlideFromRight);
     }
 
-    public function render(): Element
+    public function render(): \Illuminate\View\View
     {
         $allPosts = self::igPosts();
 
@@ -46,7 +45,7 @@ class InstagramProfile extends NativeComponent
             $postsWithIndex[] = $post;
         }
 
-        return $this->view('instagram-profile', [
+        return view('instagram-profile', [
             'postsWithIndex' => $postsWithIndex,
             'postsFormatted' => self::formatIgCount($this->user['postCount']),
             'followersFormatted' => self::formatIgCount($this->user['followers']),

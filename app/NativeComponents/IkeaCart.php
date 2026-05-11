@@ -3,7 +3,6 @@
 namespace App\NativeComponents;
 
 use App\NativeComponents\Concerns\HasIkeaData;
-use Native\Mobile\Edge\Element;
 use Native\Mobile\Edge\NativeComponent;
 use Native\Mobile\Facades\Dialog;
 
@@ -42,7 +41,7 @@ class IkeaCart extends NativeComponent
         Dialog::alert('Order Placed!', 'Your order has been submitted. You will receive a confirmation email shortly.');
     }
 
-    public function render(): Element
+    public function render(): \Illuminate\View\View
     {
         $allProducts = self::ikeaProducts();
         $items = [];
@@ -69,7 +68,7 @@ class IkeaCart extends NativeComponent
 
         $deliveryFee = $subtotal >= 500 ? 0.0 : 49.00;
 
-        return $this->view('ikea-cart', [
+        return view('ikea-cart', [
             'items' => $items,
             'subtotalFormatted' => self::formatIkeaPrice($subtotal),
             'deliveryFeeFormatted' => $deliveryFee > 0 ? self::formatIkeaPrice($deliveryFee) : 'FREE',

@@ -3,7 +3,6 @@
 namespace App\NativeComponents;
 
 use App\NativeComponents\Concerns\HasTweetData;
-use Native\Mobile\Edge\Element;
 use Native\Mobile\Edge\NativeComponent;
 use Native\Mobile\Edge\Transition;
 
@@ -55,12 +54,12 @@ class TweetDetail extends NativeComponent
         $this->isRetweeted = ! $this->isRetweeted;
     }
 
-    public function render(): Element
+    public function render(): \Illuminate\View\View
     {
         $likeCount = $this->tweet['likeCount'] + ($this->isLiked ? 1 : 0);
         $retweetCount = $this->tweet['retweetCount'] + ($this->isRetweeted ? 1 : 0);
 
-        return $this->view('tweet-detail', [
+        return view('tweet-detail', [
             'likeFormatted' => self::formatCount($likeCount),
             'retweetFormatted' => self::formatCount($retweetCount),
             'replyFormatted' => self::formatCount($this->tweet['replyCount']),

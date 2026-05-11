@@ -2,12 +2,11 @@
 
 namespace App\NativeComponents;
 
-use Native\Mobile\Edge\Element;
 use Native\Mobile\Edge\NativeComponent;
 
 class ExploreButtons extends NativeComponent
 {
-    public int $count = 0;
+    public int $count = 10;
 
     public function navTitle(): string
     {
@@ -17,8 +16,8 @@ class ExploreButtons extends NativeComponent
     public function increment(): void { $this->count++; }
     public function decrement(): void { $this->count--; }
 
-    public function render(): Element
+    public function render(): \Illuminate\View\View
     {
-        return $this->view('explore.buttons');
+        return view('explore.buttons');
     }
 }

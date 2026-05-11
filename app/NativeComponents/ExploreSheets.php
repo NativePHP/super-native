@@ -2,7 +2,6 @@
 
 namespace App\NativeComponents;
 
-use Native\Mobile\Edge\Element;
 use Native\Mobile\Edge\NativeComponent;
 
 /**
@@ -87,8 +86,8 @@ class ExploreSheets extends NativeComponent
         $this->showActionSheet = false;
     }
 
-    public function render(): Element
+    public function render(): \Illuminate\View\View
     {
-        return $this->view('explore.sheets');
+        return view('explore.sheets');
     }
 }

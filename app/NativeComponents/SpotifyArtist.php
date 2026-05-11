@@ -3,7 +3,6 @@
 namespace App\NativeComponents;
 
 use App\NativeComponents\Concerns\HasSpotifyData;
-use Native\Mobile\Edge\Element;
 use Native\Mobile\Edge\NativeComponent;
 use Native\Mobile\Facades\Dialog;
 
@@ -44,7 +43,7 @@ class SpotifyArtist extends NativeComponent
         }
     }
 
-    public function render(): Element
+    public function render(): \Illuminate\View\View
     {
         $tracksWithMeta = [];
         foreach ($this->topTracks as $track) {
@@ -52,7 +51,7 @@ class SpotifyArtist extends NativeComponent
             $tracksWithMeta[] = $track;
         }
 
-        return $this->view('spotify-artist', [
+        return view('spotify-artist', [
             'tracksWithMeta' => $tracksWithMeta,
             'followersFormatted' => self::formatSpotifyCount($this->artist['followers']),
             'listenersFormatted' => self::formatSpotifyCount($this->artist['monthlyListeners']),

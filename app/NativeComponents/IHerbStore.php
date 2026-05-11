@@ -3,7 +3,6 @@
 namespace App\NativeComponents;
 
 use App\NativeComponents\Concerns\HasIHerbData;
-use Native\Mobile\Edge\Element;
 use Native\Mobile\Edge\NativeComponent;
 use Native\Mobile\Edge\Transition;
 
@@ -36,7 +35,7 @@ class IHerbStore extends NativeComponent
             ->transition(Transition::SlideFromRight);
     }
 
-    public function render(): Element
+    public function render(): \Illuminate\View\View
     {
         $products = self::iherbProducts();
         $categories = self::iherbCategories();
@@ -60,7 +59,7 @@ class IHerbStore extends NativeComponent
             }
         }
 
-        return $this->view('iherb-store', [
+        return view('iherb-store', [
             'categories' => $categories,
             'healthTopics' => self::healthTopics(),
             'trending' => $trending,

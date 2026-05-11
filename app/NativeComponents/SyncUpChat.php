@@ -4,7 +4,6 @@ namespace App\NativeComponents;
 
 use App\NativeComponents\Concerns\HasSyncUpData;
 use Native\Mobile\Dialog;
-use Native\Mobile\Edge\Element;
 use Native\Mobile\Edge\Layouts\Builders\NavAction;
 use Native\Mobile\Edge\Layouts\Builders\NavBarOptions;
 use Native\Mobile\Edge\NativeComponent;
@@ -127,9 +126,9 @@ class SyncUpChat extends NativeComponent
         return self::suUser(5);
     }
 
-    public function render(): Element
+    public function render(): \Illuminate\View\View
     {
-        return $this->view('syncup.chat', [
+        return view('syncup.chat', [
             'friend' => $this->friend(),
         ]);
     }

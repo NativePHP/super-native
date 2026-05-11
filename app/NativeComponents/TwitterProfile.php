@@ -3,7 +3,6 @@
 namespace App\NativeComponents;
 
 use App\NativeComponents\Concerns\HasTweetData;
-use Native\Mobile\Edge\Element;
 use Native\Mobile\Edge\NativeComponent;
 use Native\Mobile\Edge\Transition;
 
@@ -42,7 +41,7 @@ class TwitterProfile extends NativeComponent
             ->transition(Transition::SlideFromRight);
     }
 
-    public function render(): Element
+    public function render(): \Illuminate\View\View
     {
         $users = self::tweetUsers();
         $allTweets = self::tweets();
@@ -58,7 +57,7 @@ class TwitterProfile extends NativeComponent
             $tweetsWithMeta[] = $tweet;
         }
 
-        return $this->view('twitter-profile', [
+        return view('twitter-profile', [
             'tweetsWithMeta' => $tweetsWithMeta,
             'followersFormatted' => self::formatCount($this->user['followers']),
             'followingFormatted' => self::formatCount($this->user['following']),

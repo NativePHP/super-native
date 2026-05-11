@@ -4,7 +4,6 @@ namespace App\NativeComponents;
 
 use Illuminate\Support\Str;
 use Native\Mobile\Attributes\OnNative;
-use Native\Mobile\Edge\Element;
 use Native\Mobile\Edge\NativeComponent;
 use Native\Mobile\Events\Alert\ButtonPressed;
 use Native\Mobile\Facades\Dialog;
@@ -163,8 +162,8 @@ class Explore extends NativeComponent
         }
     }
 
-    public function render(): Element
+    public function render(): \Illuminate\View\View
     {
-        return $this->view('explore');
+        return view('explore');
     }
 }

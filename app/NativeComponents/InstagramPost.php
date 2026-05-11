@@ -3,7 +3,6 @@
 namespace App\NativeComponents;
 
 use App\NativeComponents\Concerns\HasInstagramData;
-use Native\Mobile\Edge\Element;
 use Native\Mobile\Edge\NativeComponent;
 use Native\Mobile\Edge\Transition;
 
@@ -54,9 +53,9 @@ class InstagramPost extends NativeComponent
         $this->isSaved = ! $this->isSaved;
     }
 
-    public function render(): Element
+    public function render(): \Illuminate\View\View
     {
-        return $this->view('instagram-post', [
+        return view('instagram-post', [
             'likesFormatted' => self::formatIgCount(
                 $this->post['likes'] + ($this->isLiked ? 1 : 0)
             ),

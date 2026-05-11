@@ -3,7 +3,6 @@
 namespace App\NativeComponents;
 
 use App\NativeComponents\Concerns\HasTweetData;
-use Native\Mobile\Edge\Element;
 use Native\Mobile\Edge\NativeComponent;
 use Native\Mobile\Edge\Transition;
 
@@ -53,7 +52,7 @@ class TwitterFeed extends NativeComponent
         }
     }
 
-    public function render(): Element
+    public function render(): \Illuminate\View\View
     {
         $users = self::tweetUsers();
         $tweets = self::tweets();
@@ -68,7 +67,7 @@ class TwitterFeed extends NativeComponent
             $tweet['isLiked'] = isset($this->likedTweets[$i]);
         }
 
-        return $this->view('twitter-feed', [
+        return view('twitter-feed', [
             'tweets' => $tweets,
         ]);
     }

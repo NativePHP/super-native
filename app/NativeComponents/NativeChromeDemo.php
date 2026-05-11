@@ -2,7 +2,8 @@
 
 namespace App\NativeComponents;
 
-use Native\Mobile\Edge\Element;
+use App\Icons\MaterialOutlined;
+use App\Icons\SF;
 use Native\Mobile\Edge\Layouts\Builders\NavAction;
 use Native\Mobile\Edge\Layouts\Builders\NavBarOptions;
 use Native\Mobile\Edge\NativeComponent;
@@ -50,7 +51,7 @@ class NativeChromeDemo extends NativeComponent
                             ->label('Mark all read')
                             ->press('markAllRead'),
                         NavAction::make('mute')
-                            ->icon('bell.slash')
+                            ->icon(sf: SF::BellSlash, material: MaterialOutlined::VolumeMute)
                             ->label('Mute notifications')
                             ->press('mute'),
                         NavAction::make('archive')
@@ -84,8 +85,8 @@ class NativeChromeDemo extends NativeComponent
             ->transition(Transition::SlideFromRight);
     }
 
-    public function render(): Element
+    public function render(): \Illuminate\View\View
     {
-        return $this->view('native-chrome-demo');
+        return view('native-chrome-demo');
     }
 }

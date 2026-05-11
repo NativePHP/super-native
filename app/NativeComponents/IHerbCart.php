@@ -3,7 +3,6 @@
 namespace App\NativeComponents;
 
 use App\NativeComponents\Concerns\HasIHerbData;
-use Native\Mobile\Edge\Element;
 use Native\Mobile\Edge\NativeComponent;
 use Native\Mobile\Facades\Dialog;
 
@@ -42,7 +41,7 @@ class IHerbCart extends NativeComponent
         Dialog::alert('Order Placed!', 'Your order has been submitted. Free shipping on orders over $30!');
     }
 
-    public function render(): Element
+    public function render(): \Illuminate\View\View
     {
         $allProducts = self::iherbProducts();
         $items = [];
@@ -68,7 +67,7 @@ class IHerbCart extends NativeComponent
 
         $freeShipping = $subtotal >= 30;
 
-        return $this->view('iherb-cart', [
+        return view('iherb-cart', [
             'items' => $items,
             'subtotalFormatted' => self::formatPrice($subtotal),
             'freeShipping' => $freeShipping,

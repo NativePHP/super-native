@@ -5,7 +5,6 @@ namespace App\NativeComponents;
 use Local\DoomGame\Models\Enemy;
 use Local\DoomGame\Models\Player;
 use Local\DoomGame\Services\GameEngine;
-use Native\Mobile\Edge\Element;
 use Native\Mobile\Edge\NativeComponent;
 
 class DoomGame extends NativeComponent
@@ -197,8 +196,8 @@ class DoomGame extends NativeComponent
         $this->isMultiplayer = false;
     }
 
-    public function render(): Element
+    public function render(): \Illuminate\View\View
     {
-        return $this->view('doom-game');
+        return view('doom-game');
     }
 }

@@ -25,7 +25,7 @@
 
         <native:text class="text-base font-semibold mt-2">Activity</native:text>
 
-        @foreach (range(1, 30) as $i)
+        @foreach (range(1, 100) as $i)
             <native:row class="w-full p-4 rounded-xl bg-[#F8FAFC] items-center gap-3">
                 <native:column class="w-12 h-12 rounded-full bg-[#A855F7] items-center justify-center">
                     <native:text class="text-white font-bold">{{ $i }}</native:text>
@@ -45,6 +45,4 @@
         </native:column>
 
     </native:column>
-
-    @include('native.partials.search-sheet')
 </native:scroll-view>

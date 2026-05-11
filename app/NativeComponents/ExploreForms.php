@@ -2,7 +2,6 @@
 
 namespace App\NativeComponents;
 
-use Native\Mobile\Edge\Element;
 use Native\Mobile\Edge\NativeComponent;
 
 class ExploreForms extends NativeComponent
@@ -35,8 +34,8 @@ class ExploreForms extends NativeComponent
         $this->pricingPlan = $value;
     }
 
-    public function render(): Element
+    public function render(): \Illuminate\View\View
     {
-        return $this->view('explore.forms');
+        return view('explore.forms');
     }
 }

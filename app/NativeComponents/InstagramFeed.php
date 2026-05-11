@@ -3,7 +3,6 @@
 namespace App\NativeComponents;
 
 use App\NativeComponents\Concerns\HasInstagramData;
-use Native\Mobile\Edge\Element;
 use Native\Mobile\Edge\Layouts\Builders\NavAction;
 use Native\Mobile\Edge\Layouts\Builders\NavBarOptions;
 use Native\Mobile\Edge\NativeComponent;
@@ -75,7 +74,7 @@ class InstagramFeed extends NativeComponent
         }
     }
 
-    public function render(): Element
+    public function render(): \Illuminate\View\View
     {
         $users = self::igUsers();
         $posts = self::igPosts();
@@ -90,7 +89,7 @@ class InstagramFeed extends NativeComponent
             );
         }
 
-        return $this->view('instagram-feed', [
+        return view('instagram-feed', [
             'posts' => $posts,
             'stories' => $stories,
         ]);

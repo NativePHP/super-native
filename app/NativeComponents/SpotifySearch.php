@@ -3,7 +3,6 @@
 namespace App\NativeComponents;
 
 use App\NativeComponents\Concerns\HasSpotifyData;
-use Native\Mobile\Edge\Element;
 use Native\Mobile\Edge\NativeComponent;
 use Native\Mobile\Edge\Transition;
 
@@ -23,9 +22,9 @@ class SpotifySearch extends NativeComponent
             ->transition(Transition::SlideFromRight);
     }
 
-    public function render(): Element
+    public function render(): \Illuminate\View\View
     {
-        return $this->view('spotify-search', [
+        return view('spotify-search', [
             'genres' => self::spotifyGenres(),
             'playlists' => self::spotifyPlaylists(),
             'artists' => self::spotifyArtists(),

@@ -3,7 +3,6 @@
 namespace App\NativeComponents;
 
 use App\NativeComponents\Concerns\HasIHerbData;
-use Native\Mobile\Edge\Element;
 use Native\Mobile\Edge\NativeComponent;
 use Native\Mobile\Facades\Dialog;
 
@@ -49,9 +48,9 @@ class IHerbProduct extends NativeComponent
         Dialog::alert('Added to Cart', $this->quantity . 'x ' . $this->product['name'] . ' added to your cart.');
     }
 
-    public function render(): Element
+    public function render(): \Illuminate\View\View
     {
-        return $this->view('iherb-product', [
+        return view('iherb-product', [
             'priceFormatted' => self::formatPrice($this->product['price']),
             'originalPriceFormatted' => $this->product['originalPrice'] ? self::formatPrice($this->product['originalPrice']) : null,
             'reviewFormatted' => self::formatReviewCount($this->product['reviewCount']),

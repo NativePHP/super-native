@@ -3,7 +3,6 @@
 namespace App\NativeComponents;
 
 use App\NativeComponents\Concerns\HasSpotifyData;
-use Native\Mobile\Edge\Element;
 use Native\Mobile\Edge\NativeComponent;
 use Native\Mobile\Edge\Transition;
 
@@ -34,14 +33,14 @@ class SpotifyHome extends NativeComponent
             ->transition(Transition::SlideFromRight);
     }
 
-    public function render(): Element
+    public function render(): \Illuminate\View\View
     {
         $playlists = self::spotifyPlaylists();
         $artists = self::spotifyArtists();
         $recentlyPlayed = array_slice($playlists, 0, 6);
         $madeForYou = array_slice($playlists, 2, 4);
 
-        return $this->view('spotify-home', [
+        return view('spotify-home', [
             'recentlyPlayed' => $recentlyPlayed,
             'madeForYou' => $madeForYou,
             'artists' => $artists,

@@ -18,6 +18,4 @@
         </native:column>
 
     </native:column>
-
-    @include('native.partials.search-sheet')
 </native:scroll-view>

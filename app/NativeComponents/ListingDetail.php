@@ -3,7 +3,6 @@
 namespace App\NativeComponents;
 
 use App\NativeComponents\Concerns\HasListingData;
-use Native\Mobile\Edge\Element;
 use Native\Mobile\Edge\NativeComponent;
 use Native\Mobile\Facades\Dialog;
 
@@ -64,13 +63,13 @@ class ListingDetail extends NativeComponent
         Dialog::alert('Reservation Requested', 'Your reservation for ' . $this->listing['title'] . ' has been submitted!');
     }
 
-    public function render(): Element
+    public function render(): \Illuminate\View\View
     {
         $bathroomsFormatted = $this->listing['bathrooms'] == floor($this->listing['bathrooms'])
             ? (int) $this->listing['bathrooms']
             : $this->listing['bathrooms'];
 
-        return $this->view('listing-detail', [
+        return view('listing-detail', [
             'bathroomsFormatted' => $bathroomsFormatted,
             'currentImageUrl' => $this->listing['images'][$this->currentImage] ?? $this->listing['imageUrl'],
             'imageCount' => count($this->listing['images']),

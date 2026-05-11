@@ -4,6 +4,7 @@ namespace App\NativeComponents\SyncUpNative;
 
 use App\Icons\MaterialOutlined;
 use App\NativeComponents\Concerns\HasSyncUpData;
+use Illuminate\View\View;
 use Native\Mobile\Edge\Element;
 use Native\Mobile\Edge\Elements\Divider;
 use Native\Mobile\Edge\Layouts\Builders\NavAction;
@@ -166,9 +167,9 @@ class SyncUpNativeChat extends NativeComponent
         Dialog::toast('Mark all read');
     }
 
-    public function render(): Element
+    public function render(): View
     {
-        return $this->view('syncup-native.chat', [
+        return view('syncup-native.chat', [
             'friend' => $this->friend(),
         ]);
     }

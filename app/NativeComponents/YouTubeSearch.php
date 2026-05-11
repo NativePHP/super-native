@@ -3,7 +3,6 @@
 namespace App\NativeComponents;
 
 use App\NativeComponents\Concerns\HasYouTubeData;
-use Native\Mobile\Edge\Element;
 use Native\Mobile\Edge\NativeComponent;
 use Native\Mobile\Edge\Transition;
 
@@ -57,7 +56,7 @@ class YouTubeSearch extends NativeComponent
             ->transition(Transition::SlideFromRight);
     }
 
-    public function render(): Element
+    public function render(): \Illuminate\View\View
     {
         $videos = self::ytVideos();
         $channels = self::ytChannels();
@@ -73,7 +72,7 @@ class YouTubeSearch extends NativeComponent
             $trending[] = $video;
         }
 
-        return $this->view('youtube-search', [
+        return view('youtube-search', [
             'trending' => $trending,
             'channels' => $channels,
         ]);

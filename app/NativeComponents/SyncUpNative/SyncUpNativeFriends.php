@@ -3,7 +3,6 @@
 namespace App\NativeComponents\SyncUpNative;
 
 use App\NativeComponents\Concerns\HasSyncUpData;
-use Native\Mobile\Edge\Element;
 use Native\Mobile\Edge\NativeComponent;
 use Native\Mobile\Edge\Transition;
 
@@ -30,14 +29,14 @@ class SyncUpNativeFriends extends NativeComponent
 
     public function addSuggestion(int $id): void { /* stub */ }
 
-    public function render(): Element
+    public function render(): \Illuminate\View\View
     {
         $users = self::suUsers();
 
         $friends = array_slice(array_filter($users, fn ($u) => $u['id'] !== 0), 0, 3);
         $onlineCount = count(array_filter($users, fn ($u) => $u['status'] === 'online'));
 
-        return $this->view('syncup.friends', [
+        return view('syncup.friends', [
             'friends' => array_values($friends),
             'onlineCount' => $onlineCount,
             'suggestions' => self::suSuggestions(),

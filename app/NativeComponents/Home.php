@@ -2,7 +2,6 @@
 
 namespace App\NativeComponents;
 
-use Native\Mobile\Edge\Element;
 use Native\Mobile\Edge\NativeComponent;
 
 class Home extends NativeComponent
@@ -19,8 +18,8 @@ class Home extends NativeComponent
         return 'Home';
     }
 
-    public function render(): Element
+    public function render(): \Illuminate\View\View
     {
-        return $this->view('home');
+        return view('home');
     }
 }

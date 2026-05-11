@@ -3,7 +3,6 @@
 namespace App\NativeComponents;
 
 use App\NativeComponents\Concerns\HasFacebookData;
-use Native\Mobile\Edge\Element;
 use Native\Mobile\Edge\NativeComponent;
 use Native\Mobile\Edge\Transition;
 
@@ -42,7 +41,7 @@ class FacebookProfile extends NativeComponent
             ->transition(Transition::SlideFromRight);
     }
 
-    public function render(): Element
+    public function render(): \Illuminate\View\View
     {
         $users = self::fbUsers();
         $allPosts = self::fbPosts();
@@ -56,7 +55,7 @@ class FacebookProfile extends NativeComponent
             $postsWithMeta[] = $post;
         }
 
-        return $this->view('facebook-profile', [
+        return view('facebook-profile', [
             'postsWithMeta' => $postsWithMeta,
             'friendsFormatted' => self::formatFbCount($this->user['friendCount']),
         ]);

@@ -3,7 +3,6 @@
 namespace App\NativeComponents;
 
 use App\NativeComponents\Concerns\HasSpotifyData;
-use Native\Mobile\Edge\Element;
 use Native\Mobile\Edge\NativeComponent;
 use Native\Mobile\Edge\Transition;
 use Native\Mobile\Facades\Dialog;
@@ -52,7 +51,7 @@ class SpotifyPlaylist extends NativeComponent
         Dialog::alert('Shuffle Play', 'Playing ' . $this->playlist['name'] . ' on shuffle.');
     }
 
-    public function render(): Element
+    public function render(): \Illuminate\View\View
     {
         $tracksWithMeta = [];
         foreach ($this->tracks as $track) {
@@ -60,7 +59,7 @@ class SpotifyPlaylist extends NativeComponent
             $tracksWithMeta[] = $track;
         }
 
-        return $this->view('spotify-playlist', [
+        return view('spotify-playlist', [
             'tracksWithMeta' => $tracksWithMeta,
         ]);
     }

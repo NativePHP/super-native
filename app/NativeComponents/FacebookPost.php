@@ -3,7 +3,6 @@
 namespace App\NativeComponents;
 
 use App\NativeComponents\Concerns\HasFacebookData;
-use Native\Mobile\Edge\Element;
 use Native\Mobile\Edge\NativeComponent;
 use Native\Mobile\Edge\Transition;
 
@@ -47,9 +46,9 @@ class FacebookPost extends NativeComponent
         $this->isLiked = ! $this->isLiked;
     }
 
-    public function render(): Element
+    public function render(): \Illuminate\View\View
     {
-        return $this->view('facebook-post', [
+        return view('facebook-post', [
             'reactionsFormatted' => self::formatFbCount(
                 $this->post['reactions'] + ($this->isLiked ? 1 : 0)
             ),

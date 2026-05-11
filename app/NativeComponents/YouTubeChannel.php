@@ -3,7 +3,6 @@
 namespace App\NativeComponents;
 
 use App\NativeComponents\Concerns\HasYouTubeData;
-use Native\Mobile\Edge\Element;
 use Native\Mobile\Edge\NativeComponent;
 use Native\Mobile\Edge\Transition;
 
@@ -50,7 +49,7 @@ class YouTubeChannel extends NativeComponent
         }
     }
 
-    public function render(): Element
+    public function render(): \Illuminate\View\View
     {
         $videosWithMeta = [];
         foreach ($this->channelVideos as $video) {
@@ -58,7 +57,7 @@ class YouTubeChannel extends NativeComponent
             $videosWithMeta[] = $video;
         }
 
-        return $this->view('youtube-channel', [
+        return view('youtube-channel', [
             'videosWithMeta' => $videosWithMeta,
             'subscribersFormatted' => self::formatYtCount($this->channel['subscribers']),
         ]);

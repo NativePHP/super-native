@@ -3,7 +3,6 @@
 namespace App\NativeComponents;
 
 use App\NativeComponents\Concerns\HasYouTubeData;
-use Native\Mobile\Edge\Element;
 use Native\Mobile\Edge\Layouts\Builders\NavAction;
 use Native\Mobile\Edge\Layouts\Builders\NavBarOptions;
 use Native\Mobile\Edge\NativeComponent;
@@ -66,7 +65,7 @@ class YouTubeHome extends NativeComponent
         $this->activeCategory = $category;
     }
 
-    public function render(): Element
+    public function render(): \Illuminate\View\View
     {
         $videos = self::ytVideos();
         $channels = self::ytChannels();
@@ -87,7 +86,7 @@ class YouTubeHome extends NativeComponent
             $shortsWithChannels[] = $short;
         }
 
-        return $this->view('youtube-home', [
+        return view('youtube-home', [
             'videos' => $videosWithChannels,
             'shorts' => $shortsWithChannels,
             'categories' => $categories,

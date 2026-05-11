@@ -2,13 +2,12 @@
 
 namespace App\NativeComponents;
 
-use Native\Mobile\Edge\Element;
 use Native\Mobile\Edge\NativeComponent;
 
 class TestLayout extends NativeComponent
 {
-    public function render(): Element
+    public function render(): \Illuminate\View\View
     {
-        return $this->view('test-layout');
+        return view('test-layout');
     }
 }

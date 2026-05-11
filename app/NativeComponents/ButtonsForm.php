@@ -2,7 +2,6 @@
 
 namespace App\NativeComponents;
 
-use Native\Mobile\Edge\Element;
 use Native\Mobile\Edge\NativeComponent;
 
 /**
@@ -34,8 +33,8 @@ class ButtonsForm extends NativeComponent
         $this->lastTapped = $key;
     }
 
-    public function render(): Element
+    public function render(): \Illuminate\View\View
     {
-        return $this->view('buttons-form');
+        return view('buttons-form');
     }
 }

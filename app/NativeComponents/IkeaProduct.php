@@ -3,7 +3,6 @@
 namespace App\NativeComponents;
 
 use App\NativeComponents\Concerns\HasIkeaData;
-use Native\Mobile\Edge\Element;
 use Native\Mobile\Edge\NativeComponent;
 use Native\Mobile\Facades\Dialog;
 
@@ -49,9 +48,9 @@ class IkeaProduct extends NativeComponent
         Dialog::alert('Added to bag', $this->quantity . 'x ' . $this->product['seriesName'] . ' ' . $this->product['name'] . ' added to your shopping bag.');
     }
 
-    public function render(): Element
+    public function render(): \Illuminate\View\View
     {
-        return $this->view('ikea-product', [
+        return view('ikea-product', [
             'priceFormatted' => self::formatIkeaPrice($this->product['price']),
             'originalPriceFormatted' => $this->product['originalPrice'] ? self::formatIkeaPrice($this->product['originalPrice']) : null,
             'reviewFormatted' => self::formatIkeaReviewCount($this->product['reviewCount']),

@@ -2,7 +2,6 @@
 
 namespace App\NativeComponents;
 
-use Native\Mobile\Edge\Element;
 use Native\Mobile\Edge\NativeComponent;
 
 class ItemDetail extends NativeComponent
@@ -21,8 +20,8 @@ class ItemDetail extends NativeComponent
         return $this->title;
     }
 
-    public function render(): Element
+    public function render(): \Illuminate\View\View
     {
-        return $this->view('item-detail');
+        return view('item-detail');
     }
 }

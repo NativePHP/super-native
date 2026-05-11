@@ -3,7 +3,6 @@
 namespace App\NativeComponents\SyncUpNative;
 
 use App\NativeComponents\Concerns\HasSyncUpData;
-use Native\Mobile\Edge\Element;
 use Native\Mobile\Edge\NativeComponent;
 
 class SyncUpNativeProfile extends NativeComponent
@@ -47,8 +46,8 @@ class SyncUpNativeProfile extends NativeComponent
         $this->navigate('/syncup-native/login');
     }
 
-    public function render(): Element
+    public function render(): \Illuminate\View\View
     {
-        return $this->view('syncup.profile');
+        return view('syncup.profile');
     }
 }

@@ -3,7 +3,6 @@
 namespace App\NativeComponents;
 
 use App\NativeComponents\Concerns\HasIkeaData;
-use Native\Mobile\Edge\Element;
 use Native\Mobile\Edge\NativeComponent;
 use Native\Mobile\Edge\Transition;
 
@@ -31,7 +30,7 @@ class IkeaSearch extends NativeComponent
             ->transition(Transition::SlideFromRight);
     }
 
-    public function render(): Element
+    public function render(): \Illuminate\View\View
     {
         $allProducts = self::ikeaProducts();
         $categories = self::ikeaCategories();
@@ -54,7 +53,7 @@ class IkeaSearch extends NativeComponent
             }
         }
 
-        return $this->view('ikea-search', [
+        return view('ikea-search', [
             'categories' => $categories,
             'results' => $results,
             'resultCount' => count($results),

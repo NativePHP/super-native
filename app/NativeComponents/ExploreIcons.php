@@ -2,7 +2,6 @@
 
 namespace App\NativeComponents;
 
-use Native\Mobile\Edge\Element;
 use Native\Mobile\Edge\NativeComponent;
 
 class ExploreIcons extends NativeComponent
@@ -12,8 +11,8 @@ class ExploreIcons extends NativeComponent
         return 'Icons';
     }
 
-    public function render(): Element
+    public function render(): \Illuminate\View\View
     {
-        return $this->view('explore.icons');
+        return view('explore.icons');
     }
 }

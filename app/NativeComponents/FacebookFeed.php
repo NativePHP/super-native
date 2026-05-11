@@ -3,7 +3,6 @@
 namespace App\NativeComponents;
 
 use App\NativeComponents\Concerns\HasFacebookData;
-use Native\Mobile\Edge\Element;
 use Native\Mobile\Edge\NativeComponent;
 use Native\Mobile\Edge\Transition;
 
@@ -46,7 +45,7 @@ class FacebookFeed extends NativeComponent
         }
     }
 
-    public function render(): Element
+    public function render(): \Illuminate\View\View
     {
         $users = self::fbUsers();
         $posts = self::fbPosts();
@@ -60,7 +59,7 @@ class FacebookFeed extends NativeComponent
             $post['isLiked'] = isset($this->likedPosts[$i]);
         }
 
-        return $this->view('facebook-feed', [
+        return view('facebook-feed', [
             'posts' => $posts,
             'stories' => array_values($stories),
         ]);

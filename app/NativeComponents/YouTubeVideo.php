@@ -3,7 +3,6 @@
 namespace App\NativeComponents;
 
 use App\NativeComponents\Concerns\HasYouTubeData;
-use Native\Mobile\Edge\Element;
 use Native\Mobile\Edge\NativeComponent;
 use Native\Mobile\Edge\Transition;
 
@@ -77,7 +76,7 @@ class YouTubeVideo extends NativeComponent
         $this->replace($this->route('youtube.video', $index));
     }
 
-    public function render(): Element
+    public function render(): \Illuminate\View\View
     {
         $videos = self::ytVideos();
         $channels = self::ytChannels();
@@ -95,7 +94,7 @@ class YouTubeVideo extends NativeComponent
             }
         }
 
-        return $this->view('youtube-video', [
+        return view('youtube-video', [
             'suggested' => $suggested,
             'likesFormatted' => self::formatYtCount($this->video['likes'] + ($this->isLiked ? 1 : 0)),
             'viewsFormatted' => self::formatYtCount($this->video['views']),

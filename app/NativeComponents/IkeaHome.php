@@ -3,7 +3,6 @@
 namespace App\NativeComponents;
 
 use App\NativeComponents\Concerns\HasIkeaData;
-use Native\Mobile\Edge\Element;
 use Native\Mobile\Edge\NativeComponent;
 use Native\Mobile\Edge\Transition;
 
@@ -41,7 +40,7 @@ class IkeaHome extends NativeComponent
             ->transition(Transition::SlideFromRight);
     }
 
-    public function render(): Element
+    public function render(): \Illuminate\View\View
     {
         $products = self::ikeaProducts();
         $categories = self::ikeaCategories();
@@ -72,7 +71,7 @@ class IkeaHome extends NativeComponent
             $p['reviewFormatted'] = self::formatIkeaReviewCount($p['reviewCount']);
         }
 
-        return $this->view('ikea-home', [
+        return view('ikea-home', [
             'categories' => $categories,
             'popular' => $popular,
             'newArrivals' => $newArrivals,
