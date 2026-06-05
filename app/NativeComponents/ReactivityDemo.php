@@ -2,6 +2,7 @@
 
 namespace App\NativeComponents;
 
+use Illuminate\View\View;
 use Native\Mobile\Attributes\Computed;
 use Native\Mobile\Attributes\Lazy;
 use Native\Mobile\Attributes\Poll;
@@ -44,19 +45,12 @@ class ReactivityDemo extends NativeComponent
      */
     public function mount(): void
     {
-        sleep(2);
+        sleep(5);
     }
 
-    protected function placeholder(): \Illuminate\View\View
+    protected function placeholder(): View
     {
         return view('native.reactivity-demo-placeholder');
-    }
-
-    /** #[Poll] — fires every 3s, then the loop re-renders. */
-    #[Poll(3000)]
-    public function tick(): void
-    {
-        $this->time = now()->format('F j, Y h:i:s');
     }
 
     /** #[Computed] — derived from $count, recomputed when state changes. */
@@ -76,7 +70,7 @@ class ReactivityDemo extends NativeComponent
         $this->count--;
     }
 
-    public function render(): \Illuminate\View\View
+    public function render(): View
     {
         return view('native.reactivity-demo');
     }

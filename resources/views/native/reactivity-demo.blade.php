@@ -26,17 +26,6 @@
             </native:row>
         </native:column>
 
-        {{-- ── #[Poll] ───────────────────────────────────── --}}
-        <native:column class="w-full p-5 gap-3 bg-theme-surface-variant rounded-2xl">
-            <native:text class="text-xs font-bold uppercase text-theme-on-surface-variant">#[Poll]</native:text>
-            <native:text class="text-sm text-theme-on-surface-variant">
-                tick() runs every 3s on its own — no taps — and sets $time, which the loop re-renders.
-            </native:text>
-
-            <native:column class="items-center justify-center py-4">
-                <native:text class="text-lg font-bold text-sky-500">{{ $time }}</native:text>
-            </native:column>
-        </native:column>
 
         {{-- ── native:poll (Blade) ───────────────────────── --}}
         <native:column class="w-full p-5 gap-3 bg-theme-surface-variant rounded-2xl">
@@ -46,18 +35,18 @@
             </native:text>
 
             <native:column class="items-center justify-center py-4">
-                <native:text  class="text-lg font-bold text-violet-500">{{ now()->format('H:i:s') }}</native:text>
+                <native:text native:poll.200ms class="text-lg font-bold text-violet-500">{{ now()->timezone('America/New_York')->format('D F j, Y H:i:s A T') }}</native:text>
             </native:column>
         </native:column>
 
         {{-- ── #[Lazy] ───────────────────────────────────── --}}
-        <native:column class="w-full p-5 gap-3 bg-theme-surface-variant rounded-2xl">
+        <native:column class="w-full p-5 gap-3 rounded-2xl">
             <native:text class="text-xs font-bold uppercase text-theme-on-surface-variant">#[Lazy]</native:text>
             <native:text class="text-sm text-theme-on-surface-variant">
                 This screen showed a skeleton placeholder while a deliberately slow mount() (2s) ran. You're now looking at the hydrated content.
             </native:text>
             <native:row class="items-center gap-2 mt-1">
-                <native:icon name="checkmark.circle.fill" :size="20" color="#10B981" />
+                <native:icon name="checkmark.circle.fill" :size="20" class="text-green-500" />
                 <native:text class="text-base font-semibold text-theme-on-surface">Loaded</native:text>
             </native:row>
         </native:column>

@@ -33,66 +33,66 @@ return [
 
         'light' => [
             // Primary brand color — used for filled buttons, active states, key accents.
-            'primary'       => '#00AAFF',
-            'on-primary'    => '#FFFFFF',
+            'primary' => '#00AAFF',
+            'on-primary' => '#FFFFFF',
 
             // Secondary / muted action color.
-            'secondary'     => '#00AAFF',
-            'on-secondary'  => '#FFFFFF',
+            'secondary' => '#00AAFF',
+            'on-secondary' => '#FFFFFF',
 
             // Surface = cards, sheets, dialogs. Background = page root.
-            'surface'       => '#FFFFFF',
-            'on-surface'    => '#000000',
-            'background'    => '#f7f7f7',
+            'surface' => '#FFFFFF',
+            'on-surface' => '#000000',
+            'background' => '#FFFFFF',
             'on-background' => '#000000',
 
             // Surface variant = filled text fields, muted tonal surfaces.
             // on-surface-variant = muted label/hint text on those surfaces.
-            'surface-variant'    => '#F1F5F9',
+            'surface-variant' => '#F1F5F9',
             'on-surface-variant' => '#475569',
 
             // Outline = neutral borders (text fields, dividers, cards).
-            'outline'       => '#CBD5E1',
+            'outline' => '#CBD5E1',
 
             // Destructive / error actions and messages.
-            'destructive'         => '#DC2626',
-            'on-destructive'      => '#FFFFFF',
+            'destructive' => '#DC2626',
+            'on-destructive' => '#FFFFFF',
 
             // Tertiary accent — for highlights, badges, emphasis not covered by primary.
-            'accent'        => '#FB923C',
-            'on-accent'     => '#FFFFFF',
+            'accent' => '#FB923C',
+            'on-accent' => '#FFFFFF',
         ],
 
         'dark' => [
             // Leave empty or partial to auto-derive from `light` (luminance inversion).
             // Specify any token here to override the derived value.
-            'primary'       => '#6617cf',
-            'on-primary'    => '#FFFFFF',
+            'primary' => '#6617cf',
+            'on-primary' => '#FFFFFF',
 
-            'secondary'     => '#6617cf',
-            'on-secondary'  => '#FFFFFF',
+            'secondary' => '#6617cf',
+            'on-secondary' => '#FFFFFF',
 
-            'surface'       => '#1E293B',
-            'on-surface'    => '#FFFFFF',
-            'background'    => '#000000',
+            'surface' => '#1E293B',
+            'on-surface' => '#FFFFFF',
+            'background' => '#000000',
             'on-background' => '#FFFFFF',
 
-            'surface-variant'    => '#334155',
+            'surface-variant' => '#334155',
             'on-surface-variant' => '#94A3B8',
 
-            'outline'       => '#475569',
+            'outline' => '#475569',
 
-            'destructive'         => '#cf1729',
-            'on-destructive'      => '#FFFFFF',
+            'destructive' => '#cf1729',
+            'on-destructive' => '#FFFFFF',
 
-            'accent'        => '#FDBA74',
-            'on-accent'     => '#0F172A',
+            'accent' => '#FDBA74',
+            'on-accent' => '#0F172A',
         ],
 
         // Corner radii (points / dp).
-        'radius-sm'   => 4,
-        'radius-md'   => 8,
-        'radius-lg'   => 16,
+        'radius-sm' => 4,
+        'radius-md' => 8,
+        'radius-lg' => 16,
         'radius-full' => 9999,
 
         // Font size scale (points / sp).

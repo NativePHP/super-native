@@ -1,6 +1,5 @@
 {{-- Shown by #[Lazy] while ReactivityDemo::mount() runs. --}}
-<native:scroll-view class="w-full h-full bg-theme-background">
-    <native:column class="w-full p-5 gap-5">
+    <native:column class="w-full h-full items-center justify-center p-5 gap-5">
 
         <native:row class="items-center gap-3">
             <native:activity-indicator />
@@ -9,7 +8,11 @@
 
         {{-- Skeleton cards mirroring the real layout --}}
         @foreach ([1, 2, 3] as $i)
-            <native:column class="w-full p-5 gap-3 bg-theme-surface-variant rounded-2xl">
+            <native:column class="w-full p-5 gap-3 bg-theme-surface-variant rounded-2xl"
+                           :opacity="0.3"
+                           :animate-duration="1000"
+                           :animate-loop="true"
+                           animate-easing="ease-in-out">
                 <native:column class="w-[120] h-[14] rounded-full bg-theme-on-surface-variant/20" />
                 <native:column class="w-full h-[12] rounded-full bg-theme-on-surface-variant/10" />
                 <native:column class="w-3/4 h-[12] rounded-full bg-theme-on-surface-variant/10" />
@@ -18,4 +21,3 @@
         @endforeach
 
     </native:column>
-</native:scroll-view>
