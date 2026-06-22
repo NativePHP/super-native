@@ -1,5 +1,5 @@
 <column class="w-full h-full items-center justify-center bg-white gap-8">
-    <text class="text-4xl font-bold text-black">
+    <text class="text-3xl font-bold text-black">
         {{ $count }}
     </text>
     <row class="gap-8 ">
