@@ -476,6 +476,7 @@
                     {{-- Main FAB — rotates 45° when open so + becomes × --}}
                     <column
                         @press="toggleFab"
+                        a11y-label="Toggle quick actions"
                         class="w-[60] h-[60] rounded-full items-center justify-center bg-violet-600"
                         :rotate="$fabOpen ? 45 : 0"
                         :animate-duration="300"
@@ -691,7 +692,7 @@
                     class="w-full h-full rounded-2xl bg-slate-800"
                     :opacity="$drag->interpolate([0, 180], [0, 0.5])" />
 
-                <gesture-area :pan-y="$drag" class="w-full h-full items-center justify-center">
+                <gesture-area :pan-y="$drag" a11y-label="Drag card up or down" class="w-full h-full items-center justify-center">
                     <column
                         class="w-[200] h-[120] rounded-2xl items-center justify-center bg-fuchsia-500"
                         :translate-y="$drag->clamp(-60, 180)"

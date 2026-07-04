@@ -41,6 +41,7 @@ class SyncUpTabsLayout extends NativeLayout
             ->elevation(8)                                          // subtle shadow under bar
             ->action(NavAction::make('search')
                 ->icon(ios: Ios::Magnifyingglass, android: Android::Search)
+                ->a11yLabel('Search')
                 ->press('openSearch'));
     }
 

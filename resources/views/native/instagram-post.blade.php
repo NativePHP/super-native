@@ -3,7 +3,7 @@
 
         {{-- Top Bar --}}
         <row class="w-full px-4 py-3 items-center gap-3">
-            <column @press="back" class="w-[32] h-[32] items-center justify-center">
+            <column @press="back" a11y-label="Back" class="w-[32] h-[32] items-center justify-center">
                 <icon name="arrow_back" :size="24" color="#262626" />
             </column>
             <text class="text-[16] font-bold text-[#262626]">Post</text>
@@ -16,6 +16,7 @@
             <image
                 @press="viewProfile({{ $post['userId'] }})"
                 src="{{ $post['user']['avatarUrl'] }}"
+                alt="{{ $post['user']['username'] }}'s profile"
                 class="w-[36] h-[36] rounded-full"
                 :fit="2"
             />
@@ -35,6 +36,7 @@
         {{-- Post Image --}}
         <image
             src="{{ $post['imageUrl'] }}"
+            alt="Photo by {{ $post['user']['username'] }}: {{ \Illuminate\Support\Str::limit($post['caption'], 60) }}"
             class="w-full h-[375]"
             :fit="2"
         />
@@ -42,7 +44,7 @@
         {{-- Action Bar --}}
         <row class="w-full px-3 mt-5 items-center justify-between">
             <row class="items-center gap-4">
-                <column @press="toggleLike">
+                <column @press="toggleLike" a11y-label="Like">
                     <icon
                         name="{{ $isLiked ? 'favorite' : 'favorite_border' }}"
                         :size="28"
@@ -52,7 +54,7 @@
                 <icon name="chat_bubble_outline" :size="26" color="#262626" />
                 <icon name="send" :size="26" color="#262626" />
             </row>
-            <column @press="toggleSave">
+            <column @press="toggleSave" a11y-label="Save">
                 <icon
                     name="{{ $isSaved ? 'bookmark' : 'bookmark_border' }}"
                     :size="28"
@@ -85,6 +87,7 @@
                     <image
                         @press="viewProfile({{ $comment['userId'] }})"
                         src="{{ $comment['user']['avatarUrl'] }}"
+                        alt="{{ $comment['user']['username'] }}'s profile"
                         class="w-[32] h-[32] rounded-full"
                         :fit="2"
                     />
@@ -107,6 +110,7 @@
         <row class="w-full px-3 py-3 items-center gap-3">
             <image
                 src="https://i.pravatar.cc/150?u=igcurrent"
+                alt="Your profile"
                 class="w-[32] h-[32] rounded-full"
                 :fit="2"
             />

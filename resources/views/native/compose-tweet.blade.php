@@ -2,7 +2,7 @@
 
     {{-- Top Bar --}}
     <row class="w-full px-4 py-3 items-center justify-between">
-        <column @press="back" class="w-[32] h-[32] items-center justify-center">
+        <column @press="back" a11y-label="Close" class="w-[32] h-[32] items-center justify-center">
             <icon name="close" :size="24" color="#0F1419" />
         </column>
         <button
@@ -20,6 +20,7 @@
     <row class="w-full px-4 pt-4 gap-3">
         <image
             src="https://i.pravatar.cc/150?u=currentuser"
+            alt="Your profile"
             class="w-[40] h-[40] rounded-full"
             :fit="2"
         />

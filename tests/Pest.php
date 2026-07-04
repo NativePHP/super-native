@@ -15,6 +15,9 @@ pest()->extend(Tests\TestCase::class)
     ->use(Illuminate\Foundation\Testing\RefreshDatabase::class)
     ->in('Feature');
 
+// Native testing suite sugar: expect($screen)->toSee(...)->toBeAccessible() etc.
+Native\Mobile\Testing\PestExpectations::register();
+
 /*
 |--------------------------------------------------------------------------
 | Expectations

@@ -14,6 +14,7 @@
                     <column class="w-[68] h-[68] rounded-full bg-[#DBDBDB] items-center justify-center">
                         <image
                             src="https://i.pravatar.cc/150?u=igcurrent"
+                            alt="Your story"
                             class="w-[60] h-[60] rounded-full"
                             :fit="2"
                         />
@@ -29,6 +30,7 @@
                             <column class="w-[60] h-[60] rounded-full bg-white items-center justify-center">
                                 <image
                                     src="{{ $story['avatarUrl'] }}"
+                                    alt="{{ $story['username'] }}'s story"
                                     class="w-[56] h-[56] rounded-full"
                                     :fit="2"
                                 />
@@ -50,6 +52,7 @@
                     <image
                         @press="viewProfile({{ $post['userId'] }})"
                         src="{{ $post['user']['avatarUrl'] }}"
+                        alt="{{ $post['user']['username'] }}'s profile"
                         class="w-[32] h-[32] rounded-full"
                         :fit="2"
                     />
@@ -71,6 +74,7 @@
                 <image
                     @press="viewPost({{ $index }})"
                     src="{{ $post['imageUrl'] }}"
+                    alt="Photo by {{ $post['user']['username'] }}: {{ \Illuminate\Support\Str::limit($post['caption'], 60) }}"
                     class="w-full h-[375]"
                     :fit="2"
                 />
@@ -78,19 +82,19 @@
                 {{-- Action Bar --}}
                 <row class="w-full px-3 mt-5 items-center justify-between">
                     <row class="items-center gap-4">
-                        <column @press="toggleLike({{ $index }})">
+                        <column @press="toggleLike({{ $index }})" a11y-label="Like">
                             <icon
                                 name="{{ $post['isLiked'] ? 'favorite' : 'favorite_border' }}"
                                 :size="26"
                                 color="{{ $post['isLiked'] ? '#ED4956' : '#262626' }}"
                             />
                         </column>
-                        <column @press="viewPost({{ $index }})">
+                        <column @press="viewPost({{ $index }})" a11y-label="Comments">
                             <icon name="chat_bubble_outline" :size="24" color="#262626" />
                         </column>
                         <icon name="send" :size="24" color="#262626" />
                     </row>
-                    <column @press="toggleSave({{ $index }})">
+                    <column @press="toggleSave({{ $index }})" a11y-label="Save">
                         <icon
                             name="{{ $post['isSaved'] ? 'bookmark' : 'bookmark_border' }}"
                             :size="26"

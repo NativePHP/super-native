@@ -27,9 +27,9 @@ class YouTubeHome extends NativeComponent
     public function navigationOptions(): ?NavBarOptions
     {
         return NavBarOptions::make()
-            ->action(NavAction::make('cast')->icon('cart')->press('castDevice'))
-            ->action(NavAction::make('alerts')->icon('notifications')->press('viewNotifications'))
-            ->action(NavAction::make('search')->icon('search')->press('viewSearch'));
+            ->action(NavAction::make('cast')->icon('cart')->a11yLabel('Cast')->press('castDevice'))
+            ->action(NavAction::make('alerts')->icon('notifications')->a11yLabel('Notifications')->press('viewNotifications'))
+            ->action(NavAction::make('search')->icon('search')->a11yLabel('Search')->press('viewSearch'));
     }
 
     public function castDevice(): void

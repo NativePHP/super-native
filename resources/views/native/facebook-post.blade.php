@@ -3,7 +3,7 @@
 
         {{-- Top Bar --}}
         <row class="w-full bg-white px-4 py-3 items-center gap-3">
-            <column @press="back" class="w-[32] h-[32] rounded-full bg-[#E4E6EB] items-center justify-center">
+            <column @press="back" a11y-label="Back" class="w-[32] h-[32] rounded-full bg-[#E4E6EB] items-center justify-center">
                 <icon name="arrow_back" :size="20" color="#050505" />
             </column>
             <text class="text-[18] font-bold text-[#050505]">{{ $post['user']['name'] }}'s Post</text>
@@ -16,6 +16,7 @@
                 <image
                     @press="viewProfile({{ $post['userId'] }})"
                     src="{{ $post['user']['avatarUrl'] }}"
+                    alt="{{ $post['user']['name'] }}'s profile"
                     class="w-[44] h-[44] rounded-full"
                     :fit="2"
                 />
@@ -35,6 +36,7 @@
                 <column class="w-full pt-3">
                     <image
                         src="{{ $post['imageUrl'] }}"
+                        alt="Photo by {{ $post['user']['name'] }}"
                         class="w-full h-[300]"
                         :fit="2"
                     />
@@ -89,6 +91,7 @@
                     <image
                         @press="viewProfile({{ $comment['userId'] }})"
                         src="{{ $comment['user']['avatarUrl'] }}"
+                        alt="{{ $comment['user']['name'] }}'s profile"
                         class="w-[32] h-[32] rounded-full"
                         :fit="2"
                     />
@@ -121,6 +124,7 @@
             <row class="w-full items-center gap-3">
                 <image
                     src="https://i.pravatar.cc/150?u=fbcurrent"
+                    alt="Your profile"
                     class="w-[32] h-[32] rounded-full"
                     :fit="2"
                 />

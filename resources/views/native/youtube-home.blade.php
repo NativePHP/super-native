@@ -29,6 +29,7 @@
                     <stack class="w-full h-[210]">
                         <image
                             src="{{ $video['thumbnailUrl'] }}"
+                            alt="{{ $video['title'] }}"
                             class="w-full h-[210]"
                             :fit="2"
                         />
@@ -46,6 +47,7 @@
                     <column @press="viewChannel({{ $video['channelId'] }})">
                         <image
                             src="{{ $video['channel']['avatarUrl'] }}"
+                            alt="{{ $video['channel']['name'] }}'s channel"
                             class="w-[36] h-[36] rounded-full"
                             :fit="2"
                         />
@@ -98,6 +100,7 @@
                     <stack class="w-full h-[210]">
                         <image
                             src="{{ $video['thumbnailUrl'] }}"
+                            alt="{{ $video['title'] }}"
                             class="w-full h-[210]"
                             :fit="2"
                         />
@@ -113,6 +116,7 @@
                     <column @press="viewChannel({{ $video['channelId'] }})">
                         <image
                             src="{{ $video['channel']['avatarUrl'] }}"
+                            alt="{{ $video['channel']['name'] }}'s channel"
                             class="w-[36] h-[36] rounded-full"
                             :fit="2"
                         />

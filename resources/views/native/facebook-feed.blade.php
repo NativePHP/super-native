@@ -21,6 +21,7 @@
             <row @press="createPost" class="w-full items-center gap-3">
                 <image
                     src="https://i.pravatar.cc/150?u=fbcurrent"
+                    alt="Your profile"
                     class="w-[40] h-[40] rounded-full"
                     :fit="2"
                 />
@@ -63,6 +64,7 @@
                             <column class="w-[60] h-[60] rounded-full bg-[#1877F2] items-center justify-center p-[3]">
                                 <image
                                     src="{{ $story['avatarUrl'] }}"
+                                    alt="{{ $story['name'] }}'s story"
                                     class="w-[54] h-[54] rounded-full"
                                     :fit="2"
                                 />
@@ -82,6 +84,7 @@
                     <image
                         @press="viewProfile({{ $post['userId'] }})"
                         src="{{ $post['user']['avatarUrl'] }}"
+                        alt="{{ $post['user']['name'] }}'s profile"
                         class="w-[40] h-[40] rounded-full"
                         :fit="2"
                     />
@@ -102,6 +105,7 @@
                     <column @press="viewPost({{ $index }})" class="w-full pt-3">
                         <image
                             src="{{ $post['imageUrl'] }}"
+                            alt="Photo by {{ $post['user']['name'] }}"
                             class="w-full h-[250]"
                             :fit="2"
                         />

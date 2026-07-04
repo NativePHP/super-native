@@ -3,7 +3,7 @@
 
         {{-- Top Bar --}}
         <row class="w-full px-4 py-3 items-center gap-3">
-            <column @press="back" class="w-[32] h-[32] rounded-full items-center justify-center">
+            <column @press="back" a11y-label="Back" class="w-[32] h-[32] rounded-full items-center justify-center">
                 <icon name="arrow_back" :size="22" color="#0F1419" />
             </column>
             <text class="text-[18] font-bold text-theme-on-surface">Post</text>
@@ -16,6 +16,7 @@
             <image
                 @press="viewProfile({{ $tweet['userId'] }})"
                 src="{{ $tweet['user']['avatarUrl'] }}"
+                alt="{{ $tweet['user']['name'] }}'s profile"
                 class="w-[44] h-[44] rounded-full"
                 :fit="2"
             />
@@ -40,6 +41,7 @@
             <column class="w-full px-4 pt-3">
                 <image
                     src="{{ $tweet['imageUrl'] }}"
+                    alt="Photo by {{ $tweet['user']['name'] }}"
                     class="w-full h-[220] rounded-xl"
                     :fit="2"
                 />
@@ -70,10 +72,10 @@
         {{-- Action Bar --}}
         <row class="w-full px-8 py-3 justify-between items-center">
             <icon name="chat_bubble_outline" :size="22" color="#536471" />
-            <column @press="toggleRetweet">
+            <column @press="toggleRetweet" a11y-label="Repost">
                 <icon name="repeat" :size="22" color="{{ $isRetweeted ? '#00BA7C' : '#536471' }}" />
             </column>
-            <column @press="toggleLike">
+            <column @press="toggleLike" a11y-label="Like">
                 <icon
                     name="{{ $isLiked ? 'favorite' : 'favorite_border' }}"
                     :size="22"
@@ -94,6 +96,7 @@
                     <image
                         @press="viewProfile({{ $reply['userId'] }})"
                         src="{{ $reply['user']['avatarUrl'] }}"
+                        alt="{{ $reply['user']['name'] }}'s profile"
                         class="w-[36] h-[36] rounded-full"
                         :fit="2"
                     />

@@ -28,6 +28,7 @@
                             <column @press="viewPost({{ array_search($post, $posts) }})">
                                 <image
                                     src="{{ $post['imageUrl'] }}"
+                                    alt="{{ \Illuminate\Support\Str::limit($post['caption'], 60) }}"
                                     class="w-[125] h-[125]"
                                     :fit="2"
                                 />
@@ -41,6 +42,7 @@
                             <column @press="viewPost({{ array_search($row[0], $posts) }})">
                                 <image
                                     src="{{ $row[0]['imageUrl'] }}"
+                                    alt="{{ \Illuminate\Support\Str::limit($row[0]['caption'], 60) }}"
                                     class="w-[250] h-[251]"
                                     :fit="2"
                                 />
@@ -51,6 +53,7 @@
                                 <column @press="viewPost({{ array_search($row[1], $posts) }})">
                                     <image
                                         src="{{ $row[1]['imageUrl'] }}"
+                                        alt="{{ \Illuminate\Support\Str::limit($row[1]['caption'], 60) }}"
                                         class="w-[125] h-[125]"
                                         :fit="2"
                                     />
@@ -60,6 +63,7 @@
                                 <column @press="viewPost({{ array_search($row[2], $posts) }})">
                                     <image
                                         src="{{ $row[2]['imageUrl'] }}"
+                                        alt="{{ \Illuminate\Support\Str::limit($row[2]['caption'], 60) }}"
                                         class="w-[125] h-[125]"
                                         :fit="2"
                                     />

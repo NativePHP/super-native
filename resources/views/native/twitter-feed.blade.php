@@ -7,11 +7,12 @@
         <row class="w-full px-4 py-3 items-center justify-between">
             <image
                 src="https://i.pravatar.cc/150?u=currentuser"
+                alt="Your profile"
                 class="w-[32] h-[32] rounded-full"
                 :fit="2"
             />
             <text class="text-[30] font-bold text-theme-on-surface">𝕏</text>
-            <column @press="composeTweet" class="w-[32] h-[32] rounded-full items-center justify-center">
+            <column @press="composeTweet" a11y-label="Compose post" class="w-[32] h-[32] rounded-full items-center justify-center">
                 <icon name="edit" :size="18" color="#FFFFFF" />
             </column>
         </row>
@@ -32,6 +33,7 @@
                     <image
                         @press="viewProfile({{ $tweet['userId'] }})"
                         src="{{ $tweet['user']['avatarUrl'] }}"
+                        alt="{{ $tweet['user']['name'] }}'s profile"
                         class="w-[40] h-[40] rounded-full"
                         :fit="2"
                     />
@@ -55,6 +57,7 @@
                         @if ($tweet['imageUrl'])
                             <image
                                 src="{{ $tweet['imageUrl'] }}"
+                                alt="Photo by {{ $tweet['user']['name'] }}"
                                 class="w-full h-[180] rounded-xl mt-2"
                                 :fit="2"
                             />

@@ -3,7 +3,7 @@
 
         {{-- Top Bar --}}
         <row class="w-full bg-white px-4 py-3 items-center gap-3">
-            <column @press="back" class="w-[32] h-[32] rounded-full bg-[#E4E6EB] items-center justify-center">
+            <column @press="back" a11y-label="Back" class="w-[32] h-[32] rounded-full bg-[#E4E6EB] items-center justify-center">
                 <icon name="arrow_back" :size="20" color="#050505" />
             </column>
             <text class="text-[18] font-bold text-[#050505]">{{ $user['name'] }}</text>
@@ -12,6 +12,7 @@
         {{-- Cover Photo --}}
         <image
             src="{{ $user['coverUrl'] }}"
+            alt="{{ $user['name'] }}'s cover photo"
             class="w-full h-[160]"
             :fit="2"
         />
@@ -22,6 +23,7 @@
             <row class="w-full items-end gap-3">
                 <image
                     src="{{ $user['avatarUrl'] }}"
+                    alt="{{ $user['name'] }}"
                     class="w-[80] h-[80] rounded-full mt-[-40]"
                     :fit="2"
                 />
@@ -70,6 +72,7 @@
                 <row class="w-full px-4 pt-3 items-center gap-3">
                     <image
                         src="{{ $post['user']['avatarUrl'] }}"
+                        alt="{{ $post['user']['name'] }}"
                         class="w-[40] h-[40] rounded-full"
                         :fit="2"
                     />
@@ -89,6 +92,7 @@
                     <column @press="viewPost({{ $post['originalIndex'] }})" class="w-full pt-3">
                         <image
                             src="{{ $post['imageUrl'] }}"
+                            alt="Photo by {{ $post['user']['name'] }}"
                             class="w-full h-[250]"
                             :fit="2"
                         />

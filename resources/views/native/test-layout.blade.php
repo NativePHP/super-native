@@ -4,8 +4,8 @@
     </scroll-view>
     <divider/>
     <row class="w-full gap-2 w-full bg-white border-t border-[#f1f5f9] px-4 pt-3 items-center justify-center">
-        <icon @press="send" name="plus.circle.fill" :size="24" color="#64748b"/>
-        <icon @press="send" name="face.smiling" :size="24" color="#94a3b8"/>
+        <icon @press="send" name="plus.circle.fill" :size="24" color="#64748b" a11y-label="Add attachment"/>
+        <icon @press="send" name="face.smiling" :size="24" color="#94a3b8" a11y-label="Add emoji"/>
         <outlined-text-input
             value="hi"
             placeholder="Message..."
@@ -14,7 +14,7 @@
             :multiline="true"
             class="flex-1"
         />
-        <column @press="send" class="w-[40] h-[40] items-center justify-center rounded-full bg-[#00677d]">
+        <column @press="send" a11y-label="Send message" class="w-[40] h-[40] items-center justify-center rounded-full bg-[#00677d]">
             <icon name="paperplane.fill" :size="20" color="#94a3b8"/>
         </column>
     </row>

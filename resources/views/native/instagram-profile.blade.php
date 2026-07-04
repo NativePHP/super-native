@@ -4,7 +4,7 @@
         {{-- Top Bar --}}
         <row class="w-full px-4 py-3 items-center justify-between">
             <row class="items-center gap-2">
-                <column @press="back" class="w-[32] h-[32] items-center justify-center">
+                <column @press="back" a11y-label="Back" class="w-[32] h-[32] items-center justify-center">
                     <icon name="arrow_back" :size="24" color="#262626" />
                 </column>
                 <row class="items-center gap-1">
@@ -25,6 +25,7 @@
                 <column class="w-[80] h-[80] rounded-full bg-white items-center justify-center">
                     <image
                         src="{{ $user['avatarUrl'] }}"
+                        alt="{{ $user['username'] }}"
                         class="w-[76] h-[76] rounded-full"
                         :fit="2"
                     />
@@ -95,6 +96,7 @@
                         <column @press="viewPost({{ $post['originalIndex'] }})">
                             <image
                                 src="{{ $post['imageUrl'] }}"
+                                alt="Photo by {{ $user['username'] }}: {{ \Illuminate\Support\Str::limit($post['caption'] ?? '', 60) }}"
                                 class="w-[125] h-[125]"
                                 :fit="2"
                             />

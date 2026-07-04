@@ -50,16 +50,19 @@ class SyncUpNativeChat extends NativeComponent
             ->action(
                 NavAction::make('video')
                     ->icon(ios: Ios::Camera, android: AndroidOutlined::Camera)
+                    ->a11yLabel('Video call')
                     ->press('startVideo')
             )
             ->action(
                 NavAction::make('call')
                     ->icon(ios: Ios::Phone, android: AndroidOutlined::Phone)
+                    ->a11yLabel('Voice call')
                     ->press('startCall')
             )
             ->action(
                 NavAction::make('more')
                     ->icon(ios: Ios::Ellipsis, android: Android::MoreVert)
+                    ->a11yLabel('More options')
                     ->items([
                         NavAction::make('mark_read')
                             ->icon(ios: Ios::CheckmarkCircle, android: Android::CheckCircle)

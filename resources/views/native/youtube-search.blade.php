@@ -4,7 +4,7 @@
         {{-- Top Bar — search field flexes to fill remaining width between
              the back arrow and the search button so it adapts to phone width. --}}
         <row class="w-full px-4 pt-3 pb-2 items-center gap-3">
-            <column @press="back" class="w-[32] h-[32] items-center justify-center">
+            <column @press="back" a11y-label="Back" class="w-[32] h-[32] items-center justify-center">
                 <icon name="arrow_back" :size="24" color="#FFFFFF" />
             </column>
             <row class="flex-1 bg-[#121212] rounded-full px-4 py-3 items-center gap-2 border border-[#303030]">
@@ -15,7 +15,7 @@
                     class="flex-1 text-[15] text-white bg-transparent"
                 />
             </row>
-            <column @press="search" class="w-[36] h-[36] rounded-full bg-[#222222] items-center justify-center">
+            <column @press="search" a11y-label="Search" class="w-[36] h-[36] rounded-full bg-[#222222] items-center justify-center">
                 <icon name="search" :size="20" color="#FFFFFF" />
             </column>
         </row>

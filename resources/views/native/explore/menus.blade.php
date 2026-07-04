@@ -97,6 +97,7 @@
                     supporting="Did you see the new design specs?"
                     leadingMonogram="SM"
                     leadingMonogramColor="#0EA5E9"
+                    trailing-a11y-label="More options for Sarah Miller"
                     :trailing-menu="$listItemMenu"/>
                 <divider/>
                 <list-item
@@ -104,6 +105,7 @@
                     supporting="Alex: Looks good to me!"
                     leadingMonogram="DT"
                     leadingMonogramColor="#A855F7"
+                    trailing-a11y-label="More options for Design Team"
                     :trailing-menu="$listItemMenu"/>
                 <divider/>
                 <list-item
@@ -111,6 +113,7 @@
                     supporting="Thanks for the heads up!"
                     leadingMonogram="MJ"
                     leadingMonogramColor="#10B981"
+                    trailing-a11y-label="More options for Marcus James"
                     :trailing-menu="$listItemMenu"/>
             </column>
         </column>

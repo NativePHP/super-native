@@ -31,7 +31,7 @@ class SyncUpChats extends NativeComponent
     public function navigationOptions(): ?NavBarOptions
     {
         return NavBarOptions::make()
-            ->action(NavAction::make('more')->icon('ellipsis')->press('openMenu'));
+            ->action(NavAction::make('more')->icon('ellipsis')->a11yLabel('More options')->press('openMenu'));
     }
 
     public function setFilter(string $name): void

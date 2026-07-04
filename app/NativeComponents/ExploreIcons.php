@@ -4,6 +4,7 @@ namespace App\NativeComponents;
 
 use App\Icons\Android;
 use App\Icons\Ios;
+use Illuminate\Support\Str;
 use Native\Mobile\Edge\Element;
 use Native\Mobile\Edge\Elements\Column;
 use Native\Mobile\Edge\Elements\Icon;
@@ -174,6 +175,7 @@ class ExploreIcons extends NativeComponent
             $row->addChild(
                 Pressable::make($icon)
                     ->onPress("showIcon('{$case->name}')")
+                    ->a11yLabel(Str::headline($case->name))
                     ->flexGrow(1)->flexBasis(0)->height(self::CELL_SIZE)
                     ->center()->class('bg-theme-surface-variant rounded-lg')
             );

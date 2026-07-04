@@ -114,7 +114,7 @@
     {{-- Floating Action Button — absolutely positioned at the bottom-right
          of the screen content. The absolute child only occupies its placed
          (56x56) bounds, so it overlays without blocking scroll touches. --}}
-    <column @press="newMessage"
+    <column @press="newMessage" a11y-label="New message"
         class="absolute bottom-[20] right-[20] w-[56] h-[56] rounded-full shadow-xl bg-cyan-600 items-center justify-center">
         <native:icon :android="\App\Icons\Android::Message" :ios="\App\Icons\Ios::Message" class="text-white text-3xl" />
     </column>

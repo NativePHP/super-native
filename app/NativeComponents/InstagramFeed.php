@@ -27,8 +27,8 @@ class InstagramFeed extends NativeComponent
     public function navigationOptions(): ?NavBarOptions
     {
         return NavBarOptions::make()
-            ->action(NavAction::make('activity')->icon('favorite_border')->press('viewActivity'))
-            ->action(NavAction::make('messages')->icon('chat_bubble_outline')->press('viewMessages'));
+            ->action(NavAction::make('activity')->icon('favorite_border')->a11yLabel('Activity')->press('viewActivity'))
+            ->action(NavAction::make('messages')->icon('chat_bubble_outline')->a11yLabel('Messages')->press('viewMessages'));
     }
 
     public function viewActivity(): void

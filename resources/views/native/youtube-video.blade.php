@@ -32,7 +32,7 @@
             {{-- Top controls (back / settings) — declared LAST so they
                  sit above the other overlay layers and receive taps. --}}
             <row class="w-full px-3 pt-3 items-center justify-between">
-                <column @press="back" class="w-[36] h-[36] rounded-full bg-[#000000AA] items-center justify-center">
+                <column @press="back" a11y-label="Back" class="w-[36] h-[36] rounded-full bg-[#000000AA] items-center justify-center">
                     <icon name="arrow_back" :size="20" color="#FFFFFF" />
                 </column>
                 <column class="w-[36] h-[36] rounded-full bg-[#000000AA] items-center justify-center">
@@ -72,7 +72,7 @@
                     />
                     <text class="text-[13] font-semibold text-white">{{ $likesFormatted }}</text>
                     <text class="text-[15] text-[#5A5A5A]">|</text>
-                    <column @press="toggleDislike">
+                    <column @press="toggleDislike" a11y-label="Dislike">
                         <icon
                             name="{{ $isDisliked ? 'thumb_down' : 'thumb_down_off_alt' }}"
                             :size="20"
@@ -108,6 +108,7 @@
             <column @press="viewChannel({{ $video['channelId'] }})">
                 <image
                     src="{{ $channel['avatarUrl'] }}"
+                    alt="{{ $channel['name'] }}'s channel"
                     class="w-[40] h-[40] rounded-full"
                     :fit="2"
                 />

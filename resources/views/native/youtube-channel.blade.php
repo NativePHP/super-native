@@ -3,7 +3,7 @@
 
         {{-- Top Bar --}}
         <row class="w-full px-4 py-3 items-center gap-3">
-            <column @press="back" class="w-[32] h-[32] items-center justify-center">
+            <column @press="back" a11y-label="Back" class="w-[32] h-[32] items-center justify-center">
                 <icon name="arrow_back" :size="24" color="#FFFFFF" />
             </column>
             <spacer />
@@ -15,6 +15,7 @@
         {{-- Banner --}}
         <image
             src="{{ $channel['bannerUrl'] }}"
+            alt="{{ $channel['name'] }}'s banner"
             class="w-full h-[90]"
             :fit="2"
         />
@@ -24,6 +25,7 @@
             <row class="items-center gap-4">
                 <image
                     src="{{ $channel['avatarUrl'] }}"
+                    alt="{{ $channel['name'] }}"
                     class="w-[72] h-[72] rounded-full"
                     :fit="2"
                 />

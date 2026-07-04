@@ -43,9 +43,9 @@ class SyncUpChat extends NativeComponent
     public function navigationOptions(): ?NavBarOptions
     {
         return NavBarOptions::make()
-            ->action(NavAction::make('video')->icon('video.fill')->press('startVideo'))
-            ->action(NavAction::make('call')->icon('phone.fill')->press('startCall'))
-            ->action(NavAction::make('more')->icon('ellipsis')->press('openMenu'));
+            ->action(NavAction::make('video')->icon('video.fill')->a11yLabel('Video call')->press('startVideo'))
+            ->action(NavAction::make('call')->icon('phone.fill')->a11yLabel('Voice call')->press('startCall'))
+            ->action(NavAction::make('more')->icon('ellipsis')->a11yLabel('More options')->press('openMenu'));
     }
 
     public function setDraft(string $value): void

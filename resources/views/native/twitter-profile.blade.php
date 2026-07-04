@@ -3,7 +3,7 @@
 
         {{-- Top Bar --}}
         <row class="w-full px-4 py-3 items-center gap-3">
-            <column @press="back" class="w-[32] h-[32] rounded-full items-center justify-center">
+            <column @press="back" a11y-label="Back" class="w-[32] h-[32] rounded-full items-center justify-center">
                 <icon name="arrow_back" :size="22" color="#0F1419" />
             </column>
             <column>
@@ -18,6 +18,7 @@
             <column class="w-full">
                 <image
                     src="{{ $user['bannerUrl'] }}"
+                    alt="{{ $user['name'] }}'s banner"
                     class="w-full h-[220]"
                     :fit="2"
                 />
@@ -29,6 +30,7 @@
                 <row class="w-full px-4 items-end justify-between">
                     <image
                         src="{{ $user['avatarUrl'] }}"
+                        alt="{{ $user['name'] }}"
                         class="w-[68] h-[68] rounded-full"
                         :fit="2"
                     />
@@ -79,6 +81,7 @@
                     {{-- Avatar --}}
                     <image
                         src="{{ $tweet['user']['avatarUrl'] }}"
+                        alt="{{ $tweet['user']['name'] }}"
                         class="w-[40] h-[40] rounded-full"
                         :fit="2"
                     />
@@ -99,6 +102,7 @@
                         @if ($tweet['imageUrl'])
                             <image
                                 src="{{ $tweet['imageUrl'] }}"
+                                alt="Photo by {{ $tweet['user']['name'] }}"
                                 class="w-full h-[180] rounded-xl mt-2"
                                 :fit="2"
                             />

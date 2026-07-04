@@ -3,7 +3,7 @@
     {{-- Top Bar --}}
     <row class="w-full px-4 py-3 items-center justify-between">
         <row class="items-center gap-3">
-            <column @press="back" class="w-[32] h-[32] items-center justify-center">
+            <column @press="back" a11y-label="Close" class="w-[32] h-[32] items-center justify-center">
                 <icon name="close" :size="24" color="#050505" />
             </column>
             <text class="text-[18] font-bold text-[#050505]">Create Post</text>
@@ -23,6 +23,7 @@
     <row class="w-full px-4 pt-4 items-center gap-3">
         <image
             src="https://i.pravatar.cc/150?u=fbcurrent"
+            alt="Your profile"
             class="w-[44] h-[44] rounded-full"
             :fit="2"
         />

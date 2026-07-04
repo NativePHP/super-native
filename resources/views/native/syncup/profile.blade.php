@@ -12,7 +12,7 @@
                 </column>
                 {{-- Camera FAB pinned bottom-right --}}
                 <row class="w-[128] h-[128] items-end justify-end">
-                    <column @press="editPhoto" class="w-[36] h-[36] rounded-full bg-[#00677d] items-center justify-center border-4 border-theme-background">
+                    <column @press="editPhoto" a11y-label="Edit photo" class="w-[36] h-[36] rounded-full bg-[#00677d] items-center justify-center border-4 border-theme-background">
                         <icon name="camera.fill" :size="16" color="#FFFFFF" />
                     </column>
                 </row>
@@ -81,7 +81,7 @@
             {{-- Copy field --}}
             <row class="w-full bg-theme-surface-variant border border-theme-outline rounded-xl px-3 py-2 items-center gap-2">
                 <text class="flex-1 px-2 text-[12] font-medium text-theme-on-surface" :maxLines="1">syncup.me/elena_rod</text>
-                <column @press="copyLink" class="w-[36] h-[36] rounded-lg bg-theme-surface border border-theme-outline items-center justify-center">
+                <column @press="copyLink" a11y-label="Copy link" class="w-[36] h-[36] rounded-lg bg-theme-surface border border-theme-outline items-center justify-center">
                     <icon name="doc.on.doc" :size="16" color="#00677d" dark-color="#67e8f9" />
                 </column>
             </row>

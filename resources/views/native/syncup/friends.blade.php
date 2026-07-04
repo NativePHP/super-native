@@ -65,7 +65,7 @@
                                 <text class="text-[14] text-theme-on-surface-variant" :maxLines="1">{{ $f['statusText'] }}</text>
                             </column>
                         </row>
-                        <column @press="messageFriend({{ $f['id'] }})" class="w-[40] h-[40] items-center justify-center rounded-full">
+                        <column @press="messageFriend({{ $f['id'] }})" a11y-label="Message {{ $f['name'] }}" class="w-[40] h-[40] items-center justify-center rounded-full">
                             <icon name="chat_bubble" :size="20" color="#94a3b8" dark-color="#64748b" />
                         </column>
                     </row>

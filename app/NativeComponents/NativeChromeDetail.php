@@ -30,7 +30,7 @@ class NativeChromeDetail extends NativeComponent
     {
         return NavBarOptions::make()
             ->subtitle('Pushed via NavigationStack')
-            ->action(NavAction::make('star')->icon('star')->press('toggleStar'));
+            ->action(NavAction::make('star')->icon('star')->a11yLabel('Favorite')->press('toggleStar'));
     }
 
     public bool $starred = false;

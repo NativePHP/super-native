@@ -90,6 +90,7 @@
 
             <pressable
                 :menu="$pressableMenu"
+                a11y-label="Add attachment"
                 class="glass:interactive android:dark:bg-white text-slate-700 rounded-full p-1 items-center justify-center">
                 <icon name="plus.circle" class="text-gray-700"/>
             </pressable>
@@ -111,11 +112,12 @@
             @if (trim($draft) === '')
                 <pressable
                     :menu="$pressableMenu"
+                    a11y-label="Record voice message"
                     class="glass:interactive android:dark:bg-white text-slate-700 rounded-full p-1 items-center justify-center">
                     <icon name="mic" class="text-gray-700"/>
                 </pressable>
             @else
-                <pressable @press="send"
+                <pressable @press="send" a11y-label="Send message"
                                   class="glass:interactive android:dark:bg-white text-slate-700   rounded-full p-1  items-center justify-center">
                     <icon name="paperplane.fill" class="text-gray-700"/>
                 </pressable>

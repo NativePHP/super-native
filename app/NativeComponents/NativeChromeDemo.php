@@ -37,7 +37,7 @@ class NativeChromeDemo extends NativeComponent
         return NavBarOptions::make()
             ->subtitle('NavigationStack toolbar')
             // A plain icon — fires its press handler directly.
-            ->action(NavAction::make('share')->icon('share')->press('shareIt'))
+            ->action(NavAction::make('share')->icon('share')->a11yLabel('Share')->press('shareIt'))
             // A pull-down menu — tap to reveal sub-items. Each sub-item
             // is itself a NavAction with its own icon / label / press
             // handler, plus an optional `destructive()` flag for red
@@ -45,6 +45,7 @@ class NativeChromeDemo extends NativeComponent
             ->action(
                 NavAction::make('more')
                     ->icon('ellipsis')
+                    ->a11yLabel('More options')
                     ->items([
                         NavAction::make('mark_read')
                             ->icon('checkmark.circle')
