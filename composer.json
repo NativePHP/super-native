@@ -19,8 +19,7 @@
         },
         "plugins": {
             "type": "composer",
-            "url": "https://plugins.nativephp.com",
-            "exclude": ["nativephp/mobile-geolocation"]
+            "url": "https://plugins.nativephp.com"
         },
         "geolocation": {
             "type": "vcs",
