@@ -25,3 +25,6 @@ yarn-error.log
 NUL
 storage/.DS_Store
 .DS_Store
+
+# Credential files (keystores, private keys, etc.)
+/credentials/

@@ -19,17 +19,18 @@
             ->press('logSettings'),
     ];
 @endphp
-{{-- Standard chat layout: scroll-view fills available height (flex-1),
-     input row pinned at the bottom of the column. SwiftUI's automatic
-     keyboard avoidance pushes the whole column up when the keyboard
-     appears so the input stays visible above it. No layout-level
-     bottomBar slot needed — the bar is part of the screen content. --}}
-<stack class="w-full h-full bg-theme-background">
+{{-- Chat layout: a `flex-1` scroll-view of messages with an inline input
+     row beneath it, inside a full-height column (same structure as the
+     working chats-list screen). NOTE: keyboard avoidance is not yet solved
+     for this screen — the `<native:bottom-bar>` safeAreaInset seam collapsed
+     the content on this pushed tab-level config, so the input is inline for
+     now and the keyboard can overlap it. Revisit once the seam is fixed. --}}
+<column native:key="chat-screen" class="w-full h-full bg-theme-background">
 
-    {{-- Messages — flex-1 so they fill the space between the navbar and
-         the input bar. --}}
-    <scroll-view class="w-full h-full">
-        <column class="w-full px-5 py-4 gap-3 pb-[80]">
+    {{-- Messages — `flex-1` so the scroll-view fills the space above the
+         inline input row (same pattern as the working chats list). --}}
+    <scroll-view class="w-full flex-1" scroll-anchor="bottom">
+        <column class="w-full px-5 py-4 gap-3">
 
             {{-- Date divider --}}
             <row class="w-full justify-center my-2">
@@ -76,17 +77,10 @@
         </column>
     </scroll-view>
 
-    {{-- Input bar — fully transparent so the column's bg-theme-background
-         extends edge-to-edge through it (iMessage / WhatsApp / Telegram
-         pattern: bg fills the screen, input pill floats glass on top).
-         No safe-area-bottom — NavigationStack already insets content above
-         the home indicator; adding it here doubles the gap. --}}
-    {{-- Input bar in a column that fills the stack's height with
-         `justify-end`, pushing the row to the bottom edge. The column is
-         transparent so scroll content shows through everywhere except
-         where the row's glass pills sit. --}}
-    <column class="w-full h-full justify-end">
-        <row class="w-full px-3 pb-4 gap-2 items-center">
+    {{-- Input bar — inline as the last child of the column, above the
+         `flex-1` scroll-view. Renders as a normal bottom row (no
+         safeAreaInset seam, which collapsed this pushed-tab-level screen). --}}
+    <row class="w-full px-3 pt-3 pb-4 gap-2 items-center bg-theme-background border-t border-theme-outline">
 
             <pressable
                 :menu="$pressableMenu"
@@ -101,10 +95,12 @@
                  (rounded-full + glass material), which is the iMessage /
                  WhatsApp / Telegram pattern exactly. --}}
             <bare-text-input
+                native:key="chat-message-input"
                 native:model="draft"
                 placeholder="Message"
                 class="flex-1 glass android:dark:bg-white rounded-full px-4 py-2 items-center text-slate-700"
                 @submit="send"
+                keep-focus-on-submit
             />
 
             {{-- Mic when field is empty; primary-tinted send when there's text.
@@ -124,7 +120,6 @@
             @endif
 
         </row>
-    </column>
 
     {{-- More-actions modal — opened by the NavBar ellipsis. Dismissible. --}}
     <modal :visible="$showMoreActions" :dismissible="true" @dismiss="closeMoreActions">
@@ -182,4 +177,4 @@
         </column>
     </modal>
 
-</stack>
+</column>

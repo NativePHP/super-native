@@ -7,8 +7,8 @@ use Native\Mobile\Edge\NativeComponent;
 class Profile extends NativeComponent
 {
     public string $name  = 'Shane Rosenthal';
-    public string $email = 'srosenthal82@gmail.com';
-    public int $followers = 1248;
+    public string $email = 'shane@nativephp.com';
+    public int $followers = 2850;
     public int $following = 312;
 
     public function navTitle(): string

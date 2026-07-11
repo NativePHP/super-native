@@ -75,6 +75,41 @@ trait HasSyncUpData
                 'time' => '10:30 AM',
                 'status' => 'read',
             ],
+            [
+                'id' => 5,
+                'fromMe' => true,
+                'text' => 'That looks incredible! 🚀',
+                'time' => '10:30 AM',
+                'status' => 'read',
+            ],
+            [
+                'id' => 6,
+                'fromMe' => true,
+                'text' => 'That looks incredible! 🚀',
+                'time' => '10:30 AM',
+                'status' => 'read',
+            ],
+            [
+                'id' => 7,
+                'fromMe' => true,
+                'text' => 'That looks incredible! 🚀',
+                'time' => '10:30 AM',
+                'status' => 'read',
+            ],
+            [
+                'id' => 8,
+                'fromMe' => true,
+                'text' => 'That looks incredible! 🚀',
+                'time' => '10:30 AM',
+                'status' => 'read',
+            ],
+            [
+                'id' => 9,
+                'fromMe' => true,
+                'text' => 'That looks incredible! 🚀',
+                'time' => '10:30 AM',
+                'status' => 'read',
+            ],
         ];
     }
 

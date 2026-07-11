@@ -13,6 +13,6 @@ class ExploreTypography extends NativeComponent
 
     public function render(): \Illuminate\View\View
     {
-        return view('explore.typography');
+        return view('native.explore.typography');
     }
 }

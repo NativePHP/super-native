@@ -40,19 +40,7 @@ class NativeServiceProvider extends ServiceProvider
     public function plugins(): array
     {
         return [
-            NativeUIServiceProvider::class,
-            DialogServiceProvider::class,
-            DeviceServiceProvider::class,
-            //            \Local\DoomGame\DoomGameServiceProvider::class,
-            //            \Native\Mobile\Providers\BackgroundTasksServiceProvider::class,
-            //            \Native\Mobile\Providers\TimerServiceProvider::class,
-            //            \Native\Mobile\Providers\DebugLogServiceProvider::class,
-            //            \NativePhp\SkiaCanvas\SkiaCanvasServiceProvider::class,
-            CameraServiceProvider::class,
-            //            \NativePHP\Vibe\VibeServiceProvider::class, // parked — vibe package currently uninstalled
-            SecureStorageServiceProvider::class,
-            GeolocationServiceProvider::class,
-
+            NativeUIServiceProvider::class
         ];
     }
 }

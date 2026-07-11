@@ -20,10 +20,6 @@
         "plugins": {
             "type": "composer",
             "url": "https://plugins.nativephp.com"
-        },
-        "geolocation": {
-            "type": "vcs",
-            "url": "https://github.com/nativephp/mobile-geolocation"
         }
     },
     "license": "MIT",
@@ -32,9 +28,6 @@
         "laravel/framework": "^13.0",
         "laravel/tinker": "^3.0",
         "nativephp/mobile": "dev-element",
-        "nativephp/mobile-camera": "*",
-        "nativephp/mobile-device": "^1.0",
-        "nativephp/mobile-dialog": "^1.0",
         "nativephp/native-ui": "*"
     },
     "require-dev": {

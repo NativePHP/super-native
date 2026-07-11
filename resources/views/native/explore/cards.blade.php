@@ -69,7 +69,7 @@
                 </column>
                 <column class="flex-1 gap-0">
                     <text class="text-base font-bold text-theme-on-surface">Shane Rosenthal</text>
-                    <text class="text-sm text-theme-on-surface-variant">srosenthal@example.com</text>
+                    <text class="text-sm text-theme-on-surface-variant">shane@nativephp.com</text>
                 </column>
             </row>
             <divider />

@@ -2,7 +2,7 @@
     <column class="w-full p-5 gap-5">
 
         {{-- TYPOGRAPHY --}}
-        <text class="text-lg font-semibold text-theme-on-background">Typography</text>
+        <text font="RockSalt-Regular" class="text-2xl font-semibold text-theme-on-background">Typography</text>
         <column class="w-full gap-2">
             <text class="text-xs text-theme-on-surface-variant">text-xs (12pt) — The quick brown fox</text>
             <text class="text-sm text-theme-on-surface-variant">text-sm (14pt) — The quick brown fox</text>
@@ -32,6 +32,7 @@
             <text class="text-theme-on-surface-variant font-sans">font-sans — The quick brown fox 0123</text>
             <text class="text-theme-on-surface-variant font-serif">font-serif — The quick brown fox 0123</text>
             <text class="text-theme-on-surface-variant font-mono">font-mono — The quick brown fox 0123</text>
+            <text font="RockSalt-Regular" class="text-theme-on-surface-variant">Custom font: font="RockSalt-Regular"</text>
         </column>
 
         {{-- TEXT TRANSFORM --}}
