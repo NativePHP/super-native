@@ -44,6 +44,7 @@ class DemoLauncher extends NativeComponent
                 ['id' => 'mail', 'title' => 'Mail Inbox', 'subtitle' => 'Pull-to-refresh + leading/trailing swipe actions', 'icon' => 'envelope.fill', 'color' => '#0EA5E9', 'url' => '/mail-demo'],
                 ['id' => 'refresh', 'title' => 'Pull to refresh', 'subtitle' => 'Native pull-to-refresh on custom card content', 'icon' => 'arrow.clockwise', 'color' => '#10B981', 'url' => '/refreshable-demo'],
                 ['id' => 'reactivity', 'title' => 'Reactivity', 'subtitle' => '#[Computed], #[Poll] and #[Lazy] placeholder in one screen', 'icon' => 'bolt.fill', 'color' => '#8B5CF6', 'url' => '/reactivity'],
+                ['id' => 'asynctasks', 'title' => 'Async Tasks', 'subtitle' => 'Background PHP thread + finished/failed/shared callbacks', 'icon' => 'timer', 'color' => '#F97316', 'url' => '/async-tasks'],
                 ['id' => 'webview', 'title' => 'Webview', 'subtitle' => 'Embedded web content — remote URL + inline HTML, @navigated events', 'icon' => 'globe', 'color' => '#3B82F6', 'url' => '/webview-demo'],
                 //                ['id' => 'eventchannel', 'title' => 'Event Channel Test', 'subtitle' => 'Native → PHP payload > 4KB (growable event buffer)', 'icon' => 'arrow.up.arrow.down', 'color' => '#EF4444', 'url' => '/event-channel-test'],
                 //                ['id' => 'vibe', 'title' => 'Vibe — Live Events', 'subtitle' => 'Websocket broadcast events (Vask/Reverb) into a component', 'icon' => 'antenna.radiowaves.left.and.right', 'color' => '#22C55E', 'url' => '/vibe'],
