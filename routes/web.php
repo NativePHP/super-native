@@ -1,6 +1,7 @@
 <?php
 
 use App\NativeComponents\Animate;
+use App\NativeComponents\AsyncTaskDemo;
 use App\NativeComponents\Browse;
 use App\NativeComponents\ButtonsForm;
 use App\NativeComponents\ComposeTweet;
@@ -123,6 +124,7 @@ Route::nativeGroup(StackLayout::class, function () {
     // Component showcases (broken out from explore)
     Route::native('/counter', Counter::class)->name('counter');
     Route::native('/reactivity', ReactivityDemo::class)->name('reactivity.demo');
+    Route::native('/async-tasks', AsyncTaskDemo::class)->name('async.tasks.demo');
     Route::native('/webview-demo', WebviewDemo::class)->name('webview.demo');
     Route::native('/animate', Animate::class)->name('animate');
     Route::native('/number-switcher', NumberSwitcherDemo::class)->name('number.switcher');
