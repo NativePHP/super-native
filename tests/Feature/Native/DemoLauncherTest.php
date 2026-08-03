@@ -8,6 +8,7 @@ it('shows every demo group on mount', function () {
         ->assertScreen(DemoLauncher::class)
         ->assertNavTitle('SuperNative Demo')
         ->assertSee('Counter')
+        ->assertSee('Webview')
         ->assertSee('Twitter / X');
 
     expect($screen->get('groups'))->toHaveCount(4);

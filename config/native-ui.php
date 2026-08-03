@@ -6,7 +6,7 @@
  * Published via `php artisan vendor:publish --tag=native-ui-config`.
  * Edit to customize your app's visual identity in one place.
  *
- * For dynamic per-tenant theming, use Nativephp\NativeUi\Theme::merge([...])
+ * For dynamic per-tenant theming, use Native\Mobile\UI\Theme::merge([...])
  * from a service provider. Runtime merges deep-merge on top of these values.
  *
  * Decision log: /docs/NATIVE-UI-REWRITE-PLAN.md (D — theme layer)

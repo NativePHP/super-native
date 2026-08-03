@@ -46,6 +46,7 @@ class DemoLauncher extends NativeComponent
                 ['id' => 'mail', 'title' => 'Mail Inbox', 'subtitle' => 'Pull-to-refresh + leading/trailing swipe actions', 'icon' => 'envelope.fill', 'color' => '#0EA5E9', 'url' => '/mail-demo'],
                 ['id' => 'refresh', 'title' => 'Pull to refresh', 'subtitle' => 'Native pull-to-refresh on custom card content', 'icon' => 'arrow.clockwise', 'color' => '#10B981', 'url' => '/refreshable-demo'],
                 ['id' => 'reactivity', 'title' => 'Reactivity', 'subtitle' => '#[Computed], #[Poll] and #[Lazy] placeholder in one screen', 'icon' => 'bolt.fill', 'color' => '#8B5CF6', 'url' => '/reactivity'],
+                ['id' => 'webview', 'title' => 'Webview', 'subtitle' => 'Embedded web content — remote URL + inline HTML, @navigated events', 'icon' => 'globe', 'color' => '#3B82F6', 'url' => '/webview-demo'],
             ],
         ],
         [
@@ -55,6 +56,7 @@ class DemoLauncher extends NativeComponent
                 ['id' => 'gamepad', 'title' => 'Game Pad', 'subtitle' => 'Held-press d-pad, auto-fire + shield (@tapDown / @tapUp)', 'icon' => 'gamecontroller.fill', 'color' => '#22C55E', 'url' => '/game-pad'],
                 ['id' => 'transitions', 'title' => 'Page Transitions', 'subtitle' => 'Fade, slide, scale - every @navigate animation', 'icon' => 'arrow.left.arrow.right', 'color' => '#14B8A6', 'url' => '/transitions'],
                 ['id' => 'animate', 'title' => 'Animations', 'subtitle' => 'Awesome native animations', 'icon' => 'sparkles', 'color' => '#F59E0B', 'url' => '/animate'],
+                ['id' => 'numberswitcher', 'title' => 'Number Switcher', 'subtitle' => 'content-transition — rolling in-place digit changes', 'icon' => 'textformat.123', 'color' => '#14B8A6', 'url' => '/number-switcher'],
             ],
         ],
         [
