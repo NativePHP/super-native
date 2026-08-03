@@ -3,8 +3,7 @@
 namespace App\NativeComponents;
 
 use App\NativeComponents\Concerns\HasYouTubeData;
-use Native\Mobile\Edge\Layouts\Builders\NavAction;
-use Native\Mobile\Edge\Layouts\Builders\NavBarOptions;
+use Illuminate\View\View;
 use Native\Mobile\Edge\NativeComponent;
 use Native\Mobile\Edge\Transition;
 
@@ -14,22 +13,19 @@ class YouTubeHome extends NativeComponent
 
     public string $activeCategory = 'All';
 
-    public function navTitle(): string
+    public function mount(): void
     {
-        return 'YouTube';
+        nativephp_call('UI.SetBackground', json_encode(['color' => '#0F0F0F']));
     }
 
-    /**
-     * Surface YouTube's right-side actions in the framework NavBar instead
-     * of a duplicate inline top row. StackLayout reads this and merges into
-     * its NavBar.
-     */
-    public function navigationOptions(): ?NavBarOptions
+    public function unmount(): void
     {
-        return NavBarOptions::make()
-            ->action(NavAction::make('cast')->icon('cart')->a11yLabel('Cast')->press('castDevice'))
-            ->action(NavAction::make('alerts')->icon('notifications')->a11yLabel('Notifications')->press('viewNotifications'))
-            ->action(NavAction::make('search')->icon('search')->a11yLabel('Search')->press('viewSearch'));
+        // UI.SetBackground is app-global sticky native state — without
+        // this clear it leaks the window color into every screen visited
+        // after this one. Empty color = restore the platform default.
+        nativephp_call('UI.SetBackground', json_encode(['color' => null]));
+
+        parent::unmount();
     }
 
     public function castDevice(): void
@@ -65,7 +61,7 @@ class YouTubeHome extends NativeComponent
         $this->activeCategory = $category;
     }
 
-    public function render(): \Illuminate\View\View
+    public function render(): View
     {
         $videos = self::ytVideos();
         $channels = self::ytChannels();

@@ -3,6 +3,7 @@
 namespace App\NativeComponents;
 
 use App\NativeComponents\Concerns\HasYouTubeData;
+use Illuminate\View\View;
 use Native\Mobile\Edge\NativeComponent;
 use Native\Mobile\Edge\Transition;
 
@@ -10,10 +11,8 @@ class YouTubeVideo extends NativeComponent
 {
     use HasYouTubeData;
 
-    /** @var array */
     public array $video = [];
 
-    /** @var array */
     public array $channel = [];
 
     /** @var array<int, array> */
@@ -27,8 +26,12 @@ class YouTubeVideo extends NativeComponent
 
     public bool $showDescription = false;
 
+    public bool $showComments = false;
+
     public function mount(): void
     {
+        nativephp_call('UI.SetBackground', json_encode(['color' => '#0F0F0F']));
+
         $id = (int) $this->param('id');
         $videos = self::ytVideos();
         $channels = self::ytChannels();
@@ -37,6 +40,16 @@ class YouTubeVideo extends NativeComponent
         $this->video = $videos[$id] ?? $videos[0];
         $this->channel = $channels[$this->video['channelId']];
         $this->comments = $allComments[$id] ?? $allComments[0] ?? [];
+    }
+
+    public function unmount(): void
+    {
+        // UI.SetBackground is app-global sticky native state — without
+        // this clear it leaks the window color into every screen visited
+        // after this one. Empty color = restore the platform default.
+        nativephp_call('UI.SetBackground', json_encode(['color' => null]));
+
+        parent::unmount();
     }
 
     public function toggleLike(): void
@@ -65,6 +78,11 @@ class YouTubeVideo extends NativeComponent
         $this->showDescription = ! $this->showDescription;
     }
 
+    public function toggleComments(): void
+    {
+        $this->showComments = ! $this->showComments;
+    }
+
     public function viewChannel(int $id): void
     {
         $this->navigate($this->route('youtube.channel', $id))
@@ -76,7 +94,7 @@ class YouTubeVideo extends NativeComponent
         $this->replace($this->route('youtube.video', $index));
     }
 
-    public function render(): \Illuminate\View\View
+    public function render(): View
     {
         $videos = self::ytVideos();
         $channels = self::ytChannels();

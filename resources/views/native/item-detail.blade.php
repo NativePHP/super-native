@@ -11,5 +11,5 @@
 
     <divider />
 
-    <button label="Go back" @press="back" class="bg-theme-surface-variant rounded-lg px-5 py-3 mt-2" />
+    <button label="Go back" @tap="back" class="bg-theme-surface-variant rounded-lg px-5 py-3 mt-2" />
 </column>

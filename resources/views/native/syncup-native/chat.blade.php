@@ -113,7 +113,7 @@
                     <icon name="mic" class="text-gray-700"/>
                 </pressable>
             @else
-                <pressable @press="send" a11y-label="Send message"
+                <pressable @tap="send" a11y-label="Send message"
                                   class="glass:interactive android:dark:bg-white text-slate-700   rounded-full p-1  items-center justify-center">
                     <icon name="paperplane.fill" class="text-gray-700"/>
                 </pressable>
@@ -124,7 +124,7 @@
     {{-- More-actions modal — opened by the NavBar ellipsis. Dismissible. --}}
     <modal :visible="$showMoreActions" :dismissible="true" @dismiss="closeMoreActions">
         <column class="w-full p-2 bg-theme-surface rounded-3xl">
-            <column @press="toggleMute" class="w-full px-5 py-4">
+            <column @tap="toggleMute" class="w-full px-5 py-4">
                 <row class="items-center gap-3">
                     <icon name="{{ $isMuted ? 'speaker.slash.fill' : 'bell.fill' }}" :size="20" color="#0F172A"
                                  dark-color="#F1F5F9"/>
@@ -137,7 +137,7 @@
                 </row>
             </column>
             <divider/>
-            <column @press="askClearHistory" class="w-full px-5 py-4">
+            <column @tap="askClearHistory" class="w-full px-5 py-4">
                 <row class="items-center gap-3">
                     <icon name="trash.fill" :size="20" color="#EF4444"/>
                     <column class="flex-1 gap-1">
@@ -149,7 +149,7 @@
                 </row>
             </column>
             <divider/>
-            <column @press="closeMoreActions" class="w-full px-5 py-4">
+            <column @tap="closeMoreActions" class="w-full px-5 py-4">
                 <row class="items-center justify-center gap-2">
                     <text class="text-base font-medium text-theme-on-surface-variant">Cancel</text>
                 </row>
@@ -165,11 +165,11 @@
                 There's no undo.
             </text>
             <row class="w-full gap-2 mt-2">
-                <column @press="cancelClearHistory"
+                <column @tap="cancelClearHistory"
                                class="flex-1 px-4 py-3 rounded-xl bg-theme-surface-variant items-center">
                     <text class="font-semibold text-theme-on-surface">Cancel</text>
                 </column>
-                <column @press="confirmClearHistory"
+                <column @tap="confirmClearHistory"
                                class="flex-1 px-4 py-3 rounded-xl bg-[#EF4444] items-center">
                     <text class="text-white font-semibold">Delete</text>
                 </column>

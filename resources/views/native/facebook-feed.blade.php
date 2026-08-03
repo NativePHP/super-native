@@ -1,154 +1,218 @@
-{{-- @include('native.partials.demo-nav', ['title' => 'Facebook']) --}}
+<stack class="w-full h-full bg-theme-background safe-area">
 
-<scroll-view class="w-full h-full bg-[#F0F2F5] safe-area">
-    <column class="w-full gap-0 ">
+    <refreshable @refresh="refresh" class="w-full h-full">
+        <column class="w-full gap-0">
 
-        {{-- Top Bar --}}
-        <row class="w-full bg-white px-4 py-3 items-center justify-between">
-            <text class="text-[24] font-bold text-[#1877F2]">facebook</text>
-            <row class="items-center gap-3">
-                <column class="w-[36] h-[36] rounded-full bg-[#E4E6EB] items-center justify-center">
-                    <icon name="search" :size="20" color="#050505" />
-                </column>
-                <column class="w-[36] h-[36] rounded-full bg-[#E4E6EB] items-center justify-center">
-                    <icon name="chat" :size="20" color="#050505" />
-                </column>
-            </row>
-        </row>
-
-        {{-- Create Post Bar --}}
-        <column class="w-full bg-white mt-2 px-4 py-3">
-            <row @press="createPost" class="w-full items-center gap-3">
-                <image
-                    src="https://i.pravatar.cc/150?u=fbcurrent"
-                    alt="Your profile"
-                    class="w-[40] h-[40] rounded-full"
-                    :fit="2"
-                />
-                <column class="flex-1 bg-[#F0F2F5] rounded-full px-4 py-2">
-                    <text class="text-[14] text-[#65676B]">What's on your mind?</text>
-                </column>
-            </row>
-            <divider class="w-full mt-3" />
-            <row class="w-full pt-2 justify-between">
-                <row class="items-center gap-1">
-                    <icon name="videocam" :size="18" color="#F3425F" />
-                    <text class="text-[12] text-[#65676B]">Live</text>
-                </row>
-                <row class="items-center gap-1">
-                    <icon name="photo_library" :size="18" color="#45BD62" />
-                    <text class="text-[12] text-[#65676B]">Photo</text>
-                </row>
-                <row class="items-center gap-1">
-                    <icon name="mood" :size="18" color="#F7B928" />
-                    <text class="text-[12] text-[#65676B]">Feeling</text>
-                </row>
-            </row>
-        </column>
-
-        {{-- Stories --}}
-        <column class="w-full bg-white mt-2 px-4 py-3">
-            <text class="text-[16] font-bold text-[#050505] pb-2">Stories</text>
-            <scroll-view horizontal>
-                <row class="gap-3">
-                    {{-- Create Story --}}
-                    <column class="items-center gap-1 w-[72]">
-                        <column class="w-[60] h-[60] rounded-full bg-[#E4E6EB] items-center justify-center">
-                            <icon name="add" :size="28" color="#1877F2" />
-                        </column>
-                        <text class="text-sm text-[#050505]">Create</text>
+            {{-- Top Bar --}}
+            <row class="w-full bg-theme-surface px-4 py-2 items-center justify-between">
+                <text class="text-[26] font-bold text-[#1877F2]">facebook</text>
+                <row class="items-center gap-2">
+                    <pressable @tap="createPost" a11y-label="Create post" class="w-[36] h-[36] rounded-full bg-theme-surface-variant items-center justify-center">
+                        <icon name="add" :size="20" class="text-theme-on-surface" />
+                    </pressable>
+                    <column class="w-[36] h-[36] rounded-full bg-theme-surface-variant items-center justify-center">
+                        <icon name="search" :size="18" class="text-theme-on-surface" />
                     </column>
-                    {{-- User Stories --}}
-                    @foreach ($stories as $story)
-                        <column class="items-center gap-1 w-[72]">
-                            <column class="w-[60] h-[60] rounded-full bg-[#1877F2] items-center justify-center p-[3]">
-                                <image
-                                    src="{{ $story['avatarUrl'] }}"
-                                    alt="{{ $story['name'] }}'s story"
-                                    class="w-[54] h-[54] rounded-full"
-                                    :fit="2"
-                                />
-                            </column>
-                            <text class="text-sm text-gray-800" :maxLines="1">{{ explode(' ', $story['name'])[0] }}</text>
-                        </column>
-                    @endforeach
+                    <column class="w-[36] h-[36] rounded-full bg-theme-surface-variant items-center justify-center">
+                        <icon name="chat" :size="18" class="text-theme-on-surface" />
+                    </column>
                 </row>
-            </scroll-view>
-        </column>
+            </row>
 
-        {{-- Posts --}}
-        @foreach ($posts as $index => $post)
-            <column class="w-full bg-white mt-2">
-                {{-- Post Header --}}
-                <row class="w-full px-4 pt-3 items-center gap-3">
+            {{-- Create Post Bar --}}
+            <column class="w-full bg-theme-surface mt-2 px-4 py-3">
+                <row class="w-full items-center gap-3">
                     <image
-                        @press="viewProfile({{ $post['userId'] }})"
-                        src="{{ $post['user']['avatarUrl'] }}"
-                        alt="{{ $post['user']['name'] }}'s profile"
+                        src="https://i.pravatar.cc/150?u=fbcurrent"
+                        alt="Your profile"
                         class="w-[40] h-[40] rounded-full"
                         :fit="2"
                     />
-                    <column @press="viewProfile({{ $post['userId'] }})" class="flex-1">
-                        <text class="text-[14] font-bold text-[#050505]" :maxLines="1">{{ $post['user']['name'] }}</text>
-                        <text class="text-[12] text-[#65676B]" :maxLines="1">{{ $post['time'] }} ago · 🌐</text>
-                    </column>
-                    <icon name="more_horiz" :size="22" color="#65676B" />
-                </row>
-
-                {{-- Post Text --}}
-                <column @press="viewPost({{ $index }})" class="w-full px-4 pt-2">
-                    <text class="text-[15] text-[#050505]">{{ $post['text'] }}</text>
-                </column>
-
-                {{-- Post Image --}}
-                @if ($post['imageUrl'])
-                    <column @press="viewPost({{ $index }})" class="w-full pt-3">
-                        <image
-                            src="{{ $post['imageUrl'] }}"
-                            alt="Photo by {{ $post['user']['name'] }}"
-                            class="w-full h-[250]"
-                            :fit="2"
-                        />
-                    </column>
-                @endif
-
-                {{-- Reaction Counts --}}
-                <row class="w-full px-4 pt-2 pb-2 items-center justify-between">
-                    <row class="items-center gap-1">
-                        <icon name="thumb_up" :size="14" color="#1877F2" />
-                        <text class="text-[13] text-[#65676B]">{{ $post['reactionsFormatted'] }}</text>
-                    </row>
-                    <row class="items-center gap-3">
-                        <text class="text-[13] text-[#65676B]">{{ $post['comments'] }} comments</text>
-                        <text class="text-[13] text-[#65676B]">{{ $post['shares'] }} shares</text>
-                    </row>
-                </row>
-
-                <divider class="w-full mx-4" />
-
-                {{-- Action Bar --}}
-                <row class="w-full px-2 py-1 justify-between">
-                    <row @press="toggleLike({{ $index }})" class="items-center gap-1 px-4 py-2">
-                        <icon
-                            name="{{ $post['isLiked'] ? 'thumb_up' : 'thumb_up_off_alt' }}"
-                            :size="20"
-                            color="{{ $post['isLiked'] ? '#1877F2' : '#65676B' }}"
-                        />
-                        <text class="text-[13] font-semibold text-{{ $post['isLiked'] ? '[#1877F2]' : '[#65676B]' }}">Like</text>
-                    </row>
-                    <row @press="viewPost({{ $index }})" class="items-center gap-1 px-4 py-2">
-                        <icon name="chat_bubble_outline" :size="20" color="#65676B" />
-                        <text class="text-[13] font-semibold text-[#65676B]">Comment</text>
-                    </row>
-                    <row class="items-center gap-1 px-4 py-2">
-                        <icon name="share" :size="20" color="#65676B" />
-                        <text class="text-[13] font-semibold text-[#65676B]">Share</text>
-                    </row>
+                    <pressable @tap="createPost" class="flex-1" a11y-label="Create a post">
+                        <column class="w-full border border-theme-outline rounded-full px-4 py-2">
+                            <text class="text-[15] text-theme-on-surface-variant">What's on your mind?</text>
+                        </column>
+                    </pressable>
+                    <icon name="photo" :size="24" color="#45BD62" />
                 </row>
             </column>
-        @endforeach
 
-        <spacer class="h-[20]" />
+            {{-- Stories — vertical reels-era cards --}}
+            <column class="w-full bg-theme-surface mt-2 py-3">
+                <scroll-view horizontal>
+                    <row class="gap-2 px-4">
+                        {{-- Create Story --}}
+                        <pressable @tap="createPost" a11y-label="Create story">
+                            <column class="w-[104] h-[170] rounded-xl bg-theme-surface-variant">
+                                <image
+                                    src="https://i.pravatar.cc/300?u=fbcurrent"
+                                    alt="Your profile"
+                                    class="w-full h-[110] rounded-xl"
+                                    :fit="2"
+                                />
+                                <column class="flex-1 w-full items-center justify-end pb-2 gap-1">
+                                    <text class="text-[12] font-semibold text-theme-on-surface">Create story</text>
+                                </column>
+                                <column class="absolute top-[94] left-[34] w-[36] h-[36] rounded-full bg-theme-surface items-center justify-center">
+                                    <column class="w-[30] h-[30] rounded-full bg-[#1877F2] items-center justify-center">
+                                        <icon name="add" :size="20" color="#FFFFFF" />
+                                    </column>
+                                </column>
+                            </column>
+                        </pressable>
 
-    </column>
-</scroll-view>
+                        {{-- Friend Stories --}}
+                        @foreach ($stories as $story)
+                            <pressable @tap="viewProfile({{ $story['id'] }})" a11y-label="{{ $story['name'] }}'s story">
+                                <column class="w-[104] h-[170] rounded-xl">
+                                    <image
+                                        src="{{ $story['coverUrl'] }}"
+                                        alt="{{ $story['name'] }}'s story"
+                                        class="w-full h-[170] rounded-xl"
+                                        :fit="2"
+                                    />
+                                    {{-- Avatar bubble --}}
+                                    <column class="absolute top-2 left-2 w-[36] h-[36] rounded-full bg-[#1877F2] items-center justify-center">
+                                        <image
+                                            src="{{ $story['avatarUrl'] }}"
+                                            alt="{{ $story['name'] }}"
+                                            class="w-[32] h-[32] rounded-full"
+                                            :fit="2"
+                                        />
+                                    </column>
+                                    {{-- Name --}}
+                                    <column class="absolute bottom-1 left-1 right-1 bg-black/50 rounded-lg px-2 py-1">
+                                        <text class="text-[12] font-semibold text-white" :maxLines="1">{{ explode(' ', $story['name'])[0] }}</text>
+                                    </column>
+                                </column>
+                            </pressable>
+                        @endforeach
+                    </row>
+                </scroll-view>
+            </column>
+
+            {{-- Posts --}}
+            @foreach ($posts as $post)
+                <column class="w-full bg-theme-surface mt-2" :native:key="'post-'.$post['id']">
+                    {{-- Post Header --}}
+                    <row class="w-full px-4 pt-3 items-center gap-3">
+                        <pressable @tap="viewProfile({{ $post['userId'] }})" a11y-label="View {{ $post['user']['name'] }}'s profile">
+                            <image
+                                src="{{ $post['user']['avatarUrl'] }}"
+                                alt="{{ $post['user']['name'] }}'s profile"
+                                class="w-[40] h-[40] rounded-full"
+                                :fit="2"
+                            />
+                        </pressable>
+                        <pressable @tap="viewProfile({{ $post['userId'] }})" class="flex-1">
+                            <column>
+                                <text class="text-[15] font-bold text-theme-on-surface" :maxLines="1">{{ $post['user']['name'] }}</text>
+                                <row class="items-center gap-1">
+                                    <text class="text-[12] text-[#65676B] dark:text-[#B0B3B8]">{{ $post['time'] }} ago ·</text>
+                                    <icon name="globe" :size="12" class="text-[#65676B] dark:text-[#B0B3B8]" />
+                                </row>
+                            </column>
+                        </pressable>
+                        <row @tap="openPostMenu({{ $post['id'] }})" a11y-label="Post options" class="w-[32] h-[32] items-center justify-center">
+                            <icon name="more_horiz" :size="22" class="text-[#65676B] dark:text-[#B0B3B8]" />
+                        </row>
+                    </row>
+
+                    {{-- Post Text --}}
+                    <pressable @tap="viewPost({{ $post['id'] }})" class="w-full">
+                        <column class="w-full px-4 pt-2">
+                            <text class="text-[15] text-theme-on-surface">{{ $post['text'] }}</text>
+                        </column>
+                    </pressable>
+
+                    {{-- Post Image --}}
+                    @if ($post['imageUrl'])
+                        <pressable @tap="viewPost({{ $post['id'] }})" class="w-full">
+                            <column class="w-full pt-3">
+                                <image
+                                    src="{{ $post['imageUrl'] }}"
+                                    alt="Photo by {{ $post['user']['name'] }}"
+                                    class="w-full h-[250]"
+                                    :fit="2"
+                                />
+                            </column>
+                        </pressable>
+                    @endif
+
+                    {{-- Reaction Summary --}}
+                    <row class="w-full px-4 pt-2 pb-2 items-center justify-between">
+                        <row class="items-center gap-1">
+                            <column class="w-[18] h-[18] rounded-full bg-[#1877F2] items-center justify-center">
+                                <icon name="thumb_up" :size="10" color="#FFFFFF" />
+                            </column>
+                            <column class="w-[18] h-[18] rounded-full bg-[#F33E58] items-center justify-center ml-[-6]">
+                                <icon name="favorite" :size="10" color="#FFFFFF" />
+                            </column>
+                            <text class="text-[13] text-[#65676B] dark:text-[#B0B3B8]" :maxLines="1">{{ $post['reactionsFormatted'] }}</text>
+                        </row>
+                        <row class="items-center gap-3">
+                            <text class="text-[13] text-[#65676B] dark:text-[#B0B3B8]">{{ $post['comments'] }} comments</text>
+                            <text class="text-[13] text-[#65676B] dark:text-[#B0B3B8]">{{ $post['shares'] }} shares</text>
+                        </row>
+                    </row>
+
+                    <divider class="w-full mx-4" />
+
+                    {{-- Action Bar --}}
+                    <row class="w-full px-2 py-1 justify-between">
+                        <row @tap="toggleLike({{ $post['id'] }})" a11y-label="{{ $post['isLiked'] ? 'Unlike' : 'Like' }}" class="items-center gap-1 px-4 py-2 flex-shrink-0">
+                            <icon
+                                name="{{ $post['isLiked'] ? 'thumb_up' : 'thumb_up_off_alt' }}"
+                                :size="20"
+                                class="{{ $post['isLiked'] ? 'text-[#1877F2]' : 'text-[#65676B] dark:text-[#B0B3B8]' }}"
+                            />
+                            <text class="text-[13] font-semibold {{ $post['isLiked'] ? 'text-[#1877F2]' : 'text-[#65676B] dark:text-[#B0B3B8]' }}">Like</text>
+                        </row>
+                        <row @tap="viewPost({{ $post['id'] }})" a11y-label="Comment" class="items-center gap-1 px-4 py-2 flex-shrink-0">
+                            <icon name="chat_bubble_outline" :size="20" class="text-[#65676B] dark:text-[#B0B3B8]" />
+                            <text class="text-[13] font-semibold text-[#65676B] dark:text-[#B0B3B8]">Comment</text>
+                        </row>
+                        <row class="items-center gap-1 px-4 py-2 flex-shrink-0">
+                            <icon name="share" :size="20" class="text-[#65676B] dark:text-[#B0B3B8]" />
+                            <text class="text-[13] font-semibold text-[#65676B] dark:text-[#B0B3B8]">Share</text>
+                        </row>
+                    </row>
+                </column>
+            @endforeach
+
+            <spacer class="h-[20]" />
+
+        </column>
+    </refreshable>
+
+    {{-- Post actions sheet --}}
+    <bottom-sheet :visible="$menuPostId !== null" @dismiss="closePostMenu" detents="small">
+        <column class="w-full p-5 gap-4">
+            <row class="items-center gap-3">
+                <icon name="bookmark" :size="22" class="text-theme-on-surface" />
+                <column>
+                    <text class="text-[15] font-semibold text-theme-on-surface">Save post</text>
+                    <text class="text-[13] text-theme-on-surface-variant">Add this to your saved items.</text>
+                </column>
+            </row>
+            <row class="items-center gap-3">
+                <icon name="close" :size="22" class="text-theme-on-surface" />
+                <column>
+                    <text class="text-[15] font-semibold text-theme-on-surface">Hide post</text>
+                    <text class="text-[13] text-theme-on-surface-variant">See fewer posts like this.</text>
+                </column>
+            </row>
+            <row class="items-center gap-3">
+                <icon name="warning" :size="22" class="text-theme-on-surface" />
+                <column>
+                    <text class="text-[15] font-semibold text-theme-on-surface">Report post</text>
+                    <text class="text-[13] text-theme-on-surface-variant">We won't let anyone know who reported this.</text>
+                </column>
+            </row>
+            <pressable @tap="closePostMenu" class="w-full py-3 rounded-xl bg-theme-surface-variant items-center mt-1">
+                <text class="text-[15] font-semibold text-theme-on-surface">Close</text>
+            </pressable>
+        </column>
+    </bottom-sheet>
+
+</stack>

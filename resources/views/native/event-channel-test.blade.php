@@ -34,7 +34,7 @@
             <text class="text-xs text-theme-on-surface-variant font-mono">starts with: {{ $sample }}…</text>
         @endif
 
-        <stack @press="clearStats" class="bg-theme-surface-variant rounded-xl px-4 py-3 items-center justify-center mt-2">
+        <stack @tap="clearStats" class="bg-theme-surface-variant rounded-xl px-4 py-3 items-center justify-center mt-2">
             <text class="text-theme-on-surface-variant font-semibold">Reset counter</text>
         </stack>
 

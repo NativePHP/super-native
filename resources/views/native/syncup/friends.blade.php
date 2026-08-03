@@ -8,7 +8,7 @@
             {{-- Top row: QR + Find by ID --}}
             <row class="w-full gap-4">
                 {{-- QR Code card --}}
-                <column @press="scanQr" class="flex-1 bg-[#00b4d8] rounded-3xl p-5 items-center gap-3">
+                <column @tap="scanQr" class="flex-1 bg-[#00b4d8] rounded-3xl p-5 items-center gap-3">
                     <column class="w-[48] h-[48] bg-white/20 rounded-2xl items-center justify-center">
                         <icon name="qrcode.viewfinder" :size="28" color="#FFFFFF" />
                     </column>
@@ -16,7 +16,7 @@
                 </column>
 
                 {{-- Find by ID card --}}
-                <column @press="findById" class="flex-1 bg-theme-surface rounded-3xl p-5 border border-theme-outline items-center gap-3">
+                <column @tap="findById" class="flex-1 bg-theme-surface rounded-3xl p-5 border border-theme-outline items-center gap-3">
                     <column class="w-[48] h-[48] bg-[#cde5ff] dark:bg-[#0e2a44] rounded-2xl items-center justify-center">
                         <icon name="person.fill.badge.plus" :size="28" color="#006399" dark-color="#7dd3fc" />
                     </column>
@@ -35,7 +35,7 @@
                         <text class="text-[11] text-theme-on-surface-variant" :maxLines="1">syncup.me/u/johndoe</text>
                     </column>
                 </row>
-                <column @press="copyInvite" class="px-4 py-2 bg-[#00677d] rounded-full">
+                <column @tap="copyInvite" class="px-4 py-2 bg-[#00677d] rounded-full">
                     <text class="text-[12] font-semibold text-white">Copy</text>
                 </column>
             </row>
@@ -65,7 +65,7 @@
                                 <text class="text-[14] text-theme-on-surface-variant" :maxLines="1">{{ $f['statusText'] }}</text>
                             </column>
                         </row>
-                        <column @press="messageFriend({{ $f['id'] }})" a11y-label="Message {{ $f['name'] }}" class="w-[40] h-[40] items-center justify-center rounded-full">
+                        <column @tap="messageFriend({{ $f['id'] }})" a11y-label="Message {{ $f['name'] }}" class="w-[40] h-[40] items-center justify-center rounded-full">
                             <icon name="chat_bubble" :size="20" color="#94a3b8" dark-color="#64748b" />
                         </column>
                     </row>
@@ -85,7 +85,7 @@
                                 <text class="text-[12] font-semibold text-theme-on-surface" :maxLines="1">{{ $s['name'] }}</text>
                                 <text class="text-[10] text-theme-on-surface-variant">{{ $s['mutuals'] }} mutual friends</text>
                             </column>
-                            <column @press="addSuggestion({{ $s['id'] }})" class="w-full py-2 bg-[#ecfeff] dark:bg-[#0e3a44] rounded-xl items-center">
+                            <column @tap="addSuggestion({{ $s['id'] }})" class="w-full py-2 bg-[#ecfeff] dark:bg-[#0e3a44] rounded-xl items-center">
                                 <text class="text-[12] font-semibold text-[#0891b2] dark:text-[#67e8f9]">Add</text>
                             </column>
                         </column>

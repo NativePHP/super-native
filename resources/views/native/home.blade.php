@@ -6,7 +6,7 @@
         <divider />
 
         @foreach ($items as $item)
-            <row @press="navigate('/item/{{ $item['id'] }}')" class="items-center gap-3 py-3">
+            <row @tap="navigate('/item/{{ $item['id'] }}')" class="items-center gap-3 py-3">
                 <column class="w-[44] h-[44] rounded-full bg-theme-primary items-center justify-center">
                     <text class="text-theme-on-primary font-bold">{{ $item['id'] }}</text>
                 </column>

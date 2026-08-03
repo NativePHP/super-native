@@ -3,6 +3,7 @@
 namespace App\NativeComponents;
 
 use App\NativeComponents\Concerns\HasTweetData;
+use Illuminate\View\View;
 use Native\Mobile\Edge\NativeComponent;
 use Native\Mobile\Edge\Transition;
 
@@ -19,6 +20,8 @@ class TweetDetail extends NativeComponent
     public bool $isLiked = false;
 
     public bool $isRetweeted = false;
+
+    public bool $isBookmarked = false;
 
     public function mount(): void
     {
@@ -54,15 +57,23 @@ class TweetDetail extends NativeComponent
         $this->isRetweeted = ! $this->isRetweeted;
     }
 
-    public function render(): \Illuminate\View\View
+    public function toggleBookmark(): void
+    {
+        $this->isBookmarked = ! $this->isBookmarked;
+    }
+
+    public function render(): View
     {
         $likeCount = $this->tweet['likeCount'] + ($this->isLiked ? 1 : 0);
         $retweetCount = $this->tweet['retweetCount'] + ($this->isRetweeted ? 1 : 0);
+        $bookmarkCount = intdiv($this->tweet['likeCount'], 9) + ($this->isBookmarked ? 1 : 0);
 
         return view('tweet-detail', [
             'likeFormatted' => self::formatCount($likeCount),
             'retweetFormatted' => self::formatCount($retweetCount),
             'replyFormatted' => self::formatCount($this->tweet['replyCount']),
+            'bookmarkFormatted' => self::formatCount($bookmarkCount),
+            'viewFormatted' => self::formatCount($this->tweet['likeCount'] * 41 + $this->tweet['replyCount'] * 173),
         ]);
     }
 }

@@ -47,7 +47,7 @@
             <text class="text-lg" :color="$muted" :maxLines="1">This text has maxLines set to 1 so it will be
                 truncated with an ellipsis if it overflows the available space in the container
             </text>
-            <text class="text-lg font-semibold" :color="$accentText" @press="tap">Tappable text — tap me!
+            <text class="text-lg font-semibold" :color="$accentText" @tap="tap">Tappable text — tap me!
             </text>
         </column>
 
@@ -56,15 +56,15 @@
             <text class="text-2xl font-bold" :color="$fg">2. Buttons</text>
             <spacer class="h-2"/>
             <row class="gap-2 justify-center">
-                <button class="bg-[#272d48] rounded-full text-white text-lg" @press="tap">Tap Me</button>
-                <button class="bg-[#7C3AED] rounded-full text-white text-lg" @press="tap" @longPress="longTap">Long Press</button>
+                <button class="bg-[#272d48] rounded-full text-white text-lg" @tap="tap">Tap Me</button>
+                <button class="bg-[#7C3AED] rounded-full text-white text-lg" @tap="tap" @longTap="longTap">Long Press</button>
             </row>
             <row class="gap-4 justify-center">
                 <text class="text-lg font-semibold" :color="$accentText">Taps: {{ $tapCount }}</text>
                 <text class="text-lg font-semibold" :color="$teal">Long: {{ $longPressCount }}</text>
             </row>
             <row class="gap-2 justify-center">
-                <button label="Reset" @press="resetCounters" color="{{ $darkMode ? '#94A3B8' : '#64748B' }}"
+                <button label="Reset" @tap="resetCounters" color="{{ $darkMode ? '#94A3B8' : '#64748B' }}"
                                labelColor="#FFFFFF"/>
                 <button label="Disabled" disabled color="#CBD5E1" labelColor="#94A3B8"/>
             </row>
@@ -177,7 +177,7 @@
 {{--            <outlined-text-input class="w-full" :value="$secureText" label="Password" placeholder="Enter password..."--}}
 {{--                               secure leadingIcon="lock" :textColor="$fg" color="#7C3AED" @change="onSecureType"/>--}}
 
-{{--            <button label="Clear all" @press="clearInput" color="{{ $darkMode ? '#94A3B8' : '#64748B' }}"--}}
+{{--            <button label="Clear all" @tap="clearInput" color="{{ $darkMode ? '#94A3B8' : '#64748B' }}"--}}
 {{--                           labelColor="#FFFFFF"/>--}}
 {{--        </column>--}}
 
@@ -447,8 +447,8 @@
             @nativeError('email', '#EF4444')
 
             <row class="gap-2 justify-center">
-                <button label="Submit" @press="submitForm" color="#272d48" labelColor="#FFFFFF"/>
-                <button label="Reset" @press="resetForm" color="{{ $darkMode ? '#94A3B8' : '#64748B' }}"
+                <button label="Submit" @tap="submitForm" color="#272d48" labelColor="#FFFFFF"/>
+                <button label="Reset" @tap="resetForm" color="{{ $darkMode ? '#94A3B8' : '#64748B' }}"
                                labelColor="#FFFFFF"/>
             </row>
 
@@ -480,7 +480,7 @@
                         <text class="text-lg font-semibold" :color="$fg">Elevated</text>
                         <text class="text-base" :color="$muted">surface + soft shadow</text>
                     </column>
-                    <pressable @press="tap" class="w-full">
+                    <pressable @tap="tap" class="w-full">
                         <column class="w-full p-4 gap-1 bg-theme-surface-variant rounded-2xl">
                             <text class="text-lg font-semibold" :color="$accentText">Tappable</text>
                             <text class="text-base" :color="$muted">wrap in `<pressable>` for taps</text>
@@ -545,7 +545,7 @@
                     <divider class="w-full" />
                     <list-item class="w-full" headline="Disabled item" supporting="Interactions blocked" leadingIcon="block" trailingIcon="chevron_right" headlineColor="{{ $muted }}" supportingColor="{{ $muted }}" disabled />
                     <divider class="w-full" />
-                    <list-item class="w-full" headline="Tap + long press" supporting="Tap: {{ $tapCount }} · Long: {{ $longPressCount }}" leadingIcon="touch_app" trailingIcon="chevron_right" headlineColor="{{ $fg }}" supportingColor="{{ $muted }}" @press="tap" @longPress="longTap" />
+                    <list-item class="w-full" headline="Tap + long press" supporting="Tap: {{ $tapCount }} · Long: {{ $longPressCount }}" leadingIcon="touch_app" trailingIcon="chevron_right" headlineColor="{{ $fg }}" supportingColor="{{ $muted }}" @tap="tap" @longTap="longTap" />
                 </column>
 
         {{-- 23. Tabs --}}
@@ -576,7 +576,7 @@
         <column class="w-full p-4 mx-4 mb-3 rounded-2xl gap-3 border border-[{{ $border }}]" :bg="$card">
             <text class="text-2xl font-bold" :color="$fg">23. Bottom Sheet</text>
             <spacer class="h-2"/>
-            <button @press="showSheet" class="bg-[#272d48] text-white w-full rounded-full">Open Bottom Sheet
+            <button @tap="showSheet" class="bg-[#272d48] text-white w-full rounded-full">Open Bottom Sheet
             </button>
             <text class="text-base" :color="$muted">Sheet
                 visible: {{ $sheetVisible ? 'YES' : 'NO' }}</text>
@@ -601,7 +601,7 @@
                                       leadingIcon="settings" trailingIconButton="more_vert" headlineColor="{{ $fg }}"
                                       supportingColor="{{ $muted }}" @trailingPress="onTrailingPress"/>
                     <spacer class="h-4"/>
-                    <button label="Close Sheet" @press="hideSheet" color="#7C3AED" labelColor="#FFFFFF"/>
+                    <button label="Close Sheet" @tap="hideSheet" color="#7C3AED" labelColor="#FFFFFF"/>
                 </column>
             </bottom-sheet>
         </column>
@@ -647,7 +647,7 @@
             <text class="text-base" :color="$muted">navigate(), back(), replace(), exitToWeb()</text>
             <divider class="w-full"/>
             <text class="text-lg font-semibold" :color="$fg">Wizard — replace() for linear flows</text>
-            <button @press="openWizard" class="bg-[#272d48] text-white w-full rounded-full text-lg">Start
+            <button @tap="openWizard" class="bg-[#272d48] text-white w-full rounded-full text-lg">Start
                 Wizard
             </button>
         </column>
@@ -657,9 +657,9 @@
             <divider class="w-full"/>
             <text class="text-lg font-semibold" :color="$fg">dd() & Exceptions</text>
             <row class="gap-2 justify-center">
-                <button @press="fireDd" class="bg-[#272d48] w-1/2 text-white rounded-full text-lg">dd()
+                <button @tap="fireDd" class="bg-[#272d48] w-1/2 text-white rounded-full text-lg">dd()
                 </button>
-                <button @press="fireException" class="bg-[#272d48] w-[50%]] text-white rounded-full text-lg">
+                <button @tap="fireException" class="bg-[#272d48] w-[50%]] text-white rounded-full text-lg">
                     Exceptions
                 </button>
             </row>

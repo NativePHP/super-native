@@ -4,23 +4,23 @@
         {{-- Header --}}
         <column class="w-full gap-1">
             <text class="text-lg font-semibold text-theme-on-background">Bottom Sheets</text>
-            <text class="text-sm text-theme-on-surface-variant">Tap to open. Swipe down or tap the backdrop to dismiss — `@press="closeFoo"` keeps `$visible` in sync.</text>
+            <text class="text-sm text-theme-on-surface-variant">Tap to open. Swipe down or tap the backdrop to dismiss — `@tap="closeFoo"` keeps `$visible` in sync.</text>
         </column>
 
         {{-- Bottom-sheet trigger row --}}
         <row class="w-full gap-2">
-            <column @press="openSmallSheet" class="flex-1 px-4 py-3 rounded-xl bg-theme-primary items-center">
+            <column @tap="openSmallSheet" class="flex-1 px-4 py-3 rounded-xl bg-theme-primary items-center">
                 <text class="text-theme-on-primary font-semibold">Small</text>
             </column>
-            <column @press="openMediumSheet" class="flex-1 px-4 py-3 rounded-xl bg-theme-primary items-center">
+            <column @tap="openMediumSheet" class="flex-1 px-4 py-3 rounded-xl bg-theme-primary items-center">
                 <text class="text-theme-on-primary font-semibold">Medium</text>
             </column>
-            <column @press="openCustomSheet" class="flex-1 px-4 py-3 rounded-xl bg-theme-primary items-center">
+            <column @tap="openCustomSheet" class="flex-1 px-4 py-3 rounded-xl bg-theme-primary items-center">
                 <text class="text-theme-on-primary font-semibold">40%</text>
             </column>
         </row>
 
-        <column @press="openActionSheet" class="w-full px-4 py-3 rounded-xl bg-theme-primary items-center">
+        <column @tap="openActionSheet" class="w-full px-4 py-3 rounded-xl bg-theme-primary items-center">
             <text class="text-theme-on-primary font-semibold">Action sheet (edit / share / delete)</text>
         </column>
 
@@ -33,10 +33,10 @@
         </column>
 
         <row class="w-full gap-2">
-            <column @press="openDismissibleModal" class="flex-1 px-4 py-3 rounded-xl bg-theme-secondary items-center">
+            <column @tap="openDismissibleModal" class="flex-1 px-4 py-3 rounded-xl bg-theme-secondary items-center">
                 <text class="text-theme-on-secondary font-semibold">Dismissible</text>
             </column>
-            <column @press="openBlockingModal" class="flex-1 px-4 py-3 rounded-xl bg-theme-destructive items-center">
+            <column @tap="openBlockingModal" class="flex-1 px-4 py-3 rounded-xl bg-theme-destructive items-center">
                 <text class="text-theme-on-destructive font-semibold">Blocking</text>
             </column>
         </row>
@@ -58,7 +58,7 @@
         <column class="w-full p-5 gap-3">
             <text class="text-xl font-bold text-theme-on-surface">Small sheet</text>
             <text class="text-sm text-theme-on-surface-variant">A short ~25%-tall sheet. Good for confirmations and single-prompt input.</text>
-            <column @press="closeSmallSheet" class="w-full px-4 py-3 rounded-xl bg-theme-primary items-center mt-2">
+            <column @tap="closeSmallSheet" class="w-full px-4 py-3 rounded-xl bg-theme-primary items-center mt-2">
                 <text class="text-theme-on-primary font-semibold">Close</text>
             </column>
         </column>
@@ -73,10 +73,10 @@
             <outlined-text-input placeholder="Enter something" />
 
             <row class="w-full gap-2 mt-2">
-                <column @press="closeMediumSheet" class="flex-1 px-4 py-3 rounded-xl bg-theme-surface-variant items-center">
+                <column @tap="closeMediumSheet" class="flex-1 px-4 py-3 rounded-xl bg-theme-surface-variant items-center">
                     <text class="font-semibold text-theme-on-surface">Cancel</text>
                 </column>
-                <column @press="closeMediumSheet" class="flex-1 px-4 py-3 rounded-xl bg-theme-primary items-center">
+                <column @tap="closeMediumSheet" class="flex-1 px-4 py-3 rounded-xl bg-theme-primary items-center">
                     <text class="text-theme-on-primary font-semibold">Save</text>
                 </column>
             </row>
@@ -88,7 +88,7 @@
         <column class="w-full p-5 gap-3">
             <text class="text-xl font-bold text-theme-on-surface">Custom (40%)</text>
             <text class="text-sm text-theme-on-surface-variant">Numeric detent: `detents="0.4"` for a sheet that occupies 40% of the screen. Fixed (not draggable to other heights).</text>
-            <column @press="closeCustomSheet" class="w-full px-4 py-3 rounded-xl bg-theme-primary items-center mt-2">
+            <column @tap="closeCustomSheet" class="w-full px-4 py-3 rounded-xl bg-theme-primary items-center mt-2">
                 <text class="text-theme-on-primary font-semibold">Close</text>
             </column>
         </column>
@@ -97,21 +97,21 @@
     {{-- Action sheet (small detent + a stacked list of pressables) --}}
     <bottom-sheet :visible="$showActionSheet" @dismiss="closeActionSheet" detents="small">
         <column class="w-full pb-4">
-            <column @press="actionEdit" class="w-full px-5 py-4">
+            <column @tap="actionEdit" class="w-full px-5 py-4">
                 <row class="items-center gap-3">
                     <icon name="edit" :size="22" color="#475569" dark-color="#CBD5E1" />
                     <text class="text-base text-theme-on-surface">Edit</text>
                 </row>
             </column>
             <divider />
-            <column @press="actionShare" class="w-full px-5 py-4">
+            <column @tap="actionShare" class="w-full px-5 py-4">
                 <row class="items-center gap-3">
                     <icon name="share" :size="22" color="#475569" dark-color="#CBD5E1" />
                     <text class="text-base text-theme-on-surface">Share</text>
                 </row>
             </column>
             <divider />
-            <column @press="actionDelete" class="w-full px-5 py-4">
+            <column @tap="actionDelete" class="w-full px-5 py-4">
                 <row class="items-center gap-3">
                     <icon name="delete" :size="22" color="#EF4444" />
                     <text class="text-base text-theme-destructive">Delete</text>
@@ -127,7 +127,7 @@
         <column class="w-full p-6 gap-4 bg-theme-surface rounded-3xl">
             <text class="text-xl font-bold text-theme-on-surface">Dismissible modal</text>
             <text class="text-sm text-theme-on-surface-variant">Tap the backdrop or swipe to close. The framework fires `@dismiss` for you to flip `visible` back to false.</text>
-            <column @press="closeDismissibleModal" class="w-full px-4 py-3 rounded-xl bg-theme-secondary items-center mt-2">
+            <column @tap="closeDismissibleModal" class="w-full px-4 py-3 rounded-xl bg-theme-secondary items-center mt-2">
                 <text class="text-theme-on-secondary font-semibold">OK</text>
             </column>
         </column>
@@ -139,10 +139,10 @@
             <text class="text-xl font-bold text-theme-on-surface">Confirm action?</text>
             <text class="text-sm text-theme-on-surface-variant">This is a blocking modal — `dismissible="false"`. The backdrop is inert; you have to choose Confirm or Cancel.</text>
             <row class="w-full gap-2 mt-2">
-                <column @press="cancelBlockingModal" class="flex-1 px-4 py-3 rounded-xl bg-theme-surface-variant items-center">
+                <column @tap="cancelBlockingModal" class="flex-1 px-4 py-3 rounded-xl bg-theme-surface-variant items-center">
                     <text class="font-semibold text-theme-on-surface">Cancel</text>
                 </column>
-                <column @press="confirmBlockingModal" class="flex-1 px-4 py-3 rounded-xl bg-theme-destructive items-center">
+                <column @tap="confirmBlockingModal" class="flex-1 px-4 py-3 rounded-xl bg-theme-destructive items-center">
                     <text class="text-theme-on-destructive font-semibold">Confirm</text>
                 </column>
             </row>

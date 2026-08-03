@@ -33,7 +33,7 @@ it('drops groups with no matching demos', function () {
 
 it('restores the full list when the query is cleared', function () {
     $screen = Native::test(DemoLauncher::class)
-        ->call('findADemo', 'ikea')
+        ->call('findADemo', 'spotify')
         ->call('findADemo', '');
 
     expect($screen->get('groups'))->toHaveCount(4);

@@ -3,6 +3,7 @@
 namespace App\NativeComponents;
 
 use App\NativeComponents\Concerns\HasYouTubeData;
+use Illuminate\View\View;
 use Native\Mobile\Edge\NativeComponent;
 use Native\Mobile\Edge\Transition;
 
@@ -18,6 +19,16 @@ class YouTubeSearch extends NativeComponent
     public function mount(): void
     {
         nativephp_call('UI.SetBackground', json_encode(['color' => '#0F0F0F']));
+    }
+
+    public function unmount(): void
+    {
+        // UI.SetBackground is app-global sticky native state — without
+        // this clear it leaks the window color into every screen visited
+        // after this one. Empty color = restore the platform default.
+        nativephp_call('UI.SetBackground', json_encode(['color' => null]));
+
+        parent::unmount();
     }
 
     public function search(): void
@@ -56,7 +67,7 @@ class YouTubeSearch extends NativeComponent
             ->transition(Transition::SlideFromRight);
     }
 
-    public function render(): \Illuminate\View\View
+    public function render(): View
     {
         $videos = self::ytVideos();
         $channels = self::ytChannels();

@@ -28,13 +28,13 @@
                 </column>
             </row>
 
-            <button label="Toggle" @press="toggle" class="w-full" />
+            <button label="Toggle" @tap="toggle" class="w-full" />
 
             {{-- Easing picker — selected stays fully opaque, others fade --}}
             <row class="gap-2">
                 @foreach (['linear', 'ease-in', 'ease-out', 'ease-in-out'] as $opt)
                     <column
-                        @press="setEasing('{{ $opt }}')"
+                        @tap="setEasing('{{ $opt }}')"
                         class="flex-1 py-2 rounded-lg items-center justify-center bg-theme-primary"
                         :opacity="$easing === $opt ? 1 : 0.55"
                         :animate-duration="200">
@@ -47,7 +47,7 @@
             <row class="gap-2">
                 @foreach ([150, 300, 600, 1200] as $ms)
                     <column
-                        @press="setDuration({{ $ms }})"
+                        @tap="setDuration({{ $ms }})"
                         class="flex-1 py-2 rounded-lg items-center justify-center bg-theme-primary"
                         :opacity="$duration === $ms ? 1 : 0.55"
                         :animate-duration="200">
@@ -105,8 +105,8 @@
             </row>
 
             <row class="w-full justify-between gap-3">
-                <button label="Prev" @press="prevStep"  />
-                <button label="Next" @press="nextStep"  />
+                <button label="Prev" @tap="prevStep"  />
+                <button label="Next" @tap="nextStep"  />
             </row>
         </column>
 
@@ -122,7 +122,7 @@
             <row class="w-full gap-3">
                 @foreach (['Alpha', 'Beta', 'Gamma'] as $i => $name)
                     <column
-                        @press="focus({{ $i }})"
+                        @tap="focus({{ $i }})"
                         class="flex-1 h-[110] rounded-2xl items-center justify-center bg-theme-secondary"
                         :opacity="$focused === $i ? 1 : 0.25"
                         :animate-duration="300"
@@ -161,7 +161,7 @@
                 </column>
             </stack>
 
-            <button label="Swap" @press="swap" class="w-full" />
+            <button label="Swap" @tap="swap" class="w-full" />
         </column>
 
         {{-- ────────────────────────────────────────────────────────────
@@ -185,7 +185,7 @@
                 </column>
             </stack>
 
-            <button label="Show / Hide" @press="show" class="w-full" />
+            <button label="Show / Hide" @tap="show" class="w-full" />
         </column>
 
         {{-- ────────────────────────────────────────────────────────────
@@ -200,7 +200,7 @@
 
             <row class="w-full items-center justify-center h-[160]">
                 <column
-                    @press="bump"
+                    @tap="bump"
                     class="w-[100] h-[100] rounded-2xl items-center justify-center bg-theme-accent"
                     :scale="$bumped ? 1.4 : 1.0"
                     :animate-duration="250"
@@ -235,9 +235,9 @@
             </row>
 
             <row class="justify-between w-full">
-                <button label="Spin 180°" @press="spin"/>
+                <button label="Spin 180°" @tap="spin"/>
                 <spacer />
-                <button label="Reset" @press="resetSpin"/>
+                <button label="Reset" @tap="resetSpin"/>
             </row>
         </column>
 
@@ -264,7 +264,7 @@
                 </column>
             </stack>
 
-            <button label="Show / Hide Toast" @press="toggleToast" class="w-full" />
+            <button label="Show / Hide Toast" @tap="toggleToast" class="w-full" />
         </column>
 
         {{-- ────────────────────────────────────────────────────────────
@@ -280,7 +280,7 @@
 
             <row class="w-full gap-3">
                 <column
-                    @press="bump"
+                    @tap="bump"
                     class="flex-1 h-[100] rounded-2xl items-center justify-center bg-theme-primary"
                     :press-scale="0.9">
                     <text class="text-theme-on-primary font-semibold">scale</text>
@@ -288,7 +288,7 @@
                 </column>
 
                 <column
-                    @press="bump"
+                    @tap="bump"
                     class="flex-1 h-[100] rounded-2xl items-center justify-center bg-theme-secondary"
                     :press-opacity="0.55">
                     <text class="text-theme-on-secondary font-semibold">opacity</text>
@@ -296,7 +296,7 @@
                 </column>
 
                 <column
-                    @press="bump"
+                    @tap="bump"
                     class="flex-1 h-[100] rounded-2xl items-center justify-center bg-theme-accent"
                     :press-scale="0.92"
                     :press-translate-y="3"
@@ -326,7 +326,7 @@
 
             <row class="w-full items-center justify-center h-[120]">
                 <stack
-                    @press="toggleLike"
+                    @tap="toggleLike"
                     class="w-[80] h-[80] items-center justify-center"
                     :press-scale="0.85">
                     {{-- outline heart, dimmed when liked --}}
@@ -370,7 +370,7 @@
                     <row class="w-full h-full items-center">
                         @foreach (['Home', 'Search', 'Likes', 'Me'] as $i => $label)
                             <column
-                                @press="setTab({{ $i }})"
+                                @tap="setTab({{ $i }})"
                                 class="flex-1 h-full items-center justify-center"
                                 :opacity="$activeTab === $i ? 1 : 0.95"
                                 :animate-duration="200">
@@ -394,7 +394,7 @@
 
             <row class="w-full items-center justify-center h-[60]">
                 <stack
-                    @press="toggleSwitch"
+                    @tap="toggleSwitch"
                     class="w-[60] h-[34] rounded-full"
                     :press-scale="0.95">
                     {{-- off track (slate) --}}
@@ -475,7 +475,7 @@
 
                     {{-- Main FAB — rotates 45° when open so + becomes × --}}
                     <column
-                        @press="toggleFab"
+                        @tap="toggleFab"
                         a11y-label="Toggle quick actions"
                         class="w-[60] h-[60] rounded-full items-center justify-center bg-theme-primary"
                         :rotate="$fabOpen ? 45 : 0"
@@ -510,7 +510,7 @@
                 ];
             @endphp
 
-            <row class="w-full items-center justify-center h-[200]" @press="shuffleCards">
+            <row class="w-full items-center justify-center h-[200]" @tap="shuffleCards">
                 <stack class="w-[160] h-[200]">
                     @foreach ($deck as $i => $card)
                         @php

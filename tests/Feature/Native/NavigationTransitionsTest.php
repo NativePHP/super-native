@@ -1,29 +1,24 @@
 <?php
 
-use App\NativeComponents\IkeaHome;
+use App\NativeComponents\SpotifyHome;
 use Native\Mobile\Edge\Transition;
 use Native\Mobile\Testing\Native;
 
-// ── Named-route resolution + programmatic transitions (IkeaHome) ──
+// ── Named-route resolution + programmatic transitions (SpotifyHome) ──
 
-it('resolves a named route and carries a transition when opening a product', function () {
-    Native::visit('/ikea')
-        ->assertScreen(IkeaHome::class)
+it('resolves a named route and carries a transition when opening a playlist', function () {
+    Native::visit('/spotify')
+        ->assertScreen(SpotifyHome::class)
         ->assertNoNavigation()
-        ->call('viewProduct', 3)
-        ->assertNavigatedTo('/ikea/product/3')
+        ->call('viewPlaylist', 3)
+        ->assertNavigatedTo('/spotify/playlist/3')
         ->assertTransition(Transition::SlideFromRight);
 });
 
-it('resolves parameter-less named routes for the cart and search', function () {
-    Native::visit('/ikea')
-        ->call('viewCart')
-        ->assertNavigatedTo('/ikea/cart')
-        ->assertTransition(Transition::SlideFromRight);
-
-    Native::visit('/ikea')
+it('resolves parameter-less named routes for search', function () {
+    Native::visit('/spotify')
         ->call('viewSearch')
-        ->assertNavigatedTo('/ikea/search')
+        ->assertNavigatedTo('/spotify/search')
         ->assertTransition(Transition::SlideFromRight);
 });
 

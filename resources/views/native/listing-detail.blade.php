@@ -10,14 +10,14 @@
             />
             {{-- Top Bar Overlay --}}
             <row class="w-full px-4 pt-[52] items-center justify-between">
-                <column @press="back" class="w-[34] h-[34] rounded-full bg-white items-center justify-center shadow">
+                <column @tap="back" class="w-[34] h-[34] rounded-full bg-white items-center justify-center shadow">
                     <icon name="arrow_back" :size="18" color="#222222" />
                 </column>
                 <row class="items-center gap-2">
                     <column class="w-[34] h-[34] rounded-full bg-white items-center justify-center shadow">
                         <icon name="ios_share" :size="18" color="#222222" />
                     </column>
-                    <column @press="toggleWishlist" class="w-[34] h-[34] rounded-full bg-white items-center justify-center shadow">
+                    <column @tap="toggleWishlist" class="w-[34] h-[34] rounded-full bg-white items-center justify-center shadow">
                         <icon
                             name="{{ $isWishlisted ? 'favorite' : 'favorite_border' }}"
                             :size="18"
@@ -29,10 +29,10 @@
             {{-- Image Arrows --}}
             @if ($imageCount > 1)
                 <row class="w-full h-[300] px-3 items-center justify-between">
-                    <column @press="prevImage" class="w-[28] h-[28] rounded-full bg-white items-center justify-center shadow">
+                    <column @tap="prevImage" class="w-[28] h-[28] rounded-full bg-white items-center justify-center shadow">
                         <icon name="chevron_left" :size="18" color="#222222" />
                     </column>
-                    <column @press="nextImage" class="w-[28] h-[28] rounded-full bg-white items-center justify-center shadow">
+                    <column @tap="nextImage" class="w-[28] h-[28] rounded-full bg-white items-center justify-center shadow">
                         <icon name="chevron_right" :size="18" color="#222222" />
                     </column>
                 </row>
@@ -110,7 +110,7 @@
         {{-- Description --}}
         <column class="w-full px-5 py-5 gap-3">
             <text class="text-[14] text-theme-on-background" :maxLines="$showFullDescription ? 50 : 4">{{ $listing['description'] }}</text>
-            <column @press="toggleDescription">
+            <column @tap="toggleDescription">
                 <row class="items-center gap-1">
                     <text class="text-[14] font-semibold text-theme-on-background">{{ $showFullDescription ? 'Show less' : 'Show more' }}</text>
                     <icon name="{{ $showFullDescription ? 'expand_less' : 'chevron_right' }}" :size="16" color="#222222" />
@@ -223,7 +223,7 @@
                 </row>
                 <text class="text-[12] text-theme-on-background">{{ $listing['dates'] }}</text>
             </column>
-            <column @press="reserve" class="bg-theme-primary rounded-lg px-6 py-3">
+            <column @tap="reserve" class="bg-theme-primary rounded-lg px-6 py-3">
                 <text class="text-[16] font-bold text-theme-on-primary">Reserve</text>
             </column>
         </row>

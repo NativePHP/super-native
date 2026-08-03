@@ -32,7 +32,7 @@
             <column class="w-full gap-1">
                 <row class="w-full justify-between items-center ">
                     <text class="text-base font-semibold text-theme-on-surface">Password</text>
-                    <text @press="forgotPassword" class="text-xs font-medium text-cyan-600">Forgot?</text>
+                    <text @tap="forgotPassword" class="text-xs font-medium text-cyan-600">Forgot?</text>
                 </row>
                 <row class="w-full items-center gap-2 mt-1">
                     <icon name="lock" :size="20" color="#6d797e" dark-color="#94a3b8" />
@@ -44,14 +44,14 @@
                         :variant="0"
                         class="flex-1"
                     />
-                    <column @press="toggleVisibility" class="px-2 py-2">
+                    <column @tap="toggleVisibility" class="px-2 py-2">
                         <icon name="{{ $showPassword ? 'visibility_off' : 'visibility' }}" :size="20" color="#6d797e" dark-color="#94a3b8" />
                     </column>
                 </row>
             </column>
 
             {{-- Login button --}}
-            <column @press="login" class="w-full bg-[#00677d] rounded-xl py-4 items-center mt-2">
+            <column @tap="login" class="w-full bg-[#00677d] rounded-xl py-4 items-center mt-2">
                 <text class="text-[18] font-semibold text-white">Login</text>
             </column>
 
@@ -64,10 +64,10 @@
 
             {{-- Social buttons --}}
             <row class="w-full gap-3 mt-2">
-                <column @press="loginWithGoogle" class="flex-1 py-3 rounded-xl border border-theme-outline items-center">
+                <column @tap="loginWithGoogle" class="flex-1 py-3 rounded-xl border border-theme-outline items-center">
                     <text class="text-[12] font-semibold text-theme-on-surface">Google</text>
                 </column>
-                <column @press="loginWithApple" class="flex-1 py-3 rounded-xl border border-theme-outline items-center">
+                <column @tap="loginWithApple" class="flex-1 py-3 rounded-xl border border-theme-outline items-center">
                     <text class="text-[12] font-semibold text-theme-on-surface">Apple</text>
                 </column>
             </row>
@@ -77,11 +77,11 @@
         <column class="w-full items-center gap-4">
             <row class="items-center gap-1">
                 <text class="text-[14] text-theme-on-surface-variant">Don't have an account?</text>
-                <text @press="createAccount" class="text-[14] font-semibold text-[#00677d] dark:text-[#67e8f9]">Create Account</text>
+                <text @tap="createAccount" class="text-[14] font-semibold text-[#00677d] dark:text-[#67e8f9]">Create Account</text>
             </row>
 
             {{-- Demo-only: skip past login and jump straight into the app. --}}
-            <text @press="skipLogin" class="text-[12] font-medium text-theme-on-surface-variant underline">Skip login →</text>
+            <text @tap="skipLogin" class="text-[12] font-medium text-theme-on-surface-variant underline">Skip login →</text>
 
             <row class="items-center gap-3">
                 <text class="text-[11] text-theme-on-surface-variant">Privacy Policy</text>

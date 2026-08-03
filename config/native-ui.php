@@ -54,11 +54,17 @@ return [
             'on-surface-variant' => 'slate-800',
 
             // Outline = neutral borders (text fields, dividers, cards).
+            // outline-variant = softer edges: hairline dividers, card seams.
             'outline' => 'slate-200',
+            'outline-variant' => 'slate-100',
 
             // Destructive / error actions and messages.
             'destructive' => 'red-600',
             'on-destructive' => 'white',
+
+            // Success / "all systems go" — confirmations, verified badges.
+            'success' => 'emerald-600',
+            'on-success' => 'white',
 
             // Tertiary accent — for highlights, badges, emphasis not covered by primary.
             'accent' => 'yellow-400',
@@ -68,6 +74,7 @@ return [
         // Matched to nativephp.com's dark theme: #050714 page, slate-950 cards,
         // "cloud" navy (#2B2E53) tonal fills, violet-500 accents, teal #3EDAD7.
         'dark' => [
+            'shane' => 'yellow-400',
             'primary' => 'violet-500',
             'on-primary' => 'white',
 
@@ -83,9 +90,13 @@ return [
             'on-surface-variant' => 'gray-400',
 
             'outline' => 'slate-700',
+            'outline-variant' => 'slate-800',
 
             'destructive' => 'red-500',
             'on-destructive' => 'white',
+
+            'success' => 'emerald-400',
+            'on-success' => '#052E16',
 
             'accent' => '#3EDAD7',
             'on-accent' => '#050714',
@@ -103,7 +114,16 @@ return [
         'font-lg' => 20,
         'font-xl' => 24,
 
-        'font-family' => 'Geist+Pixel-Regular',
+    ],
+
+    'fonts' => [
+        'default' => 'Geist+Pixel-Regular',
+        'accent' => 'Lobster-Regular',
+
+        // Theme Lab display faces.
+        'display' => 'Unbounded-Bold',
+        'grotesk' => 'SpaceGrotesk-Regular',
+        'grotesk-bold' => 'SpaceGrotesk-Bold',
     ],
 
 ];

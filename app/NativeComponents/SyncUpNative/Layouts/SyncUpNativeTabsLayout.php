@@ -9,8 +9,6 @@ use Native\Mobile\Edge\Layouts\Builders\Tab;
 use Native\Mobile\Edge\Layouts\Builders\TabBar;
 use Native\Mobile\Edge\Layouts\NativeLayout;
 use Native\Mobile\Edge\NativeComponent;
-use Nativephp\NativeUi\Builders\FloatingOverlay;
-use Nativephp\NativeUi\Concerns\HasFloatingOverlay;
 
 /**
  * Native-chrome variant of SyncUp's tabs layout. Same shape as the

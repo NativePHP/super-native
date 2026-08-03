@@ -21,7 +21,7 @@
                     @foreach ($filters as $name)
                         @php $active = $activeFilter === $name; @endphp
                         <column
-                            @press="setFilter('{{ $name }}')"
+                            @tap="setFilter('{{ $name }}')"
                             class="px-5 py-2 rounded-full {{ $active ? 'bg-[#00b4d8]' : 'bg-theme-surface-variant' }}"
                         >
                             <text class="text-[12] font-semibold {{ $active ? 'text-[#00414f]' : 'text-theme-on-surface-variant' }}">{{ $name }}</text>
@@ -42,7 +42,7 @@
                              keep per-row state (any pending swipe, animations, focus)
                              attached to the right chat instead of bleeding to whatever
                              chat happens to occupy the same screen position next frame. --}}
-                        <row :native:key="$row['id']" @press="openChat({{ $row['id'] }})" class="w-full px-4 py-3 items-center gap-4">
+                        <row :native:key="$row['id']" @tap="openChat({{ $row['id'] }})" class="w-full px-4 py-3 items-center gap-4">
                             {{-- Avatar (or group icon) with status dot --}}
                             <stack class="w-[56] h-[56]">
                                 @if ($row['isGroup'])
@@ -99,7 +99,7 @@
                             <column class="w-[128] bg-theme-surface p-4 rounded-3xl border border-theme-outline items-center gap-3">
                                 <image src="{{ $s['avatarUrl'] }}" class="w-[48] h-[48] rounded-full" :fit="2" />
                                 <text class="text-[12] font-semibold text-theme-on-surface" :maxLines="1">{{ $s['name'] }}</text>
-                                <column @press="addSuggestion({{ $s['id'] }})" class="w-full py-2 bg-[#ecfeff] dark:bg-[#0e3a44] rounded-lg items-center">
+                                <column @tap="addSuggestion({{ $s['id'] }})" class="w-full py-2 bg-[#ecfeff] dark:bg-[#0e3a44] rounded-lg items-center">
                                     <text class="text-[11] font-semibold text-[#0891b2] dark:text-[#67e8f9]">Add</text>
                                 </column>
                             </column>
@@ -114,7 +114,7 @@
     {{-- Floating Action Button — absolutely positioned at the bottom-right
          of the screen content. The absolute child only occupies its placed
          (56x56) bounds, so it overlays without blocking scroll touches. --}}
-    <column @press="newMessage" a11y-label="New message"
+    <column @tap="newMessage" a11y-label="New message"
         class="absolute bottom-[20] right-[20] w-[56] h-[56] rounded-full shadow-xl bg-cyan-600 items-center justify-center">
         <native:icon :android="\App\Icons\Android::Message" :ios="\App\Icons\Ios::Message" class="text-white text-3xl" />
     </column>
@@ -131,7 +131,7 @@
             <scroll-view class="w-full">
                 <column class="w-full">
                     @foreach ($friends as $f)
-                        <row @press="startChatWith({{ $f['id'] }})" class="w-full px-5 py-3 items-center gap-4">
+                        <row @tap="startChatWith({{ $f['id'] }})" class="w-full px-5 py-3 items-center gap-4">
                             <stack class="w-[44] h-[44]">
                                 <image src="{{ $f['avatarUrl'] }}" class="w-[44] h-[44] rounded-full" :fit="2" />
                                 @if ($f['status'] === 'online')

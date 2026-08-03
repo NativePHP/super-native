@@ -1,7 +1,4 @@
-{{-- Page wrapper: scroll-view with theme.background + safe-area. Web devs
-     typically pull this into an `<x-layouts.app>` component — see
-     resources/views/components/layouts/app.blade.php published from the
-     nativephp/native-ui plugin. --}}
+{{-- Page wrapper: scroll-view with theme.background + safe-area. --}}
 <scroll-view class="flex-1 w-full bg-theme-background">
     <column class="flex-1 p-5 gap-5 safe-area">
 
@@ -45,10 +42,10 @@
 {{--        <text class="text-lg font-semibold text-gray-700 dark:text-gray-300">Overlays</text>--}}
 
 {{--        <row class="gap-3">--}}
-{{--            <button @press="openModal" class="bg-indigo-500 rounded-lg px-5 py-3 flex-1 text-center">--}}
+{{--            <button @tap="openModal" class="bg-indigo-500 rounded-lg px-5 py-3 flex-1 text-center">--}}
 {{--                Full-Screen Modal--}}
 {{--            </button>--}}
-{{--            <button @press="openSheet" class="bg-teal-500 rounded-lg px-5 py-3 flex-1">--}}
+{{--            <button @tap="openSheet" class="bg-teal-500 rounded-lg px-5 py-3 flex-1">--}}
 {{--                Bottom Sheet--}}
 {{--            </button>--}}
 {{--        </row>--}}
@@ -59,7 +56,7 @@
 {{--                <text class="text-gray-600 ">This is a full-screen modal overlay. Tap the X or press back to dismiss.</text>--}}
 {{--                <divider/>--}}
 {{--                <text class="text-sm text-[]]0">You can put any content here — forms, lists, images, anything.</text>--}}
-{{--                <button @press="closeModal" class="bg-red-500 rounded-lg px-5 py-3 mt-4">--}}
+{{--                <button @tap="closeModal" class="bg-red-500 rounded-lg px-5 py-3 mt-4">--}}
 {{--                    Close Modal--}}
 {{--                </button>--}}
 {{--            </column>--}}
@@ -84,7 +81,7 @@
 {{--                        </column>--}}
 {{--                    </row>--}}
 {{--                @endforeach--}}
-{{--                <button variant="primary" @press="closeSheet">Done</button>--}}
+{{--                <button variant="primary" @tap="closeSheet">Done</button>--}}
 {{--            </column>--}}
 {{--        </bottom-sheet>--}}
 
@@ -445,18 +442,18 @@
 {{--        --}}{{-- Variants (primary / secondary / destructive / ghost) --}}
 {{--        <text class="text-sm text-gray-500">Variants</text>--}}
 {{--        <row class="w-full gap-2 flex-wrap items-center">--}}
-{{--            <button class="text-xs" variant="primary" @press="increment">Primary</button>--}}
-{{--            <button class="text-xs" variant="secondary" @press="increment">Secondary</button>--}}
-{{--            <button class="text-xs" variant="destructive" @press="decrement">Destructive</button>--}}
-{{--            <button class="text-xs" variant="ghost" @press="increment">Ghost</button>--}}
+{{--            <button class="text-xs" variant="primary" @tap="increment">Primary</button>--}}
+{{--            <button class="text-xs" variant="secondary" @tap="increment">Secondary</button>--}}
+{{--            <button class="text-xs" variant="destructive" @tap="decrement">Destructive</button>--}}
+{{--            <button class="text-xs" variant="ghost" @tap="increment">Ghost</button>--}}
 {{--        </row>--}}
 
 {{--        --}}{{-- Sizes --}}
 {{--        <text class="text-sm text-gray-500">Sizes</text>--}}
 {{--        <row class="w-full gap-2 items-center flex-wrap">--}}
-{{--            <button variant="primary" size="sm" @press="increment">Small</button>--}}
-{{--            <button variant="primary" size="md" @press="increment">Medium</button>--}}
-{{--            <button variant="primary" size="lg" @press="increment">Large</button>--}}
+{{--            <button variant="primary" size="sm" @tap="increment">Small</button>--}}
+{{--            <button variant="primary" size="md" @tap="increment">Medium</button>--}}
+{{--            <button variant="primary" size="lg" @tap="increment">Large</button>--}}
 {{--        </row>--}}
 
 {{--        --}}{{-- Icons (leading + trailing) --}}
@@ -467,26 +464,26 @@
 {{--             through directly. --}}
 {{--        <text class="text-sm text-gray-500">With icons</text>--}}
 {{--        <row class="w-full gap-2 items-center flex-wrap">--}}
-{{--            <button variant="primary" icon="add" @press="increment">Add item</button>--}}
-{{--            <button variant="secondary" icon-trailing="arrow.right" @press="increment">Next</button>--}}
-{{--            <button variant="destructive" icon="delete" @press="decrement">Delete</button>--}}
+{{--            <button variant="primary" icon="add" @tap="increment">Add item</button>--}}
+{{--            <button variant="secondary" icon-trailing="arrow.right" @tap="increment">Next</button>--}}
+{{--            <button variant="destructive" icon="delete" @tap="decrement">Delete</button>--}}
 {{--        </row>--}}
 
 {{--        --}}{{-- Icon-only (needs a11y-label) --}}
 {{--        <text class="text-sm text-gray-500">Icon-only</text>--}}
 {{--        <row class="w-full gap-2 items-center">--}}
-{{--            <button variant="primary" icon="add" a11y-label="Add" @press="increment"/>--}}
-{{--            <button variant="secondary" icon="edit" a11y-label="Edit" @press="increment"/>--}}
-{{--            <button variant="destructive" icon="delete" a11y-label="Delete" @press="decrement"/>--}}
-{{--            <button variant="ghost" icon="settings" a11y-label="Settings" @press="increment"/>--}}
+{{--            <button variant="primary" icon="add" a11y-label="Add" @tap="increment"/>--}}
+{{--            <button variant="secondary" icon="edit" a11y-label="Edit" @tap="increment"/>--}}
+{{--            <button variant="destructive" icon="delete" a11y-label="Delete" @tap="decrement"/>--}}
+{{--            <button variant="ghost" icon="settings" a11y-label="Settings" @tap="increment"/>--}}
 {{--        </row>--}}
 
 {{--        --}}{{-- States --}}
 {{--        <text class="text-sm text-gray-500">States</text>--}}
 {{--        <row class="w-full gap-2 items-center flex-wrap">--}}
-{{--            <button variant="primary" @press="increment">Enabled</button>--}}
-{{--            <button variant="primary" disabled @press="increment">Disabled</button>--}}
-{{--            <button variant="primary" loading @press="increment">Loading</button>--}}
+{{--            <button variant="primary" @tap="increment">Enabled</button>--}}
+{{--            <button variant="primary" disabled @tap="increment">Disabled</button>--}}
+{{--            <button variant="primary" loading @tap="increment">Loading</button>--}}
 {{--        </row>--}}
 
 {{--        --}}{{-- Custom look — escape hatch via <pressable> --}}
@@ -494,19 +491,19 @@
 {{--        <text class="text-sm text-gray-500">Custom look (via pressable)</text>--}}
 {{--        <scroll-view :horizontal="true" class="w-full h-[44]">--}}
 {{--            <row class="gap-2 h-[44]">--}}
-{{--                <pressable @press="increment" class="bg-pink-500 rounded-full px-6 py-2 items-center justify-center">--}}
+{{--                <pressable @tap="increment" class="bg-pink-500 rounded-full px-6 py-2 items-center justify-center">--}}
 {{--                    <text class="text-white font-semibold">Pink Pill</text>--}}
 {{--                </pressable>--}}
-{{--                <pressable @press="increment" class="bg-teal-500 rounded-full px-6 py-2 items-center justify-center">--}}
+{{--                <pressable @tap="increment" class="bg-teal-500 rounded-full px-6 py-2 items-center justify-center">--}}
 {{--                    <text class="text-white font-semibold">Teal Pill</text>--}}
 {{--                </pressable>--}}
-{{--                <pressable @press="increment" class="bg-rose-500 rounded-full px-6 py-2 items-center justify-center">--}}
+{{--                <pressable @tap="increment" class="bg-rose-500 rounded-full px-6 py-2 items-center justify-center">--}}
 {{--                    <text class="text-white font-semibold">Rose Pill</text>--}}
 {{--                </pressable>--}}
-{{--                <pressable @press="increment" class="border-2 border-blue-500 rounded-lg px-5 py-2 items-center justify-center">--}}
+{{--                <pressable @tap="increment" class="border-2 border-blue-500 rounded-lg px-5 py-2 items-center justify-center">--}}
 {{--                    <text class="text-blue-500 font-semibold">Outlined blue</text>--}}
 {{--                </pressable>--}}
-{{--                <pressable @press="increment" class="border-2 border-red-500 rounded-lg px-5 py-2 items-center justify-center">--}}
+{{--                <pressable @tap="increment" class="border-2 border-red-500 rounded-lg px-5 py-2 items-center justify-center">--}}
 {{--                    <text class="text-red-500 font-semibold">Outlined red</text>--}}
 {{--                </pressable>--}}
 {{--            </row>--}}
@@ -514,23 +511,23 @@
 
 {{--        --}}{{-- Icon circles — still via pressable (custom shape + color) --}}
 {{--        <row class="w-full gap-3 items-center">--}}
-{{--            <pressable @press="increment"--}}
+{{--            <pressable @tap="increment"--}}
 {{--                              class="w-[48] h-[48] rounded-full bg-blue-500 items-center justify-center">--}}
 {{--                <icon name="add" :size="24" color="#FFFFFF"/>--}}
 {{--            </pressable>--}}
-{{--            <pressable @press="decrement"--}}
+{{--            <pressable @tap="decrement"--}}
 {{--                              class="w-[48] h-[48] rounded-full bg-red-500 items-center justify-center">--}}
 {{--                <icon name="minus.circle.fill" :size="24" color="#FFFFFF"/>--}}
 {{--            </pressable>--}}
-{{--            <pressable @press="increment"--}}
+{{--            <pressable @tap="increment"--}}
 {{--                              class="w-[48] h-[48] rounded-full bg-green-500 items-center justify-center">--}}
 {{--                <icon name="check" :size="24" color="#FFFFFF"/>--}}
 {{--            </pressable>--}}
-{{--            <pressable @press="increment"--}}
+{{--            <pressable @tap="increment"--}}
 {{--                              class="w-[48] h-[48] rounded-full bg-purple-500 items-center justify-center">--}}
 {{--                <icon name="star" :size="24" color="#FFFFFF"/>--}}
 {{--            </pressable>--}}
-{{--            <pressable @press="increment"--}}
+{{--            <pressable @tap="increment"--}}
 {{--                              class="w-[48] h-[48] rounded-full bg-amber-500 items-center justify-center">--}}
 {{--                <icon name="favorite" :size="24" color="#FFFFFF"/>--}}
 {{--            </pressable>--}}
@@ -590,18 +587,18 @@
 {{--        --}}{{-- ============================================= --}}
 {{--        <text class="text-lg font-semibold text-gray-700 ">Interactive Counter</text>--}}
 {{--        <row class="w-full gap-4 items-center justify-center">--}}
-{{--            <button variant="destructive" size="lg" icon="minus.circle.fill" a11y-label="Decrement" @press="decrement"/>--}}
+{{--            <button variant="destructive" size="lg" icon="minus.circle.fill" a11y-label="Decrement" @tap="decrement"/>--}}
 {{--            <column class="w-[80] h-[80] rounded-2xl bg-indigo-600 items-center justify-center shadow-lg">--}}
 {{--                <text class="text-white font-extrabold text-3xl">{{ $count }}</text>--}}
 {{--            </column>--}}
-{{--            <button variant="primary" size="lg" icon="add" a11y-label="Increment" @press="increment"/>--}}
+{{--            <button variant="primary" size="lg" icon="add" a11y-label="Increment" @tap="increment"/>--}}
 {{--        </row>--}}
 
 {{--        --}}{{-- ============================================= --}}
 {{--        --}}{{-- NATIVE EVENT LISTENER --}}
 {{--        --}}{{-- ============================================= --}}
 {{--        <text class="text-lg font-semibold text-gray-700 ">Native Events</text>--}}
-{{--        <button variant="primary" size="lg" @press="showAlert">Show Alert</button>--}}
+{{--        <button variant="primary" size="lg" @tap="showAlert">Show Alert</button>--}}
 {{--        @if($lastButton)--}}
 {{--            <text class="text-gray-600 ">You pressed: {{ $lastButton }}</text>--}}
 {{--        @endif--}}
@@ -1007,7 +1004,7 @@
 {{--            ];--}}
 {{--        @endphp--}}
 {{--        @foreach ($checkboxRows as $row)--}}
-{{--            <pressable @press="toggleField('{{ $row['field'] }}')">--}}
+{{--            <pressable @tap="toggleField('{{ $row['field'] }}')">--}}
 {{--                <row class="items-center gap-2">--}}
 {{--                    <icon--}}
 {{--                        :name="$this->{$row['field']} ? 'check_box' : 'check_box_outline'"--}}
@@ -1058,7 +1055,7 @@
 {{--                ['value' => 'team', 'label' => 'Team — $49/mo'],--}}
 {{--            ] as $row)--}}
 {{--                @php $checked = $pricingPlan === $row['value']; @endphp--}}
-{{--                <pressable @press="selectPricingPlan('{{ $row['value'] }}')">--}}
+{{--                <pressable @tap="selectPricingPlan('{{ $row['value'] }}')">--}}
 {{--                    <row class="items-center gap-2">--}}
 {{--                        <icon--}}
 {{--                            :name="$checked ? 'radio_button_checked' : 'radio_button_unchecked'"--}}
@@ -1113,7 +1110,7 @@
 {{--                ['field' => 'termsAccepted', 'label' => 'Terms accepted', 'icon' => 'check'],--}}
 {{--            ] as $row)--}}
 {{--                @php $sel = $this->{$row['field']}; @endphp--}}
-{{--                <pressable @press="toggleField('{{ $row['field'] }}')">--}}
+{{--                <pressable @tap="toggleField('{{ $row['field'] }}')">--}}
 {{--                    <row class="items-center gap-1 px-3 py-2 rounded-full {{ $sel ? 'bg-teal-600' : 'bg-slate-100' }} border {{ $sel ? 'border-teal-600' : 'border-slate-300' }}">--}}
 {{--                        <icon :name="$row['icon']" :size="14" :color="$sel ? '#FFFFFF' : '#475569'"/>--}}
 {{--                        <text class="text-sm font-medium {{ $sel ? 'text-white' : 'text-slate-900' }}">{{ $row['label'] }}</text>--}}
@@ -1207,7 +1204,7 @@
 {{--                        ['label' => 'About',    'icon' => 'info'],--}}
 {{--                    ] as $i => $tab)--}}
 {{--                        @php $isActive = $activeTab === $i; @endphp--}}
-{{--                        <pressable @press="selectTab({{ $i }})">--}}
+{{--                        <pressable @tap="selectTab({{ $i }})">--}}
 {{--                            <column class="items-center px-4 pt-3 gap-1">--}}
 {{--                                <row class="items-center gap-1">--}}
 {{--                                    <icon :name="$tab['icon']" :size="18" :color="$isActive ? '#0F766E' : '#475569'"/>--}}
@@ -1237,7 +1234,7 @@
 {{--                    $isFirst  = $i === 0;--}}
 {{--                    $isLast   = $i === count($planOptions) - 1;--}}
 {{--                @endphp--}}
-{{--                <pressable @press="selectPlanTier({{ $i }})" class="flex-1">--}}
+{{--                <pressable @tap="selectPlanTier({{ $i }})" class="flex-1">--}}
 {{--                    <column class="items-center justify-center py-3 px-4 {{ $selected ? 'bg-teal-600' : 'bg-white' }} {{ $isFirst ? 'rounded-l-xl' : '' }} {{ $isLast ? 'rounded-r-xl' : '' }}">--}}
 {{--                        <text class="text-sm font-medium {{ $selected ? 'text-white' : 'text-slate-900' }}">{{ $opt }}</text>--}}
 {{--                    </column>--}}
@@ -1417,10 +1414,10 @@
 {{--                clean architecture, Tailwind, and strong coffee.--}}
 {{--            </text>--}}
 {{--            <row class="w-full gap-3 mt-6">--}}
-{{--                <pressable @press="increment" class="flex-1 bg-indigo-500 rounded-lg py-2 items-center">--}}
+{{--                <pressable @tap="increment" class="flex-1 bg-indigo-500 rounded-lg py-2 items-center">--}}
 {{--                    <text class="text-white font-semibold">Follow</text>--}}
 {{--                </pressable>--}}
-{{--                <pressable @press="increment"--}}
+{{--                <pressable @tap="increment"--}}
 {{--                                  class="flex-1 border-2 border-indigo-500 rounded-lg py-2 items-center">--}}
 {{--                    <text class="text-indigo-500 font-semibold">Message</text>--}}
 {{--                </pressable>--}}
@@ -1454,7 +1451,7 @@
 {{--        <text class="text-lg font-semibold text-gray-700 ">List Items</text>--}}
 {{--        <column class="w-full bg-white rounded-xl shadow-sm border border-gray-100">--}}
 {{--            --}}{{-- Item 1 --}}
-{{--            <pressable @press="increment" class="w-full">--}}
+{{--            <pressable @tap="increment" class="w-full">--}}
 {{--                <row class="w-full px-4 py-3 gap-3 items-center">--}}
 {{--                    <column class="w-[40] h-[40] rounded-full bg-blue-100 items-center justify-center">--}}
 {{--                        <icon name="mail" :size="20" color="#3B82F6"/>--}}
@@ -1471,7 +1468,7 @@
 {{--            </pressable>--}}
 {{--            <divider/>--}}
 {{--            --}}{{-- Item 2 --}}
-{{--            <pressable @press="increment" class="w-full">--}}
+{{--            <pressable @tap="increment" class="w-full">--}}
 {{--                <row class="w-full px-4 py-3 gap-3 items-center">--}}
 {{--                    <column class="w-[40] h-[40] rounded-full bg-green-100 items-center justify-center">--}}
 {{--                        <icon name="notifications" :size="20" color="#22C55E"/>--}}
@@ -1485,7 +1482,7 @@
 {{--            </pressable>--}}
 {{--            <divider/>--}}
 {{--            --}}{{-- Item 3 --}}
-{{--            <pressable @press="increment" class="w-full">--}}
+{{--            <pressable @tap="increment" class="w-full">--}}
 {{--                <row class="w-full px-4 py-3 gap-3 items-center">--}}
 {{--                    <column class="w-[40] h-[40] rounded-full bg-purple-100 items-center justify-center">--}}
 {{--                        <icon name="lock" :size="20" color="#A855F7"/>--}}
@@ -1499,7 +1496,7 @@
 {{--            </pressable>--}}
 {{--            <divider/>--}}
 {{--            --}}{{-- Item 4 --}}
-{{--            <pressable @press="increment" class="w-full">--}}
+{{--            <pressable @tap="increment" class="w-full">--}}
 {{--                <row class="w-full px-4 py-3 gap-3 items-center">--}}
 {{--                    <column class="w-[40] h-[40] rounded-full bg-amber-100 items-center justify-center">--}}
 {{--                        <icon name="settings" :size="20" color="#F59E0B"/>--}}
@@ -1620,19 +1617,19 @@
 
 {{-- Bottom Navigation --}}
 {{--<row class="w-full h-[90] bg-white border-t border-gray-200 items-start justify-evenly pt-2">--}}
-{{--    <pressable @press="increment" class="flex-1 items-center gap-1">--}}
+{{--    <pressable @tap="increment" class="flex-1 items-center gap-1">--}}
 {{--        <icon name="home" :size="22" color="#007AFF" />--}}
 {{--        <text class="text-sm text-blue-500 font-medium">Home</text>--}}
 {{--    </pressable>--}}
-{{--    <pressable @press="increment" class="flex-1 items-center gap-1">--}}
+{{--    <pressable @tap="increment" class="flex-1 items-center gap-1">--}}
 {{--        <icon name="search" :size="22" color="#8E8E93" />--}}
 {{--        <text class="text-sm text-gray-400 ">Search</text>--}}
 {{--    </pressable>--}}
-{{--    <pressable @press="increment" class="flex-1 items-center gap-1">--}}
+{{--    <pressable @tap="increment" class="flex-1 items-center gap-1">--}}
 {{--        <icon name="favorite" :size="22" color="#8E8E93" />--}}
 {{--        <text class="text-sm text-gray-400 ">Favorites</text>--}}
 {{--    </pressable>--}}
-{{--    <pressable @press="increment" class="flex-1 items-center gap-1">--}}
+{{--    <pressable @tap="increment" class="flex-1 items-center gap-1">--}}
 {{--        <icon name="person" :size="22" color="#8E8E93" />--}}
 {{--        <text class="text-sm text-gray-400 ">Profile</text>--}}
 {{--    </pressable>--}}

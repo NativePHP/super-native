@@ -8,7 +8,7 @@
     @foreach ($emails as $email)
         <list-item
             :native:key="$email['id']"
-            @press="open('{{ $email['id'] }}')"
+            @tap="open('{{ $email['id'] }}')"
             :leadingMonogram="strtoupper(substr($email['from'], 0, 1))"
             :leadingMonogramColor="$email['unread'] ? '#3B82F6' : '#94A3B8'"
             :overline="$email['from']"

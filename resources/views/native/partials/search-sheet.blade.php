@@ -3,7 +3,7 @@
         <row class="w-full items-center gap-3">
             <icon name="magnifyingglass" class="text-[20] text-theme-primary" />
             <text class="text-2xl font-bold flex-1">Search</text>
-            <column @press="closeSearch" class="px-3 py-1 rounded-full bg-theme-surface-variant">
+            <column @tap="closeSearch" class="px-3 py-1 rounded-full bg-theme-surface-variant">
                 <text class="text-sm font-semibold text-theme-on-surface-variant">Close</text>
             </column>
         </row>

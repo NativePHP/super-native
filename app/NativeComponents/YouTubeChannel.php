@@ -3,6 +3,7 @@
 namespace App\NativeComponents;
 
 use App\NativeComponents\Concerns\HasYouTubeData;
+use Illuminate\View\View;
 use Native\Mobile\Edge\NativeComponent;
 use Native\Mobile\Edge\Transition;
 
@@ -10,7 +11,6 @@ class YouTubeChannel extends NativeComponent
 {
     use HasYouTubeData;
 
-    /** @var array */
     public array $channel = [];
 
     /** @var array<int, array> */
@@ -34,6 +34,16 @@ class YouTubeChannel extends NativeComponent
         );
     }
 
+    public function unmount(): void
+    {
+        // UI.SetBackground is app-global sticky native state — without
+        // this clear it leaks the window color into every screen visited
+        // after this one. Empty color = restore the platform default.
+        nativephp_call('UI.SetBackground', json_encode(['color' => null]));
+
+        parent::unmount();
+    }
+
     public function toggleSubscribe(): void
     {
         $this->isSubscribed = ! $this->isSubscribed;
@@ -49,7 +59,7 @@ class YouTubeChannel extends NativeComponent
         }
     }
 
-    public function render(): \Illuminate\View\View
+    public function render(): View
     {
         $videosWithMeta = [];
         foreach ($this->channelVideos as $video) {

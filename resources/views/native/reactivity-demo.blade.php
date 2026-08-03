@@ -14,9 +14,9 @@
             </row>
 
             <row class="gap-3 mt-2">
-                <button @press="decrement" >-1</button>
+                <button @tap="decrement" >-1</button>
                 <spacer />
-                <button @press="increment" >+1</button>
+                <button @tap="increment" >+1</button>
             </row>
         </column>
 

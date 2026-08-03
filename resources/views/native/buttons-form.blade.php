@@ -8,31 +8,31 @@
                 <row class="w-full px-4 py-3 items-center">
                     <text class="text-base text-theme-on-surface">Primary</text>
                     <spacer />
-                    <button variant="primary" size="sm" :disabled="$disabled" @press="tap('primary')">Label</button>
+                    <button variant="primary" size="sm" :disabled="$disabled" @tap="tap('primary')">Label</button>
                 </row>
                 <divider class="mx-4" />
                 <row class="w-full px-4 py-3 items-center">
                     <text class="text-base text-theme-on-surface">Secondary</text>
                     <spacer />
-                    <button variant="secondary" size="sm" :disabled="$disabled" @press="tap('secondary')">Label</button>
+                    <button variant="secondary" size="sm" :disabled="$disabled" @tap="tap('secondary')">Label</button>
                 </row>
                 <divider class="mx-4" />
                 <row class="w-full px-4 py-3 items-center">
                     <text class="text-base text-theme-on-surface">Destructive</text>
                     <spacer />
-                    <button variant="destructive" size="sm" :disabled="$disabled" @press="tap('destructive')">Label</button>
+                    <button variant="destructive" size="sm" :disabled="$disabled" @tap="tap('destructive')">Label</button>
                 </row>
                 <divider class="mx-4" />
                 <row class="w-full px-4 py-3 items-center">
                     <text class="text-base text-theme-on-surface">Accent</text>
                     <spacer />
-                    <button variant="accent" size="sm" :disabled="$disabled" @press="tap('accent')">Label</button>
+                    <button variant="accent" size="sm" :disabled="$disabled" @tap="tap('accent')">Label</button>
                 </row>
                 <divider class="mx-4" />
                 <row class="w-full px-4 py-3 items-center">
                     <text class="text-base text-theme-on-surface">Ghost</text>
                     <spacer />
-                    <button variant="ghost" size="sm" :disabled="$disabled" @press="tap('ghost')">Label</button>
+                    <button variant="ghost" size="sm" :disabled="$disabled" @tap="tap('ghost')">Label</button>
                 </row>
             </column>
         </column>
@@ -43,19 +43,19 @@
                 <row class="w-full px-4 py-3 items-center">
                     <text class="text-base text-theme-on-surface">Small</text>
                     <spacer />
-                    <button variant="primary" size="sm" :disabled="$disabled" @press="tap('sm')">Label</button>
+                    <button variant="primary" size="sm" :disabled="$disabled" @tap="tap('sm')">Label</button>
                 </row>
                 <divider class="mx-4" />
                 <row class="w-full px-4 py-3 items-center">
                     <text class="text-base text-theme-on-surface">Medium</text>
                     <spacer />
-                    <button variant="primary" size="md" :disabled="$disabled" @press="tap('md')">Label</button>
+                    <button variant="primary" size="md" :disabled="$disabled" @tap="tap('md')">Label</button>
                 </row>
                 <divider class="mx-4" />
                 <row class="w-full px-4 py-3 items-center">
                     <text class="text-base text-theme-on-surface">Large</text>
                     <spacer />
-                    <button variant="primary" size="lg" :disabled="$disabled" @press="tap('lg')">Label</button>
+                    <button variant="primary" size="lg" :disabled="$disabled" @tap="tap('lg')">Label</button>
                 </row>
             </column>
         </column>
@@ -66,19 +66,19 @@
                 <row class="w-full px-4 py-3 items-center">
                     <text class="text-base text-theme-on-surface">With leading icon</text>
                     <spacer />
-                    <button variant="primary" size="sm" icon="add" :disabled="$disabled" @press="tap('with_icon')">Add</button>
+                    <button variant="primary" size="sm" icon="add" :disabled="$disabled" @tap="tap('with_icon')">Add</button>
                 </row>
                 <divider class="mx-4" />
                 <row class="w-full px-4 py-3 items-center">
                     <text class="text-base text-theme-on-surface">With trailing icon</text>
                     <spacer />
-                    <button variant="secondary" size="sm" icon-trailing="arrow.right" :disabled="$disabled" @press="tap('with_trailing')">Next</button>
+                    <button variant="secondary" size="sm" icon-trailing="arrow.right" :disabled="$disabled" @tap="tap('with_trailing')">Next</button>
                 </row>
                 <divider class="mx-4" />
                 <row class="w-full px-4 py-3 items-center">
                     <text class="text-base text-theme-on-surface">Loading</text>
                     <spacer />
-                    <button variant="primary" size="sm" loading :disabled="$disabled" @press="tap('loading')">Saving</button>
+                    <button variant="primary" size="sm" loading :disabled="$disabled" @tap="tap('loading')">Saving</button>
                 </row>
             </column>
         </column>
@@ -90,31 +90,31 @@
                 <row class="w-full px-4 py-3 items-center">
                     <text class="text-base text-theme-on-surface">glass</text>
                     <spacer />
-                    <button class="glass" size="sm" :disabled="$disabled" @press="tap('glass')">Label</button>
+                    <button class="glass" size="sm" :disabled="$disabled" @tap="tap('glass')">Label</button>
                 </row>
                 <divider class="mx-4" />
                 <row class="w-full px-4 py-3 items-center">
                     <text class="text-base text-theme-on-surface">glass:prominent</text>
                     <spacer />
-                    <button class="glass:prominent" variant="primary" size="sm" :disabled="$disabled" @press="tap('glass_prominent')">Label</button>
+                    <button class="glass:prominent" variant="primary" size="sm" :disabled="$disabled" @tap="tap('glass_prominent')">Label</button>
                 </row>
                 <divider class="mx-4" />
                 <row class="w-full px-4 py-3 items-center">
                     <text class="text-base text-theme-on-surface">glass:prominent + destructive</text>
                     <spacer />
-                    <button class="glass:prominent" variant="destructive" size="sm" :disabled="$disabled" @press="tap('glass_destr')">Label</button>
+                    <button class="glass:prominent" variant="destructive" size="sm" :disabled="$disabled" @tap="tap('glass_destr')">Label</button>
                 </row>
                 <divider class="mx-4" />
                 <row class="w-full px-4 py-3 items-center">
                     <text class="text-base text-theme-on-surface">glass:prominent + accent</text>
                     <spacer />
-                    <button class="glass:prominent" variant="accent" size="sm" :disabled="$disabled" @press="tap('glass_accent')">Label</button>
+                    <button class="glass:prominent" variant="accent" size="sm" :disabled="$disabled" @tap="tap('glass_accent')">Label</button>
                 </row>
                 <divider class="mx-4" />
                 <row class="w-full px-4 py-3 items-center">
                     <text class="text-base text-theme-on-surface">glass:prominent:interactive</text>
                     <spacer />
-                    <button class="glass:prominent:interactive" variant="primary" size="sm" :disabled="$disabled" @press="tap('glass_prominent_int')">Label</button>
+                    <button class="glass:prominent:interactive" variant="primary" size="sm" :disabled="$disabled" @tap="tap('glass_prominent_int')">Label</button>
                 </row>
             </column>
         </column>
@@ -131,7 +131,7 @@
                 <row class="w-full px-4 py-3 items-center">
                     <text class="text-base text-theme-on-surface">Pressable + interactive</text>
                     <spacer />
-                    <pressable class="px-3 py-2 rounded-full glass:interactive" @press="tap('pressable_glass')">
+                    <pressable class="px-3 py-2 rounded-full glass:interactive" @tap="tap('pressable_glass')">
                         <text class="text-sm text-theme-on-surface">Tap me</text>
                     </pressable>
                 </row>
@@ -145,7 +145,7 @@
                 <row class="w-full px-4 py-3 items-center">
                     <text class="text-base text-theme-on-surface">Glass · clear:interactive (pressable)</text>
                     <spacer />
-                    <pressable class="px-3 py-2 rounded-full glass:clear:interactive" @press="tap('pressable_clear')">
+                    <pressable class="px-3 py-2 rounded-full glass:clear:interactive" @tap="tap('pressable_clear')">
                         <text class="text-sm text-theme-on-surface">Tap</text>
                     </pressable>
                 </row>
@@ -201,6 +201,5 @@
             </column>
         </column>
         @endios
-
     </column>
 </scroll-view>

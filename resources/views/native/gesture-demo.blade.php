@@ -3,7 +3,7 @@
         <text class="text-2xl font-extrabold text-theme-on-background">Gesture playground</text>
 
         {{-- Single tap + long press on one node — they coexist cleanly. --}}
-        <stack @press="tapped" @longPress="longPressed"
+        <stack @tap="tapped" @longTap="longPressed"
                class="w-full bg-theme-accent rounded-3xl shadow-xl p-8 items-center justify-center">
             <text class="text-theme-on-accent text-center text-xl font-semibold">Tap or long-press</text>
         </stack>

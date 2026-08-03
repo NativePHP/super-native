@@ -30,7 +30,7 @@
                 ['field' => 'termsAccepted', 'label' => 'Terms accepted', 'icon' => 'check'],
             ] as $row)
                 @php $sel = $this->{$row['field']}; @endphp
-                <pressable @press="toggleField('{{ $row['field'] }}')">
+                <pressable @tap="toggleField('{{ $row['field'] }}')">
                     <row class="items-center gap-1 px-3 py-2 rounded-full {{ $sel ? 'bg-theme-primary border-theme-primary' : 'bg-theme-surface-variant border-theme-outline' }} border">
                         <icon :name="$row['icon']" :size="14" :color="$sel ? '#FFFFFF' : '#475569'" :dark-color="$sel ? '#FFFFFF' : '#94A3B8'"/>
                         <text class="text-sm font-medium {{ $sel ? 'text-theme-on-primary' : 'text-theme-on-surface' }}">{{ $row['label'] }}</text>

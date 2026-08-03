@@ -3,6 +3,7 @@
 namespace App\NativeComponents;
 
 use App\NativeComponents\Concerns\HasTweetData;
+use Illuminate\View\View;
 use Native\Mobile\Edge\NativeComponent;
 use Native\Mobile\Edge\Transition;
 
@@ -17,6 +18,8 @@ class TwitterProfile extends NativeComponent
     public array $userTweets = [];
 
     public int $selectedTab = 0;
+
+    public bool $isFollowing = false;
 
     public function mount(): void
     {
@@ -35,13 +38,18 @@ class TwitterProfile extends NativeComponent
         $this->selectedTab = $index;
     }
 
+    public function toggleFollow(): void
+    {
+        $this->isFollowing = ! $this->isFollowing;
+    }
+
     public function viewTweet(int $tweetId): void
     {
         $this->navigate($this->route('twitter.tweet', $tweetId))
             ->transition(Transition::SlideFromRight);
     }
 
-    public function render(): \Illuminate\View\View
+    public function render(): View
     {
         $users = self::tweetUsers();
         $allTweets = self::tweets();
@@ -59,7 +67,7 @@ class TwitterProfile extends NativeComponent
 
         return view('twitter-profile', [
             'tweetsWithMeta' => $tweetsWithMeta,
-            'followersFormatted' => self::formatCount($this->user['followers']),
+            'followersFormatted' => self::formatCount($this->user['followers'] + ($this->isFollowing ? 1 : 0)),
             'followingFormatted' => self::formatCount($this->user['following']),
         ]);
     }

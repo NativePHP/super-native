@@ -3,6 +3,7 @@
 namespace App\NativeComponents;
 
 use Illuminate\Support\Str;
+use Illuminate\View\View;
 use Native\Mobile\Attributes\OnNative;
 use Native\Mobile\Edge\NativeComponent;
 use Native\Mobile\Events\Alert\ButtonPressed;
@@ -52,6 +53,16 @@ class Explore extends NativeComponent
     {
         nativephp_call('UI.SetBackground', json_encode(['color' => '#FFFFFF']));
         $this->items = $this->fetchUsers($this->page);
+    }
+
+    public function unmount(): void
+    {
+        // UI.SetBackground is app-global sticky native state — without
+        // this clear it leaks the window color into every screen visited
+        // after this one. Empty color = restore the platform default.
+        nativephp_call('UI.SetBackground', json_encode(['color' => null]));
+
+        parent::unmount();
     }
 
     public function showAlert()
@@ -162,7 +173,7 @@ class Explore extends NativeComponent
         }
     }
 
-    public function render(): \Illuminate\View\View
+    public function render(): View
     {
         return view('explore');
     }

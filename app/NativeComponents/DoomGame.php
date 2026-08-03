@@ -2,6 +2,7 @@
 
 namespace App\NativeComponents;
 
+use Illuminate\View\View;
 use Local\DoomGame\Models\Enemy;
 use Local\DoomGame\Models\Player;
 use Local\DoomGame\Services\GameEngine;
@@ -39,6 +40,16 @@ class DoomGame extends NativeComponent
         $this->totalKills = Enemy::dead()->count();
         $this->gamesPlayed = Player::count();
         $this->checkServer();
+    }
+
+    public function unmount(): void
+    {
+        // UI.SetBackground is app-global sticky native state — without
+        // this clear it leaks the window color into every screen visited
+        // after this one. Empty color = restore the platform default.
+        nativephp_call('UI.SetBackground', json_encode(['color' => null]));
+
+        parent::unmount();
     }
 
     public function checkServer(): void
@@ -196,7 +207,7 @@ class DoomGame extends NativeComponent
         $this->isMultiplayer = false;
     }
 
-    public function render(): \Illuminate\View\View
+    public function render(): View
     {
         return view('doom-game');
     }

@@ -1,4 +1,4 @@
-<row class="items-start gap-3 px-4 py-3" @press="openPost({{ $post['id'] }})">
+<row class="items-start gap-3 px-4 py-3" @tap="openPost({{ $post['id'] }})">
     <column class="w-10 h-10 rounded-full bg-theme-primary items-center justify-center">
         <text class="text-theme-on-primary font-semibold">P</text>
     </column>

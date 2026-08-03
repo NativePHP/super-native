@@ -3,6 +3,7 @@
 namespace App\NativeComponents;
 
 use App\NativeComponents\Concerns\HasInstagramData;
+use Illuminate\View\View;
 use Native\Mobile\Edge\Layouts\Builders\NavAction;
 use Native\Mobile\Edge\Layouts\Builders\NavBarOptions;
 use Native\Mobile\Edge\NativeComponent;
@@ -44,6 +45,13 @@ class InstagramFeed extends NativeComponent
     /** @var array<int, bool> */
     public array $savedPosts = [];
 
+    public int $refreshCount = 0;
+
+    public function refresh(): void
+    {
+        $this->refreshCount++;
+    }
+
     public function viewPost(int $index): void
     {
         $this->navigate($this->route('instagram.post', $index))
@@ -74,19 +82,35 @@ class InstagramFeed extends NativeComponent
         }
     }
 
-    public function render(): \Illuminate\View\View
+    public function render(): View
     {
         $users = self::igUsers();
         $posts = self::igPosts();
-        $stories = array_values(array_filter($users, fn (array $u): bool => $u['hasStory']));
 
-        foreach ($posts as $i => &$post) {
+        $stories = [];
+        foreach ($users as $userId => $user) {
+            if ($user['hasStory']) {
+                $user['id'] = $userId;
+                $stories[] = $user;
+            }
+        }
+
+        foreach ($posts as $id => &$post) {
+            $post['id'] = $id;
             $post['user'] = $users[$post['userId']];
-            $post['isLiked'] = isset($this->likedPosts[$i]);
-            $post['isSaved'] = isset($this->savedPosts[$i]);
+            $post['isLiked'] = isset($this->likedPosts[$id]);
+            $post['isSaved'] = isset($this->savedPosts[$id]);
             $post['likesFormatted'] = self::formatIgCount(
                 $post['likes'] + ($post['isLiked'] ? 1 : 0)
             );
+            $post['commentsFormatted'] = self::formatIgCount($post['commentCount']);
+            $post['sharesFormatted'] = self::formatIgCount(intdiv($post['likes'], 12));
+        }
+        unset($post);
+
+        if ($this->refreshCount > 0 && count($posts) > 1) {
+            $offset = $this->refreshCount % count($posts);
+            $posts = array_merge(array_slice($posts, $offset), array_slice($posts, 0, $offset));
         }
 
         return view('instagram-feed', [

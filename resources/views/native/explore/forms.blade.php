@@ -5,7 +5,7 @@
         <column class="gap-1">
             <text class="text-xl text-theme-on-surface-variant">On release (blur)</text>
             <slider native:model.blur="slideBlur" :min="0" :max="100" a11y-label="On release (blur)" class="w-full"/>
-            <text class="text-[20] text-theme-on-surface font-bold bg-theme-surface-variant rounded-full text-center p-2 mt-4">{{ $slideBlur }}</text>
+            <text font="accent" class="text-[20] text-theme-on-surface font-bold bg-theme-surface-variant rounded-full text-center p-2 mt-4">{{ $slideBlur }}</text>
         </column>
 
         <column class="gap-1">
@@ -17,7 +17,7 @@
         <column class="gap-1">
             <text class="text-xl text-theme-on-surface-variant">Live (every drag tick)</text>
             <slider native:model.live="slideValue" :min="0" :max="100" a11y-label="Live (every drag tick)" class="w-full"/>
-            <text class="text-[20] text-theme-on-surface font-bold bg-theme-surface-variant rounded-full text-center p-2 mt-4">{{ $slideValue }}</text>
+            <text class="text-[20] text-theme-on-surface font-bold bg-theme-surface-variant rounded-full text-center p-2 mt-4">{{ number_format($slideValue * 10000000, 2) }}</text>
         </column>
 
 
@@ -80,7 +80,7 @@
 {{--            ['field' => 'subscribed',    'label' => 'Subscribe to newsletter'],--}}
 {{--            ['field' => 'termsAccepted', 'label' => 'I accept the terms and conditions'],--}}
 {{--        ] as $row)--}}
-{{--            <pressable @press="toggleField('{{ $row['field'] }}')">--}}
+{{--            <pressable @tap="toggleField('{{ $row['field'] }}')">--}}
 {{--                <row class="items-center gap-2">--}}
 {{--                    <icon--}}
 {{--                        :name="$this->{$row['field']} ? 'check_box' : 'check_box_outline'"--}}
@@ -121,7 +121,7 @@
 {{--                ['value' => 'team', 'label' => 'Team — $49/mo'],--}}
 {{--            ] as $row)--}}
 {{--                @php $checked = $pricingPlan === $row['value']; @endphp--}}
-{{--                <pressable @press="selectPricingPlan('{{ $row['value'] }}')">--}}
+{{--                <pressable @tap="selectPricingPlan('{{ $row['value'] }}')">--}}
 {{--                    <row class="items-center gap-2">--}}
 {{--                        <icon--}}
 {{--                            :name="$checked ? 'radio_button_checked' : 'radio_button_unchecked'"--}}

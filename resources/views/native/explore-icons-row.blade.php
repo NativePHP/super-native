@@ -4,7 +4,7 @@
 @php($cases = array_slice($iconCatalog['cases'], $index * 3, 3))
 <row :key="'icons-'.$index" class="w-full gap-2 pb-3">
     @foreach ($cases as $case)
-        <pressable @press="showIcon('{{ $case->name }}')"
+        <pressable @tap="showIcon('{{ $case->name }}')"
                    a11y-label="{{ \Illuminate\Support\Str::headline($case->name) }}"
                    class="flex-1 h-[84] items-center justify-center bg-theme-surface-variant rounded-lg">
             <icon :ios="$iconCatalog['ios'] ? $case : null"

@@ -3,6 +3,7 @@
 namespace App\NativeComponents;
 
 use App\NativeComponents\Concerns\HasListingData;
+use Illuminate\View\View;
 use Native\Mobile\Edge\NativeComponent;
 use Native\Mobile\Facades\Dialog;
 
@@ -10,7 +11,6 @@ class ListingDetail extends NativeComponent
 {
     use HasListingData;
 
-    /** @var array */
     public array $listing = [];
 
     /** @var array<int, array> */
@@ -34,6 +34,16 @@ class ListingDetail extends NativeComponent
 
         $this->listing = $listings[$this->listingId] ?? $listings[0];
         $this->listingReviews = $allReviews[$this->listingId] ?? $allReviews[0] ?? [];
+    }
+
+    public function unmount(): void
+    {
+        // UI.SetBackground is app-global sticky native state — without
+        // this clear it leaks the window color into every screen visited
+        // after this one. Empty color = restore the platform default.
+        nativephp_call('UI.SetBackground', json_encode(['color' => null]));
+
+        parent::unmount();
     }
 
     public function toggleWishlist(): void
@@ -60,10 +70,10 @@ class ListingDetail extends NativeComponent
 
     public function reserve(): void
     {
-        Dialog::alert('Reservation Requested', 'Your reservation for ' . $this->listing['title'] . ' has been submitted!');
+        Dialog::alert('Reservation Requested', 'Your reservation for '.$this->listing['title'].' has been submitted!');
     }
 
-    public function render(): \Illuminate\View\View
+    public function render(): View
     {
         $bathroomsFormatted = $this->listing['bathrooms'] == floor($this->listing['bathrooms'])
             ? (int) $this->listing['bathrooms']
