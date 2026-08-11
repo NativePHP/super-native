@@ -1,18 +1,26 @@
-<column class="w-full h-full items-center justify-center bg-theme-surface-variant gap-8">
-    <text content-transition="numeric" animate-duration="250" class="text-[120] font-bold text-theme-on-surface-variant">
-        {{ $count }}
-    </text>
+<column class="w-full h-full safe-area-top">
+    <scroll-view scroll-anchor="bottom" :shows-indicators="false" class="w-full flex-1 px-1 py-1">
+        @foreach($messages as $message)
+            <row class="w-full  mb-2">
+                @if($message['mine'])
+                    <spacer />
+                @endif
+                <column class="{{$message['mine'] ? 'bg-blue-600' : 'bg-gray-300'}} rounded-xl px-4 py-2">
+                    <text class="{{$message['mine'] ? 'text-white' : 'text-gray-800'}}">{{$message['message']}}</text>
+                </column>
+                @unless($message['mine'])
+                    <spacer />
+                @endunless
+            </row>
+        @endforeach
 
-    {{-- Tap steps once; press-and-hold repeats with acceleration
-         (pressDown arms the poll-driven repeat, pressUp disarms it). --}}
-    <row class="gap-8 ">
-        <pressable @pressDown="startHold('down')" @pressUp="stopHold" class="text-center px-8 py-4 shadow rounded bg-theme-secondary">
-            <native:icon class="text-theme-on-secondary" :size="40" a11y-label="Decrement"
-                         :android="App\Icons\Android::ArrowDropDown"
-                         :ios="App\Icons\Ios::ChevronDown"/>
-        </pressable>
-        <pressable @pressDown="startHold('up')" @pressUp="stopHold" class="text-center px-8 py-4 shadow rounded bg-theme-primary">
-            <native:icon class="text-theme-on-primary" :size="40" a11y-label="Increment" :android="App\Icons\Android::ArrowDropUp" :ios="App\Icons\Ios::ChevronUp"/>
-        </pressable>
-    </row>
+    </scroll-view>
+    <column class="w-full h-20 px-2">
+        <row class="border border-purple-500 rounded-full p-2 items-center">
+            <bare-text-input native:model="draft" class="w-full px-4 py-2 text-2xl" placeholder="Type a message" />
+            <pressable @tap="sendMessage" class="bg-purple-700 rounded-full p-4">
+                <native:icon class="text-white" :ios="\App\Icons\Ios::Paperplane" />
+            </pressable>
+        </row>
+    </column>
 </column>

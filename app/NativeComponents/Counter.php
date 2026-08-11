@@ -11,6 +11,144 @@ class Counter extends NativeComponent
 {
     public $count = 0;
 
+    public string $draft = '';
+
+    public array $messages = [];
+
+    public function mount(): void
+    {
+        $this->messages = [
+            [
+                'message' => 'Jello World!',
+                'mine' => true
+            ],
+            [
+                'message' => 'Jello Back!',
+                'mine' => false
+            ],
+            [
+                'message' => 'Jello World!',
+                'mine' => true
+            ],
+            [
+                'message' => 'Jello Back!',
+                'mine' => false
+            ],
+            [
+                'message' => 'Jello World!',
+                'mine' => true
+            ],
+            [
+                'message' => 'Jello Back!',
+                'mine' => false
+            ],
+            [
+                'message' => 'Jello World!',
+                'mine' => true
+            ],
+            [
+                'message' => 'Jello Back!',
+                'mine' => false
+            ],
+            [
+                'message' => 'Jello World!',
+                'mine' => true
+            ],
+            [
+                'message' => 'Jello Back!',
+                'mine' => false
+            ],
+            [
+                'message' => 'Jello World!',
+                'mine' => true
+            ],
+            [
+                'message' => 'Jello Back!',
+                'mine' => false
+            ],
+            [
+                'message' => 'Jello World!',
+                'mine' => true
+            ],
+            [
+                'message' => 'Jello Back!',
+                'mine' => false
+            ],
+            [
+                'message' => 'Jello World!',
+                'mine' => true
+            ],
+            [
+                'message' => 'Jello Back!',
+                'mine' => false
+            ],
+            [
+                'message' => 'Jello World!',
+                'mine' => true
+            ],
+            [
+                'message' => 'Jello Back!',
+                'mine' => false
+            ],
+            [
+                'message' => 'Jello World!',
+                'mine' => true
+            ],
+            [
+                'message' => 'Jello Back!',
+                'mine' => false
+            ],
+            [
+                'message' => 'Jello World!',
+                'mine' => true
+            ],
+            [
+                'message' => 'Jello Back!',
+                'mine' => false
+            ],
+            [
+                'message' => 'Jello World!',
+                'mine' => true
+            ],
+            [
+                'message' => 'Jello Back!',
+                'mine' => false
+            ],
+            [
+                'message' => 'Jello World!',
+                'mine' => true
+            ],
+            [
+                'message' => 'Jello Back!',
+                'mine' => false
+            ],
+            [
+                'message' => 'Jello World!',
+                'mine' => true
+            ],
+            [
+                'message' => 'Jello Back!',
+                'mine' => false
+            ],
+            [
+                'message' => 'Jello World!',
+                'mine' => true
+            ],
+            [
+                'message' => 'Jello Back!',
+                'mine' => false
+            ],
+            [
+                'message' => 'Jello World!',
+                'mine' => true
+            ],
+            [
+                'message' => 'Jello Back!',
+                'mine' => false
+            ],
+        ];
+    }
+
     /** Direction of an active press-and-hold: 'up', 'down', or null. */
     public ?string $holding = null;
 
@@ -89,5 +227,15 @@ class Counter extends NativeComponent
     public function render(): View
     {
         return view('native.counter');
+    }
+
+    public function sendMessage()
+    {
+        $this->messages[] = [
+            'message' => $this->draft,
+            'mine' => true,
+        ];
+
+        $this->draft = '';
     }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\NativeComponents\AccordionDemo;
 use App\NativeComponents\Animate;
 use App\NativeComponents\ButtonsForm;
 use App\NativeComponents\ComposeTweet;
@@ -32,11 +33,23 @@ use App\NativeComponents\InstagramSearch;
 use App\NativeComponents\ItemDetail;
 use App\NativeComponents\JustifyRepro;
 use App\NativeComponents\Layouts\NativeStackLayout;
+use App\NativeComponents\Layouts\PaneLabLayout;
+use App\NativeComponents\PaneLab;
 use App\NativeComponents\Layouts\StackLayout;
 use App\NativeComponents\MailDemo;
+use App\NativeComponents\MasterclassAlignItems;
+use App\NativeComponents\MasterclassAutocapitalize;
+use App\NativeComponents\MasterclassCornerRadius;
+use App\NativeComponents\MasterclassKeyboardDismiss;
+use App\NativeComponents\MasterclassKeyboardDismissPlain;
+use App\NativeComponents\MasterclassScrollCenter;
+use App\NativeComponents\MasterclassScrollCenterLogin;
+use App\NativeComponents\MasterclassMaxWidth;
 use App\NativeComponents\NumberSwitcherDemo;
 use App\NativeComponents\ReactivityDemo;
+use App\NativeComponents\PlatformIconsDemo;
 use App\NativeComponents\RefreshableDemo;
+use App\NativeComponents\SelectionDemo;
 use App\NativeComponents\SpotifyArtist;
 use App\NativeComponents\SpotifyHome;
 use App\NativeComponents\SpotifyPlaylist;
@@ -87,9 +100,14 @@ Route::native('/transitions', TransitionsDemo::class)
 Route::native('/transitions/detail', TransitionDetail::class)->name('transitions.detail');
 
 // ── Demo HOME routes — get a back-arrow TopBar via StackLayout ──
+Route::native('/pane-lab', PaneLab::class)->layout(PaneLabLayout::class)->name('pane.lab');
+Route::native('/counter', Counter::class)->name('counter');
+
 Route::nativeGroup(StackLayout::class, function () {
     // Component showcases (broken out from explore)
-    Route::native('/counter', Counter::class)->name('counter');
+    Route::native('/selection', SelectionDemo::class)->name('selection.demo');
+    Route::native('/platform-icons', PlatformIconsDemo::class)->name('platform.icons.demo');
+    Route::native('/accordion', AccordionDemo::class)->name('accordion.demo');
     Route::native('/justify-repro', JustifyRepro::class)->name('justify.repro');
     Route::native('/theme-lab', ThemeLab::class)->name('theme.lab');
     Route::native('/reactivity', ReactivityDemo::class)->name('reactivity.demo');
@@ -117,11 +135,31 @@ Route::nativeGroup(StackLayout::class, function () {
     Route::native('/layout-test', TestLayout::class)->name('layout.test');
     Route::native('/stack-positioning', StackPositioningDemo::class)->name('stack.positioning');
 
+    // Masterclass bug-fix demos — one screen per mobile-air issue, each a
+    // visual assertion of the fix. Read them on iOS and Android side by side.
+    Route::native('/masterclass/align-items', MasterclassAlignItems::class)->name('masterclass.align.items');
+    Route::native('/masterclass/max-width', MasterclassMaxWidth::class)->name('masterclass.max.width');
+    Route::native('/masterclass/corner-radius', MasterclassCornerRadius::class)->name('masterclass.corner.radius');
+    Route::native('/masterclass/autocapitalize', MasterclassAutocapitalize::class)->name('masterclass.autocapitalize');
+    // #308 — this one MUST stay inside the group: native chrome is the failing case.
+    Route::native('/masterclass/keyboard-dismiss', MasterclassKeyboardDismiss::class)->name('masterclass.keyboard.dismiss');
+    Route::native('/masterclass/scroll-center', MasterclassScrollCenter::class)->name('masterclass.scroll.center');
+
     // Mini app demos
     Route::native('/twitter', TwitterFeed::class)->name('twitter.feed');
     Route::native('/facebook', FacebookFeed::class)->name('facebook.feed');
     Route::native('/instagram', InstagramFeed::class)->name('instagram.feed');
 });
+
+// #308 control — the same screen with NO native chrome, so the two can be
+// compared side by side. Must stay OUTSIDE the StackLayout group.
+Route::native('/masterclass/keyboard-dismiss-plain', MasterclassKeyboardDismissPlain::class)
+    ->name('masterclass.keyboard.dismiss.plain');
+
+// #303 — the realistic full-screen login case. Chrome-less so the scroll view
+// really is the whole viewport.
+Route::native('/masterclass/scroll-center-login', MasterclassScrollCenterLogin::class)
+    ->name('masterclass.scroll.center.login');
 
 // ── Demo INNER routes — keep their own custom blade chrome ──
 // Twitter / X

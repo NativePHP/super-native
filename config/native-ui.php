@@ -124,6 +124,8 @@ return [
         'display' => 'Unbounded-Bold',
         'grotesk' => 'SpaceGrotesk-Regular',
         'grotesk-bold' => 'SpaceGrotesk-Bold',
+        'agu-display' => 'AguDisplay-Regular',
+        'abel' => 'Abel-Regular',
     ],
 
 ];

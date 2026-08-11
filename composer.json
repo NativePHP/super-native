@@ -13,7 +13,7 @@
         "laravel/framework": "^13.0",
         "laravel/tinker": "^3.0",
         "nativephp/mobile": "dev-main as 4.9.9",
-        "nativephp/mobile-ui": "^0.3.0"
+        "nativephp/mobile-ui": "dev-main"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
@@ -97,6 +97,11 @@
         }
     },
     "repositories": [
+        {
+            "name": "mobile-ui",
+            "type": "vcs",
+            "url": "https://github.com/NativePHP/mobile-ui"
+        },
         {
             "type": "vcs",
             "url": "https://github.com/NativePHP/mobile-air"
