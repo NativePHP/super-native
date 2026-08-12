@@ -34,6 +34,23 @@
             </native:text>
         </native:column>
 
+        {{--
+            Platform variants. The shell declares NATIVEPHP_PLATFORM before PHP
+            boots, so core resolves `macos` with no bridge call and this row
+            should be emerald and say so. Every ios:/android: class here targets
+            an alarming red on purpose: if any of them leaked, this block turns
+            red rather than failing quietly.
+        --}}
+        <native:row class="gap-3 items-center rounded-lg p-3 macos:bg-emerald-950 ios:bg-red-700 android:bg-red-700">
+            <native:text class="text-xs font-bold macos:text-emerald-400 ios:text-white android:text-white">
+                platform variants
+            </native:text>
+            <native:text class="text-xs macos:text-emerald-200 ios:text-white android:text-white">
+                System::platform() = {{ \SupaNative\Desktop\Facades\System::platform() ?? 'unknown' }} — every colour on
+                this row comes from a macos: class. The ios:/android: class beside each one did not apply.
+            </native:text>
+        </native:row>
+
         {{-- column, button, toggle --}}
         <native:row class="gap-4 items-start">
 

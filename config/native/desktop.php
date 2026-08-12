@@ -25,4 +25,12 @@ return [
      * Route::native() path — the same string Window::url() takes.
      */
     'default_window' => '/renderer-batch1',
+
+    /*
+     * This app is deliberately dark: the demo screens paint themselves with
+     * slate-900/950, and left on 'system' every AppKit-drawn control on a Mac in
+     * light mode came out light on top of that — the dark-on-dark activity
+     * indicator, and a white text_input.
+     */
+    'appearance' => 'dark',
 ];
