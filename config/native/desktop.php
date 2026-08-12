@@ -21,30 +21,32 @@ return [
     'routes' => base_path('routes/desktop.php'),
 
     /*
-     * The window opened at boot. Resolved through NativeRouter, so this is a
-     * Route::native() path — the same string Window::url() takes.
+     * The window opened at boot. Resolved through supanative/core's shared screen
+     * registry, so this is any path the app declared — a Route::native() one from
+     * routes/web.php or routes/native.php, or a Window::screen() one from
+     * routes/desktop.php. `/` is the demo launcher, declared in routes/web.php
+     * for the phone build and opened here without a desktop registration.
      */
-    'default_window' => '/inputs/event-channel',
+    'default_window' => '/',
 
     /*
      * Pinned rather than 'system' so a screenshot of a demo screen shows the same
-     * thing on any Mac. Which value depends on what `default_window` points at,
-     * because these screens are authored for one appearance each and nothing
-     * repaints them for the other:
+     * thing on any Mac.
      *
-     *  - The icon screens (/icons/*) paint themselves slate-900/950 and need
-     *    'dark', or every AppKit-drawn control on a light-mode Mac comes out
-     *    light on top of them: a dark-on-dark activity indicator, a white
-     *    text_input.
-     *  - The input screens (/inputs/*) use `theme-*` classes, which resolve
-     *    light-by-default in config/native-ui.php, so they need 'light'. In
-     *    'dark' they are legible except for the one thing being demonstrated:
-     *    nativephp/mobile-ui's renderers colour their own text from
-     *    `NativeUITheme.shared`, and nothing pushes a theme to it on desktop yet
-     *    — its `NativeUI.Theme.Set` bridge function is an iOS registration, and
-     *    the desktop plugin mechanism carries renderers only. So the store holds
-     *    its light fallback while the surrounding tree is dark, and typed text
-     *    comes out near-black on near-black.
+     * 'light' because every screen now reachable as a window was authored for a
+     * phone, and there are 80 of them: no single value suits them all. Roughly
+     * half paint their own background — the Spotify, Twitter and X-style screens
+     * are near-black by design — and those look right in either setting because
+     * they never ask AppKit for a colour. What breaks under 'dark' is the other
+     * half, which leave the background to the host and expect dark ink on it.
+     *
+     * The screens with their own dark background *and* `theme-*` text are the ones
+     * that read badly whichever way this is set: their labels resolve
+     * light-by-default from config/native-ui.php while sitting on their own
+     * near-black, so the text is dark-on-dark. /explore/forms is the clearest
+     * case. Fixing it means pushing a theme to the plugin's renderers on desktop,
+     * which nothing does yet — `NativeUI.Theme.Set` is an iOS registration, and
+     * the desktop plugin mechanism carries renderers only.
      */
     'appearance' => 'light',
 ];
