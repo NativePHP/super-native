@@ -2,12 +2,7 @@
 
 namespace App\NativeComponents\Desktop;
 
-use SupaNative\Core\Edge\Element;
-use SupaNative\Core\Edge\Elements\Column;
-use SupaNative\Core\Edge\Elements\Pressable;
-use SupaNative\Core\Edge\Elements\Row;
-use SupaNative\Core\Edge\Elements\Spacer;
-use SupaNative\Core\Edge\Elements\Text;
+use Illuminate\View\View;
 use SupaNative\Core\Edge\NativeComponent;
 use SupaNative\Desktop\Exceptions\SurfaceLimitExceeded;
 use SupaNative\Desktop\Facades\Window;
@@ -19,13 +14,12 @@ use SupaNative\Desktop\Facades\Window;
  * nav bars, tab bars, the hardware back button — which a desktop window doesn't
  * have, and the macOS renderer would lay those nodes out as plain columns.
  *
- * Built with the element builders rather than a Blade view on purpose: the
- * `<native:*>` Blade precompiler is registered by nativephp/mobile's service
- * provider against mobile's own collector, so a core-based component's Blade
- * render collects into the wrong place and publishes an empty tree. Programmatic
- * elements go through core's own path and are unaffected. Blade for desktop
- * screens needs that registration to move into core (or mobile's core-based
- * refactor to land) first.
+ * Rendered from a Blade view — `resources/views/native/desktop/dashboard.blade.php`
+ * — with the same `<native:*>` tags a mobile screen uses. That works because the
+ * precompiler is registered by supanative/core's provider, so the compiled view
+ * calls core's collector, which is the one this component reads. It used to be
+ * mobile's registration against mobile's own collector, and a core-based screen
+ * published an empty tree.
  */
 class Dashboard extends NativeComponent
 {
@@ -71,64 +65,13 @@ class Dashboard extends NativeComponent
         $this->stop();
     }
 
-    public function render(): Element
+    public function render(): View
     {
-        return Column::make(
-            Column::make(
-                Text::make(config('app.name').' — desktop')->class('text-2xl font-bold text-white'),
-                Text::make(sprintf(
-                    'Laravel %s on PHP %s, %d surface(s) live.',
-                    app()->version(),
-                    PHP_VERSION,
-                    // Guarded so the screen can also be rendered by a plain
-                    // `php artisan` process, where there is no extension.
-                    function_exists('nativephp_surface_count') ? nativephp_surface_count() : 0,
-                ))->class('text-sm text-slate-400'),
-            )->class('gap-1'),
-
-            $this->card('COUNTER — this window\'s own state', [
-                Text::make((string) $this->count)->class('text-5xl font-bold text-indigo-400'),
-                Row::make(
-                    $this->button('−', 'decrement', 'bg-slate-800'),
-                    $this->button('+', 'increment', 'bg-indigo-600'),
-                )->class('gap-3'),
-            ]),
-
-            $this->card('WINDOWS — one process, one event loop', [
-                Row::make(
-                    $this->button('Open settings window', 'openSettings', 'bg-emerald-600'),
-                    $this->button('Close it', 'closeSettings', 'bg-slate-800'),
-                )->class('gap-3'),
-                ...array_map(
-                    fn (string $key, int $surface) => Text::make("{$key} → surface {$surface}")
-                        ->class('text-xs text-slate-400'),
-                    array_keys(Window::all()),
-                    array_values(Window::all()),
-                ),
-            ]),
-
-            Spacer::make(),
-
-            Row::make(
-                $this->button('Quit', 'quit', 'bg-rose-700'),
-                Text::make('Last action: '.$this->last)->class('text-xs text-slate-500'),
-            )->class('gap-3 items-center'),
-        )->class('w-full h-full bg-slate-950 p-8 gap-6');
-    }
-
-    /** @param  Element[]  $children */
-    protected function card(string $heading, array $children): Element
-    {
-        return Column::make(
-            Text::make($heading)->class('text-xs font-semibold text-slate-400'),
-            ...$children,
-        )->class('w-full bg-slate-900 rounded-xl p-6 gap-4');
-    }
-
-    protected function button(string $label, string $method, string $background): Element
-    {
-        return Pressable::make(
-            Text::make($label)->class('text-base font-semibold text-white'),
-        )->class("px-5 py-2 rounded {$background}")->onPress($method);
+        return view('native.desktop.dashboard', [
+            'windows' => Window::all(),
+            // Guarded so the screen can also be rendered by a plain
+            // `php artisan` process, where there is no extension.
+            'surfaces' => function_exists('nativephp_surface_count') ? nativephp_surface_count() : 0,
+        ]);
     }
 }
