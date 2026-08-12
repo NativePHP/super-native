@@ -3,9 +3,11 @@
 use App\NativeComponents\Desktop\Dashboard;
 use App\NativeComponents\Desktop\RendererBatch1;
 use App\NativeComponents\Desktop\Settings;
+use App\NativeComponents\EventChannelTest;
 use App\NativeComponents\ExploreButtons;
 use App\NativeComponents\FacebookFeed;
 use App\NativeComponents\IkeaCart;
+use App\NativeComponents\TestLayout;
 use SupaNative\Desktop\Facades\Window;
 
 /*
@@ -43,3 +45,30 @@ Window::screen('/renderer-batch1', RendererBatch1::class);
 Window::screen('/icons/ikea-cart', IkeaCart::class);
 Window::screen('/icons/facebook', FacebookFeed::class);
 Window::screen('/icons/buttons', ExploreButtons::class);
+
+/*
+ * Two more mobile demo screens, borrowed the same way and for the same reason —
+ * this time to prove the plugin mechanism rather than a renderer the shell owns.
+ *
+ * Neither screen's text inputs are drawn by anything in this repo or in the
+ * shell. `outlined_text_input` is defined by nativephp/mobile-ui, and the Swift
+ * that draws it is mobile-ui's own — copied into the shell's Xcode project from
+ * the `macos` section of its nativephp.json and registered from its `components`
+ * table. So what appears here is the package's renderer, unmodified, compiled
+ * for macOS: the same file an iPhone gets.
+ *
+ * Chosen because a text input was each one's *only* unrenderable element type,
+ * verified by scanning their tags against NodeRenderer's cases. Between them:
+ *
+ *  - **event-channel-test** carries a `label` and, crucially, is uncontrolled —
+ *    `@change` only. Every keystroke ships the whole field to PHP, which counts
+ *    the bytes and renders the count back, so the number on screen IS the proof
+ *    that the value arrived. A screen that merely echoed the field back could be
+ *    showing local state.
+ *  - **test-layout** is a chat composer: `placeholder`, an initial `value`, and
+ *    `multiline`, sharing a row with icons so the field's flex sizing is visible.
+ *
+ * Still not a general registry bridge, and still not the start of one.
+ */
+Window::screen('/inputs/event-channel', EventChannelTest::class);
+Window::screen('/inputs/composer', TestLayout::class);

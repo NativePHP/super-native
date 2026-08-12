@@ -24,13 +24,27 @@ return [
      * The window opened at boot. Resolved through NativeRouter, so this is a
      * Route::native() path — the same string Window::url() takes.
      */
-    'default_window' => '/icons/ikea-cart',
+    'default_window' => '/inputs/event-channel',
 
     /*
-     * This app is deliberately dark: the demo screens paint themselves with
-     * slate-900/950, and left on 'system' every AppKit-drawn control on a Mac in
-     * light mode came out light on top of that — the dark-on-dark activity
-     * indicator, and a white text_input.
+     * Pinned rather than 'system' so a screenshot of a demo screen shows the same
+     * thing on any Mac. Which value depends on what `default_window` points at,
+     * because these screens are authored for one appearance each and nothing
+     * repaints them for the other:
+     *
+     *  - The icon screens (/icons/*) paint themselves slate-900/950 and need
+     *    'dark', or every AppKit-drawn control on a light-mode Mac comes out
+     *    light on top of them: a dark-on-dark activity indicator, a white
+     *    text_input.
+     *  - The input screens (/inputs/*) use `theme-*` classes, which resolve
+     *    light-by-default in config/native-ui.php, so they need 'light'. In
+     *    'dark' they are legible except for the one thing being demonstrated:
+     *    nativephp/mobile-ui's renderers colour their own text from
+     *    `NativeUITheme.shared`, and nothing pushes a theme to it on desktop yet
+     *    — its `NativeUI.Theme.Set` bridge function is an iOS registration, and
+     *    the desktop plugin mechanism carries renderers only. So the store holds
+     *    its light fallback while the surrounding tree is dark, and typed text
+     *    comes out near-black on near-black.
      */
-    'appearance' => 'dark',
+    'appearance' => 'light',
 ];
