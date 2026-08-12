@@ -1,6 +1,7 @@
 <?php
 
 use App\NativeComponents\Desktop\Dashboard;
+use App\NativeComponents\Desktop\RendererBatch1;
 use App\NativeComponents\Desktop\Settings;
 use SupaNative\Desktop\Facades\Window;
 
@@ -13,3 +14,4 @@ use SupaNative\Desktop\Facades\Window;
 
 Window::screen('/', Dashboard::class);
 Window::screen('/settings', Settings::class);
+Window::screen('/renderer-batch1', RendererBatch1::class);
