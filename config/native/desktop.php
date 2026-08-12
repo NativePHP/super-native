@@ -40,13 +40,15 @@ return [
      * they never ask AppKit for a colour. What breaks under 'dark' is the other
      * half, which leave the background to the host and expect dark ink on it.
      *
-     * The screens with their own dark background *and* `theme-*` text are the ones
-     * that read badly whichever way this is set: their labels resolve
-     * light-by-default from config/native-ui.php while sitting on their own
-     * near-black, so the text is dark-on-dark. /explore/forms is the clearest
-     * case. Fixing it means pushing a theme to the plugin's renderers on desktop,
-     * which nothing does yet — `NativeUI.Theme.Set` is an iOS registration, and
-     * the desktop plugin mechanism carries renderers only.
+     * The dark-on-dark screens are fixed, and this setting was never the cause.
+     * The shell was painting a hardcoded near-black (#0B0B11) behind any tree that
+     * did not paint its own background — in a window whose declared appearance is
+     * 'light', from which PHP had already resolved every `theme-*` colour on the
+     * screen. So navy-on-near-black text was the light theme sitting on a dark
+     * page, and no theme could have agreed with a background nothing had told it
+     * about. The shell now uses the platform's own window background, which
+     * follows the appearance the app declared. /explore/forms was the clearest
+     * case and reads correctly at either setting now.
      */
     'appearance' => 'light',
 ];
