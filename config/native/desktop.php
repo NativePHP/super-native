@@ -24,7 +24,7 @@ return [
      * The window opened at boot. Resolved through NativeRouter, so this is a
      * Route::native() path — the same string Window::url() takes.
      */
-    'default_window' => '/renderer-batch1',
+    'default_window' => '/icons/ikea-cart',
 
     /*
      * This app is deliberately dark: the demo screens paint themselves with
