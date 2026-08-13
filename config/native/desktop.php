@@ -26,8 +26,13 @@ return [
      * routes/web.php or routes/native.php, or a Window::screen() one from
      * routes/desktop.php. `/` is the demo launcher, declared in routes/web.php
      * for the phone build and opened here without a desktop registration.
+     *
+     * Pointed at /counter rather than `/` for now because that screen is what the
+     * two newest things need a human for: the permanent `@desktop` sidebar beside
+     * the content, and press-and-hold on the ± buttons, which no automated check
+     * in this repo can exercise. Put it back to `/` when you've seen them.
      */
-    'default_window' => '/',
+    'default_window' => '/counter',
 
     /*
      * Pinned rather than 'system' so a screenshot of a demo screen shows the same
