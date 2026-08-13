@@ -3,7 +3,6 @@
 namespace App\NativeComponents;
 
 use Illuminate\View\View;
-use Native\Mobile\Attributes\Poll;
 use Native\Mobile\Edge\Layouts\Builders\NavBarOptions;
 use Native\Mobile\Edge\NativeComponent;
 use Native\Mobile\Facades\Camera;
@@ -14,11 +13,14 @@ class Counter extends NativeComponent
 
     public $photo = '';
 
-    /** Direction of an active press-and-hold: 'up', 'down', or null. */
+    /**
+     * Which button is being held ('up' / 'down'), or null when nothing is.
+     *
+     * Set by `@hold` and cleared by `@release`, and the template dims the held
+     * button from it — which is what makes a `@release` that never arrived
+     * visible instead of silent.
+     */
     public ?string $holding = null;
-
-    /** Ticks elapsed in the current hold — drives step acceleration. */
-    public int $holdTicks = 0;
 
     public function navTitle(): string
     {
@@ -36,50 +38,42 @@ class Counter extends NativeComponent
     }
 
     /**
-     * `@pressDown` — steps once immediately (so a plain tap counts), then
-     * arms the poll-driven repeat below for as long as the press is held.
+     * `@hold` — press-and-hold, timed natively.
+     *
+     * Fires once the instant the button is touched (so a plain tap is one
+     * step), then repeatedly for as long as it stays held: 1, 2, 4, 8 and
+     * finally 16 events a second, reaching full speed at 11s. `$speed` steps
+     * with the cadence — 0.0625, 0.125, 0.25, 0.5, 1.0 — and is the whole
+     * reason this method needs no timer, no tick counter and no `#[Poll]`.
+     * What it used to take is in this file's history: a poll armed by
+     * `@pressDown`, waking every 110ms whether or not anything was held, so
+     * that PHP could time a gesture it cannot see.
+     *
+     * Reading `$speed` is the point of the contract. Multiplying by 16 turns
+     * the five stages into whole steps of 1, 2, 4, 8, 16, so the count
+     * accelerates twice over — more events per second AND more counted per
+     * event, 1/sec at the start and 256/sec once the ramp tops out. Ignoring
+     * `$speed` and adding 1 per event would work exactly as well; it would just
+     * ramp 1 → 16 per second instead.
      */
-    public function startHold(string $direction): void
+    public function hold(string $direction, float $speed): void
     {
         $this->holding = $direction === 'down' ? 'down' : 'up';
-        $this->holdTicks = 0;
-        $this->step();
-    }
 
-    /** `@pressUp` — fires on release or cancel; disarms the repeat. */
-    public function stopHold(): void
-    {
-        $this->holding = null;
-        $this->holdTicks = 0;
+        $step = (int) round($speed * 16);
+
+        $this->count += $this->holding === 'down' ? -$step : $step;
     }
 
     /**
-     * Repeat engine. The poll wakes every tick regardless of hold state,
-     * but idle ticks re-render an identical tree, which the shadow compare
-     * drops before it reaches the wire — only held ticks cost anything.
-     * The tick cap auto-releases a hold whose pressUp never arrived.
+     * `@release` — the hold ended, whether by letting go, dragging off the
+     * button, or the screen going away underneath it. Nothing to disarm: the
+     * repeat lives in the renderer, and all this clears is the held state the
+     * template draws with.
      */
-    #[Poll(110)]
-    public function holdTick(): void
+    public function release(): void
     {
-        if ($this->holding === null) {
-            return;
-        }
-
-        if (++$this->holdTicks > 130) {
-            $this->stopHold();
-
-            return;
-        }
-
-        $this->step();
-    }
-
-    /** Accelerates the longer the hold: ±1, then ±2, then ±5 per tick. */
-    protected function step(): void
-    {
-        $delta = $this->holdTicks > 25 ? 5 : ($this->holdTicks > 8 ? 2 : 1);
-        $this->count += $this->holding === 'down' ? -$delta : $delta;
+        $this->holding = null;
     }
 
     public function testCamera()

@@ -28,9 +28,13 @@ return [
      * for the phone build and opened here without a desktop registration.
      *
      * Pointed at /counter rather than `/` for now because that screen is what the
-     * two newest things need a human for: the permanent `@desktop` sidebar beside
-     * the content, and press-and-hold on the ± buttons, which no automated check
-     * in this repo can exercise. Put it back to `/` when you've seen them.
+     * newest things need a human for, and nothing in this repo can exercise any
+     * of them: the permanent `@desktop` sidebar beside the content; `@hold` /
+     * `@release`, whose whole point is a ramp that only a real press produces
+     * (every posted event is traced to /tmp/nphp-swift.log); and the padded ±
+     * buttons, which are where a click landing anywhere but on the icon proves
+     * the hit area now covers the padding. Put it back to `/` when you've seen
+     * them.
      */
     'default_window' => '/counter',
 

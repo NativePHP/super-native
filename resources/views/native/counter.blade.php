@@ -16,15 +16,21 @@
             {{ $count }}
         </text>
 
-        {{-- Tap steps once; press-and-hold repeats with acceleration
-             (pressDown arms the poll-driven repeat, pressUp disarms it). --}}
+        {{-- Tap steps once; press-and-hold accelerates.
+
+             `@hold` fires on contact and then keeps firing — 1, 2, 4, 8, 16
+             times a second as the hold continues — each event carrying a
+             `speed` the handler multiplies its step by. The timing is the
+             renderer's, not PHP's: there is no poll on this screen and no tick
+             counter behind it. `@release` fires when the press ends, and the
+             held button dims until it does. --}}
         <row class="gap-8 ">
-            <pressable @pressDown="startHold('down')" @pressUp="stopHold" class="text-center px-8 py-4 shadow rounded bg-theme-secondary">
+            <pressable @hold="hold('down')" @release="release" class="text-center px-8 py-4 shadow rounded bg-theme-secondary {{ $holding === 'down' ? 'opacity-70' : '' }}">
                 <native:icon class="text-theme-on-secondary" :size="40" a11y-label="Decrement"
                              :android="App\Icons\Android::ArrowDropDown"
                              :ios="App\Icons\Ios::ChevronDown"/>
             </pressable>
-            <pressable @pressDown="startHold('up')" @pressUp="stopHold" class="text-center px-8 py-4 shadow rounded bg-theme-primary">
+            <pressable @hold="hold('up')" @release="release" class="text-center px-8 py-4 shadow rounded bg-theme-primary {{ $holding === 'up' ? 'opacity-70' : '' }}">
                 <native:icon class="text-theme-on-primary" :size="40" a11y-label="Increment" :android="App\Icons\Android::ArrowDropUp" :ios="App\Icons\Ios::ChevronUp"/>
             </pressable>
         </row>
