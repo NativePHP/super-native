@@ -9,10 +9,11 @@ use SupaNative\Core\Platform;
 /*
  * `@desktop` … `@enddesktop` and `@mobile` … `@endmobile`, proved both ways.
  *
- * /counter is a real shared screen: one Blade file, a `<row>` root, and a
- * `@desktop` block that includes the sidebar partial. So these tests are also
- * the regression net for the demo — if the block stops gating, the phone build
- * grows a 220pt sidebar it has no room for.
+ * /counter is a real shared screen: one Blade file with a block of each, so
+ * these tests are the regression net for the demo as well as for the directive.
+ * The sidebar is no longer one of the things being gated — it is window chrome
+ * the desktop host applies to every screen (SidebarChromeTest covers that), and
+ * a screen carries no markup for it at all.
  */
 
 afterEach(function () {
@@ -21,39 +22,20 @@ afterEach(function () {
     Platform::set(null);
 });
 
-/** Every node type present in a component's published tree. */
-function treeTypes(array $node, array &$seen = []): array
-{
-    $seen[] = $node['type'] ?? '';
-
-    foreach ($node['children'] ?? [] as $child) {
-        treeTypes($child, $seen);
-    }
-
-    return $seen;
-}
-
 it('renders a @desktop block on macOS and drops it on a phone', function () {
     // macOS FIRST, then iOS, deliberately. Laravel caches one compiled file per
     // view keyed by path + mtime, with nothing about the platform in the key —
     // so if the directive resolved the platform at compile time, the desktop
     // branch would be baked into that file and the iOS assertion below would
-    // find a sidebar. It compiles to a runtime `Blade::check()` instead, which
+    // find it anyway. It compiles to a runtime `Blade::check()` instead, which
     // is what makes one cached file correct for both platforms.
     Platform::set(Platform::MACOS);
 
-    $desktop = treeTypes(Native::test(Counter::class)->tree());
-
-    expect($desktop)->toContain('side_nav')
-        ->toContain('side_nav_item')
-        ->and($desktop)->not->toContain('side_nav_footer');
+    expect(json_encode(Native::test(Counter::class)->tree()))->toContain('Click or hold');
 
     Platform::set(Platform::IOS);
 
-    $phone = treeTypes(Native::test(Counter::class)->tree());
-
-    expect($phone)->not->toContain('side_nav');
-    expect($phone)->not->toContain('side_nav_item');
+    expect(json_encode(Native::test(Counter::class)->tree()))->not->toContain('Click or hold');
 });
 
 it('renders a @mobile block on a phone and drops it on macOS', function () {

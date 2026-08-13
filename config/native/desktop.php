@@ -24,17 +24,20 @@ return [
      * The window opened at boot. Resolved through supanative/core's shared screen
      * registry, so this is any path the app declared — a Route::native() one from
      * routes/web.php or routes/native.php, or a Window::screen() one from
-     * routes/desktop.php. `/` is the demo launcher, declared in routes/web.php
-     * for the phone build and opened here without a desktop registration.
+     * routes/desktop.php.
      *
-     * Pointed at /counter rather than `/` for now because that screen is what the
-     * newest things need a human for, and nothing in this repo can exercise any
-     * of them: the permanent `@desktop` sidebar beside the content; `@hold` /
-     * `@release`, whose whole point is a ramp that only a real press produces
-     * (every posted event is traced to /tmp/nphp-swift.log); and the padded ±
-     * buttons, which are where a click landing anywhere but on the icon proves
-     * the hit area now covers the padding. Put it back to `/` when you've seen
-     * them.
+     * Deliberately NOT `/`. That path is the demo launcher: a scrolling list of
+     * every demo, which is the right front door on a phone and redundant on a
+     * Mac, where routes/desktop.php declares the same list as a permanent
+     * sidebar. Opening it here would mean a window whose sidebar and whose
+     * content were the same list, twice.
+     *
+     * /counter because a first screen should be the simplest thing that proves
+     * the app is alive, and it is also the screen the newest work needs a human
+     * for: `@hold` / `@release`, whose whole point is a ramp only a real press
+     * produces, and the padded ± buttons, where a click landing anywhere but on
+     * the icon proves the hit area covers the padding. Every other demo is one
+     * click away in the sidebar.
      */
     'default_window' => '/counter',
 

@@ -1,5 +1,9 @@
 <?php
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Native\Mobile\Testing\PestExpectations;
+use Tests\TestCase;
+
 /*
 |--------------------------------------------------------------------------
 | Test Case
@@ -11,12 +15,12 @@
 |
 */
 
-pest()->extend(Tests\TestCase::class)
-    ->use(Illuminate\Foundation\Testing\RefreshDatabase::class)
+pest()->extend(TestCase::class)
+    ->use(RefreshDatabase::class)
     ->in('Feature');
 
 // Native testing suite sugar: expect($screen)->toSee(...)->toBeAccessible() etc.
-Native\Mobile\Testing\PestExpectations::register();
+PestExpectations::register();
 
 /*
 |--------------------------------------------------------------------------
@@ -47,4 +51,27 @@ expect()->extend('toBeOne', function () {
 function something()
 {
     // ..
+}
+
+/**
+ * Every node type present in a published wire tree, flattened depth-first.
+ *
+ * Lives here rather than in one test file because two suites ask the same
+ * question of a tree — "is this element type in here at all" — and a helper
+ * declared inside a Pest test file is a global function whose availability
+ * depends on file load order.
+ *
+ * @param  array<string, mixed>  $node
+ * @param  array<int, string>  $seen
+ * @return array<int, string>
+ */
+function treeTypes(array $node, array &$seen = []): array
+{
+    $seen[] = $node['type'] ?? '';
+
+    foreach ($node['children'] ?? [] as $child) {
+        treeTypes($child, $seen);
+    }
+
+    return $seen;
 }
