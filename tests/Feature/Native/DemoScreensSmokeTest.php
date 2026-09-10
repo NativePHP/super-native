@@ -45,4 +45,13 @@ it('renders the demo screen without errors', function (string $uri) {
     'syncup login' => '/syncup-native/login',
     'syncup friends' => '/syncup-native/friends',
     'syncup profile' => '/syncup-native/profile',
+    'edge components: top bar' => '/edge-components/top-bar',
+    'edge components: top bar large title' => '/edge-components/top-bar-large-title',
+    'edge components: top bar search' => '/edge-components/top-bar-search',
+    'edge components: top bar destructive action' => '/edge-components/top-bar-destructive-action',
+    'edge components: top bar logo' => '/edge-components/top-bar-logo',
+    'edge components: bottom nav' => '/edge-components/bottom-nav',
+    'edge components: bottom nav search item' => '/edge-components/bottom-nav-search-item',
+    'edge components: side nav' => '/edge-components/side-nav',
+    'edge components: side nav header image' => '/edge-components/side-nav-header-image',
 ]);

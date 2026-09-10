@@ -6,6 +6,15 @@ use App\NativeComponents\ComposeTweet;
 use App\NativeComponents\Counter;
 use App\NativeComponents\DemoLauncher;
 use App\NativeComponents\EdgeChildTest;
+use App\NativeComponents\EdgeComponents\BottomNav;
+use App\NativeComponents\EdgeComponents\BottomNavSearchItem;
+use App\NativeComponents\EdgeComponents\SideNav;
+use App\NativeComponents\EdgeComponents\SideNavHeaderImage;
+use App\NativeComponents\EdgeComponents\TopBar;
+use App\NativeComponents\EdgeComponents\TopBarDestructiveAction;
+use App\NativeComponents\EdgeComponents\TopBarLargeTitle;
+use App\NativeComponents\EdgeComponents\TopBarLogo;
+use App\NativeComponents\EdgeComponents\TopBarSearch;
 use App\NativeComponents\EventChannelTest;
 use App\NativeComponents\ExploreButtons;
 use App\NativeComponents\ExploreCards;
@@ -172,3 +181,17 @@ Route::get('/webview-embedded', function () {
         'hits' => session()->increment('webview_embedded_hits'),
     ]);
 })->name('webview.embedded');
+
+// Edge Component showcase — one screen per component and prop variant,
+// listed in the demo launcher's "Edge Components" group.
+Route::nativeGroup(NativeStackLayout::class, function () {
+    Route::native('/edge-components/top-bar', TopBar::class)->name('edge-components.top-bar');
+    Route::native('/edge-components/top-bar-large-title', TopBarLargeTitle::class)->name('edge-components.top-bar-large-title');
+    Route::native('/edge-components/top-bar-search', TopBarSearch::class)->name('edge-components.top-bar-search');
+    Route::native('/edge-components/top-bar-destructive-action', TopBarDestructiveAction::class)->name('edge-components.top-bar-destructive-action');
+    Route::native('/edge-components/top-bar-logo', TopBarLogo::class)->name('edge-components.top-bar-logo');
+    Route::native('/edge-components/bottom-nav', BottomNav::class)->name('edge-components.bottom-nav');
+    Route::native('/edge-components/bottom-nav-search-item', BottomNavSearchItem::class)->name('edge-components.bottom-nav-search-item');
+    Route::native('/edge-components/side-nav', SideNav::class)->name('edge-components.side-nav');
+    Route::native('/edge-components/side-nav-header-image', SideNavHeaderImage::class)->name('edge-components.side-nav-header-image');
+});
