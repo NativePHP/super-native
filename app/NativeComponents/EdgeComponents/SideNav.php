@@ -13,6 +13,8 @@ final class SideNav extends NativeComponent
 {
     use InteractsWithDrawer;
 
+    protected bool $hidesNavBar = true;
+
     public function navTitle(): string
     {
         return 'Side Nav';

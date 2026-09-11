@@ -1,12 +1,15 @@
-<native:side-nav-header title="My App" subtitle="user@example.com" icon="person" />
+<native:column class="safe-area-top">
+    <native:list-item headline="My App" supporting="user@example.com" leadingIcon="person" disabled="true" />
 
-<native:side-nav-item id="home" label="Home" icon="home" url="/edge-components/side-nav" :active="true" />
+    <native:divider />
 
-<native:side-nav-group heading="Account" :expanded="false">
-    <native:side-nav-item id="profile" label="Profile" icon="person" url="/edge-components/side-nav" />
-    <native:side-nav-item id="settings" label="Settings" icon="settings" url="/edge-components/side-nav" />
-</native:side-nav-group>
+    <native:list-item headline="Home" leadingIcon="home" containerColor="blue-50" leadingIconColor="blue-600" headlineColor="blue-600" />
 
-<native:divider />
+    <native:list-item headline="Profile" leadingIcon="person" />
 
-<native:side-nav-item id="help" label="Help" icon="help" url="https://nativephp.com/docs" open-in-browser="true" />
+    <native:list-item headline="Settings" leadingIcon="settings" />
+
+    <native:divider />
+
+    <native:list-item headline="Help" leadingIcon="help" trailingIcon="forward" />
+</native:column>

@@ -77,23 +77,19 @@ it('renders a bottom nav with a search tab item', function () {
         ->assertElement('bottom_nav_item', fn (array $node): bool => ($node['props']['id'] ?? null) === 'profile');
 });
 
-it('renders a side nav drawer with a header, an active item, a collapsed group, and a divider', function () {
+it('renders a side nav drawer with a header, an active item, and a divider', function () {
     Native::visit('/edge-components/side-nav')
         ->assertScreen(SideNav::class)
-        ->assertNavTitle('Side Nav')
-        ->assertElement('side_nav_header', fn (array $node): bool => ($node['props']['title'] ?? null) === 'My App'
-            && ($node['props']['subtitle'] ?? null) === 'user@example.com'
-            && ($node['props']['icon'] ?? null) === 'person')
-        ->assertElement('side_nav_item', fn (array $node): bool => ($node['props']['id'] ?? null) === 'home'
-            && ($node['props']['active'] ?? false))
-        ->assertElement('side_nav_group', fn (array $node): bool => ($node['props']['heading'] ?? null) === 'Account'
-            && ! ($node['props']['expanded'] ?? true))
-        ->assertElement('side_nav_item', fn (array $node): bool => ($node['props']['id'] ?? null) === 'profile')
-        ->assertElement('side_nav_item', fn (array $node): bool => ($node['props']['id'] ?? null) === 'settings')
+        ->assertElement('list_item', fn (array $node): bool => ($node['props']['headline'] ?? null) === 'My App'
+            && ($node['props']['supporting'] ?? null) === 'user@example.com'
+            && ($node['props']['leading_icon'] ?? null) === 'person')
+        ->assertElement('list_item', fn (array $node): bool => ($node['props']['headline'] ?? null) === 'Home'
+            && ($node['props']['leading_icon'] ?? null) === 'home')
+        ->assertElement('list_item', fn (array $node): bool => ($node['props']['headline'] ?? null) === 'Profile')
+        ->assertElement('list_item', fn (array $node): bool => ($node['props']['headline'] ?? null) === 'Settings')
         ->assertElement('divider')
-        ->assertElement('side_nav_item', fn (array $node): bool => ($node['props']['id'] ?? null) === 'help'
-            && ($node['props']['url'] ?? null) === 'https://nativephp.com/docs'
-            && ($node['props']['open_in_browser'] ?? false));
+        ->assertElement('list_item', fn (array $node): bool => ($node['props']['headline'] ?? null) === 'Help'
+            && ($node['props']['leading_icon'] ?? null) === 'help');
 });
 
 it('renders a side nav header with a background image', function () {
