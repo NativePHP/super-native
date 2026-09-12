@@ -60,6 +60,20 @@ class DemoLauncher extends NativeComponent
             ],
         ],
         [
+            'title' => 'Edge Components',
+            'demos' => [
+                ['id' => 'edge-top-bar', 'title' => 'Top Bar', 'subtitle' => 'Title, subtitle, and trailing actions', 'icon' => 'rectangle.topthird.inset.filled', 'color' => '#0EA5E9', 'url' => '/edge-components/top-bar'],
+                ['id' => 'edge-top-bar-large-title', 'title' => 'Top Bar — Large Title', 'subtitle' => 'The large display mode', 'icon' => 'textformat.size.larger', 'color' => '#0EA5E9', 'url' => '/edge-components/top-bar-large-title'],
+                ['id' => 'edge-top-bar-search', 'title' => 'Top Bar — Search', 'subtitle' => 'An attached native search field', 'icon' => 'magnifyingglass', 'color' => '#0EA5E9', 'url' => '/edge-components/top-bar-search'],
+                ['id' => 'edge-top-bar-destructive-action', 'title' => 'Top Bar — Destructive Action', 'subtitle' => 'An action tinted for a destructive tap', 'icon' => 'trash', 'color' => '#EF4444', 'url' => '/edge-components/top-bar-destructive-action'],
+                ['id' => 'edge-top-bar-logo', 'title' => 'Top Bar — Logo', 'subtitle' => 'An image in the title slot', 'icon' => 'photo', 'color' => '#0EA5E9', 'url' => '/edge-components/top-bar-logo'],
+                ['id' => 'edge-bottom-nav', 'title' => 'Bottom Nav', 'subtitle' => 'Active, news, and badge items', 'icon' => 'square.grid.2x2', 'color' => '#22C55E', 'url' => '/edge-components/bottom-nav'],
+                ['id' => 'edge-bottom-nav-search-item', 'title' => 'Bottom Nav — Search Item', 'subtitle' => 'A dedicated search tab', 'icon' => 'magnifyingglass.circle', 'color' => '#22C55E', 'url' => '/edge-components/bottom-nav-search-item'],
+                ['id' => 'edge-side-nav', 'title' => 'Side Nav', 'subtitle' => 'Header, collapsed group, and a divider', 'icon' => 'sidebar.left', 'color' => '#A855F7', 'url' => '/edge-components/side-nav'],
+                ['id' => 'edge-side-nav-header-image', 'title' => 'Side Nav — Header Image', 'subtitle' => 'A background image behind the header', 'icon' => 'photo.on.rectangle', 'color' => '#A855F7', 'url' => '/edge-components/side-nav-header-image'],
+            ],
+        ],
+        [
             'title' => 'Mini Apps',
             'demos' => [
                 ['id' => 'twitter', 'title' => 'Twitter / X', 'subtitle' => 'Feed, tweet detail, profile, compose', 'icon' => 'bubble.left.and.bubble.right.fill', 'color' => '#1D9BF0', 'url' => '/twitter'],
