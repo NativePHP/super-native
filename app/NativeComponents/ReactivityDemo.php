@@ -6,6 +6,7 @@ use Illuminate\View\View;
 use Native\Mobile\Attributes\Computed;
 use Native\Mobile\Attributes\Lazy;
 use Native\Mobile\Edge\NativeComponent;
+use Native\Mobile\Edge\NativeRouter;
 
 #[Lazy]
 class ReactivityDemo extends NativeComponent
@@ -36,11 +37,23 @@ class ReactivityDemo extends NativeComponent
 
     public function increment(): void
     {
+        // TEMPORARY diagnostic: is increment() invoked twice per tap, or once
+        // and applied twice? One line per tap in storage/logs/edge-nav.log
+        // means the event is fine and state is being double-applied; two lines
+        // mean the press is being dispatched twice. Remove once answered.
+        NativeRouter::debugLog(
+            'increment() count='.$this->count.' obj='.spl_object_id($this)
+        );
+
         $this->count++;
     }
 
     public function decrement(): void
     {
+        NativeRouter::debugLog(
+            'decrement() count='.$this->count.' obj='.spl_object_id($this)
+        );
+
         $this->count--;
     }
 

@@ -2,8 +2,9 @@
 
 namespace App\NativeComponents;
 
+use Illuminate\View\View;
+use Native\Mobile\Edge\Concerns\HasVirtualListWindow;
 use Native\Mobile\Edge\NativeComponent;
-use Native\Mobile\Edge\Traits\HasVirtualListWindow;
 
 /**
  * Performance demo — measurable numbers that map to what RN / native
@@ -24,6 +25,7 @@ class PerfDemo extends NativeComponent
     use HasVirtualListWindow;
 
     public int $renderCount = 0;
+
     public int $rowCount = 200;
 
     /** ms — PHP time to build the LAST tree. */
@@ -75,7 +77,7 @@ class PerfDemo extends NativeComponent
         $this->lastElementCount = 0;
     }
 
-    public function render(): \Illuminate\View\View
+    public function render(): View
     {
         $buildStart = microtime(true);
 

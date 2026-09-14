@@ -1,5 +1,6 @@
 <?php
 
+use App\NativeComponents\AccordionDemo;
 use App\NativeComponents\Animate;
 use App\NativeComponents\Browse;
 use App\NativeComponents\ButtonsForm;
@@ -40,6 +41,7 @@ use App\NativeComponents\Layouts\NativeTabsLayout;
 use App\NativeComponents\Layouts\StackLayout;
 use App\NativeComponents\Layouts\SyncUpTabsLayout;
 use App\NativeComponents\Layouts\TabsLayout;
+use App\NativeComponents\LiveCodeDemo;
 use App\NativeComponents\MailDemo;
 use App\NativeComponents\NativeChromeDemo;
 use App\NativeComponents\NativeChromeDetail;
@@ -124,6 +126,8 @@ Route::nativeGroup(StackLayout::class, function () {
     Route::native('/counter', Counter::class)->name('counter');
     Route::native('/reactivity', ReactivityDemo::class)->name('reactivity.demo');
     Route::native('/webview-demo', WebviewDemo::class)->name('webview.demo');
+    Route::native('/accordion-demo', AccordionDemo::class)->name('accordion.demo');
+    Route::native('/live-code', LiveCodeDemo::class)->name('live.code');
     Route::native('/animate', Animate::class)->name('animate');
     Route::native('/number-switcher', NumberSwitcherDemo::class)->name('number.switcher');
     Route::native('/gestures', GestureDemo::class)->name('gestures');

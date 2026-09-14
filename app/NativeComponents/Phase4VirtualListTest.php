@@ -2,6 +2,7 @@
 
 namespace App\NativeComponents;
 
+use Native\Mobile\Edge\Concerns\HasVirtualListWindow;
 use Native\Mobile\Edge\Element;
 use Native\Mobile\Edge\Elements\Column;
 use Native\Mobile\Edge\Elements\Pressable;
@@ -10,7 +11,6 @@ use Native\Mobile\Edge\Elements\Spacer;
 use Native\Mobile\Edge\Elements\Text;
 use Native\Mobile\Edge\Layouts\Builders\NavBarOptions;
 use Native\Mobile\Edge\NativeComponent;
-use Native\Mobile\Edge\Traits\HasVirtualListWindow;
 use Native\Mobile\UI\Elements\NativeVirtualList;
 
 /**

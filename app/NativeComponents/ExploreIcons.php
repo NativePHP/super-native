@@ -5,9 +5,9 @@ namespace App\NativeComponents;
 use App\Icons\Android;
 use App\Icons\Ios;
 use Illuminate\View\View;
+use Native\Mobile\Edge\Concerns\HasVirtualListWindow;
 use Native\Mobile\Edge\Layouts\Builders\NavBarOptions;
 use Native\Mobile\Edge\NativeComponent;
-use Native\Mobile\Edge\Traits\HasVirtualListWindow;
 use Native\Mobile\Platform;
 
 /**

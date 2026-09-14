@@ -40,6 +40,6 @@
     @endmobile
 
     @desktop
-        <text class="text-xs text-theme-on-surface-variant">Click or hold ± — every demo is in the sidebar</text>
+        <text class="text-xs text-theme-on-surface-variant">Click or hold ±</text>
     @enddesktop
 </column>

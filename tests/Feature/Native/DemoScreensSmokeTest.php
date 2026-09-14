@@ -25,6 +25,8 @@ it('renders the demo screen without errors', function (string $uri) {
     'pull to refresh' => '/refreshable-demo',
     'webview' => '/webview-demo',
     'number switcher' => '/number-switcher',
+    'accordion' => '/accordion-demo',
+    'live code' => '/live-code',
     'gestures' => '/gestures',
     'transitions' => '/transitions',
     'glass' => '/glass',
