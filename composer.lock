@@ -2522,12 +2522,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/NativePHP/mobile-air.git",
-                "reference": "0b8eb03756ab876c3ca89e4ab1e0b91654d0e426"
+                "reference": "78a9ac50d776c40aad79876c8798329b55d794c2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/NativePHP/mobile-air/zipball/0b8eb03756ab876c3ca89e4ab1e0b91654d0e426",
-                "reference": "0b8eb03756ab876c3ca89e4ab1e0b91654d0e426",
+                "url": "https://api.github.com/repos/NativePHP/mobile-air/zipball/78a9ac50d776c40aad79876c8798329b55d794c2",
+                "reference": "78a9ac50d776c40aad79876c8798329b55d794c2",
                 "shasum": ""
             },
             "require": {
@@ -2635,7 +2635,7 @@
                 "source": "https://github.com/NativePHP/mobile-air/tree/arcs-build-environments-link-1",
                 "issues": "https://github.com/NativePHP/mobile-air/issues"
             },
-            "time": "2026-09-03T22:23:47+00:00"
+            "time": "2026-09-14T17:04:36+00:00"
         },
         {
             "name": "nativephp/mobile-media-player",
