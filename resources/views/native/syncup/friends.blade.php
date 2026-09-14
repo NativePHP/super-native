@@ -1,3 +1,4 @@
+@php use App\Icons\Android; use App\Icons\Ios; @endphp
 <scroll-view class="w-full h-full bg-theme-background">
     <column class="w-full px-5 py-6 gap-8 pb-24">
 
@@ -10,7 +11,7 @@
                 {{-- QR Code card --}}
                 <column @tap="scanQr" class="flex-1 bg-[#00b4d8] rounded-3xl p-5 items-center gap-3">
                     <column class="w-[48] h-[48] bg-white/20 rounded-2xl items-center justify-center">
-                        <icon name="qrcode.viewfinder" :size="28" color="#FFFFFF" />
+                        <icon :ios="Ios::QrcodeViewfinder" :android="Android::QrCodeScanner" :size="28" color="#FFFFFF" />
                     </column>
                     <text class="text-[12] font-semibold text-white">Scan QR</text>
                 </column>
@@ -18,7 +19,7 @@
                 {{-- Find by ID card --}}
                 <column @tap="findById" class="flex-1 bg-theme-surface rounded-3xl p-5 border border-theme-outline items-center gap-3">
                     <column class="w-[48] h-[48] bg-[#cde5ff] dark:bg-[#0e2a44] rounded-2xl items-center justify-center">
-                        <icon name="person.fill.badge.plus" :size="28" color="#006399" dark-color="#7dd3fc" />
+                        <icon :ios="Ios::PersonFillBadgePlus" :android="Android::PersonAdd" :size="28" color="#006399" dark-color="#7dd3fc" />
                     </column>
                     <text class="text-[12] font-semibold text-theme-on-surface">Find by ID</text>
                 </column>
@@ -28,7 +29,7 @@
             <row class="w-full bg-theme-surface rounded-3xl p-5 border border-theme-outline items-center justify-between gap-3">
                 <row class="flex-1 items-center gap-3">
                     <column class="w-[40] h-[40] bg-[#a7edff] dark:bg-[#083344] rounded-full items-center justify-center">
-                        <icon name="link" :size="20" color="#006878" dark-color="#67e8f9" />
+                        <icon :ios="Ios::Link" :android="Android::Link" :size="20" color="#006878" dark-color="#67e8f9" />
                     </column>
                     <column class="flex-1 gap-1">
                         <text class="text-[12] font-semibold text-theme-on-surface">Share Invite Link</text>
@@ -66,7 +67,7 @@
                             </column>
                         </row>
                         <column @tap="messageFriend({{ $f['id'] }})" a11y-label="Message {{ $f['name'] }}" class="w-[40] h-[40] items-center justify-center rounded-full">
-                            <icon name="chat_bubble" :size="20" color="#94a3b8" dark-color="#64748b" />
+                            <icon :ios="Ios::BubbleLeftFill" :android="Android::ChatBubble" :size="20" color="#94a3b8" dark-color="#64748b" />
                         </column>
                     </row>
                 @endforeach

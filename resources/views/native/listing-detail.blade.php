@@ -1,3 +1,4 @@
+@php use App\Icons\Android; use App\Icons\Ios; @endphp
 <scroll-view class="w-full h-full bg-theme-background ">
     <column class="w-full gap-0">
 
@@ -10,12 +11,12 @@
             />
             {{-- Top Bar Overlay --}}
             <row class="w-full px-4 pt-[52] items-center justify-between">
-                <column @tap="back" class="w-[34] h-[34] rounded-full bg-white items-center justify-center shadow">
-                    <icon name="arrow_back" :size="18" color="#222222" />
+                <column @navigate.back class="w-[34] h-[34] rounded-full bg-white items-center justify-center shadow">
+                    <icon :ios="Ios::ChevronLeft" :android="Android::ArrowBack" :size="18" color="#222222" />
                 </column>
                 <row class="items-center gap-2">
                     <column class="w-[34] h-[34] rounded-full bg-white items-center justify-center shadow">
-                        <icon name="ios_share" :size="18" color="#222222" />
+                        <icon :ios="Ios::SquareAndArrowUp" :android="Android::IosShare" :size="18" color="#222222" />
                     </column>
                     <column @tap="toggleWishlist" class="w-[34] h-[34] rounded-full bg-white items-center justify-center shadow">
                         <icon
@@ -30,10 +31,10 @@
             @if ($imageCount > 1)
                 <row class="w-full h-[300] px-3 items-center justify-between">
                     <column @tap="prevImage" class="w-[28] h-[28] rounded-full bg-white items-center justify-center shadow">
-                        <icon name="chevron_left" :size="18" color="#222222" />
+                        <icon :ios="Ios::ChevronLeft" :android="Android::ChevronLeft" :size="18" color="#222222" />
                     </column>
                     <column @tap="nextImage" class="w-[28] h-[28] rounded-full bg-white items-center justify-center shadow">
-                        <icon name="chevron_right" :size="18" color="#222222" />
+                        <icon :ios="Ios::ChevronRight" :android="Android::ChevronRight" :size="18" color="#222222" />
                     </column>
                 </row>
             @endif
@@ -54,7 +55,7 @@
 
         {{-- Rating + Reviews Row --}}
         <row class="w-full px-5 pt-2 items-center gap-1">
-            <icon name="star" :size="14" color="#222222" />
+            <icon :ios="Ios::Star" :android="Android::Star" :size="14" color="#222222" />
             <text class="text-[14] font-semibold text-theme-on-background">{{ $listing['rating'] }}</text>
             <text class="text-[14] text-theme-on-background"> · </text>
             <text class="text-[14] font-semibold text-theme-on-background">{{ $listing['reviewCount'] }} reviews</text>
@@ -81,7 +82,7 @@
                 @if ($listing['hostIsSuperhost'])
                     <column class="w-[56] h-[56] items-end justify-end">
                         <column class="w-[20] h-[20] rounded-full bg-theme-secondary items-center justify-center">
-                            <icon name="verified" :size="14" color="#FFFFFF" />
+                            <icon :ios="Ios::CheckmarkSealFill" :android="Android::Verified" :size="14" color="#FFFFFF" />
                         </column>
                     </column>
                 @endif
@@ -94,7 +95,7 @@
         <column class="w-full px-5 py-5 gap-5">
             @foreach ($listing['highlights'] as $highlight)
                 <row class="w-full items-start gap-4">
-                    <icon name="{{ $highlight['icon'] }}" :size="26" color="#222222" />
+                    <icon :ios="$highlight['ios']" :android="$highlight['android']" :size="26" color="#222222" />
                     <column class="w-[280] gap-1">
                         <text class="text-[14] font-semibold text-theme-on-background">{{ $highlight['title'] }}</text>
                         @if ($highlight['subtitle'] !== '')
@@ -113,7 +114,7 @@
             <column @tap="toggleDescription">
                 <row class="items-center gap-1">
                     <text class="text-[14] font-semibold text-theme-on-background">{{ $showFullDescription ? 'Show less' : 'Show more' }}</text>
-                    <icon name="{{ $showFullDescription ? 'expand_less' : 'chevron_right' }}" :size="16" color="#222222" />
+                    <icon :ios="$showFullDescription ? Ios::ChevronUp : Ios::ChevronRight" :android="$showFullDescription ? Android::ExpandLess : Android::ChevronRight" :size="16" color="#222222" />
                 </row>
             </column>
         </column>
@@ -125,7 +126,7 @@
             <text class="text-[20] font-semibold text-theme-on-background">What this place offers</text>
             @foreach (array_slice($listing['amenities'], 0, 6) as $amenity)
                 <row class="w-full items-center gap-4 py-1">
-                    <icon name="{{ $amenity['icon'] }}" :size="24" color="#222222" />
+                    <icon :ios="$amenity['ios']" :android="$amenity['android']" :size="24" color="#222222" />
                     <text class="text-[15] text-theme-on-background">{{ $amenity['label'] }}</text>
                 </row>
             @endforeach
@@ -141,7 +142,7 @@
         {{-- Reviews Section --}}
         <column class="w-full px-5 pt-5 pb-2 gap-2">
             <row class="items-center gap-2">
-                <icon name="star" :size="18" color="#222222" />
+                <icon :ios="Ios::Star" :android="Android::Star" :size="18" color="#222222" />
                 <text class="text-[20] font-semibold text-theme-on-background">{{ $listing['rating'] }} · {{ $listing['reviewCount'] }} reviews</text>
             </row>
         </column>
@@ -174,7 +175,7 @@
         <column class="w-full px-5 py-5 gap-3">
             <text class="text-[20] font-semibold text-theme-on-background">Where you'll be</text>
             <column class="w-full h-[180] bg-theme-surface-variant rounded-xl items-center justify-center">
-                <icon name="map" :size="48" color="#B0B0B0" />
+                <icon :ios="Ios::Map" :android="Android::Map" :size="48" color="#B0B0B0" />
                 <text class="text-[13] text-theme-on-surface-variant pt-2">{{ $listing['location'] }}</text>
             </column>
         </column>
@@ -193,7 +194,7 @@
                     @if ($listing['hostIsSuperhost'])
                         <column class="w-[56] h-[56] items-end justify-end">
                             <column class="w-[20] h-[20] rounded-full bg-theme-secondary items-center justify-center">
-                                <icon name="verified" :size="14" color="#FFFFFF" />
+                                <icon :ios="Ios::CheckmarkSealFill" :android="Android::Verified" :size="14" color="#FFFFFF" />
                             </column>
                         </column>
                     @endif
@@ -205,7 +206,7 @@
             </row>
             @if ($listing['hostIsSuperhost'])
                 <row class="items-center gap-2">
-                    <icon name="verified_user" :size="18" color="#222222" />
+                    <icon :ios="Ios::CheckmarkShieldFill" :android="Android::VerifiedUser" :size="18" color="#222222" />
                     <text class="text-[14] text-theme-on-background">Superhost</text>
                 </row>
             @endif

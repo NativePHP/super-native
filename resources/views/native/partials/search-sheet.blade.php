@@ -1,7 +1,8 @@
+@php use App\Icons\Android; use App\Icons\Ios; @endphp
 <bottom-sheet :visible="$showSearch" @dismiss="closeSearch" detents="medium,large">
     <column class="w-full p-6 gap-4">
         <row class="w-full items-center gap-3">
-            <icon name="magnifyingglass" class="text-[20] text-theme-primary" />
+            <icon :ios="Ios::Magnifyingglass" :android="Android::Search" class="text-[20] text-theme-primary" />
             <text class="text-2xl font-bold flex-1">Search</text>
             <column @tap="closeSearch" class="px-3 py-1 rounded-full bg-theme-surface-variant">
                 <text class="text-sm font-semibold text-theme-on-surface-variant">Close</text>

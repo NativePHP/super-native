@@ -11,7 +11,7 @@ class ExploreForms extends NativeComponent
 
     public string $email = '';
 
-    public float $slideValue = 0.0;
+    public float $slideValue = 50.0;
 
     public float $slideDebounced = 50.0;
 

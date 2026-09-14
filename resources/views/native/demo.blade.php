@@ -1,3 +1,4 @@
+@php use App\Icons\Android; use App\Icons\Ios; @endphp
 @php
     // NativePHP brand palette
     $bg = $darkMode ? '#050714' : '#FFFFFF';
@@ -315,11 +316,11 @@
             <text class="text-2xl font-bold" :color="$fg">12. Icon</text>
             <spacer class="h-2"/>
             <row class="w-full gap-4 justify-center items-center">
-                <icon name="home" :size="32" color="#7C3AED"/>
-                <icon name="star" :size="32" :color="$teal"/>
-                <icon name="heart" :size="32" :color="$indigo"/>
-                <icon name="search" :size="32" :color="$fg"/>
-                <icon name="settings" :size="32" :color="$muted"/>
+                <icon :ios="Ios::House" :android="Android::Home" :size="32" color="#7C3AED"/>
+                <icon :ios="Ios::Star" :android="Android::Star" :size="32" :color="$teal"/>
+                <icon :ios="Ios::Heart" :android="Android::FavoriteBorder" :size="32" :color="$indigo"/>
+                <icon :ios="Ios::Magnifyingglass" :android="Android::Search" :size="32" :color="$fg"/>
+                <icon :ios="Ios::Gearshape" :android="Android::Settings" :size="32" :color="$muted"/>
             </row>
         </column>
 

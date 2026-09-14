@@ -1,10 +1,11 @@
+@php use App\Icons\Android; use App\Icons\Ios; @endphp
 <scroll-view class="w-full h-full bg-[#121212] safe-area">
     <column class="w-full gap-0">
 
         {{-- Top Bar --}}
         <row class="w-full px-4 pt-4 pb-2 items-center gap-3">
-            <column @tap="back" a11y-label="Back" class="w-[32] h-[32] items-center justify-center">
-                <icon name="arrow_back" :size="24" color="#FFFFFF" />
+            <column @navigate.back a11y-label="Back" class="w-[32] h-[32] items-center justify-center">
+                <icon :ios="Ios::ChevronLeft" :android="Android::ArrowBack" :size="24" color="#FFFFFF" />
             </column>
             <text class="text-[22] font-bold text-white">Search</text>
         </row>
@@ -12,7 +13,7 @@
         {{-- Search Bar --}}
         <column class="w-full px-4 pt-2 pb-4">
             <row class="w-full bg-white rounded-md px-3 py-3 items-center gap-3">
-                <icon name="search" :size="22" color="#121212" />
+                <icon :ios="Ios::Magnifyingglass" :android="Android::Search" :size="22" color="#121212" />
                 <text class="text-[15] text-[#121212] font-semibold">What do you want to listen to?</text>
             </row>
         </column>
@@ -79,7 +80,7 @@
                             <text class="text-[14] text-white font-semibold">{{ $artist['name'] }}</text>
                             <text class="text-[12] text-[#B3B3B3]">Artist · {{ $artist['genre'] }}</text>
                         </column>
-                        <icon name="chevron_right" :size="18" color="#B3B3B3" />
+                        <icon :ios="Ios::ChevronRight" :android="Android::ChevronRight" :size="18" color="#B3B3B3" />
                     </row>
                 </pressable>
             @endforeach

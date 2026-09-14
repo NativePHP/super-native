@@ -1,3 +1,4 @@
+@php use App\Icons\Android; use App\Icons\Ios; @endphp
 <stack class="w-full h-full bg-theme-background safe-area">
 
     <refreshable @refresh="refresh" class="w-full h-full">
@@ -8,13 +9,13 @@
                 <text class="text-[26] font-bold text-[#1877F2]">facebook</text>
                 <row class="items-center gap-2">
                     <pressable @tap="createPost" a11y-label="Create post" class="w-[36] h-[36] rounded-full bg-theme-surface-variant items-center justify-center">
-                        <icon name="add" :size="20" class="text-theme-on-surface" />
+                        <icon :ios="Ios::Plus" :android="Android::Add" :size="20" class="text-theme-on-surface" />
                     </pressable>
                     <column class="w-[36] h-[36] rounded-full bg-theme-surface-variant items-center justify-center">
-                        <icon name="search" :size="18" class="text-theme-on-surface" />
+                        <icon :ios="Ios::Magnifyingglass" :android="Android::Search" :size="18" class="text-theme-on-surface" />
                     </column>
                     <column class="w-[36] h-[36] rounded-full bg-theme-surface-variant items-center justify-center">
-                        <icon name="chat" :size="18" class="text-theme-on-surface" />
+                        <icon :ios="Ios::BubbleLeft" :android="Android::Chat" :size="18" class="text-theme-on-surface" />
                     </column>
                 </row>
             </row>
@@ -33,7 +34,7 @@
                             <text class="text-[15] text-theme-on-surface-variant">What's on your mind?</text>
                         </column>
                     </pressable>
-                    <icon name="photo" :size="24" color="#45BD62" />
+                    <icon :ios="Ios::Photo" :android="Android::Photo" :size="24" color="#45BD62" />
                 </row>
             </column>
 
@@ -55,7 +56,7 @@
                                 </column>
                                 <column class="absolute top-[94] left-[34] w-[36] h-[36] rounded-full bg-theme-surface items-center justify-center">
                                     <column class="w-[30] h-[30] rounded-full bg-[#1877F2] items-center justify-center">
-                                        <icon name="add" :size="20" color="#FFFFFF" />
+                                        <icon :ios="Ios::Plus" :android="Android::Add" :size="20" color="#FFFFFF" />
                                     </column>
                                 </column>
                             </column>
@@ -109,12 +110,12 @@
                                 <text class="text-[15] font-bold text-theme-on-surface" :maxLines="1">{{ $post['user']['name'] }}</text>
                                 <row class="items-center gap-1">
                                     <text class="text-[12] text-[#65676B] dark:text-[#B0B3B8]">{{ $post['time'] }} ago ·</text>
-                                    <icon name="globe" :size="12" class="text-[#65676B] dark:text-[#B0B3B8]" />
+                                    <icon :ios="Ios::Globe" :android="Android::Public" :size="12" class="text-[#65676B] dark:text-[#B0B3B8]" />
                                 </row>
                             </column>
                         </pressable>
                         <row @tap="openPostMenu({{ $post['id'] }})" a11y-label="Post options" class="w-[32] h-[32] items-center justify-center">
-                            <icon name="more_horiz" :size="22" class="text-[#65676B] dark:text-[#B0B3B8]" />
+                            <icon :ios="Ios::Ellipsis" :android="Android::MoreHoriz" :size="22" class="text-[#65676B] dark:text-[#B0B3B8]" />
                         </row>
                     </row>
 
@@ -143,10 +144,10 @@
                     <row class="w-full px-4 pt-2 pb-2 items-center justify-between">
                         <row class="items-center gap-1">
                             <column class="w-[18] h-[18] rounded-full bg-[#1877F2] items-center justify-center">
-                                <icon name="thumb_up" :size="10" color="#FFFFFF" />
+                                <icon :ios="Ios::HandThumbsupFill" :android="Android::ThumbUp" :size="10" color="#FFFFFF" />
                             </column>
                             <column class="w-[18] h-[18] rounded-full bg-[#F33E58] items-center justify-center ml-[-6]">
-                                <icon name="favorite" :size="10" color="#FFFFFF" />
+                                <icon :ios="Ios::HeartFill" :android="Android::Favorite" :size="10" color="#FFFFFF" />
                             </column>
                             <text class="text-[13] text-[#65676B] dark:text-[#B0B3B8]" :maxLines="1">{{ $post['reactionsFormatted'] }}</text>
                         </row>
@@ -169,11 +170,11 @@
                             <text class="text-[13] font-semibold {{ $post['isLiked'] ? 'text-[#1877F2]' : 'text-[#65676B] dark:text-[#B0B3B8]' }}">Like</text>
                         </row>
                         <row @tap="viewPost({{ $post['id'] }})" a11y-label="Comment" class="items-center gap-1 px-4 py-2 flex-shrink-0">
-                            <icon name="chat_bubble_outline" :size="20" class="text-[#65676B] dark:text-[#B0B3B8]" />
+                            <icon :ios="Ios::BubbleLeft" :android="Android::ChatBubbleOutline" :size="20" class="text-[#65676B] dark:text-[#B0B3B8]" />
                             <text class="text-[13] font-semibold text-[#65676B] dark:text-[#B0B3B8]">Comment</text>
                         </row>
                         <row class="items-center gap-1 px-4 py-2 flex-shrink-0">
-                            <icon name="share" :size="20" class="text-[#65676B] dark:text-[#B0B3B8]" />
+                            <icon :ios="Ios::SquareAndArrowUp" :android="Android::Share" :size="20" class="text-[#65676B] dark:text-[#B0B3B8]" />
                             <text class="text-[13] font-semibold text-[#65676B] dark:text-[#B0B3B8]">Share</text>
                         </row>
                     </row>
@@ -189,21 +190,21 @@
     <bottom-sheet :visible="$menuPostId !== null" @dismiss="closePostMenu" detents="small">
         <column class="w-full p-5 gap-4">
             <row class="items-center gap-3">
-                <icon name="bookmark" :size="22" class="text-theme-on-surface" />
+                <icon :ios="Ios::Bookmark" :android="Android::Bookmark" :size="22" class="text-theme-on-surface" />
                 <column>
                     <text class="text-[15] font-semibold text-theme-on-surface">Save post</text>
                     <text class="text-[13] text-theme-on-surface-variant">Add this to your saved items.</text>
                 </column>
             </row>
             <row class="items-center gap-3">
-                <icon name="close" :size="22" class="text-theme-on-surface" />
+                <icon :ios="Ios::Xmark" :android="Android::Close" :size="22" class="text-theme-on-surface" />
                 <column>
                     <text class="text-[15] font-semibold text-theme-on-surface">Hide post</text>
                     <text class="text-[13] text-theme-on-surface-variant">See fewer posts like this.</text>
                 </column>
             </row>
             <row class="items-center gap-3">
-                <icon name="warning" :size="22" class="text-theme-on-surface" />
+                <icon :ios="Ios::ExclamationmarkTriangleFill" :android="Android::Warning" :size="22" class="text-theme-on-surface" />
                 <column>
                     <text class="text-[15] font-semibold text-theme-on-surface">Report post</text>
                     <text class="text-[13] text-theme-on-surface-variant">We won't let anyone know who reported this.</text>

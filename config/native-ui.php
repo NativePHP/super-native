@@ -35,7 +35,7 @@ return [
         // violet-600 primary accent, slate-200 borders, brand teal highlight.
         'light' => [
             // Primary brand color — used for filled buttons, active states, key accents.
-            'primary' => 'violet-600',
+            'primary' => '#3119a2',
             'on-primary' => 'white',
 
             // Secondary / muted action color.
@@ -117,7 +117,7 @@ return [
     ],
 
     'fonts' => [
-        'default' => 'Geist+Pixel-Regular',
+        'default' => 'System',
         'accent' => 'Lobster-Regular',
 
         // Theme Lab display faces.
@@ -126,6 +126,10 @@ return [
         'grotesk-bold' => 'SpaceGrotesk-Bold',
         'agu-display' => 'AguDisplay-Regular',
         'abel' => 'Abel-Regular',
+        'denmark' => 'JosefinSans-Regular',
+        'josefin-sans-medium' => 'JosefinSans-Medium',
+        'josefin-sans-semi-bold' => 'JosefinSans-SemiBold',
+        'josefin-sans-bold' => 'JosefinSans-Bold',
     ],
 
 ];

@@ -24,8 +24,8 @@
         <column class="w-full p-5 gap-3 bg-theme-surface-variant rounded-2xl text-xl">
             <text class="text-2xl font-bold uppercase text-theme-on-surface-variant">Native Polling</text>
 
-            <column class="items-center justify-center py-4">
-                <text native:poll.200ms class="text-xl font-bold text-theme-primary">{{ now()->timezone('America/New_York')->format('D F j, Y H:i:s T') }}</text>
+            <column class="items-start justify-start py-4">
+                <text native:poll.200ms class="text-xl font-bold text-theme-primary">{{ now()->timezone('Europe/Copenhagen')->format('D M j, Y H:i:s T') }}</text>
             </column>
         </column>
     </column>

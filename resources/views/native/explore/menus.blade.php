@@ -70,7 +70,7 @@
                 <pressable
                     class="glass:interactive android:dark:bg-theme-surface-variant rounded-full p-3 items-center justify-center"
                     :menu="$pressableMenu">
-                    <icon name="mic" :size="22" />
+                    <icon :ios="Ios::Mic" :android="Android::Mic" :size="22" />
                 </pressable>
             </row>
         </column>

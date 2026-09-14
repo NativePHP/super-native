@@ -1,3 +1,4 @@
+@php use App\Icons\Android; use App\Icons\Ios; @endphp
 {{-- Header is provided by the framework NavBar (StackLayout) — back arrow + "Instagram" title.
      Action icons (heart, chat) live in navigationOptions() on the component. --}}
 
@@ -20,7 +21,7 @@
                         </column>
                         <column class="absolute bottom-0 right-0 w-[22] h-[22] rounded-full bg-theme-surface items-center justify-center">
                             <column class="w-[18] h-[18] rounded-full bg-[#0095F6] items-center justify-center">
-                                <icon name="add" :size="12" color="#FFFFFF" />
+                                <icon :ios="Ios::Plus" :android="Android::Add" :size="12" color="#FFFFFF" />
                             </column>
                         </column>
                     </stack>
@@ -72,7 +73,7 @@
                             <row class="items-center gap-1">
                                 <text class="text-[13] font-bold text-theme-on-surface" :maxLines="1">{{ $post['user']['username'] }}</text>
                                 @if ($post['user']['isVerified'])
-                                    <icon name="verified" :size="14" color="#3897F0" />
+                                    <icon :ios="Ios::CheckmarkSealFill" :android="Android::Verified" :size="14" color="#3897F0" />
                                 @endif
                             </row>
                             @if ($post['location'])
@@ -80,7 +81,7 @@
                             @endif
                         </column>
                     </pressable>
-                    <icon name="more_horiz" :size="20" class="text-theme-on-surface" />
+                    <icon :ios="Ios::Ellipsis" :android="Android::MoreHoriz" :size="20" class="text-theme-on-surface" />
                 </row>
 
                 {{-- Post Image --}}
@@ -108,12 +109,12 @@
                         </pressable>
                         <pressable @tap="viewPost({{ $post['id'] }})" a11y-label="Comments">
                             <row class="items-center gap-1">
-                                <icon name="chat_bubble_outline" :size="22" class="text-theme-on-surface" />
+                                <icon :ios="Ios::BubbleLeft" :android="Android::ChatBubbleOutline" :size="22" class="text-theme-on-surface" />
                                 <text class="text-[13] font-semibold text-theme-on-surface">{{ $post['commentsFormatted'] }}</text>
                             </row>
                         </pressable>
                         <row class="items-center gap-1">
-                            <icon name="ios_share" :size="22" class="text-theme-on-surface" />
+                            <icon :ios="Ios::SquareAndArrowUp" :android="Android::IosShare" :size="22" class="text-theme-on-surface" />
                             <text class="text-[13] font-semibold text-theme-on-surface">{{ $post['sharesFormatted'] }}</text>
                         </row>
                     </row>

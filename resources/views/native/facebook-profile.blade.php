@@ -1,10 +1,11 @@
+@php use App\Icons\Android; use App\Icons\Ios; @endphp
 <scroll-view class="w-full h-full bg-theme-background safe-area">
     <column class="w-full gap-0">
 
         {{-- Top Bar --}}
         <row class="w-full bg-theme-surface px-4 py-3 items-center gap-3">
-            <pressable @tap="back" a11y-label="Back" class="w-[32] h-[32] rounded-full bg-theme-surface-variant items-center justify-center">
-                <icon name="arrow_back" :size="20" class="text-theme-on-surface" />
+            <pressable @navigate.back a11y-label="Back" class="w-[32] h-[32] rounded-full bg-theme-surface-variant items-center justify-center">
+                <icon :ios="Ios::ChevronLeft" :android="Android::ArrowBack" :size="20" class="text-theme-on-surface" />
             </pressable>
             <text class="text-[17] font-bold text-theme-on-surface" :maxLines="1">{{ $user['name'] }}</text>
         </row>
@@ -62,17 +63,17 @@
                 {{-- Action Buttons --}}
                 <row class="w-full gap-2 pt-1">
                     <row @tap="toggleFriendRequest" a11y-label="{{ $friendRequested ? 'Cancel friend request' : 'Add friend' }}" class="flex-1 py-2 rounded-lg items-center justify-center gap-1 {{ $friendRequested ? 'bg-theme-surface-variant' : 'bg-[#1877F2]' }}">
-                        <icon name="{{ $friendRequested ? 'check' : 'person' }}" :size="16" class="{{ $friendRequested ? 'text-theme-on-surface' : 'text-white' }}" />
+                        <icon :ios="$friendRequested ? Ios::Checkmark : Ios::Person" :android="$friendRequested ? Android::Check : Android::Person" :size="16" class="{{ $friendRequested ? 'text-theme-on-surface' : 'text-white' }}" />
                         <text class="text-[14] font-semibold {{ $friendRequested ? 'text-theme-on-surface' : 'text-white' }}">{{ $friendRequested ? 'Requested' : 'Add friend' }}</text>
                     </row>
                     <column class="flex-1 py-2 rounded-lg items-center bg-theme-surface-variant">
                         <row class="items-center gap-1">
-                            <icon name="chat" :size="16" class="text-theme-on-surface" />
+                            <icon :ios="Ios::BubbleLeft" :android="Android::Chat" :size="16" class="text-theme-on-surface" />
                             <text class="text-[14] font-semibold text-theme-on-surface">Message</text>
                         </row>
                     </column>
                     <column class="px-3 py-2 rounded-lg items-center justify-center bg-theme-surface-variant">
-                        <icon name="more_horiz" :size="18" class="text-theme-on-surface" />
+                        <icon :ios="Ios::Ellipsis" :android="Android::MoreHoriz" :size="18" class="text-theme-on-surface" />
                     </column>
                 </row>
             </column>
@@ -103,7 +104,7 @@
                             <text class="text-[15] font-bold text-theme-on-surface" :maxLines="1">{{ $post['user']['name'] }}</text>
                             <row class="items-center gap-1">
                                 <text class="text-[12] text-[#65676B] dark:text-[#B0B3B8]">{{ $post['time'] }} ago ·</text>
-                                <icon name="globe" :size="12" class="text-[#65676B] dark:text-[#B0B3B8]" />
+                                <icon :ios="Ios::Globe" :android="Android::Public" :size="12" class="text-[#65676B] dark:text-[#B0B3B8]" />
                             </row>
                         </column>
                     </row>
@@ -133,7 +134,7 @@
                     <row class="w-full px-4 pt-2 pb-2 items-center justify-between">
                         <row class="items-center gap-1">
                             <column class="w-[18] h-[18] rounded-full bg-[#1877F2] items-center justify-center">
-                                <icon name="thumb_up" :size="10" color="#FFFFFF" />
+                                <icon :ios="Ios::HandThumbsupFill" :android="Android::ThumbUp" :size="10" color="#FFFFFF" />
                             </column>
                             <text class="text-[13] text-[#65676B] dark:text-[#B0B3B8]" :maxLines="1">{{ $post['reactionsFormatted'] }}</text>
                         </row>
@@ -145,15 +146,15 @@
                     {{-- Action Bar --}}
                     <row class="w-full px-2 py-1 justify-between">
                         <row class="items-center gap-1 px-4 py-2 flex-shrink-0">
-                            <icon name="thumb_up_off_alt" :size="20" class="text-[#65676B] dark:text-[#B0B3B8]" />
+                            <icon :ios="Ios::HandThumbsup" :android="Android::ThumbUpOffAlt" :size="20" class="text-[#65676B] dark:text-[#B0B3B8]" />
                             <text class="text-[13] font-semibold text-[#65676B] dark:text-[#B0B3B8]">Like</text>
                         </row>
                         <row @tap="viewPost({{ $post['originalIndex'] }})" a11y-label="Comment" class="items-center gap-1 px-4 py-2 flex-shrink-0">
-                            <icon name="chat_bubble_outline" :size="20" class="text-[#65676B] dark:text-[#B0B3B8]" />
+                            <icon :ios="Ios::BubbleLeft" :android="Android::ChatBubbleOutline" :size="20" class="text-[#65676B] dark:text-[#B0B3B8]" />
                             <text class="text-[13] font-semibold text-[#65676B] dark:text-[#B0B3B8]">Comment</text>
                         </row>
                         <row class="items-center gap-1 px-4 py-2 flex-shrink-0">
-                            <icon name="share" :size="20" class="text-[#65676B] dark:text-[#B0B3B8]" />
+                            <icon :ios="Ios::SquareAndArrowUp" :android="Android::Share" :size="20" class="text-[#65676B] dark:text-[#B0B3B8]" />
                             <text class="text-[13] font-semibold text-[#65676B] dark:text-[#B0B3B8]">Share</text>
                         </row>
                     </row>
@@ -170,19 +171,19 @@
             <column class="w-full bg-theme-surface mt-2 px-4 py-4 gap-3">
                 <text class="text-[17] font-bold text-theme-on-surface">Details</text>
                 <row class="items-center gap-3">
-                    <icon name="inventory" :size="18" class="text-[#65676B] dark:text-[#B0B3B8]" />
+                    <icon :ios="Ios::Shippingbox" :android="Android::Inventory" :size="18" class="text-[#65676B] dark:text-[#B0B3B8]" />
                     <text class="text-[14] text-theme-on-surface">{{ $user['work'] }}</text>
                 </row>
                 <row class="items-center gap-3">
-                    <icon name="home" :size="18" class="text-[#65676B] dark:text-[#B0B3B8]" />
+                    <icon :ios="Ios::House" :android="Android::Home" :size="18" class="text-[#65676B] dark:text-[#B0B3B8]" />
                     <text class="text-[14] text-theme-on-surface">Lives in {{ $user['location'] }}</text>
                 </row>
                 <row class="items-center gap-3">
-                    <icon name="person" :size="18" class="text-[#65676B] dark:text-[#B0B3B8]" />
+                    <icon :ios="Ios::Person" :android="Android::Person" :size="18" class="text-[#65676B] dark:text-[#B0B3B8]" />
                     <text class="text-[14] text-theme-on-surface">{{ $friendsFormatted }} friends</text>
                 </row>
                 <row class="items-center gap-3">
-                    <icon name="clock" :size="18" class="text-[#65676B] dark:text-[#B0B3B8]" />
+                    <icon :ios="Ios::Clock" :android="Android::Schedule" :size="18" class="text-[#65676B] dark:text-[#B0B3B8]" />
                     <text class="text-[14] text-theme-on-surface">Joined June 2012</text>
                 </row>
             </column>
@@ -216,4 +217,3 @@
 
     </column>
 </scroll-view>
-

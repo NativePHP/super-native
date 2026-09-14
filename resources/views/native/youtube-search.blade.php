@@ -1,11 +1,12 @@
+@php use App\Icons\Android; use App\Icons\Ios; @endphp
 <scroll-view class="w-full h-full bg-[#0F0F0F] safe-area">
     <column class="w-full gap-0">
 
         {{-- Top Bar — chromeless input inside the pill (the pill row
              supplies all the chrome), like the app's search screen. --}}
         <row class="w-full px-3 pt-2 pb-2 items-center gap-2">
-            <column @tap="back" a11y-label="Back" class="w-[36] h-[36] items-center justify-center">
-                <icon name="arrow_back" :size="24" color="#FFFFFF" />
+            <column @navigate.back a11y-label="Back" class="w-[36] h-[36] items-center justify-center">
+                <icon :ios="Ios::ChevronLeft" :android="Android::ArrowBack" :size="24" color="#FFFFFF" />
             </column>
             <row class="flex-1 bg-[#272727] rounded-full pl-4 pr-1 py-[2] items-center gap-2">
                 <bare-text-input
@@ -15,7 +16,7 @@
                     class="flex-1 py-2 text-[15] text-white"
                 />
                 <pressable @tap="search" a11y-label="Search" class="w-[36] h-[36] rounded-full items-center justify-center">
-                    <icon name="search" :size="20" color="#FFFFFF" />
+                    <icon :ios="Ios::Magnifyingglass" :android="Android::Search" :size="20" color="#FFFFFF" />
                 </pressable>
             </row>
         </row>
@@ -59,14 +60,14 @@
                                 <text class="text-[12] text-[#AAAAAA]" :maxLines="1">{{ $video['channel']['name'] }} · {{ $video['viewsFormatted'] }} views · {{ $video['uploadedAt'] }}</text>
                             </column>
                         </pressable>
-                        <icon name="more_vert" :size="18" color="#AAAAAA" />
+                        <icon :ios="Ios::Ellipsis" :android="Android::MoreVert" :size="18" color="#AAAAAA" />
                     </row>
                 </column>
             @endforeach
         @else
             {{-- Default State: Trending --}}
             <row class="w-full px-4 pt-4 pb-2 items-center gap-2">
-                <icon name="analytics" :size="22" color="#FFFFFF" />
+                <icon :ios="Ios::ChartBar" :android="Android::Analytics" :size="22" color="#FFFFFF" />
                 <text class="text-[16] font-bold text-white">Trending</text>
             </row>
 
@@ -88,7 +89,7 @@
                             <text class="text-[13] font-semibold text-white" :maxLines="2">{{ $video['title'] }}</text>
                             <text class="text-[11] text-[#AAAAAA]" :maxLines="1">{{ $video['channel']['name'] }} · {{ $video['viewsFormatted'] }} views · {{ $video['uploadedAt'] }}</text>
                         </column>
-                        <icon name="more_vert" :size="16" color="#AAAAAA" />
+                        <icon :ios="Ios::Ellipsis" :android="Android::MoreVert" :size="16" color="#AAAAAA" />
                     </row>
                 </pressable>
             @endforeach

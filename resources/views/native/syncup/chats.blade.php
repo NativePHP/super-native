@@ -1,3 +1,4 @@
+@php use App\Icons\Android; use App\Icons\Ios; @endphp
 <column class="w-full h-full bg-theme-background">
 
     <scroll-view class="w-full flex-1">
@@ -47,7 +48,7 @@
                             <stack class="w-[56] h-[56]">
                                 @if ($row['isGroup'])
                                     <column class="w-[56] h-[56] rounded-full bg-[#cffafe] items-center justify-center">
-                                        <icon name="person.3.fill" :size="24" color="#0891b2" />
+                                        <icon :ios="Ios::Person3Fill" :android="Android::Groups" :size="24" color="#0891b2" />
                                     </column>
                                 @else
                                     <image src="{{ $row['avatarUrl'] }}" class="w-[56] h-[56] rounded-full" :fit="2" />
@@ -75,9 +76,9 @@
                                             <text class="text-[10] font-bold text-white">{{ $row['unread'] }}</text>
                                         </column>
                                     @elseif ($row['status'] === 'read')
-                                        <icon name="checkmark" :size="16" color="#06b6d4" />
+                                        <icon :ios="Ios::Checkmark" :android="Android::Check" :size="16" color="#06b6d4" />
                                     @elseif ($row['status'] === 'sent')
-                                        <icon name="checkmark" :size="16" color="#cbd5e1" dark-color="#475569" />
+                                        <icon :ios="Ios::Checkmark" :android="Android::Check" :size="16" color="#cbd5e1" dark-color="#475569" />
                                     @endif
                                 </row>
                             </column>
@@ -144,7 +145,7 @@
                                 <text class="text-[16] font-semibold text-theme-on-surface" :maxLines="1">{{ $f['name'] }}</text>
                                 <text class="text-[12] text-theme-on-surface-variant" :maxLines="1">{{ $f['statusText'] }}</text>
                             </column>
-                            <icon name="chevron.right" :size="18" color="#94a3b8" dark-color="#64748b" />
+                            <icon :ios="Ios::ChevronRight" :android="Android::ChevronRight" :size="18" color="#94a3b8" dark-color="#64748b" />
                         </row>
                         <divider />
                     @endforeach

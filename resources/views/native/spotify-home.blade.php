@@ -1,3 +1,4 @@
+@php use App\Icons\Android; use App\Icons\Ios; @endphp
 {{-- Icon names must exist in the iOS Material→SF map
      (IconHelper.swift) as well as the Android set — e.g. `shuffle` and
      `notifications_none` are Android-only and render blank on iOS. --}}
@@ -16,8 +17,8 @@
              mid-word ("Podcast s"). Keep the item set narrow enough for
              small phones. --}}
         <row class="w-full px-3 pt-3 pb-2 items-center gap-2">
-            <column @tap="back" a11y-label="Back" class="w-[34] h-[34] items-center justify-center flex-shrink-0">
-                <icon name="arrow_back" :size="24" color="#FFFFFF" />
+            <column @navigate.back a11y-label="Back" class="w-[34] h-[34] items-center justify-center flex-shrink-0">
+                <icon :ios="Ios::ChevronLeft" :android="Android::ArrowBack" :size="24" color="#FFFFFF" />
             </column>
             <column class="px-3 py-[6] rounded-full bg-[#1DB954] flex-shrink-0">
                 <text class="text-[13] font-semibold text-black" :maxLines="1">All</text>
@@ -30,7 +31,7 @@
             </column>
             <spacer />
             <pressable @tap="viewSearch" a11y-label="Search" class="w-[34] h-[34] items-center justify-center flex-shrink-0">
-                <icon name="search" :size="22" color="#FFFFFF" />
+                <icon :ios="Ios::Magnifyingglass" :android="Android::Search" :size="22" color="#FFFFFF" />
             </pressable>
         </row>
 

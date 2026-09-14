@@ -1,20 +1,21 @@
+@php use App\Icons\Android; use App\Icons\Ios; @endphp
 <scroll-view class="w-full h-full bg-theme-surface safe-area">
     <column class="w-full gap-0">
 
         {{-- Top Bar --}}
         <row class="w-full px-4 py-3 items-center justify-between">
             <row class="items-center gap-2">
-                <pressable @tap="back" a11y-label="Back" class="w-[32] h-[32] items-center justify-center">
-                    <icon name="arrow_back" :size="24" class="text-theme-on-surface" />
+                <pressable @navigate.back a11y-label="Back" class="w-[32] h-[32] items-center justify-center">
+                    <icon :ios="Ios::ChevronLeft" :android="Android::ArrowBack" :size="24" class="text-theme-on-surface" />
                 </pressable>
                 <row class="items-center gap-1">
                     <text class="text-[18] font-bold text-theme-on-surface">{{ $user['username'] }}</text>
                     @if ($user['isVerified'])
-                        <icon name="verified" :size="16" color="#3897F0" />
+                        <icon :ios="Ios::CheckmarkSealFill" :android="Android::Verified" :size="16" color="#3897F0" />
                     @endif
                 </row>
             </row>
-            <icon name="more_horiz" :size="24" class="text-theme-on-surface" />
+            <icon :ios="Ios::Ellipsis" :android="Android::MoreHoriz" :size="24" class="text-theme-on-surface" />
         </row>
 
         {{-- Profile Header — gradient classes don't render natively;
@@ -54,7 +55,7 @@
             <text class="text-[14] text-theme-on-surface">{{ $user['bio'] }}</text>
             @if ($user['website'])
                 <row class="items-center gap-1">
-                    <icon name="link" :size="14" class="text-[#00376B] dark:text-[#E0F1FF]" />
+                    <icon :ios="Ios::Link" :android="Android::Link" :size="14" class="text-[#00376B] dark:text-[#E0F1FF]" />
                     <text class="text-[14] font-semibold text-[#00376B] dark:text-[#E0F1FF]">{{ $user['website'] }}</text>
                 </row>
             @endif
@@ -69,7 +70,7 @@
                 <text class="text-[14] font-semibold text-theme-on-surface">Message</text>
             </column>
             <column class="px-3 py-2 rounded-lg items-center bg-theme-surface-variant">
-                <icon name="person_add" :size="18" class="text-theme-on-surface" />
+                <icon :ios="Ios::PersonBadgePlus" :android="Android::PersonAdd" :size="18" class="text-theme-on-surface" />
             </column>
         </row>
 
@@ -79,7 +80,7 @@
                 @foreach ($highlights as $highlight)
                     <column class="items-center gap-1 w-[64]">
                         <column class="w-[60] h-[60] rounded-full border border-theme-outline bg-theme-surface-variant items-center justify-center">
-                            <icon name="auto_awesome" :size="24" class="text-theme-on-surface-variant" />
+                            <icon :ios="Ios::Sparkles" :android="Android::AutoAwesome" :size="24" class="text-theme-on-surface-variant" />
                         </column>
                         <text class="text-[11] text-theme-on-surface">{{ $highlight }}</text>
                     </column>
@@ -91,9 +92,9 @@
 
         {{-- Grid / Reels / Tagged toggle --}}
         <row class="w-full justify-around py-2">
-            <icon name="grid_on" :size="24" class="text-theme-on-surface" />
-            <icon name="video_library" :size="24" class="text-theme-on-surface-variant" />
-            <icon name="person_pin" :size="24" class="text-theme-on-surface-variant" />
+            <icon :ios="Ios::SquareGrid3x3" :android="Android::GridOn" :size="24" class="text-theme-on-surface" />
+            <icon :ios="Ios::Film" :android="Android::VideoLibrary" :size="24" class="text-theme-on-surface-variant" />
+            <icon :ios="Ios::PersonCropCircle" :android="Android::PersonPin" :size="24" class="text-theme-on-surface-variant" />
         </row>
 
         <divider class="w-full" />
@@ -122,7 +123,7 @@
         @if (count($postsWithIndex) === 0)
             <column class="w-full items-center py-10 gap-2">
                 <column class="w-[72] h-[72] rounded-full border border-theme-outline items-center justify-center">
-                    <icon name="camera_alt" :size="36" class="text-theme-on-surface" />
+                    <icon :ios="Ios::Camera" :android="Android::CameraAlt" :size="36" class="text-theme-on-surface" />
                 </column>
                 <text class="text-[20] font-bold text-theme-on-surface">No posts yet</text>
             </column>

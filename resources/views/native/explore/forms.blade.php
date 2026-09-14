@@ -2,23 +2,42 @@
 
         <text class="text-2xl font-semibold text-theme-on-background">Slider</text>
 
-        <column class="gap-1">
-            <text class="text-xl text-theme-on-surface-variant">On release (blur)</text>
-            <slider native:model.blur="slideBlur" :min="0" :max="100" a11y-label="On release (blur)" class="w-full"/>
-            <text class="text-[20] text-theme-on-surface font-bold bg-theme-surface-variant rounded-full text-center p-2 mt-4">{{ $slideBlur }}</text>
-        </column>
+{{--        <column class="gap-1">--}}
+{{--            <text class="text-xl text-theme-on-surface-variant">On release (blur)</text>--}}
+{{--            <slider native:model.blur="slideBlur" :min="0" :max="100" a11y-label="On release (blur)" class="w-full"/>--}}
+{{--            <text class="text-[20] text-theme-on-surface font-bold bg-theme-surface-variant rounded-full text-center p-2 mt-4">{{ $slideBlur }}</text>--}}
+{{--        </column>--}}
+
+{{--        <column class="gap-1">--}}
+{{--            <text class="text-xl text-theme-on-surface-variant">Debounced (150ms)</text>--}}
+{{--            <slider native:model.debounce.150ms="slideDebounced" :min="0" :max="100" a11y-label="Debounced (150ms)" class="w-full"/>--}}
+{{--            <text class="text-[20] text-theme-on-surface font-bold bg-theme-surface-variant rounded-full text-center p-2 mt-4">{{ $slideDebounced }}</text>--}}
+{{--        </column>--}}
+
+
+
+
+
+
+
+
+
 
         <column class="gap-1">
-            <text class="text-xl text-theme-on-surface-variant">Debounced (150ms)</text>
-            <slider native:model.debounce.150ms="slideDebounced" :min="0" :max="100" a11y-label="Debounced (150ms)" class="w-full"/>
-            <text class="text-[20] text-theme-on-surface font-bold bg-theme-surface-variant rounded-full text-center p-2 mt-4">{{ $slideDebounced }}</text>
-        </column>
-
-        <column class="gap-1">
-            <text class="text-xl text-theme-on-surface-variant">Live (every drag tick)</text>
             <slider native:model.live="slideValue" :min="0" :max="100" a11y-label="Live (every drag tick)" class="w-full"/>
-            <text class="text-[20] text-theme-on-surface font-bold bg-theme-surface-variant rounded-full text-center p-2 mt-4">{{ number_format($slideValue, 2) }}</text>
+            <text class="text-[40] text-theme-on-surface font-bold bg-theme-surface-variant rounded-full text-center p-2 mt-4">{{$slideValue}}</text>
         </column>
+
+
+
+
+
+
+
+
+
+
+
 
 
 

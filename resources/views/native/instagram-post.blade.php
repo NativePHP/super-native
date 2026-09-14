@@ -1,9 +1,10 @@
+@php use App\Icons\Android; use App\Icons\Ios; @endphp
 <column class="w-full h-full bg-theme-surface safe-area">
 
     {{-- Top Bar --}}
     <row class="w-full px-4 py-3 items-center gap-3">
-        <pressable @tap="back" a11y-label="Back" class="w-[32] h-[32] items-center justify-center">
-            <icon name="arrow_back" :size="24" class="text-theme-on-surface" />
+        <pressable @navigate.back a11y-label="Back" class="w-[32] h-[32] items-center justify-center">
+            <icon :ios="Ios::ChevronLeft" :android="Android::ArrowBack" :size="24" class="text-theme-on-surface" />
         </pressable>
         <column>
             <text class="text-[12] font-semibold text-theme-on-surface-variant">{{ strtoupper($post['user']['username']) }}</text>
@@ -33,7 +34,7 @@
                         <row class="items-center gap-1">
                             <text class="text-[14] font-bold text-theme-on-surface">{{ $post['user']['username'] }}</text>
                             @if ($post['user']['isVerified'])
-                                <icon name="verified" :size="14" color="#3897F0" />
+                                <icon :ios="Ios::CheckmarkSealFill" :android="Android::Verified" :size="14" color="#3897F0" />
                             @endif
                         </row>
                         @if ($post['location'])
@@ -41,7 +42,7 @@
                         @endif
                     </column>
                 </pressable>
-                <icon name="more_horiz" :size="20" class="text-theme-on-surface" />
+                <icon :ios="Ios::Ellipsis" :android="Android::MoreHoriz" :size="20" class="text-theme-on-surface" />
             </row>
 
             {{-- Post Image --}}
@@ -66,10 +67,10 @@
                         </row>
                     </pressable>
                     <row class="items-center gap-1">
-                        <icon name="chat_bubble_outline" :size="24" class="text-theme-on-surface" />
+                        <icon :ios="Ios::BubbleLeft" :android="Android::ChatBubbleOutline" :size="24" class="text-theme-on-surface" />
                         <text class="text-[14] font-semibold text-theme-on-surface">{{ count($comments) }}</text>
                     </row>
-                    <icon name="ios_share" :size="24" class="text-theme-on-surface" />
+                    <icon :ios="Ios::SquareAndArrowUp" :android="Android::IosShare" :size="24" class="text-theme-on-surface" />
                 </row>
                 <pressable @tap="toggleSave" a11y-label="{{ $isSaved ? 'Unsave' : 'Save' }}">
                     <icon
@@ -112,7 +113,7 @@
                                 <text class="text-[11] font-semibold text-theme-on-surface-variant">Reply</text>
                             </row>
                         </column>
-                        <icon name="favorite_border" :size="14" class="text-theme-on-surface-variant" />
+                        <icon :ios="Ios::Heart" :android="Android::FavoriteBorder" :size="14" class="text-theme-on-surface-variant" />
                     </row>
                 @endforeach
             </column>

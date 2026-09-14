@@ -1,3 +1,4 @@
+@php use App\Icons\Android; use App\Icons\Ios; @endphp
 {{-- Page wrapper: scroll-view with theme.background + safe-area. --}}
 <scroll-view class="flex-1 w-full bg-theme-background">
     <column class="flex-1 p-5 gap-5 safe-area">
@@ -513,23 +514,23 @@
 {{--        <row class="w-full gap-3 items-center">--}}
 {{--            <pressable @tap="increment"--}}
 {{--                              class="w-[48] h-[48] rounded-full bg-blue-500 items-center justify-center">--}}
-{{--                <icon name="add" :size="24" color="#FFFFFF"/>--}}
+{{--                <icon :ios="Ios::Plus" :android="Android::Add" :size="24" color="#FFFFFF"/>--}}
 {{--            </pressable>--}}
 {{--            <pressable @tap="decrement"--}}
 {{--                              class="w-[48] h-[48] rounded-full bg-red-500 items-center justify-center">--}}
-{{--                <icon name="minus.circle.fill" :size="24" color="#FFFFFF"/>--}}
+{{--                <icon :ios="Ios::MinusCircleFill" :android="Android::RemoveCircle" :size="24" color="#FFFFFF"/>--}}
 {{--            </pressable>--}}
 {{--            <pressable @tap="increment"--}}
 {{--                              class="w-[48] h-[48] rounded-full bg-green-500 items-center justify-center">--}}
-{{--                <icon name="check" :size="24" color="#FFFFFF"/>--}}
+{{--                <icon :ios="Ios::Checkmark" :android="Android::Check" :size="24" color="#FFFFFF"/>--}}
 {{--            </pressable>--}}
 {{--            <pressable @tap="increment"--}}
 {{--                              class="w-[48] h-[48] rounded-full bg-purple-500 items-center justify-center">--}}
-{{--                <icon name="star" :size="24" color="#FFFFFF"/>--}}
+{{--                <icon :ios="Ios::Star" :android="Android::Star" :size="24" color="#FFFFFF"/>--}}
 {{--            </pressable>--}}
 {{--            <pressable @tap="increment"--}}
 {{--                              class="w-[48] h-[48] rounded-full bg-amber-500 items-center justify-center">--}}
-{{--                <icon name="favorite" :size="24" color="#FFFFFF"/>--}}
+{{--                <icon :ios="Ios::HeartFill" :android="Android::Favorite" :size="24" color="#FFFFFF"/>--}}
 {{--            </pressable>--}}
 {{--        </row>--}}
 
@@ -728,31 +729,31 @@
 {{--        <scroll-view :horizontal="true" class="w-full h-[48]">--}}
 {{--            <row class="gap-4 items-center h-[48]">--}}
 {{--                <column class="items-center gap-1">--}}
-{{--                    <icon name="home" :size="24" color="#333333"/>--}}
+{{--                    <icon :ios="Ios::House" :android="Android::Home" :size="24" color="#333333"/>--}}
 {{--                    <text class="text-sm text-gray-400 ">home</text>--}}
 {{--                </column>--}}
 {{--                <column class="items-center gap-1">--}}
-{{--                    <icon name="search" :size="24" color="#007AFF"/>--}}
+{{--                    <icon :ios="Ios::Magnifyingglass" :android="Android::Search" :size="24" color="#007AFF"/>--}}
 {{--                    <text class="text-sm text-gray-400 ">search</text>--}}
 {{--                </column>--}}
 {{--                <column class="items-center gap-1">--}}
-{{--                    <icon name="settings" :size="24" color="#8E8E93"/>--}}
+{{--                    <icon :ios="Ios::Gearshape" :android="Android::Settings" :size="24" color="#8E8E93"/>--}}
 {{--                    <text class="text-sm text-gray-400 ">settings</text>--}}
 {{--                </column>--}}
 {{--                <column class="items-center gap-1">--}}
-{{--                    <icon name="dashboard" :size="24" color="#5856D6"/>--}}
+{{--                    <icon :ios="Ios::SquareGrid2x2" :android="Android::Dashboard" :size="24" color="#5856D6"/>--}}
 {{--                    <text class="text-sm text-gray-400 ">dashboard</text>--}}
 {{--                </column>--}}
 {{--                <column class="items-center gap-1">--}}
-{{--                    <icon name="menu" :size="24" color="#333333"/>--}}
+{{--                    <icon :ios="Ios::Line3Horizontal" :android="Android::Menu" :size="24" color="#333333"/>--}}
 {{--                    <text class="text-sm text-gray-400 ">menu</text>--}}
 {{--                </column>--}}
 {{--                <column class="items-center gap-1">--}}
-{{--                    <icon name="person" :size="24" color="#FF2D55"/>--}}
+{{--                    <icon :ios="Ios::Person" :android="Android::Person" :size="24" color="#FF2D55"/>--}}
 {{--                    <text class="text-sm text-gray-400 ">person</text>--}}
 {{--                </column>--}}
 {{--                <column class="items-center gap-1">--}}
-{{--                    <icon name="profile" :size="24" color="#007AFF"/>--}}
+{{--                    <icon :ios="Ios::PersonCropCircle" :android="Android::AccountCircle" :size="24" color="#007AFF"/>--}}
 {{--                    <text class="text-sm text-gray-400 ">profile</text>--}}
 {{--                </column>--}}
 {{--            </row>--}}
@@ -762,31 +763,31 @@
 {{--        <scroll-view :horizontal="true" class="w-full h-[48]">--}}
 {{--            <row class="gap-4 items-center h-[48]">--}}
 {{--                <column class="items-center gap-1">--}}
-{{--                    <icon name="favorite" :size="24" color="#FF3B30"/>--}}
+{{--                    <icon :ios="Ios::HeartFill" :android="Android::Favorite" :size="24" color="#FF3B30"/>--}}
 {{--                    <text class="text-sm text-gray-400 ">favorite</text>--}}
 {{--                </column>--}}
 {{--                <column class="items-center gap-1">--}}
-{{--                    <icon name="star" :size="24" color="#FF9500"/>--}}
+{{--                    <icon :ios="Ios::Star" :android="Android::Star" :size="24" color="#FF9500"/>--}}
 {{--                    <text class="text-sm text-gray-400 ">star</text>--}}
 {{--                </column>--}}
 {{--                <column class="items-center gap-1">--}}
-{{--                    <icon name="bookmark" :size="24" color="#5856D6"/>--}}
+{{--                    <icon :ios="Ios::Bookmark" :android="Android::Bookmark" :size="24" color="#5856D6"/>--}}
 {{--                    <text class="text-sm text-gray-400 ">bookmark</text>--}}
 {{--                </column>--}}
 {{--                <column class="items-center gap-1">--}}
-{{--                    <icon name="photo" :size="24" color="#34C759"/>--}}
+{{--                    <icon :ios="Ios::Photo" :android="Android::Photo" :size="24" color="#34C759"/>--}}
 {{--                    <text class="text-sm text-gray-400 ">photo</text>--}}
 {{--                </column>--}}
 {{--                <column class="items-center gap-1">--}}
-{{--                    <icon name="camera" :size="24" color="#FF9500"/>--}}
+{{--                    <icon :ios="Ios::Camera" :android="Android::Camera" :size="24" color="#FF9500"/>--}}
 {{--                    <text class="text-sm text-gray-400 ">camera</text>--}}
 {{--                </column>--}}
 {{--                <column class="items-center gap-1">--}}
-{{--                    <icon name="video" :size="24" color="#FF3B30"/>--}}
+{{--                    <icon :ios="Ios::Video" :android="Android::Videocam" :size="24" color="#FF3B30"/>--}}
 {{--                    <text class="text-sm text-gray-400 ">video</text>--}}
 {{--                </column>--}}
 {{--                <column class="items-center gap-1">--}}
-{{--                    <icon name="folder" :size="24" color="#007AFF"/>--}}
+{{--                    <icon :ios="Ios::Folder" :android="Android::Folder" :size="24" color="#007AFF"/>--}}
 {{--                    <text class="text-sm text-gray-400 ">folder</text>--}}
 {{--                </column>--}}
 {{--            </row>--}}
@@ -796,27 +797,27 @@
 {{--        <scroll-view :horizontal="true" class="w-full h-[48]">--}}
 {{--            <row class="gap-4 items-center h-[48]">--}}
 {{--                <column class="items-center gap-1">--}}
-{{--                    <icon name="mail" :size="24" color="#007AFF"/>--}}
+{{--                    <icon :ios="Ios::Mail" :android="Android::Mail" :size="24" color="#007AFF"/>--}}
 {{--                    <text class="text-sm text-gray-400 ">mail</text>--}}
 {{--                </column>--}}
 {{--                <column class="items-center gap-1">--}}
-{{--                    <icon name="notifications" :size="24" color="#5856D6"/>--}}
+{{--                    <icon :ios="Ios::BellFill" :android="Android::Notifications" :size="24" color="#5856D6"/>--}}
 {{--                    <text class="text-sm text-gray-400 ">notifications</text>--}}
 {{--                </column>--}}
 {{--                <column class="items-center gap-1">--}}
-{{--                    <icon name="message" :size="24" color="#34C759"/>--}}
+{{--                    <icon :ios="Ios::Message" :android="Android::Message" :size="24" color="#34C759"/>--}}
 {{--                    <text class="text-sm text-gray-400 ">message</text>--}}
 {{--                </column>--}}
 {{--                <column class="items-center gap-1">--}}
-{{--                    <icon name="chat" :size="24" color="#FF9500"/>--}}
+{{--                    <icon :ios="Ios::BubbleLeft" :android="Android::Chat" :size="24" color="#FF9500"/>--}}
 {{--                    <text class="text-sm text-gray-400 ">chat</text>--}}
 {{--                </column>--}}
 {{--                <column class="items-center gap-1">--}}
-{{--                    <icon name="phone" :size="24" color="#34C759"/>--}}
+{{--                    <icon :ios="Ios::Phone" :android="Android::Phone" :size="24" color="#34C759"/>--}}
 {{--                    <text class="text-sm text-gray-400 ">phone</text>--}}
 {{--                </column>--}}
 {{--                <column class="items-center gap-1">--}}
-{{--                    <icon name="share" :size="24" color="#007AFF"/>--}}
+{{--                    <icon :ios="Ios::SquareAndArrowUp" :android="Android::Share" :size="24" color="#007AFF"/>--}}
 {{--                    <text class="text-sm text-gray-400 ">share</text>--}}
 {{--                </column>--}}
 {{--            </row>--}}
@@ -826,31 +827,31 @@
 {{--        <scroll-view :horizontal="true" class="w-full h-[48]">--}}
 {{--            <row class="gap-4 items-center h-[48]">--}}
 {{--                <column class="items-center gap-1">--}}
-{{--                    <icon name="add" :size="24" color="#34C759"/>--}}
+{{--                    <icon :ios="Ios::Plus" :android="Android::Add" :size="24" color="#34C759"/>--}}
 {{--                    <text class="text-sm text-gray-400 ">add</text>--}}
 {{--                </column>--}}
 {{--                <column class="items-center gap-1">--}}
-{{--                    <icon name="edit" :size="24" color="#007AFF"/>--}}
+{{--                    <icon :ios="Ios::Pencil" :android="Android::Edit" :size="24" color="#007AFF"/>--}}
 {{--                    <text class="text-sm text-gray-400 ">edit</text>--}}
 {{--                </column>--}}
 {{--                <column class="items-center gap-1">--}}
-{{--                    <icon name="delete" :size="24" color="#FF3B30"/>--}}
+{{--                    <icon :ios="Ios::Trash" :android="Android::Delete" :size="24" color="#FF3B30"/>--}}
 {{--                    <text class="text-sm text-gray-400 ">delete</text>--}}
 {{--                </column>--}}
 {{--                <column class="items-center gap-1">--}}
-{{--                    <icon name="check" :size="24" color="#34C759"/>--}}
+{{--                    <icon :ios="Ios::Checkmark" :android="Android::Check" :size="24" color="#34C759"/>--}}
 {{--                    <text class="text-sm text-gray-400 ">check</text>--}}
 {{--                </column>--}}
 {{--                <column class="items-center gap-1">--}}
-{{--                    <icon name="close" :size="24" color="#FF3B30"/>--}}
+{{--                    <icon :ios="Ios::Xmark" :android="Android::Close" :size="24" color="#FF3B30"/>--}}
 {{--                    <text class="text-sm text-gray-400 ">close</text>--}}
 {{--                </column>--}}
 {{--                <column class="items-center gap-1">--}}
-{{--                    <icon name="warning" :size="24" color="#FF9500"/>--}}
+{{--                    <icon :ios="Ios::ExclamationmarkTriangleFill" :android="Android::Warning" :size="24" color="#FF9500"/>--}}
 {{--                    <text class="text-sm text-gray-400 ">warning</text>--}}
 {{--                </column>--}}
 {{--                <column class="items-center gap-1">--}}
-{{--                    <icon name="info" :size="24" color="#007AFF"/>--}}
+{{--                    <icon :ios="Ios::Info" :android="Android::Info" :size="24" color="#007AFF"/>--}}
 {{--                    <text class="text-sm text-gray-400 ">info</text>--}}
 {{--                </column>--}}
 {{--            </row>--}}
@@ -860,35 +861,35 @@
 {{--        <scroll-view :horizontal="true" class="w-full h-[48]">--}}
 {{--            <row class="gap-4 items-center h-[48]">--}}
 {{--                <column class="items-center gap-1">--}}
-{{--                    <icon name="lock" :size="24" color="#8E8E93"/>--}}
+{{--                    <icon :ios="Ios::Lock" :android="Android::Lock" :size="24" color="#8E8E93"/>--}}
 {{--                    <text class="text-sm text-gray-400 ">lock</text>--}}
 {{--                </column>--}}
 {{--                <column class="items-center gap-1">--}}
-{{--                    <icon name="unlock" :size="24" color="#34C759"/>--}}
+{{--                    <icon :ios="Ios::LockOpen" :android="Android::LockOpen" :size="24" color="#34C759"/>--}}
 {{--                    <text class="text-sm text-gray-400 ">unlock</text>--}}
 {{--                </column>--}}
 {{--                <column class="items-center gap-1">--}}
-{{--                    <icon name="location" :size="24" color="#FF3B30"/>--}}
+{{--                    <icon :ios="Ios::Location" :android="Android::Place" :size="24" color="#FF3B30"/>--}}
 {{--                    <text class="text-sm text-gray-400 ">location</text>--}}
 {{--                </column>--}}
 {{--                <column class="items-center gap-1">--}}
-{{--                    <icon name="globe" :size="24" color="#007AFF"/>--}}
+{{--                    <icon :ios="Ios::Globe" :android="Android::Public" :size="24" color="#007AFF"/>--}}
 {{--                    <text class="text-sm text-gray-400 ">globe</text>--}}
 {{--                </column>--}}
 {{--                <column class="items-center gap-1">--}}
-{{--                    <icon name="bolt" :size="24" color="#FF9500"/>--}}
+{{--                    <icon :ios="Ios::Bolt" :android="Android::Bolt" :size="24" color="#FF9500"/>--}}
 {{--                    <text class="text-sm text-gray-400 ">bolt</text>--}}
 {{--                </column>--}}
 {{--                <column class="items-center gap-1">--}}
-{{--                    <icon name="clock" :size="24" color="#5856D6"/>--}}
+{{--                    <icon :ios="Ios::Clock" :android="Android::Schedule" :size="24" color="#5856D6"/>--}}
 {{--                    <text class="text-sm text-gray-400 ">clock</text>--}}
 {{--                </column>--}}
 {{--                <column class="items-center gap-1">--}}
-{{--                    <icon name="calendar" :size="24" color="#FF3B30"/>--}}
+{{--                    <icon :ios="Ios::Calendar" :android="Android::CalendarToday" :size="24" color="#FF3B30"/>--}}
 {{--                    <text class="text-sm text-gray-400 ">calendar</text>--}}
 {{--                </column>--}}
 {{--                <column class="items-center gap-1">--}}
-{{--                    <icon name="qrcode" :size="24" color="#333333"/>--}}
+{{--                    <icon :ios="Ios::Qrcode" :android="Android::QrCode" :size="24" color="#333333"/>--}}
 {{--                    <text class="text-sm text-gray-400 ">qrcode</text>--}}
 {{--                </column>--}}
 {{--            </row>--}}
@@ -898,31 +899,31 @@
 {{--        <scroll-view :horizontal="true" class="w-full h-[48]">--}}
 {{--            <row class="gap-4 items-center h-[48]">--}}
 {{--                <column class="items-center gap-1">--}}
-{{--                    <icon name="cart" :size="24" color="#34C759"/>--}}
+{{--                    <icon :ios="Ios::Cart" :android="Android::ShoppingCart" :size="24" color="#34C759"/>--}}
 {{--                    <text class="text-sm text-gray-400 ">cart</text>--}}
 {{--                </column>--}}
 {{--                <column class="items-center gap-1">--}}
-{{--                    <icon name="orders" :size="24" color="#FF9500"/>--}}
+{{--                    <icon :ios="Ios::Shippingbox" :android="Android::Inventory" :size="24" color="#FF9500"/>--}}
 {{--                    <text class="text-sm text-gray-400 ">orders</text>--}}
 {{--                </column>--}}
 {{--                <column class="items-center gap-1">--}}
-{{--                    <icon name="download" :size="24" color="#007AFF"/>--}}
+{{--                    <icon :ios="Ios::ArrowDownCircle" :android="Android::Download" :size="24" color="#007AFF"/>--}}
 {{--                    <text class="text-sm text-gray-400 ">download</text>--}}
 {{--                </column>--}}
 {{--                <column class="items-center gap-1">--}}
-{{--                    <icon name="upload" :size="24" color="#5856D6"/>--}}
+{{--                    <icon :ios="Ios::ArrowUpCircle" :android="Android::Upload" :size="24" color="#5856D6"/>--}}
 {{--                    <text class="text-sm text-gray-400 ">upload</text>--}}
 {{--                </column>--}}
 {{--                <column class="items-center gap-1">--}}
-{{--                    <icon name="refresh" :size="24" color="#007AFF"/>--}}
+{{--                    <icon :ios="Ios::ArrowClockwise" :android="Android::Refresh" :size="24" color="#007AFF"/>--}}
 {{--                    <text class="text-sm text-gray-400 ">refresh</text>--}}
 {{--                </column>--}}
 {{--                <column class="items-center gap-1">--}}
-{{--                    <icon name="filter" :size="24" color="#8E8E93"/>--}}
+{{--                    <icon :ios="Ios::Line3HorizontalDecrease" :android="Android::FilterList" :size="24" color="#8E8E93"/>--}}
 {{--                    <text class="text-sm text-gray-400 ">filter</text>--}}
 {{--                </column>--}}
 {{--                <column class="items-center gap-1">--}}
-{{--                    <icon name="list" :size="24" color="#333333"/>--}}
+{{--                    <icon :ios="Ios::ListBullet" :android="Android::List" :size="24" color="#333333"/>--}}
 {{--                    <text class="text-sm text-gray-400 ">list</text>--}}
 {{--                </column>--}}
 {{--            </row>--}}
@@ -1017,7 +1018,7 @@
 
 {{--        --}}{{-- Disabled (non-interactive, no @press) --}}
 {{--        <row class="items-center gap-2 opacity-50">--}}
-{{--            <icon name="check_box" :size="22" color="#CBD5E1"/>--}}
+{{--            <icon :ios="Ios::CheckmarkSquareFill" :android="Android::CheckBox" :size="22" color="#CBD5E1"/>--}}
 {{--            <text>Disabled (checked)</text>--}}
 {{--        </row>--}}
 
@@ -1068,7 +1069,7 @@
 
 {{--            --}}{{-- Disabled (non-interactive) --}}
 {{--            <row class="items-center gap-2 opacity-50">--}}
-{{--                <icon name="radio_button_unchecked" :size="22" color="#CBD5E1"/>--}}
+{{--                <icon :ios="Ios::Circle" :android="Android::RadioButtonUnchecked" :size="22" color="#CBD5E1"/>--}}
 {{--                <text>Enterprise — custom</text>--}}
 {{--            </row>--}}
 {{--        </column>--}}
@@ -1408,7 +1409,7 @@
 {{--                    <text class="font-bold text-lg ">Jane Doe</text>--}}
 {{--                    <text class="text-sm text-gray-400 ">Senior Developer</text>--}}
 {{--                </column>--}}
-{{--                <icon name="more" :size="24" color="#999999"/>--}}
+{{--                <icon :ios="Ios::Ellipsis" :android="Android::MoreHoriz" :size="24" color="#999999"/>--}}
 {{--            </row>--}}
 {{--            <text class="text-gray-600  text-sm">Building beautiful native apps with PHP. Loves--}}
 {{--                clean architecture, Tailwind, and strong coffee.--}}
@@ -1427,12 +1428,12 @@
 {{--        --}}{{-- Stats card --}}
 {{--        <row class="w-full gap-3">--}}
 {{--            <column class="flex-1 bg-blue-100 rounded-xl p-4 gap-1 items-center">--}}
-{{--                <icon name="chart.bar.fill" :size="24" color="#3B82F6"/>--}}
+{{--                <icon :ios="Ios::ChartBarFill" :android="Android::BarChart" :size="24" color="#3B82F6"/>--}}
 {{--                <text class="text-2xl font-bold text-blue-600">2.4k</text>--}}
 {{--                <text class="text-sm text-blue-400">Followers</text>--}}
 {{--            </column>--}}
 {{--            <column class="flex-1 bg-green-100 rounded-xl p-4 gap-1 items-center">--}}
-{{--                <icon name="star" :size="24" color="#22C55E"/>--}}
+{{--                <icon :ios="Ios::Star" :android="Android::Star" :size="24" color="#22C55E"/>--}}
 {{--                <text class="text-2xl font-bold text-green-600">182</text>--}}
 {{--                <text class="text-sm text-green-400">Stars</text>--}}
 {{--            </column>--}}
@@ -1454,7 +1455,7 @@
 {{--            <pressable @tap="increment" class="w-full">--}}
 {{--                <row class="w-full px-4 py-3 gap-3 items-center">--}}
 {{--                    <column class="w-[40] h-[40] rounded-full bg-blue-100 items-center justify-center">--}}
-{{--                        <icon name="mail" :size="20" color="#3B82F6"/>--}}
+{{--                        <icon :ios="Ios::Mail" :android="Android::Mail" :size="20" color="#3B82F6"/>--}}
 {{--                    </column>--}}
 {{--                    <column class="flex-1 gap-0">--}}
 {{--                        <text class="font-semibold ">Messages</text>--}}
@@ -1463,7 +1464,7 @@
 {{--                    <column class="w-[24] h-[24] rounded-full bg-red-500 items-center justify-center">--}}
 {{--                        <text class="text-white text-sm font-bold">3</text>--}}
 {{--                    </column>--}}
-{{--                    <icon name="forward" :size="20" color="#CCCCCC"/>--}}
+{{--                    <icon :ios="Ios::Forward" :android="Android::Forward" :size="20" color="#CCCCCC"/>--}}
 {{--                </row>--}}
 {{--            </pressable>--}}
 {{--            <divider/>--}}
@@ -1471,13 +1472,13 @@
 {{--            <pressable @tap="increment" class="w-full">--}}
 {{--                <row class="w-full px-4 py-3 gap-3 items-center">--}}
 {{--                    <column class="w-[40] h-[40] rounded-full bg-green-100 items-center justify-center">--}}
-{{--                        <icon name="notifications" :size="20" color="#22C55E"/>--}}
+{{--                        <icon :ios="Ios::BellFill" :android="Android::Notifications" :size="20" color="#22C55E"/>--}}
 {{--                    </column>--}}
 {{--                    <column class="flex-1 gap-0">--}}
 {{--                        <text class="font-semibold ">Notifications</text>--}}
 {{--                        <text class="text-sm text-gray-400 ">Push & email alerts</text>--}}
 {{--                    </column>--}}
-{{--                    <icon name="forward" :size="20" color="#CCCCCC"/>--}}
+{{--                    <icon :ios="Ios::Forward" :android="Android::Forward" :size="20" color="#CCCCCC"/>--}}
 {{--                </row>--}}
 {{--            </pressable>--}}
 {{--            <divider/>--}}
@@ -1485,13 +1486,13 @@
 {{--            <pressable @tap="increment" class="w-full">--}}
 {{--                <row class="w-full px-4 py-3 gap-3 items-center">--}}
 {{--                    <column class="w-[40] h-[40] rounded-full bg-purple-100 items-center justify-center">--}}
-{{--                        <icon name="lock" :size="20" color="#A855F7"/>--}}
+{{--                        <icon :ios="Ios::Lock" :android="Android::Lock" :size="20" color="#A855F7"/>--}}
 {{--                    </column>--}}
 {{--                    <column class="flex-1 gap-0">--}}
 {{--                        <text class="font-semibold ">Privacy</text>--}}
 {{--                        <text class="text-sm text-gray-400 ">Manage your data</text>--}}
 {{--                    </column>--}}
-{{--                    <icon name="forward" :size="20" color="#CCCCCC"/>--}}
+{{--                    <icon :ios="Ios::Forward" :android="Android::Forward" :size="20" color="#CCCCCC"/>--}}
 {{--                </row>--}}
 {{--            </pressable>--}}
 {{--            <divider/>--}}
@@ -1499,13 +1500,13 @@
 {{--            <pressable @tap="increment" class="w-full">--}}
 {{--                <row class="w-full px-4 py-3 gap-3 items-center">--}}
 {{--                    <column class="w-[40] h-[40] rounded-full bg-amber-100 items-center justify-center">--}}
-{{--                        <icon name="settings" :size="20" color="#F59E0B"/>--}}
+{{--                        <icon :ios="Ios::Gearshape" :android="Android::Settings" :size="20" color="#F59E0B"/>--}}
 {{--                    </column>--}}
 {{--                    <column class="flex-1 gap-0">--}}
 {{--                        <text class="font-semibold ">Settings</text>--}}
 {{--                        <text class="text-sm text-gray-400 ">App preferences</text>--}}
 {{--                    </column>--}}
-{{--                    <icon name="forward" :size="20" color="#CCCCCC"/>--}}
+{{--                    <icon :ios="Ios::Forward" :android="Android::Forward" :size="20" color="#CCCCCC"/>--}}
 {{--                </row>--}}
 {{--            </pressable>--}}
 {{--        </column>--}}
@@ -1618,19 +1619,19 @@
 {{-- Bottom Navigation --}}
 {{--<row class="w-full h-[90] bg-white border-t border-gray-200 items-start justify-evenly pt-2">--}}
 {{--    <pressable @tap="increment" class="flex-1 items-center gap-1">--}}
-{{--        <icon name="home" :size="22" color="#007AFF" />--}}
+{{--        <icon :ios="Ios::House" :android="Android::Home" :size="22" color="#007AFF" />--}}
 {{--        <text class="text-sm text-blue-500 font-medium">Home</text>--}}
 {{--    </pressable>--}}
 {{--    <pressable @tap="increment" class="flex-1 items-center gap-1">--}}
-{{--        <icon name="search" :size="22" color="#8E8E93" />--}}
+{{--        <icon :ios="Ios::Magnifyingglass" :android="Android::Search" :size="22" color="#8E8E93" />--}}
 {{--        <text class="text-sm text-gray-400 ">Search</text>--}}
 {{--    </pressable>--}}
 {{--    <pressable @tap="increment" class="flex-1 items-center gap-1">--}}
-{{--        <icon name="favorite" :size="22" color="#8E8E93" />--}}
+{{--        <icon :ios="Ios::HeartFill" :android="Android::Favorite" :size="22" color="#8E8E93" />--}}
 {{--        <text class="text-sm text-gray-400 ">Favorites</text>--}}
 {{--    </pressable>--}}
 {{--    <pressable @tap="increment" class="flex-1 items-center gap-1">--}}
-{{--        <icon name="person" :size="22" color="#8E8E93" />--}}
+{{--        <icon :ios="Ios::Person" :android="Android::Person" :size="22" color="#8E8E93" />--}}
 {{--        <text class="text-sm text-gray-400 ">Profile</text>--}}
 {{--    </pressable>--}}
 {{--</row>--}}

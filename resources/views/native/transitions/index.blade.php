@@ -1,3 +1,4 @@
+@php use App\Icons\Android; use App\Icons\Ios; @endphp
 <scroll-view class="w-full h-full bg-theme-background">
     <column class="w-full p-5 gap-3">
 
@@ -11,7 +12,7 @@
                 <text class="text-base font-semibold text-theme-on-surface">Slide from Right</text>
                 <text class="text-sm text-theme-on-surface-variant">Default push — enters from the trailing edge</text>
             </column>
-            <icon name="chevron_right" :size="20" color="#9CA3AF" dark-color="#94A3B8" />
+            <icon :ios="Ios::ChevronRight" :android="Android::ChevronRight" :size="20" color="#9CA3AF" dark-color="#94A3B8" />
         </row>
 
         {{-- Parallax Push (the new one) --}}
@@ -23,7 +24,7 @@
                 </row>
                 <text class="text-sm text-theme-on-surface-variant">New screen slides in; old drifts back underneath</text>
             </column>
-            <icon name="chevron_right" :size="20" color="#9CA3AF" dark-color="#94A3B8" />
+            <icon :ios="Ios::ChevronRight" :android="Android::ChevronRight" :size="20" color="#9CA3AF" dark-color="#94A3B8" />
         </row>
 
         {{-- Slide from Left --}}
@@ -33,7 +34,7 @@
                 <text class="text-base font-semibold text-theme-on-surface">Slide from Left</text>
                 <text class="text-sm text-theme-on-surface-variant">Enters from the leading edge (back-style)</text>
             </column>
-            <icon name="chevron_right" :size="20" color="#9CA3AF" dark-color="#94A3B8" />
+            <icon :ios="Ios::ChevronRight" :android="Android::ChevronRight" :size="20" color="#9CA3AF" dark-color="#94A3B8" />
         </row>
 
         {{-- Slide from Bottom --}}
@@ -43,7 +44,7 @@
                 <text class="text-base font-semibold text-theme-on-surface">Slide from Bottom</text>
                 <text class="text-sm text-theme-on-surface-variant">Sheet-like rise from the bottom edge</text>
             </column>
-            <icon name="chevron_right" :size="20" color="#9CA3AF" dark-color="#94A3B8" />
+            <icon :ios="Ios::ChevronRight" :android="Android::ChevronRight" :size="20" color="#9CA3AF" dark-color="#94A3B8" />
         </row>
 
         {{-- Fade --}}
@@ -53,7 +54,7 @@
                 <text class="text-base font-semibold text-theme-on-surface">Fade</text>
                 <text class="text-sm text-theme-on-surface-variant">Cross-dissolve between screens</text>
             </column>
-            <icon name="chevron_right" :size="20" color="#9CA3AF" dark-color="#94A3B8" />
+            <icon :ios="Ios::ChevronRight" :android="Android::ChevronRight" :size="20" color="#9CA3AF" dark-color="#94A3B8" />
         </row>
 
         {{-- Fade from Bottom --}}
@@ -63,7 +64,7 @@
                 <text class="text-base font-semibold text-theme-on-surface">Fade from Bottom</text>
                 <text class="text-sm text-theme-on-surface-variant">Rises and fades in together</text>
             </column>
-            <icon name="chevron_right" :size="20" color="#9CA3AF" dark-color="#94A3B8" />
+            <icon :ios="Ios::ChevronRight" :android="Android::ChevronRight" :size="20" color="#9CA3AF" dark-color="#94A3B8" />
         </row>
 
         {{-- Scale from Center --}}
@@ -73,7 +74,7 @@
                 <text class="text-base font-semibold text-theme-on-surface">Scale from Center</text>
                 <text class="text-sm text-theme-on-surface-variant">Zooms up from the center while fading in</text>
             </column>
-            <icon name="chevron_right" :size="20" color="#9CA3AF" dark-color="#94A3B8" />
+            <icon :ios="Ios::ChevronRight" :android="Android::ChevronRight" :size="20" color="#9CA3AF" dark-color="#94A3B8" />
         </row>
 
         {{-- None --}}
@@ -83,7 +84,7 @@
                 <text class="text-base font-semibold text-theme-on-surface">None</text>
                 <text class="text-sm text-theme-on-surface-variant">Instant — no animation</text>
             </column>
-            <icon name="chevron_right" :size="20" color="#9CA3AF" dark-color="#94A3B8" />
+            <icon :ios="Ios::ChevronRight" :android="Android::ChevronRight" :size="20" color="#9CA3AF" dark-color="#94A3B8" />
         </row>
 
     </column>

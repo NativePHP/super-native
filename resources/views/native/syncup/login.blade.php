@@ -1,10 +1,11 @@
+@php use App\Icons\Android; use App\Icons\Ios; @endphp
 <scroll-view class="w-full h-full bg-theme-background safe-area">
     <column class="w-full px-5 py-10 gap-8 items-center">
 
         {{-- Header — sync icon block + brand + tagline --}}
         <column class="w-full items-center gap-2">
             <column class="w-[80] h-[80] rounded-2xl bg-theme-surface items-center justify-center mb-2 border border-theme-outline">
-                <icon name="arrow.triangle.2.circlepath" :size="36" color="#0891b2" />
+                <icon :ios="Ios::ArrowTriangle2Circlepath" :android="Android::Sync" :size="36" color="#0891b2" />
             </column>
             <text class="text-2xl font-bold text-cyan-600 ">SyncUp</text>
             <text class="text-base text-theme-on-surface-variant text-center">Connect with your world effortlessly and stay in sync with those who matter most.</text>
@@ -17,7 +18,7 @@
             <column class="w-full gap-1">
                 <text class="text-base font-semibold text-theme-on-surface ">Email Address</text>
                 <row class="w-full items-center gap-2 mt-2">
-                    <icon name="mail" :size="20" color="#6d797e" dark-color="#94a3b8" />
+                    <icon :ios="Ios::Mail" :android="Android::Mail" :size="20" color="#6d797e" dark-color="#94a3b8" />
                     <outlined-text-input
                         value="{{ $email }}"
                         placeholder="name@example.com"
@@ -35,7 +36,7 @@
                     <text @tap="forgotPassword" class="text-xs font-medium text-cyan-600">Forgot?</text>
                 </row>
                 <row class="w-full items-center gap-2 mt-1">
-                    <icon name="lock" :size="20" color="#6d797e" dark-color="#94a3b8" />
+                    <icon :ios="Ios::Lock" :android="Android::Lock" :size="20" color="#6d797e" dark-color="#94a3b8" />
                     <outlined-text-input
                         value="{{ $password }}"
                         placeholder="••••••••"
@@ -45,7 +46,7 @@
                         class="flex-1"
                     />
                     <column @tap="toggleVisibility" class="px-2 py-2">
-                        <icon name="{{ $showPassword ? 'visibility_off' : 'visibility' }}" :size="20" color="#6d797e" dark-color="#94a3b8" />
+                        <icon :ios="$showPassword ? Ios::EyeSlash : Ios::Eye" :android="$showPassword ? Android::VisibilityOff : Android::Visibility" :size="20" color="#6d797e" dark-color="#94a3b8" />
                     </column>
                 </row>
             </column>

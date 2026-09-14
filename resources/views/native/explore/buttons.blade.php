@@ -1,3 +1,4 @@
+@php use App\Icons\Android; use App\Icons\Ios; @endphp
 <scroll-view class="w-full bg-theme-background">
     <column class="w-full p-5 gap-5">
 
@@ -54,23 +55,23 @@
         <row class="w-full gap-3 items-center">
             <pressable @tap="increment" a11y-label="Increment"
                               class="w-[48] h-[48] rounded-full bg-theme-primary items-center justify-center">
-                <icon name="add" :size="24" color="#FFFFFF"/>
+                <icon :ios="Ios::Plus" :android="Android::Add" :size="24" color="#FFFFFF"/>
             </pressable>
             <pressable @tap="decrement" a11y-label="Decrement"
                               class="w-[48] h-[48] rounded-full bg-theme-destructive items-center justify-center">
-                <icon name="minus.circle.fill" :size="24" color="#FFFFFF"/>
+                <icon :ios="Ios::MinusCircleFill" :android="Android::RemoveCircle" :size="24" color="#FFFFFF"/>
             </pressable>
             <pressable @tap="increment" a11y-label="Confirm"
                               class="w-[48] h-[48] rounded-full bg-theme-accent items-center justify-center">
-                <icon name="check" :size="24" color="#FFFFFF"/>
+                <icon :ios="Ios::Checkmark" :android="Android::Check" :size="24" color="#FFFFFF"/>
             </pressable>
             <pressable @tap="increment" a11y-label="Star"
                               class="w-[48] h-[48] rounded-full bg-theme-secondary items-center justify-center">
-                <icon name="star" :size="24" color="#FFFFFF"/>
+                <icon :ios="Ios::Star" :android="Android::Star" :size="24" color="#FFFFFF"/>
             </pressable>
             <pressable @tap="increment" a11y-label="Favorite"
                               class="w-[48] h-[48] rounded-full bg-amber-500 items-center justify-center">
-                <icon name="favorite" :size="24" color="#FFFFFF"/>
+                <icon :ios="Ios::HeartFill" :android="Android::Favorite" :size="24" color="#FFFFFF"/>
             </pressable>
         </row>
 

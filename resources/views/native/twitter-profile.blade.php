@@ -1,3 +1,4 @@
+@php use App\Icons\Android; use App\Icons\Ios; @endphp
 <scroll-view class="w-full h-full bg-theme-surface safe-area">
     <column class="w-full gap-0">
 
@@ -44,8 +45,8 @@
 
             {{-- Floating back button — LAST stack child so it draws (and
                  hit-tests) above the banner and avatar layers. --}}
-            <pressable @tap="back" a11y-label="Back" class="absolute top-3 left-3 w-[34] h-[34] rounded-full bg-black/50 items-center justify-center">
-                <icon name="arrow_back" :size="20" color="#FFFFFF" />
+            <pressable @navigate.back a11y-label="Back" class="absolute top-3 left-3 w-[34] h-[34] rounded-full bg-black/50 items-center justify-center">
+                <icon :ios="Ios::ChevronLeft" :android="Android::ArrowBack" :size="20" color="#FFFFFF" />
             </pressable>
         </stack>
 
@@ -54,7 +55,7 @@
             <row class="items-center gap-1">
                 <text class="text-[20] font-bold text-theme-on-surface">{{ $user['name'] }}</text>
                 @if ($user['isVerified'])
-                    <icon name="verified" :size="18" color="#1D9BF0" />
+                    <icon :ios="Ios::CheckmarkSealFill" :android="Android::Verified" :size="18" color="#1D9BF0" />
                 @endif
             </row>
             <text class="text-[15] text-[#536471] dark:text-[#71767B]">{{ $user['handle'] }}</text>
@@ -64,11 +65,11 @@
             {{-- Meta row --}}
             <row class="items-center gap-4 pt-2">
                 <row class="items-center gap-1">
-                    <icon name="globe" :size="15" class="text-[#536471] dark:text-[#71767B]" />
+                    <icon :ios="Ios::Globe" :android="Android::Public" :size="15" class="text-[#536471] dark:text-[#71767B]" />
                     <text class="text-[14] text-[#1D9BF0]">{{ strtolower(str_replace(['@', ' '], '', $user['handle'])) }}.dev</text>
                 </row>
                 <row class="items-center gap-1">
-                    <icon name="calendar" :size="15" class="text-[#536471] dark:text-[#71767B]" />
+                    <icon :ios="Ios::Calendar" :android="Android::CalendarToday" :size="15" class="text-[#536471] dark:text-[#71767B]" />
                     <text class="text-[14] text-[#536471] dark:text-[#71767B]">Joined March 2019</text>
                 </row>
             </row>
@@ -114,7 +115,7 @@
                                     <row class="items-center gap-1">
                                         <text class="text-[15] font-bold text-theme-on-surface">{{ $tweet['user']['name'] }}</text>
                                         @if ($tweet['user']['isVerified'])
-                                            <icon name="verified" :size="16" color="#1D9BF0" />
+                                            <icon :ios="Ios::CheckmarkSealFill" :android="Android::Verified" :size="16" color="#1D9BF0" />
                                         @endif
                                         <text class="text-[14] text-[#536471] dark:text-[#71767B]">{{ $tweet['user']['handle'] }} · {{ $tweet['time'] }}</text>
                                     </row>
@@ -135,18 +136,18 @@
                             {{-- Action Bar --}}
                             <row class="w-full items-center justify-between py-2 pr-4">
                                 <row class="items-center gap-1">
-                                    <icon name="chat_bubble_outline" :size="17" class="text-[#536471] dark:text-[#71767B]" />
+                                    <icon :ios="Ios::BubbleLeft" :android="Android::ChatBubbleOutline" :size="17" class="text-[#536471] dark:text-[#71767B]" />
                                     <text class="text-[13] text-[#536471] dark:text-[#71767B]">{{ $tweet['replyFormatted'] }}</text>
                                 </row>
                                 <row class="items-center gap-1">
-                                    <icon name="repeat" :size="17" class="text-[#536471] dark:text-[#71767B]" />
+                                    <icon :ios="Ios::Repeat" :android="Android::Repeat" :size="17" class="text-[#536471] dark:text-[#71767B]" />
                                     <text class="text-[13] text-[#536471] dark:text-[#71767B]">{{ $tweet['retweetFormatted'] }}</text>
                                 </row>
                                 <row class="items-center gap-1">
-                                    <icon name="favorite_border" :size="17" class="text-[#536471] dark:text-[#71767B]" />
+                                    <icon :ios="Ios::Heart" :android="Android::FavoriteBorder" :size="17" class="text-[#536471] dark:text-[#71767B]" />
                                     <text class="text-[13] text-[#536471] dark:text-[#71767B]">{{ $tweet['likeFormatted'] }}</text>
                                 </row>
-                                <icon name="share" :size="17" class="text-[#536471] dark:text-[#71767B]" />
+                                <icon :ios="Ios::SquareAndArrowUp" :android="Android::Share" :size="17" class="text-[#536471] dark:text-[#71767B]" />
                             </row>
                         </column>
                     </row>

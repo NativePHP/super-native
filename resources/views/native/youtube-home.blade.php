@@ -1,3 +1,4 @@
+@php use App\Icons\Android; use App\Icons\Ios; @endphp
 {{-- Plain full-screen root (outside the NavBar stack group — see
      routes/mobile.php): the screen fills the window edge-to-edge, so
      `safe-area` pads the content while the dark bg covers the insets.
@@ -9,20 +10,20 @@
 
         {{-- Top Bar — back + YouTube brand + cast / notifications / search --}}
         <row class="w-full px-3 pt-2 pb-1 items-center gap-2">
-            <column @tap="back" a11y-label="Back" class="w-[34] h-[34] items-center justify-center">
-                <icon name="arrow_back" :size="24" color="#FFFFFF" />
+            <column @navigate.back a11y-label="Back" class="w-[34] h-[34] items-center justify-center">
+                <icon :ios="Ios::ChevronLeft" :android="Android::ArrowBack" :size="24" color="#FFFFFF" />
             </column>
-            <icon name="play_circle_filled" :size="26" color="#FF0000" />
+            <icon :ios="Ios::PlayCircleFill" :android="Android::PlayCircleFilled" :size="26" color="#FF0000" />
             <text class="text-[19] font-bold text-white">YouTube</text>
             <spacer />
             <column @tap="castDevice" a11y-label="Cast" class="w-[34] h-[34] items-center justify-center">
-                <icon name="cast" :size="20" color="#FFFFFF" />
+                <icon :ios="Ios::Airplayvideo" :android="Android::Cast" :size="20" color="#FFFFFF" />
             </column>
             <column @tap="viewNotifications" a11y-label="Notifications" class="w-[34] h-[34] items-center justify-center">
-                <icon name="notifications" :size="20" color="#FFFFFF" />
+                <icon :ios="Ios::BellFill" :android="Android::Notifications" :size="20" color="#FFFFFF" />
             </column>
             <column @tap="viewSearch" a11y-label="Search" class="w-[34] h-[34] items-center justify-center">
-                <icon name="search" :size="20" color="#FFFFFF" />
+                <icon :ios="Ios::Magnifyingglass" :android="Android::Search" :size="20" color="#FFFFFF" />
             </column>
         </row>
 
@@ -30,7 +31,7 @@
         <scroll-view horizontal>
             <row class="gap-2 px-3 py-2 items-center">
                 <column class="w-[34] h-[32] rounded-lg bg-[#272727] items-center justify-center">
-                    <icon name="dashboard" :size="18" color="#FFFFFF" />
+                    <icon :ios="Ios::SquareGrid2x2" :android="Android::Dashboard" :size="18" color="#FFFFFF" />
                 </column>
                 @foreach ($categories as $name => $color)
                     <column
@@ -77,14 +78,14 @@
                             <text class="text-[12] text-[#AAAAAA]" :maxLines="1">{{ $video['channel']['name'] }} · {{ $video['viewsFormatted'] }} views · {{ $video['uploadedAt'] }}</text>
                         </column>
                     </pressable>
-                    <icon name="more_vert" :size="18" color="#AAAAAA" />
+                    <icon :ios="Ios::Ellipsis" :android="Android::MoreVert" :size="18" color="#AAAAAA" />
                 </row>
             </column>
         @endforeach
 
         {{-- Shorts Section --}}
         <row class="w-full px-3 pt-1 pb-2 items-center gap-2">
-            <icon name="play_circle_filled" :size="24" color="#FF0000" />
+            <icon :ios="Ios::PlayCircleFill" :android="Android::PlayCircleFilled" :size="24" color="#FF0000" />
             <text class="text-[17] font-bold text-white">Shorts</text>
         </row>
 
@@ -106,7 +107,7 @@
                             <text class="text-[11] text-[#DDDDDD]">{{ $short['viewsFormatted'] }} views</text>
                         </column>
                         <column class="absolute top-2 right-2">
-                            <icon name="more_vert" :size="18" color="#FFFFFF" />
+                            <icon :ios="Ios::Ellipsis" :android="Android::MoreVert" :size="18" color="#FFFFFF" />
                         </column>
                     </stack>
                 @endforeach
@@ -145,7 +146,7 @@
                             <text class="text-[12] text-[#AAAAAA]" :maxLines="1">{{ $video['channel']['name'] }} · {{ $video['viewsFormatted'] }} views · {{ $video['uploadedAt'] }}</text>
                         </column>
                     </pressable>
-                    <icon name="more_vert" :size="18" color="#AAAAAA" />
+                    <icon :ios="Ios::Ellipsis" :android="Android::MoreVert" :size="18" color="#AAAAAA" />
                 </row>
             </column>
         @endforeach

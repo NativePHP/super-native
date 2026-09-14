@@ -1,3 +1,4 @@
+@php use App\Icons\Android; use App\Icons\Ios; @endphp
 <scroll-view class="w-full h-full bg-[#0F0F0F] safe-area">
     <column class="w-full gap-0">
 
@@ -18,7 +19,7 @@
             {{-- Centered Play Button --}}
             <column class="w-full h-[220] items-center justify-center">
                 <column class="w-[64] h-[64] rounded-full bg-[#000000CC] items-center justify-center">
-                    <icon name="play_arrow" :size="40" color="#FFFFFF" />
+                    <icon :ios="Ios::PlayFill" :android="Android::PlayArrow" :size="40" color="#FFFFFF" />
                 </column>
             </column>
             {{-- Red progress bar hugging the player's bottom edge --}}
@@ -35,11 +36,11 @@
             {{-- Top controls (back / settings) — declared LAST so they
                  sit above the other overlay layers and receive taps. --}}
             <row class="w-full px-3 pt-3 items-center justify-between">
-                <column @tap="back" a11y-label="Back" class="w-[36] h-[36] rounded-full bg-[#000000AA] items-center justify-center">
-                    <icon name="arrow_back" :size="20" color="#FFFFFF" />
+                <column @navigate.back a11y-label="Back" class="w-[36] h-[36] rounded-full bg-[#000000AA] items-center justify-center">
+                    <icon :ios="Ios::ChevronLeft" :android="Android::ArrowBack" :size="20" color="#FFFFFF" />
                 </column>
                 <column class="w-[36] h-[36] rounded-full bg-[#000000AA] items-center justify-center">
-                    <icon name="settings" :size="18" color="#FFFFFF" />
+                    <icon :ios="Ios::Gearshape" :android="Android::Settings" :size="18" color="#FFFFFF" />
                 </column>
             </row>
         </stack>
@@ -77,7 +78,7 @@
                 <row class="items-center gap-2">
                     <text class="text-[14] font-semibold text-white" :maxLines="1">{{ $channel['name'] }}</text>
                     @if ($channel['isVerified'])
-                        <icon name="verified" :size="13" color="#AAAAAA" />
+                        <icon :ios="Ios::CheckmarkSealFill" :android="Android::Verified" :size="13" color="#AAAAAA" />
                     @endif
                     <text class="text-[12] text-[#AAAAAA]">{{ $subscribersFormatted }}</text>
                 </row>
@@ -89,7 +90,7 @@
             >
                 <row class="items-center gap-1">
                     @if ($isSubscribed)
-                        <icon name="notifications" :size="16" color="#FFFFFF" />
+                        <icon :ios="Ios::BellFill" :android="Android::Notifications" :size="16" color="#FFFFFF" />
                     @endif
                     <text class="text-[13] font-bold {{ $isSubscribed ? 'text-white' : 'text-black' }}">{{ $isSubscribed ? 'Subscribed' : 'Subscribe' }}</text>
                 </row>
@@ -122,22 +123,22 @@
                 </row>
 
                 <row class="bg-[#272727] rounded-full px-4 py-2 items-center gap-2">
-                    <icon name="share" :size="18" color="#FFFFFF" />
+                    <icon :ios="Ios::SquareAndArrowUp" :android="Android::Share" :size="18" color="#FFFFFF" />
                     <text class="text-[13] font-semibold text-white">Share</text>
                 </row>
 
                 <row class="bg-[#272727] rounded-full px-4 py-2 items-center gap-2">
-                    <icon name="bolt" :size="18" color="#FFFFFF" />
+                    <icon :ios="Ios::Bolt" :android="Android::Bolt" :size="18" color="#FFFFFF" />
                     <text class="text-[13] font-semibold text-white">Remix</text>
                 </row>
 
                 <row class="bg-[#272727] rounded-full px-4 py-2 items-center gap-2">
-                    <icon name="download" :size="18" color="#FFFFFF" />
+                    <icon :ios="Ios::ArrowDownCircle" :android="Android::Download" :size="18" color="#FFFFFF" />
                     <text class="text-[13] font-semibold text-white">Download</text>
                 </row>
 
                 <row class="bg-[#272727] rounded-full px-4 py-2 items-center gap-2">
-                    <icon name="playlist_add" :size="18" color="#FFFFFF" />
+                    <icon :ios="Ios::TextBadgePlus" :android="Android::PlaylistAdd" :size="18" color="#FFFFFF" />
                     <text class="text-[13] font-semibold text-white">Save</text>
                 </row>
             </row>
@@ -151,7 +152,7 @@
                     <text class="text-[14] font-bold text-white">Comments</text>
                     <text class="text-[12] text-[#AAAAAA]">{{ $commentCountFormatted }}</text>
                     <spacer />
-                    <icon name="{{ $showComments ? 'expand_less' : 'expand_more' }}" :size="16" color="#AAAAAA" />
+                    <icon :ios="$showComments ? Ios::ChevronUp : Ios::ChevronDown" :android="$showComments ? Android::ExpandLess : Android::ExpandMore" :size="16" color="#AAAAAA" />
                 </row>
                 @if (! $showComments && count($comments) > 0)
                     <row class="w-full items-center gap-2">
@@ -185,10 +186,10 @@
                         <text class="text-[13] text-white">{{ $comment['text'] }}</text>
                         <row class="items-center gap-3 pt-1">
                             <row class="items-center gap-1">
-                                <icon name="thumb_up_off_alt" :size="14" color="#AAAAAA" />
+                                <icon :ios="Ios::HandThumbsup" :android="Android::ThumbUpOffAlt" :size="14" color="#AAAAAA" />
                                 <text class="text-[11] text-[#AAAAAA]">{{ \App\NativeComponents\Concerns\HasYouTubeData::formatYtCount($comment['likes']) }}</text>
                             </row>
-                            <icon name="thumb_down_off_alt" :size="14" color="#AAAAAA" />
+                            <icon :ios="Ios::HandThumbsdown" :android="Android::ThumbDownOffAlt" :size="14" color="#AAAAAA" />
                             <text class="text-[11] text-[#AAAAAA]">{{ $comment['replies'] }} replies</text>
                         </row>
                     </column>
@@ -230,7 +231,7 @@
                             <text class="text-[14] font-semibold text-white" :maxLines="2">{{ $sVideo['title'] }}</text>
                             <text class="text-[12] text-[#AAAAAA]" :maxLines="1">{{ $sVideo['channel']['name'] }} · {{ $sVideo['viewsFormatted'] }} views · {{ $sVideo['uploadedAt'] }}</text>
                         </column>
-                        <icon name="more_vert" :size="18" color="#AAAAAA" />
+                        <icon :ios="Ios::Ellipsis" :android="Android::MoreVert" :size="18" color="#AAAAAA" />
                     </row>
                 </pressable>
             </column>

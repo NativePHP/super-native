@@ -1,15 +1,16 @@
+@php use App\Icons\Android; use App\Icons\Ios; @endphp
 <scroll-view class="w-full h-full bg-[#0F0F0F] safe-area">
     <column class="w-full gap-0">
 
         {{-- Top Bar --}}
         <row class="w-full px-4 py-3 items-center gap-4">
-            <column @tap="back" a11y-label="Back" class="w-[32] h-[32] items-center justify-center">
-                <icon name="arrow_back" :size="24" color="#FFFFFF" />
+            <column @navigate.back a11y-label="Back" class="w-[32] h-[32] items-center justify-center">
+                <icon :ios="Ios::ChevronLeft" :android="Android::ArrowBack" :size="24" color="#FFFFFF" />
             </column>
             <spacer />
-            <icon name="cast" :size="22" color="#FFFFFF" />
-            <icon name="search" :size="22" color="#FFFFFF" />
-            <icon name="more_vert" :size="22" color="#FFFFFF" />
+            <icon :ios="Ios::Airplayvideo" :android="Android::Cast" :size="22" color="#FFFFFF" />
+            <icon :ios="Ios::Magnifyingglass" :android="Android::Search" :size="22" color="#FFFFFF" />
+            <icon :ios="Ios::Ellipsis" :android="Android::MoreVert" :size="22" color="#FFFFFF" />
         </row>
 
         {{-- Banner — rounded with side margins, like the app --}}
@@ -35,7 +36,7 @@
                     <row class="items-center gap-1">
                         <text class="text-[22] font-bold text-white" :maxLines="1">{{ $channel['name'] }}</text>
                         @if ($channel['isVerified'])
-                            <icon name="verified" :size="15" color="#AAAAAA" />
+                            <icon :ios="Ios::CheckmarkSealFill" :android="Android::Verified" :size="15" color="#AAAAAA" />
                         @endif
                     </row>
                     <text class="text-[12] text-[#AAAAAA]" :maxLines="1">{{ $channel['handle'] }} · {{ $subscribersFormatted }} subscribers · {{ $channel['videoCount'] }} videos</text>
@@ -45,7 +46,7 @@
             {{-- Description — one-liner with the app's "…more" hint --}}
             <row class="items-center gap-1">
                 <text class="text-[13] text-[#AAAAAA] flex-1" :maxLines="1">{{ $channel['description'] }}</text>
-                <icon name="chevron_right" :size="16" color="#AAAAAA" />
+                <icon :ios="Ios::ChevronRight" :android="Android::ChevronRight" :size="16" color="#AAAAAA" />
             </row>
 
             {{-- Subscribe Button --}}
@@ -56,11 +57,11 @@
             >
                 <row class="items-center gap-2">
                     @if ($isSubscribed)
-                        <icon name="notifications" :size="16" color="#FFFFFF" />
+                        <icon :ios="Ios::BellFill" :android="Android::Notifications" :size="16" color="#FFFFFF" />
                     @endif
                     <text class="text-[14] font-bold {{ $isSubscribed ? 'text-white' : 'text-black' }}">{{ $isSubscribed ? 'Subscribed' : 'Subscribe' }}</text>
                     @if ($isSubscribed)
-                        <icon name="expand_more" :size="16" color="#FFFFFF" />
+                        <icon :ios="Ios::ChevronDown" :android="Android::ExpandMore" :size="16" color="#FFFFFF" />
                     @endif
                 </row>
             </pressable>
@@ -107,7 +108,7 @@
                             <text class="text-[14] font-semibold text-white" :maxLines="2">{{ $video['title'] }}</text>
                             <text class="text-[12] text-[#AAAAAA]">{{ $video['viewsFormatted'] }} views · {{ $video['uploadedAt'] }}</text>
                         </column>
-                        <icon name="more_vert" :size="18" color="#AAAAAA" />
+                        <icon :ios="Ios::Ellipsis" :android="Android::MoreVert" :size="18" color="#AAAAAA" />
                     </row>
                 </pressable>
             </column>
@@ -115,7 +116,7 @@
 
         @if (empty($videosWithMeta))
             <column class="w-full py-8 items-center">
-                <icon name="video" :size="48" color="#717171" />
+                <icon :ios="Ios::Video" :android="Android::Videocam" :size="48" color="#717171" />
                 <text class="text-[14] text-[#717171] pt-2">No videos yet</text>
             </column>
         @endif

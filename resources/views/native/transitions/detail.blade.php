@@ -1,7 +1,8 @@
+@php use App\Icons\Android; use App\Icons\Ios; @endphp
 <column class="w-full h-full safe-area items-center justify-center gap-6 p-8 bg-[{{ $color }}]">
 
     <column class="w-[72] h-[72] rounded-full items-center justify-center bg-white shadow">
-        <icon name="checkmark" :size="34" color="{{ $color }}" />
+        <icon :ios="Ios::Checkmark" :android="Android::Check" :size="34" color="{{ $color }}" />
     </column>
 
     <column class="items-center gap-1">
@@ -14,7 +15,7 @@
     </text>
 
     <row @navigate.back class="items-center gap-2 mt-2">
-        <icon name="chevron.left" :size="20" color="#FFFFFF" />
+        <icon :ios="Ios::ChevronLeft" :android="Android::ChevronLeft" :size="20" color="#FFFFFF" />
         <text class="text-base font-semibold text-white">Back</text>
     </row>
 

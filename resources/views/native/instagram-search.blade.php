@@ -1,10 +1,11 @@
+@php use App\Icons\Android; use App\Icons\Ios; @endphp
 <scroll-view class="w-full h-full bg-theme-surface safe-area">
     <column class="w-full gap-0">
 
         {{-- Search Bar --}}
         <column class="w-full px-4 pt-3 pb-2">
             <row class="w-full bg-theme-surface-variant rounded-xl px-3 py-2 items-center gap-2">
-                <icon name="search" :size="20" class="text-theme-on-surface-variant" />
+                <icon :ios="Ios::Magnifyingglass" :android="Android::Search" :size="20" class="text-theme-on-surface-variant" />
                 <text class="text-[15] text-theme-on-surface-variant">Search</text>
             </row>
         </column>
@@ -51,7 +52,7 @@
                                         :fit="2"
                                     />
                                     <column class="absolute top-2 right-2">
-                                        <icon name="play_arrow" :size="22" color="#FFFFFF" />
+                                        <icon :ios="Ios::PlayFill" :android="Android::PlayArrow" :size="22" color="#FFFFFF" />
                                     </column>
                                 </stack>
                             </pressable>

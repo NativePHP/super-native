@@ -1,3 +1,4 @@
+@php use App\Icons\Android; use App\Icons\Ios; @endphp
 <stack class="w-full h-full bg-theme-surface safe-area">
 
     <refreshable @refresh="refresh" class="w-full h-full">
@@ -13,7 +14,7 @@
                 />
                 <text class="text-[26] font-bold text-theme-on-surface">𝕏</text>
                 <column class="w-[32] h-[32] items-center justify-center">
-                    <icon name="settings" :size="20" class="text-theme-on-surface" />
+                    <icon :ios="Ios::Gearshape" :android="Android::Settings" :size="20" class="text-theme-on-surface" />
                 </column>
             </row>
 
@@ -47,11 +48,11 @@
                                     <row class="w-full items-center gap-1">
                                         <text class="text-[15] font-bold text-theme-on-surface" :maxLines="1">{{ $tweet['user']['name'] }}</text>
                                         @if ($tweet['user']['isVerified'])
-                                            <icon name="verified" :size="16" color="#1D9BF0" />
+                                            <icon :ios="Ios::CheckmarkSealFill" :android="Android::Verified" :size="16" color="#1D9BF0" />
                                         @endif
                                         <text class="text-[14] text-[#536471] dark:text-[#71767B]" :maxLines="1">{{ $tweet['user']['handle'] }} · {{ $tweet['time'] }}</text>
                                         <spacer />
-                                        <icon name="more_horiz" :size="16" class="text-[#536471] dark:text-[#71767B]" />
+                                        <icon :ios="Ios::Ellipsis" :android="Android::MoreHoriz" :size="16" class="text-[#536471] dark:text-[#71767B]" />
                                     </row>
 
                                     {{-- Tweet Text --}}
@@ -73,12 +74,12 @@
                             <row class="w-full items-center justify-between py-2">
                                 {{-- Reply --}}
                                 <row @tap="viewTweet({{ $tweet['id'] }})" a11y-label="Reply" class="items-center gap-1 flex-shrink-0">
-                                    <icon name="chat_bubble_outline" :size="17" class="text-[#536471] dark:text-[#71767B]" />
+                                    <icon :ios="Ios::BubbleLeft" :android="Android::ChatBubbleOutline" :size="17" class="text-[#536471] dark:text-[#71767B]" />
                                     <text class="text-[13] text-[#536471] dark:text-[#71767B]" :maxLines="1">{{ $tweet['replyFormatted'] }}</text>
                                 </row>
                                 {{-- Repost --}}
                                 <row class="items-center gap-1 flex-shrink-0">
-                                    <icon name="repeat" :size="17" class="text-[#536471] dark:text-[#71767B]" />
+                                    <icon :ios="Ios::Repeat" :android="Android::Repeat" :size="17" class="text-[#536471] dark:text-[#71767B]" />
                                     <text class="text-[13] text-[#536471] dark:text-[#71767B]" :maxLines="1">{{ $tweet['retweetFormatted'] }}</text>
                                 </row>
                                 {{-- Like --}}
@@ -92,11 +93,11 @@
                                 </row>
                                 {{-- Views --}}
                                 <row class="items-center gap-1 flex-shrink-0">
-                                    <icon name="analytics" :size="17" class="text-[#536471] dark:text-[#71767B]" />
+                                    <icon :ios="Ios::ChartBar" :android="Android::Analytics" :size="17" class="text-[#536471] dark:text-[#71767B]" />
                                     <text class="text-[13] text-[#536471] dark:text-[#71767B]" :maxLines="1">{{ $tweet['viewFormatted'] }}</text>
                                 </row>
                                 {{-- Share --}}
-                                <icon name="share" :size="17" class="text-[#536471] dark:text-[#71767B]" />
+                                <icon :ios="Ios::SquareAndArrowUp" :android="Android::Share" :size="17" class="text-[#536471] dark:text-[#71767B]" />
                             </row>
                         </column>
                     </row>
@@ -112,7 +113,7 @@
     {{-- Compose FAB — `absolute` insets, not stack anchor/origin props,
          which the current runtime drops (see StackPositioningDemoTest). --}}
     <pressable @tap="composeTweet" a11y-label="Compose post" class="absolute bottom-5 right-5 w-[56] h-[56] rounded-full bg-[#1D9BF0] items-center justify-center shadow">
-        <icon name="add" :size="28" color="#FFFFFF" />
+        <icon :ios="Ios::Plus" :android="Android::Add" :size="28" color="#FFFFFF" />
     </pressable>
 
 </stack>

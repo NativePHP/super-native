@@ -1,3 +1,4 @@
+@php use App\Icons\Android; use App\Icons\Ios; @endphp
 @php
     $hasText = trim($postText) !== '';
 @endphp
@@ -7,8 +8,8 @@
     {{-- Top Bar --}}
     <row class="w-full px-4 py-3 items-center justify-between">
         <row class="items-center gap-3">
-            <pressable @tap="back" a11y-label="Close" class="w-[32] h-[32] items-center justify-center">
-                <icon name="close" :size="24" class="text-theme-on-surface" />
+            <pressable @navigate.back a11y-label="Close" class="w-[32] h-[32] items-center justify-center">
+                <icon :ios="Ios::Xmark" :android="Android::Close" :size="24" class="text-theme-on-surface" />
             </pressable>
             <text class="text-[18] font-bold text-theme-on-surface">Create post</text>
         </row>
@@ -30,9 +31,9 @@
         <column class="gap-1">
             <text class="text-[15] font-bold text-theme-on-surface">You</text>
             <row class="items-center gap-1 bg-theme-surface-variant rounded-md px-2 py-0.5">
-                <icon name="globe" :size="12" class="text-[#65676B] dark:text-[#B0B3B8]" />
+                <icon :ios="Ios::Globe" :android="Android::Public" :size="12" class="text-[#65676B] dark:text-[#B0B3B8]" />
                 <text class="text-[12] font-semibold text-[#65676B] dark:text-[#B0B3B8]">Public</text>
-                <icon name="expand_more" :size="12" class="text-[#65676B] dark:text-[#B0B3B8]" />
+                <icon :ios="Ios::ChevronDown" :android="Android::ExpandMore" :size="12" class="text-[#65676B] dark:text-[#B0B3B8]" />
             </row>
         </column>
     </row>
@@ -53,22 +54,22 @@
     <divider class="w-full" />
     <column class="w-full px-4 py-2">
         <row class="w-full items-center py-3 gap-3">
-            <icon name="photo" :size="22" color="#45BD62" />
+            <icon :ios="Ios::Photo" :android="Android::Photo" :size="22" color="#45BD62" />
             <text class="text-[15] text-theme-on-surface">Photo/video</text>
         </row>
         <divider class="w-full" />
         <row class="w-full items-center py-3 gap-3">
-            <icon name="person" :size="22" color="#1877F2" />
+            <icon :ios="Ios::Person" :android="Android::Person" :size="22" color="#1877F2" />
             <text class="text-[15] text-theme-on-surface">Tag people</text>
         </row>
         <divider class="w-full" />
         <row class="w-full items-center py-3 gap-3">
-            <icon name="videocam" :size="22" color="#F3425F" />
+            <icon :ios="Ios::VideoFill" :android="Android::Videocam" :size="22" color="#F3425F" />
             <text class="text-[15] text-theme-on-surface">Live video</text>
         </row>
         <divider class="w-full" />
         <row class="w-full items-center py-3 gap-3">
-            <icon name="location" :size="22" color="#F5533D" />
+            <icon :ios="Ios::Location" :android="Android::Place" :size="22" color="#F5533D" />
             <text class="text-[15] text-theme-on-surface">Check in</text>
         </row>
     </column>

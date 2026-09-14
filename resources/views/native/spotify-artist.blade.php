@@ -1,3 +1,4 @@
+@php use App\Icons\Android; use App\Icons\Ios; @endphp
 {{-- Full-bleed artist header with the name overlaid at the bottom of
      the image, like the app. Overlays use `absolute` with NON-ZERO
      insets only — both stack renderers read a zero bottom/right inset
@@ -22,8 +23,8 @@
             </column>
 
             {{-- LAST stack child so it draws (and hit-tests) on top --}}
-            <pressable @tap="back" a11y-label="Back" class="absolute top-3 left-3 w-[34] h-[34] rounded-full bg-[#00000066] items-center justify-center">
-                <icon name="arrow_back" :size="20" color="#FFFFFF" />
+            <pressable @navigate.back a11y-label="Back" class="absolute top-3 left-3 w-[34] h-[34] rounded-full bg-[#00000066] items-center justify-center">
+                <icon :ios="Ios::ChevronLeft" :android="Android::ArrowBack" :size="20" color="#FFFFFF" />
             </pressable>
         </stack>
 
@@ -40,11 +41,11 @@
             >
                 <text class="text-[13] font-bold {{ $isFollowing ? 'text-black' : 'text-white' }}">{{ $isFollowing ? 'Following' : 'Follow' }}</text>
             </pressable>
-            <icon name="more_horiz" :size="24" color="#B3B3B3" />
+            <icon :ios="Ios::Ellipsis" :android="Android::MoreHoriz" :size="24" color="#B3B3B3" />
             <spacer />
-            <icon name="repeat" :size="24" color="#1DB954" />
+            <icon :ios="Ios::Repeat" :android="Android::Repeat" :size="24" color="#1DB954" />
             <pressable @tap="playTrack(0)" a11y-label="Play" class="w-[52] h-[52] rounded-full bg-[#1DB954] items-center justify-center">
-                <icon name="play_arrow" :size="30" color="#000000" />
+                <icon :ios="Ios::PlayFill" :android="Android::PlayArrow" :size="30" color="#000000" />
             </pressable>
         </row>
 
@@ -65,7 +66,7 @@
                             <text class="text-[12] text-[#B3B3B3]">{{ $track['playsFormatted'] }} plays</text>
                         </column>
                         <text class="text-[13] text-[#B3B3B3]">{{ $track['duration'] }}</text>
-                        <icon name="more_vert" :size="18" color="#B3B3B3" />
+                        <icon :ios="Ios::Ellipsis" :android="Android::MoreVert" :size="18" color="#B3B3B3" />
                     </row>
                 </pressable>
             @endforeach

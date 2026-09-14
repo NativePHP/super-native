@@ -1,3 +1,4 @@
+@php use App\Icons\Android; use App\Icons\Ios; @endphp
 <scroll-view class="w-full bg-theme-background">
     <column class="w-full p-5 gap-5">
 
@@ -117,15 +118,15 @@
         {{-- 3-item basic --}}
         <row class="w-full h-[64] bg-theme-surface rounded-xl border border-theme-outline items-center">
             <column class="flex-1 items-center gap-1">
-                <icon name="home" :size="22" class="text-theme-primary"/>
+                <icon :ios="Ios::House" :android="Android::Home" :size="22" class="text-theme-primary"/>
                 <text class="text-[11] text-theme-primary text-center font-semibold">Home</text>
             </column>
             <column class="flex-1 items-center gap-1">
-                <icon name="search" :size="22" class="text-theme-on-surface-variant"/>
+                <icon :ios="Ios::Magnifyingglass" :android="Android::Search" :size="22" class="text-theme-on-surface-variant"/>
                 <text class="text-[11] text-theme-on-surface-variant text-center">Search</text>
             </column>
             <column class="flex-1 items-center gap-1">
-                <icon name="person" :size="22" class="text-theme-on-surface-variant"/>
+                <icon :ios="Ios::Person" :android="Android::Person" :size="22" class="text-theme-on-surface-variant"/>
                 <text class="text-[11] text-theme-on-surface-variant text-center">Profile</text>
             </column>
         </row>
@@ -133,12 +134,12 @@
         <text class="text-sm text-theme-on-surface-variant">With badge + "news" indicator.</text>
         <row class="w-full h-[64] bg-theme-surface rounded-xl border border-theme-outline items-center">
             <column class="flex-1 items-center gap-1">
-                <icon name="home" :size="22" class="text-theme-primary"/>
+                <icon :ios="Ios::House" :android="Android::Home" :size="22" class="text-theme-primary"/>
                 <text class="text-[11] text-theme-primary text-center font-semibold">Feed</text>
             </column>
             <column class="flex-1 items-center gap-1">
                 <stack class="w-[32] h-[24]">
-                    <icon name="notifications" :size="22" class="text-theme-on-surface-variant"/>
+                    <icon :ios="Ios::BellFill" :android="Android::Notifications" :size="22" class="text-theme-on-surface-variant"/>
                     <row class="w-[32] h-[24] items-start justify-end">
                         <column class="w-[16] h-[14] rounded-full bg-theme-destructive items-center justify-center">
                             <text class="text-[9] font-bold text-theme-on-destructive">3</text>
@@ -149,7 +150,7 @@
             </column>
             <column class="flex-1 items-center gap-1">
                 <stack class="w-[32] h-[24]">
-                    <icon name="chat" :size="22" class="text-theme-on-surface-variant"/>
+                    <icon :ios="Ios::BubbleLeft" :android="Android::Chat" :size="22" class="text-theme-on-surface-variant"/>
                     <row class="w-[32] h-[24] items-start justify-end">
                         <column class="w-[8] h-[8] rounded-full bg-theme-destructive"/>
                     </row>
@@ -157,7 +158,7 @@
                 <text class="text-[11] text-theme-on-surface-variant text-center">Messages</text>
             </column>
             <column class="flex-1 items-center gap-1">
-                <icon name="person" :size="22" class="text-theme-on-surface-variant"/>
+                <icon :ios="Ios::Person" :android="Android::Person" :size="22" class="text-theme-on-surface-variant"/>
                 <text class="text-[11] text-theme-on-surface-variant text-center">Profile</text>
             </column>
         </row>
@@ -165,23 +166,23 @@
         <text class="text-sm text-theme-on-surface-variant">5-item nav with custom active color.</text>
         <row class="w-full h-[64] bg-theme-surface rounded-xl border border-theme-outline items-center">
             <column class="flex-1 items-center gap-1">
-                <icon name="home" :size="20" class="text-theme-on-surface-variant"/>
+                <icon :ios="Ios::House" :android="Android::Home" :size="20" class="text-theme-on-surface-variant"/>
                 <text class="text-[10] text-theme-on-surface-variant text-center">Home</text>
             </column>
             <column class="flex-1 items-center gap-1">
-                <icon name="search" :size="20" class="text-theme-on-surface-variant"/>
+                <icon :ios="Ios::Magnifyingglass" :android="Android::Search" :size="20" class="text-theme-on-surface-variant"/>
                 <text class="text-[10] text-theme-on-surface-variant text-center">Search</text>
             </column>
             <column class="flex-1 items-center gap-1">
-                <icon name="add" :size="20" class="text-theme-secondary"/>
+                <icon :ios="Ios::Plus" :android="Android::Add" :size="20" class="text-theme-secondary"/>
                 <text class="text-[10] text-theme-secondary text-center font-semibold">Post</text>
             </column>
             <column class="flex-1 items-center gap-1">
-                <icon name="bookmark" :size="20" class="text-theme-on-surface-variant"/>
+                <icon :ios="Ios::Bookmark" :android="Android::Bookmark" :size="20" class="text-theme-on-surface-variant"/>
                 <text class="text-[10] text-theme-on-surface-variant text-center">Saved</text>
             </column>
             <column class="flex-1 items-center gap-1">
-                <icon name="person" :size="20" class="text-theme-on-surface-variant"/>
+                <icon :ios="Ios::Person" :android="Android::Person" :size="20" class="text-theme-on-surface-variant"/>
                 <text class="text-[10] text-theme-on-surface-variant text-center">Me</text>
             </column>
         </row>

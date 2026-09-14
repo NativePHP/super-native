@@ -249,6 +249,16 @@ return [
     |--------------------------------------------------------------------------
     */
     'hot_reload' => [
+        /*
+         * TCP port the in-app hot-reload server listens on.
+         *
+         * Host-wide: a simulator shares the host's localhost, and physical
+         * devices are tunnelled to the same host port by iproxy. Two apps that
+         * both want hot reload therefore need different ports here. Baked into
+         * Info.plist at build time — changing it needs a rebuild.
+         */
+        'port' => env('NATIVEPHP_HOT_RELOAD_PORT', 9999),
+
         'watch_paths' => [
             'app',
             'resources',
@@ -333,7 +343,7 @@ return [
     | support you cannot revoke this action.
     |
     */
-    'ipad' => false,
+    'ipad' => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -363,8 +373,8 @@ return [
         'android' => [
             'portrait' => true,
             'upside_down' => false,
-            'landscape_left' => false,
-            'landscape_right' => false,
+            'landscape_left' => true,
+            'landscape_right' => true,
         ],
     ],
 ];

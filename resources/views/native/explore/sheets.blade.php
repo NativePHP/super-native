@@ -1,3 +1,4 @@
+@php use App\Icons\Android; use App\Icons\Ios; @endphp
 <scroll-view class="w-full h-full bg-theme-background">
     <column class="w-full p-5 gap-5">
 
@@ -99,21 +100,21 @@
         <column class="w-full pb-4">
             <column @tap="actionEdit" class="w-full px-5 py-4">
                 <row class="items-center gap-3">
-                    <icon name="edit" :size="22" color="#475569" dark-color="#CBD5E1" />
+                    <icon :ios="Ios::Pencil" :android="Android::Edit" :size="22" color="#475569" dark-color="#CBD5E1" />
                     <text class="text-base text-theme-on-surface">Edit</text>
                 </row>
             </column>
             <divider />
             <column @tap="actionShare" class="w-full px-5 py-4">
                 <row class="items-center gap-3">
-                    <icon name="share" :size="22" color="#475569" dark-color="#CBD5E1" />
+                    <icon :ios="Ios::SquareAndArrowUp" :android="Android::Share" :size="22" color="#475569" dark-color="#CBD5E1" />
                     <text class="text-base text-theme-on-surface">Share</text>
                 </row>
             </column>
             <divider />
             <column @tap="actionDelete" class="w-full px-5 py-4">
                 <row class="items-center gap-3">
-                    <icon name="delete" :size="22" color="#EF4444" />
+                    <icon :ios="Ios::Trash" :android="Android::Delete" :size="22" color="#EF4444" />
                     <text class="text-base text-theme-destructive">Delete</text>
                 </row>
             </column>

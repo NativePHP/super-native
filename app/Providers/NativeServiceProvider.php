@@ -4,7 +4,10 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Native\Mobile\Providers\CameraServiceProvider;
+use Native\Mobile\Providers\PushNotificationsServiceProvider;
+use Native\Mobile\Providers\ShareServiceProvider;
 use Native\Mobile\UI\NativeUIServiceProvider;
+use NativePHP\MediaPlayer\MediaPlayerServiceProvider;
 use S2BR\MobileSplashscreen\MobileSplashscreenServiceProvider;
 
 class NativeServiceProvider extends ServiceProvider
@@ -38,9 +41,11 @@ class NativeServiceProvider extends ServiceProvider
     {
         return [
             NativeUIServiceProvider::class,
-            MobileSplashscreenServiceProvider::class,
-            CameraServiceProvider::class,
-
+            MediaPlayerServiceProvider::class,
+            ShareServiceProvider::class,
+            //            MobileSplashscreenServiceProvider::class,
+            //            CameraServiceProvider::class,
+            //            PushNotificationsServiceProvider::class,
         ];
     }
 }

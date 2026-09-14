@@ -1,3 +1,4 @@
+@php use App\Icons\Android; use App\Icons\Ios; @endphp
 <scroll-view class="w-full bg-theme-background">
     <column class="w-full p-5 gap-5">
 
@@ -26,13 +27,13 @@
         <text class="text-sm text-theme-on-surface-variant">Tap to toggle:</text>
         <row class="gap-2 flex-wrap">
             @foreach ([
-                ['field' => 'subscribed',    'label' => 'Subscribed',     'icon' => 'favorite'],
-                ['field' => 'termsAccepted', 'label' => 'Terms accepted', 'icon' => 'check'],
+                ['field' => 'subscribed',    'label' => 'Subscribed',     'ios' => Ios::HeartFill, 'android' => Android::Favorite],
+                ['field' => 'termsAccepted', 'label' => 'Terms accepted', 'ios' => Ios::Checkmark, 'android' => Android::Check],
             ] as $row)
                 @php $sel = $this->{$row['field']}; @endphp
                 <pressable @tap="toggleField('{{ $row['field'] }}')">
                     <row class="items-center gap-1 px-3 py-2 rounded-full {{ $sel ? 'bg-theme-primary border-theme-primary' : 'bg-theme-surface-variant border-theme-outline' }} border">
-                        <icon :name="$row['icon']" :size="14" :color="$sel ? '#FFFFFF' : '#475569'" :dark-color="$sel ? '#FFFFFF' : '#94A3B8'"/>
+                        <icon :ios="$row['ios']" :android="$row['android']" :size="14" :color="$sel ? '#FFFFFF' : '#475569'" :dark-color="$sel ? '#FFFFFF' : '#94A3B8'"/>
                         <text class="text-sm font-medium {{ $sel ? 'text-theme-on-primary' : 'text-theme-on-surface' }}">{{ $row['label'] }}</text>
                     </row>
                 </pressable>
@@ -95,18 +96,18 @@
         <text class="text-lg font-semibold text-theme-on-background">List items</text>
         <column class="w-full bg-theme-surface rounded-xl">
             @foreach ([
-                ['icon' => 'bell',   'title' => 'Notifications',   'sub' => 'Push, email, in-app'],
-                ['icon' => 'lock',   'title' => 'Privacy',         'sub' => 'Account & data'],
-                ['icon' => 'globe',  'title' => 'Language',        'sub' => 'English (US)'],
-                ['icon' => 'help',   'title' => 'Help & support',  'sub' => 'FAQ, contact us'],
+                ['ios' => Ios::BellFill, 'android' => Android::Notifications,   'title' => 'Notifications',   'sub' => 'Push, email, in-app'],
+                ['ios' => Ios::LockFill, 'android' => Android::Lock,   'title' => 'Privacy',         'sub' => 'Account & data'],
+                ['ios' => Ios::Globe, 'android' => Android::Public,  'title' => 'Language',        'sub' => 'English (US)'],
+                ['ios' => Ios::QuestionmarkCircle, 'android' => Android::Help,   'title' => 'Help & support',  'sub' => 'FAQ, contact us'],
             ] as $i => $row)
                 <row class="items-center gap-3 px-4 py-3">
-                    <icon :name="$row['icon']" :size="20" color="#475569" dark-color="#CBD5E1" />
+                    <icon :ios="$row['ios']" :android="$row['android']" :size="20" color="#475569" dark-color="#CBD5E1" />
                     <column class="flex-1 gap-0">
                         <text class="text-base font-medium text-theme-on-surface">{{ $row['title'] }}</text>
                         <text class="text-sm text-theme-on-surface-variant">{{ $row['sub'] }}</text>
                     </column>
-                    <icon name="chevron_right" :size="18" color="#9CA3AF" dark-color="#64748B" />
+                    <icon :ios="Ios::ChevronRight" :android="Android::ChevronRight" :size="18" color="#9CA3AF" dark-color="#64748B" />
                 </row>
                 @if (! $loop->last)
                     <divider />

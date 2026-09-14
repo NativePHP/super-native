@@ -49,9 +49,9 @@
                             <row class="items-center justify-end gap-1">
                                 <text class="text-[10] text-[#a5f3fc]">{{ $m['time'] }}</text>
                                 @if (($m['status'] ?? null) === 'read')
-                                    <icon name="checkmark" :size="14" color="#a5f3fc"/>
+                                    <icon :ios="Ios::Checkmark" :android="Android::Check" :size="14" color="#a5f3fc"/>
                                 @elseif (($m['status'] ?? null) === 'sent')
-                                    <icon name="checkmark" :size="14" color="#7dd3fc"/>
+                                    <icon :ios="Ios::Checkmark" :android="Android::Check" :size="14" color="#7dd3fc"/>
                                 @endif
                             </row>
                         </column>
@@ -86,7 +86,7 @@
                 :menu="$pressableMenu"
                 a11y-label="Add attachment"
                 class="glass:interactive android:dark:bg-white text-slate-700 rounded-full p-1 items-center justify-center">
-                <icon name="plus.circle" class="text-gray-700"/>
+                <icon :ios="Ios::PlusCircle" :android="Android::AddCircleOutline" class="text-gray-700"/>
             </pressable>
 
             {{-- Message field: chromeless `<bare-text-input>` wrapped in
@@ -110,12 +110,12 @@
                     :menu="$pressableMenu"
                     a11y-label="Record voice message"
                     class="glass:interactive android:dark:bg-white text-slate-700 rounded-full p-1 items-center justify-center">
-                    <icon name="mic" class="text-gray-700"/>
+                    <icon :ios="Ios::Mic" :android="Android::Mic" class="text-gray-700"/>
                 </pressable>
             @else
                 <pressable @tap="send" a11y-label="Send message"
                                   class="glass:interactive android:dark:bg-white text-slate-700   rounded-full p-1  items-center justify-center">
-                    <icon name="paperplane.fill" class="text-gray-700"/>
+                    <icon :ios="Ios::PaperplaneFill" :android="Android::Send" class="text-gray-700"/>
                 </pressable>
             @endif
 
@@ -126,7 +126,7 @@
         <column class="w-full p-2 bg-theme-surface rounded-3xl">
             <column @tap="toggleMute" class="w-full px-5 py-4">
                 <row class="items-center gap-3">
-                    <icon name="{{ $isMuted ? 'speaker.slash.fill' : 'bell.fill' }}" :size="20" color="#0F172A"
+                    <icon :ios="$isMuted ? Ios::SpeakerSlashFill : Ios::BellFill" :android="$isMuted ? Android::VolumeOff : Android::Notifications" :size="20" color="#0F172A"
                                  dark-color="#F1F5F9"/>
                     <column class="flex-1 gap-1">
                         <text
@@ -139,7 +139,7 @@
             <divider/>
             <column @tap="askClearHistory" class="w-full px-5 py-4">
                 <row class="items-center gap-3">
-                    <icon name="trash.fill" :size="20" color="#EF4444"/>
+                    <icon :ios="Ios::TrashFill" :android="Android::Delete" :size="20" color="#EF4444"/>
                     <column class="flex-1 gap-1">
                         <text class="text-base font-semibold text-[#EF4444]">Clear history</text>
                         <text class="text-[12] text-theme-on-surface-variant">Removes every message in this chat.

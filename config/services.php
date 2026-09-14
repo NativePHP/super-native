@@ -35,4 +35,8 @@ return [
         ],
     ],
 
+    'pexels' => [
+        'key' => env('PEXELS_API_KEY'),
+    ],
+
 ];

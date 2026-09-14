@@ -1,9 +1,10 @@
+@php use App\Icons\Android; use App\Icons\Ios; @endphp
 <column class="w-full h-full bg-theme-background safe-area">
 
     {{-- Top Bar --}}
     <row class="w-full bg-theme-surface px-4 py-3 items-center gap-3">
-        <pressable @tap="back" a11y-label="Back" class="w-[32] h-[32] rounded-full bg-theme-surface-variant items-center justify-center">
-            <icon name="arrow_back" :size="20" class="text-theme-on-surface" />
+        <pressable @navigate.back a11y-label="Back" class="w-[32] h-[32] rounded-full bg-theme-surface-variant items-center justify-center">
+            <icon :ios="Ios::ChevronLeft" :android="Android::ArrowBack" :size="20" class="text-theme-on-surface" />
         </pressable>
         <text class="text-[17] font-bold text-theme-on-surface" :maxLines="1">{{ $post['user']['name'] }}'s Post</text>
     </row>
@@ -28,11 +29,11 @@
                             <text class="text-[15] font-bold text-theme-on-surface" :maxLines="1">{{ $post['user']['name'] }}</text>
                             <row class="items-center gap-1">
                                 <text class="text-[13] text-[#65676B] dark:text-[#B0B3B8]">{{ $post['time'] }} ago ·</text>
-                                <icon name="globe" :size="12" class="text-[#65676B] dark:text-[#B0B3B8]" />
+                                <icon :ios="Ios::Globe" :android="Android::Public" :size="12" class="text-[#65676B] dark:text-[#B0B3B8]" />
                             </row>
                         </column>
                     </pressable>
-                    <icon name="more_horiz" :size="22" class="text-[#65676B] dark:text-[#B0B3B8]" />
+                    <icon :ios="Ios::Ellipsis" :android="Android::MoreHoriz" :size="22" class="text-[#65676B] dark:text-[#B0B3B8]" />
                 </row>
 
                 {{-- Post Text --}}
@@ -56,10 +57,10 @@
                 <row class="w-full px-4 pt-3 pb-2 items-center justify-between">
                     <row class="items-center gap-1">
                         <column class="w-[18] h-[18] rounded-full bg-[#1877F2] items-center justify-center">
-                            <icon name="thumb_up" :size="10" color="#FFFFFF" />
+                            <icon :ios="Ios::HandThumbsupFill" :android="Android::ThumbUp" :size="10" color="#FFFFFF" />
                         </column>
                         <column class="w-[18] h-[18] rounded-full bg-[#F33E58] items-center justify-center ml-[-6]">
-                            <icon name="favorite" :size="10" color="#FFFFFF" />
+                            <icon :ios="Ios::HeartFill" :android="Android::Favorite" :size="10" color="#FFFFFF" />
                         </column>
                         <text class="text-[14] text-[#65676B] dark:text-[#B0B3B8]" :maxLines="1">{{ $reactionsFormatted }}</text>
                     </row>
@@ -82,11 +83,11 @@
                         <text class="text-[14] font-semibold {{ $isLiked ? 'text-[#1877F2]' : 'text-[#65676B] dark:text-[#B0B3B8]' }}">Like</text>
                     </row>
                     <row class="items-center gap-1 px-4 py-2 flex-shrink-0">
-                        <icon name="chat_bubble_outline" :size="22" class="text-[#65676B] dark:text-[#B0B3B8]" />
+                        <icon :ios="Ios::BubbleLeft" :android="Android::ChatBubbleOutline" :size="22" class="text-[#65676B] dark:text-[#B0B3B8]" />
                         <text class="text-[14] font-semibold text-[#65676B] dark:text-[#B0B3B8]">Comment</text>
                     </row>
                     <row class="items-center gap-1 px-4 py-2 flex-shrink-0">
-                        <icon name="share" :size="22" class="text-[#65676B] dark:text-[#B0B3B8]" />
+                        <icon :ios="Ios::SquareAndArrowUp" :android="Android::Share" :size="22" class="text-[#65676B] dark:text-[#B0B3B8]" />
                         <text class="text-[14] font-semibold text-[#65676B] dark:text-[#B0B3B8]">Share</text>
                     </row>
                 </row>
@@ -96,7 +97,7 @@
             <column class="w-full bg-theme-surface mt-2 px-4 pt-3 pb-4 gap-3">
                 <row class="w-full items-center justify-between">
                     <text class="text-[15] font-bold text-theme-on-surface">Most relevant</text>
-                    <icon name="expand_more" :size="18" class="text-[#65676B] dark:text-[#B0B3B8]" />
+                    <icon :ios="Ios::ChevronDown" :android="Android::ExpandMore" :size="18" class="text-[#65676B] dark:text-[#B0B3B8]" />
                 </row>
 
                 @foreach ($comments as $comment)
@@ -125,7 +126,7 @@
                                 @if ($comment['likes'] > 0)
                                     <row class="items-center gap-1">
                                         <column class="w-[14] h-[14] rounded-full bg-[#1877F2] items-center justify-center">
-                                            <icon name="thumb_up" :size="8" color="#FFFFFF" />
+                                            <icon :ios="Ios::HandThumbsupFill" :android="Android::ThumbUp" :size="8" color="#FFFFFF" />
                                         </column>
                                         <text class="text-[11] text-[#65676B] dark:text-[#B0B3B8]">{{ $comment['likes'] }}</text>
                                     </row>

@@ -9,11 +9,15 @@
     ],
     "license": "MIT",
     "require": {
-        "php": "^8.4",
+        "blade-ui-kit/blade-heroicons": "^2.7",
         "laravel/framework": "^13.0",
         "laravel/tinker": "^3.0",
-        "nativephp/mobile": "dev-main as 4.9.9",
-        "nativephp/mobile-ui": "dev-main"
+        "nativephp/mobile": "dev-arcs-build-environments-link-1 as 4.9.9",
+        "nativephp/mobile-media-player": "dev-main",
+        "nativephp/mobile-share": "dev-main",
+        "nativephp/mobile-ui": "dev-main",
+        "nativephp/web-ui": "dev-main",
+        "php": "^8.4"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
@@ -98,13 +102,24 @@
     },
     "repositories": [
         {
-            "name": "mobile-ui",
+            "type": "vcs",
+            "url": "https://github.com/NativePHP/mobile-air"
+        },
+        {
             "type": "vcs",
             "url": "https://github.com/NativePHP/mobile-ui"
         },
         {
             "type": "vcs",
-            "url": "https://github.com/NativePHP/mobile-air"
+            "url": "https://github.com/NativePHP/mobile-share"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/NativePHP/mobile-media-player"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/NativePHP/web-ui"
         }
     ],
     "minimum-stability": "dev",
