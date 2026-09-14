@@ -4546,7 +4546,7 @@
         },
         {
             "name": "supanative/desktop",
-            "version": "dev-feat/appearance-and-declared-platform",
+            "version": "dev-main",
             "dist": {
                 "type": "path",
                 "url": "../nativephp-desktop-shell",
