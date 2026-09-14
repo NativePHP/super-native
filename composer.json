@@ -8,28 +8,47 @@
         "framework"
     ],
     "repositories": {
-
+        "mobile-ui": {
+            "type": "path",
+            "url": "packages/nativephp/mobile-ui",
+            "options": {
+                "symlink": true
+            }
+        },
         "mobile": {
             "type": "vcs",
             "url": "https://github.com/nativephp/mobile-air"
         },
-        "ui": {
-            "type": "vcs",
-            "url": "https://github.com/nativephp/native-ui"
-        },
         "plugins": {
             "type": "composer",
             "url": "https://plugins.nativephp.com"
+        },
+        "desktop": {
+            "type": "path",
+            "url": "../nativephp-desktop-shell",
+            "options": {
+                "symlink": true
+            }
+        },
+        "core": {
+            "type": "path",
+            "url": "../supanative-core",
+            "options": {
+                "symlink": true
+            }
         }
     },
     "license": "MIT",
     "require": {
         "php": "^8.4",
+        "laravel/ai": "^0.10.3",
         "laravel/framework": "^13.0",
         "laravel/tinker": "^3.0",
-        "nativephp/mobile": "dev-main as 4.0.x-dev",
+        "nativephp/mobile": "dev-refactor/extract-edge-to-core as 4.0.x-dev",
         "nativephp/mobile-camera": "*",
-        "nativephp/mobile-ui": "^0.2"
+        "nativephp/mobile-ui": "dev-feat/macos-renderers as 0.3.0",
+        "supanative/core": "*@dev",
+        "supanative/desktop": "*@dev"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",

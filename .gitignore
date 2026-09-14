@@ -28,3 +28,10 @@ storage/.DS_Store
 
 # Credential files (keystores, private keys, etc.)
 /credentials/
+
+# Sibling package checkouts used as Composer path repositories. Each is its own
+# git repo; they are cloned next to this app, not carried inside it.
+/packages/
+
+# Backups left by switching the app between package branches
+*.bak
