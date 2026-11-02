@@ -3,7 +3,10 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Native\Mobile\Fold\FoldServiceProvider;
 use Native\Mobile\Providers\CameraServiceProvider;
+use Native\Mobile\Providers\ShareServiceProvider;
+use Native\Mobile\Skia\SkiaServiceProvider;
 use Native\Mobile\UI\NativeUIServiceProvider;
 use S2BR\MobileSplashscreen\MobileSplashscreenServiceProvider;
 
@@ -38,6 +41,9 @@ class NativeServiceProvider extends ServiceProvider
     {
         return [
             NativeUIServiceProvider::class,
+            SkiaServiceProvider::class,
+            FoldServiceProvider::class, // popup-book cover follows the hinge
+            ShareServiceProvider::class,
             MobileSplashscreenServiceProvider::class,
             CameraServiceProvider::class,
 

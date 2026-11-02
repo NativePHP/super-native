@@ -37,6 +37,8 @@ use App\NativeComponents\MailDemo;
 use App\NativeComponents\NumberSwitcherDemo;
 use App\NativeComponents\ReactivityDemo;
 use App\NativeComponents\RefreshableDemo;
+use App\NativeComponents\SkiaDemo;
+use App\NativeComponents\SpatialStudio;
 use App\NativeComponents\SpotifyArtist;
 use App\NativeComponents\SpotifyHome;
 use App\NativeComponents\SpotifyPlaylist;
@@ -172,3 +174,15 @@ Route::get('/webview-embedded', function () {
         'hits' => session()->increment('webview_embedded_hits'),
     ]);
 })->name('webview.embedded');
+
+Route::native('/skia/{chapter?}/{intensity?}', SkiaDemo::class)->whereNumber('chapter')->whereNumber('intensity')->layout(StackLayout::class)->name('skia');
+
+Route::native('/skia-showcase/{exhibit?}', SkiaDemo::class)->whereNumber('exhibit')->layout(StackLayout::class)->name('skia-showcase');
+
+Route::native('/skia-commercial/{product?}', SkiaDemo::class)->whereNumber('product')->layout(StackLayout::class)->name('skia-commercial');
+
+// Pop-up book: Skia 3D transforms driven by one native `fold` value. No layout
+// so the canvas runs edge to edge (Duo / foldable demo; button/drag stand in for a hinge sensor).
+Route::native('/popup-book/{pose?}', PopupBookDemo::class)->where('pose', 'closed|open|half|device|tour')->name('popup.book');
+
+Route::native('/skia-3d/{demo?}', SpatialStudio::class)->whereNumber('demo')->layout(StackLayout::class)->name('skia-3d');

@@ -12,8 +12,11 @@
         "php": "^8.4",
         "laravel/framework": "^13.0",
         "laravel/tinker": "^3.0",
-        "nativephp/mobile": "dev-main as 4.9.9",
-        "nativephp/mobile-ui": "^0.3.0"
+        "nativephp/mobile": "4.6.99",
+        "nativephp/mobile-fold": "@dev",
+        "nativephp/mobile-share": "dev-main",
+        "nativephp/mobile-skia": "@dev",
+        "nativephp/mobile-ui": "^0.8.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
@@ -98,8 +101,37 @@
     },
     "repositories": [
         {
+            "name": "mobile-local",
+            "type": "path",
+            "url": "/Users/shane/Herd/mobile",
+            "options": {
+                "symlink": true,
+                "versions": {
+                    "nativephp/mobile": "4.6.99"
+                }
+            }
+        },
+        {
+            "name": "skia",
+            "type": "path",
+            "url": "/Users/shane/Herd/plugins/nativephp/skia",
+            "options": {
+                "versions": {
+                    "nativephp/mobile-skia": "dev-main"
+                }
+            }
+        },
+        {
+            "name": "fold",
+            "type": "path",
+            "url": "/Users/shane/Herd/plugins/nativephp/fold",
+            "options": {
+                "symlink": true
+            }
+        },
+        {
             "type": "vcs",
-            "url": "https://github.com/NativePHP/mobile-air"
+            "url": "https://github.com/NativePHP/mobile-share"
         }
     ],
     "minimum-stability": "dev",

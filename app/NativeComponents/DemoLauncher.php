@@ -52,6 +52,9 @@ class DemoLauncher extends NativeComponent
         [
             'title' => 'Motion & Chrome',
             'demos' => [
+                ['id' => 'skia-3d', 'title' => 'Spatial Studio', 'subtitle' => '14 interactive Skia 3D studies: cards, cubes, layers and flexible paper', 'icon' => 'sparkles', 'color' => '#70E1CD', 'url' => '/skia-3d'],
+                ['id' => 'skia', 'title' => 'Skia Studio', 'subtitle' => 'Living shaders, liquid chrome, orbital motion and a neon city', 'icon' => 'sparkles', 'color' => '#A899FF', 'url' => '/skia'],
+                ['id' => 'popupbook', 'title' => 'Pop-up Book', 'subtitle' => 'The Little App: a Skia 3D pop-up bedtime story you turn with a finger', 'icon' => 'book.fill', 'color' => '#7B4B94', 'url' => '/popup-book'],
                 ['id' => 'gestures', 'title' => 'Gestures', 'subtitle' => 'Double-tap (@doubleTap) ', 'icon' => 'hand.tap.fill', 'color' => '#6366F1', 'url' => '/gestures'],
                 ['id' => 'gamepad', 'title' => 'Game Pad', 'subtitle' => 'Held-press d-pad, auto-fire + shield (@tapDown / @tapUp)', 'icon' => 'gamecontroller.fill', 'color' => '#22C55E', 'url' => '/game-pad'],
                 ['id' => 'transitions', 'title' => 'Page Transitions', 'subtitle' => 'Fade, slide, scale - every @navigate animation', 'icon' => 'arrow.left.arrow.right', 'color' => '#14B8A6', 'url' => '/transitions'],
