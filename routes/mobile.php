@@ -37,6 +37,7 @@ use App\NativeComponents\MailDemo;
 use App\NativeComponents\NumberSwitcherDemo;
 use App\NativeComponents\ReactivityDemo;
 use App\NativeComponents\RefreshableDemo;
+use App\NativeComponents\PopupBookDemo;
 use App\NativeComponents\SkiaDemo;
 use App\NativeComponents\SpatialStudio;
 use App\NativeComponents\SpotifyArtist;
