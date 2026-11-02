@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9f89000d933bd846eb9e19be09e37724",
+    "content-hash": "e4db7eb9f87151adc43960d4d9041d68",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -2603,14 +2603,16 @@
             "name": "nativephp/mobile-skia",
             "version": "dev-main",
             "dist": {
-                "type": "path",
-                "url": "/Users/shane/Herd/plugins/nativephp/skia",
-                "reference": "f0aba3516d9c10c9a4f960b0763ee186ad59bff5"
+                "type": "zip",
+                "url": "https://plugins.nativephp.com/dist/nativephp/mobile-skia/nativephp-mobile-skia-17820ca291c9a00c5a882b3f083f861054e57407-zip-6b0370.zip",
+                "reference": "17820ca291c9a00c5a882b3f083f861054e57407",
+                "shasum": "2dd1514acf47112e11c1ba8f0b7accba38d707c1"
             },
             "require": {
                 "nativephp/mobile": "^4.5.1",
                 "php": "^8.3"
             },
+            "default-branch": true,
             "type": "nativephp-plugin",
             "extra": {
                 "laravel": {
@@ -2658,9 +2660,7 @@
                 "nativephp",
                 "skia"
             ],
-            "transport-options": {
-                "relative": false
-            }
+            "time": "2026-11-02T18:10:45+00:00"
         },
         {
             "name": "nativephp/mobile-ui",
