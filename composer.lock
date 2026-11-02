@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e4db7eb9f87151adc43960d4d9041d68",
+    "content-hash": "4bf058d1b5105893bd1d6b448c233fb6",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -2465,74 +2465,6 @@
                 "source": "https://github.com/NativePHP/mobile-air/tree/4.7.0"
             },
             "time": "2026-10-29T17:31:02+00:00"
-        },
-        {
-            "name": "nativephp/mobile-fold",
-            "version": "dev-main",
-            "dist": {
-                "type": "path",
-                "url": "/Users/shane/Herd/plugins/nativephp/fold",
-                "reference": "c66fcadf1d6aa30d75327f3da625111c180b524e"
-            },
-            "require": {
-                "nativephp/mobile": "^4.0",
-                "php": "^8.2"
-            },
-            "require-dev": {
-                "orchestra/testbench": "^10.0",
-                "pestphp/pest": "^2.7|^3.0|^4.0"
-            },
-            "type": "nativephp-plugin",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Native\\Mobile\\Fold\\FoldServiceProvider"
-                    ],
-                    "aliases": {
-                        "Fold": "Native\\Mobile\\Fold\\Facades\\Fold"
-                    }
-                },
-                "nativephp": {
-                    "manifest": "nativephp.json"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Native\\Mobile\\Fold\\": "src/"
-                }
-            },
-            "autoload-dev": {
-                "psr-4": {
-                    "Tests\\": "tests/"
-                }
-            },
-            "scripts": {
-                "test": [
-                    "pest"
-                ]
-            },
-            "license": [
-                "proprietary"
-            ],
-            "authors": [
-                {
-                    "name": "NativePHP",
-                    "email": "info@nativephp.com"
-                }
-            ],
-            "description": "Foldable device state for NativePHP Mobile: iPhone Duo hinge and reserved regions, Android Jetpack WindowManager folding features and hinge angle",
-            "keywords": [
-                "foldable",
-                "hinge",
-                "iphone-duo",
-                "nativephp",
-                "posture",
-                "windowmanager"
-            ],
-            "transport-options": {
-                "symlink": true,
-                "relative": false
-            }
         },
         {
             "name": "nativephp/mobile-share",
@@ -10985,7 +10917,6 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "nativephp/mobile-fold": 20,
         "nativephp/mobile-share": 20,
         "nativephp/mobile-skia": 20
     },

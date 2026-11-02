@@ -13,7 +13,6 @@
         "laravel/framework": "^13.0",
         "laravel/tinker": "^3.0",
         "nativephp/mobile": "^4.7.0",
-        "nativephp/mobile-fold": "@dev",
         "nativephp/mobile-share": "dev-main",
         "nativephp/mobile-skia": "dev-main",
         "nativephp/mobile-ui": "^0.9.0"
@@ -100,14 +99,6 @@
         }
     },
     "repositories": [
-        {
-            "name": "fold",
-            "type": "path",
-            "url": "/Users/shane/Herd/plugins/nativephp/fold",
-            "options": {
-                "symlink": true
-            }
-        },
         {
             "type": "vcs",
             "url": "https://github.com/NativePHP/mobile-share"

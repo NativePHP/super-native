@@ -49,7 +49,7 @@ class PopupBookDemo extends NativeComponent
     public string $status = '';
 
     /** Skia fit for the current window. */
-    public string $fit = 'cover';
+    public string $fit = 'contain';
 
     /** @var array<string, Scene> built once per drive mode, so rerenders keep the open page */
     private static array $books = [];
@@ -229,7 +229,11 @@ class PopupBookDemo extends NativeComponent
      */
     private static function fitFor(float $w, float $h, bool $shut): string
     {
-        if ($w <= 0 || $h <= 0 || $w >= $h) {
+        // Window size comes from the fold plugin: without it, show the whole spread.
+        if ($w <= 0 || $h <= 0) {
+            return 'contain';
+        }
+        if ($w >= $h) {
             return 'cover';
         }
         $scale = max($w / Book::WIDTH, $h / Book::HEIGHT);
