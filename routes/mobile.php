@@ -21,7 +21,6 @@ use App\NativeComponents\FacebookFeed;
 use App\NativeComponents\FacebookPost;
 use App\NativeComponents\FacebookProfile;
 use App\NativeComponents\GamePad;
-use App\NativeComponents\GeoWatchDemo;
 use App\NativeComponents\GestureDemo;
 use App\NativeComponents\Glass;
 use App\NativeComponents\Home;
@@ -102,7 +101,6 @@ Route::nativeGroup(StackLayout::class, function () {
     Route::native('/refreshable-demo', RefreshableDemo::class)->name('refreshable.demo');
     Route::native('/edge-child-test', EdgeChildTest::class)->name('edge.child.test');
     Route::native('/event-channel-test', EventChannelTest::class)->name('event.channel.test');
-    Route::native('/geo-watch', GeoWatchDemo::class)->name('geo.watch.demo');
     Route::native('/explore/buttons', ExploreButtons::class)->name('explore.buttons');
     Route::native('/explore/forms', ExploreForms::class)->name('explore.forms');
     Route::native('/explore/pickers', ExplorePickers::class)->name('explore.pickers');
